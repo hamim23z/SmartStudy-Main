@@ -15,6 +15,25 @@ import {
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { keyframes } from "@mui/material";
+
+const slideUpDown = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px); /* Adjust the value as needed */
+  }
+  50% {
+    transform: translateY(10px); /* Slide down */
+  }
+  75% {
+    transform: translateY(-5px); /* Adjust to create a smooth effect */
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
 
 {
   /*MUI ICONS*/
@@ -25,11 +44,10 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import MenuIcon from "@mui/icons-material/Menu";
 
-
 export default function Flashcard() {
-    return (
-        <>
-        <AppBar
+  return (
+    <>
+      <AppBar
         position="static"
         sx={{
           backgroundColor: "black",
@@ -73,6 +91,10 @@ export default function Flashcard() {
                 color="inherit"
                 sx={{
                   fontWeight: "bold",
+                  transition: "transform 0.6s ease-in-out",
+                  "&:hover": {
+                    animation: `${slideUpDown} 0.6s ease-in-out`,
+                  },
                 }}
               >
                 Pricing
@@ -91,6 +113,10 @@ export default function Flashcard() {
                 color="inherit"
                 sx={{
                   fontWeight: "bold",
+                  transition: "transform 0.6s ease-in-out",
+                  "&:hover": {
+                    animation: `${slideUpDown} 0.6s ease-in-out`,
+                  },
                 }}
               >
                 Documentation
@@ -100,7 +126,6 @@ export default function Flashcard() {
             <Link
               href="/blog"
               passHref
-              target="_blank"
               style={{
                 color: "white",
                 textDecoration: "none",
@@ -110,6 +135,10 @@ export default function Flashcard() {
                 color="inherit"
                 sx={{
                   fontWeight: "bold",
+                  transition: "transform 0.6s ease-in-out",
+                  "&:hover": {
+                    animation: `${slideUpDown} 0.6s ease-in-out`,
+                  },
                 }}
               >
                 Blog
@@ -119,7 +148,6 @@ export default function Flashcard() {
             <Link
               href="/aboutus"
               passHref
-              target="_blank"
               style={{
                 color: "white",
                 textDecoration: "none",
@@ -129,6 +157,10 @@ export default function Flashcard() {
                 color="inherit"
                 sx={{
                   fontWeight: "bold",
+                  transition: "transform 0.6s ease-in-out",
+                  "&:hover": {
+                    animation: `${slideUpDown} 0.6s ease-in-out`,
+                  },
                 }}
               >
                 About Us
@@ -147,6 +179,10 @@ export default function Flashcard() {
                 color="inherit"
                 sx={{
                   fontWeight: "bold",
+                  transition: "transform 0.6s ease-in-out",
+                  "&:hover": {
+                    animation: `${slideUpDown} 0.6s ease-in-out`,
+                  },
                 }}
               >
                 Contact
@@ -165,6 +201,10 @@ export default function Flashcard() {
                 color="inherit"
                 sx={{
                   fontWeight: "bold",
+                  transition: "transform 0.6s ease-in-out",
+                  "&:hover": {
+                    animation: `${slideUpDown} 0.6s ease-in-out`,
+                  },
                 }}
               >
                 Sign In
@@ -183,6 +223,10 @@ export default function Flashcard() {
                 color="inherit"
                 sx={{
                   fontWeight: "bold",
+                  transition: "transform 0.6s ease-in-out",
+                  "&:hover": {
+                    animation: `${slideUpDown} 0.6s ease-in-out`,
+                  },
                 }}
               >
                 Sign Up
@@ -191,6 +235,6 @@ export default function Flashcard() {
           </Box>
         </Toolbar>
       </AppBar>
-        </>
-    )
+    </>
+  );
 }

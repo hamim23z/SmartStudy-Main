@@ -1,6 +1,8 @@
 "use client"
 import { useEffect, useState } from "react";
 import { AppBar, Box, Container, Typography, TextField } from "@mui/material";
+import { motion } from "framer-motion";
+
 
 {/*MUI ICONS*/}
 import LinkedInIcon from '@mui/icons-material/LinkedIn';

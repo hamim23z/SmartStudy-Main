@@ -57,7 +57,7 @@ export default function SignUp() {
           sx={{
             paddingTop: "20px",
             paddingBottom: "20px",
-            background: "linear-gradient(-270deg, #000000, #2838ae)",
+            background: "linear-gradient(270deg, #000000, #2838ae)",
           }}
         >
           {/*Toolbar allows us to write and add elements. Gives the appbar spacing and whatnot*/}
@@ -259,7 +259,7 @@ export default function SignUp() {
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
-          background: "linear-gradient(-270deg, #000000, #2838ae)",
+          background: "linear-gradient(270deg, #000000, #2838ae)",
         }}
       >
       </Box>

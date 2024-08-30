@@ -57,6 +57,7 @@ export default function Home() {
           sx={{
             paddingTop: "20px",
             paddingBottom: "20px",
+            background: "linear-gradient(-270deg, #000000, #2838ae)",
           }}
         >
           {/*Toolbar allows us to write and add elements. Gives the appbar spacing and whatnot*/}
@@ -66,7 +67,8 @@ export default function Home() {
             sx={{
               flexGrow: 1,
               display: { xs: "none", md: "flex" },
-              fontWeight: "bold",
+              fontFamily: "Kanit, sans-serif",
+              fontWeight: "900",
               textTransform: "uppercase",
             }}
           >
@@ -90,7 +92,9 @@ export default function Home() {
               <Button
                 color="inherit"
                 sx={{
-                  fontWeight: "bold",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "15px",
                   transition: "transform 0.6s ease-in-out",
                   "&:hover": {
                     animation: `${slideUpDown} 0.6s ease-in-out`,
@@ -112,7 +116,9 @@ export default function Home() {
               <Button
                 color="inherit"
                 sx={{
-                  fontWeight: "bold",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "15px",
                   transition: "transform 0.6s ease-in-out",
                   "&:hover": {
                     animation: `${slideUpDown} 0.6s ease-in-out`,
@@ -134,7 +140,9 @@ export default function Home() {
               <Button
                 color="inherit"
                 sx={{
-                  fontWeight: "bold",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "15px",
                   transition: "transform 0.6s ease-in-out",
                   "&:hover": {
                     animation: `${slideUpDown} 0.6s ease-in-out`,
@@ -156,7 +164,9 @@ export default function Home() {
               <Button
                 color="inherit"
                 sx={{
-                  fontWeight: "bold",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "15px",
                   transition: "transform 0.6s ease-in-out",
                   "&:hover": {
                     animation: `${slideUpDown} 0.6s ease-in-out`,
@@ -178,7 +188,9 @@ export default function Home() {
               <Button
                 color="inherit"
                 sx={{
-                  fontWeight: "bold",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "15px",
                   transition: "transform 0.6s ease-in-out",
                   "&:hover": {
                     animation: `${slideUpDown} 0.6s ease-in-out`,
@@ -200,7 +212,9 @@ export default function Home() {
               <Button
                 color="inherit"
                 sx={{
-                  fontWeight: "bold",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "15px",
                   transition: "transform 0.6s ease-in-out",
                   "&:hover": {
                     animation: `${slideUpDown} 0.6s ease-in-out`,
@@ -222,7 +236,9 @@ export default function Home() {
               <Button
                 color="inherit"
                 sx={{
-                  fontWeight: "bold",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "15px",
                   transition: "transform 0.6s ease-in-out",
                   "&:hover": {
                     animation: `${slideUpDown} 0.6s ease-in-out`,
@@ -235,6 +251,112 @@ export default function Home() {
           </Box>
         </Toolbar>
       </AppBar>
+
+      <Box
+        sx={{
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+          background: "linear-gradient(-270deg, #000000, #2838ae)",
+        }}
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            textAlign: "center",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            color: "white",
+          }}
+        >
+          Smart Study
+        </Typography>
+        <Typography
+          variant="h6"
+          sx={{
+            textAlign: "center",
+            paddingTop: "10px",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            color: "white",
+          }}
+        >
+          To make life a little bit easier for engineering students
+        </Typography>
+
+        <Box
+          sx={{
+            paddingTop: "20px",
+            justifyContent: "center",
+            alignItems: "center",
+            textAlign: "center",
+            display: "flex",
+            gap: 3,
+            margin: "0 auto",
+            flexDirection: { xs: "column", sm: "row" },
+          }}
+        >
+          <Link href="/aboutus">
+            <Button
+              variant="outlined"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "17px",
+                color: "white",
+              }}
+            >
+              Learn More
+            </Button>
+          </Link>
+
+          <Link href="/contact">
+            <Button
+              variant="outlined"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "17px",
+                color: "white",
+              }}
+            >
+              Contact
+            </Button>
+          </Link>
+
+          <Link href="/sign-in">
+            <Button
+              variant="outlined"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "17px",
+                color: "white",
+              }}
+            >
+              Sign In
+            </Button>
+          </Link>
+
+          <Link href="/sign-up">
+            <Button
+              variant="outlined"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "17px",
+                color: "white",
+              }}
+            >
+              Sign Up
+            </Button>
+          </Link>
+        </Box>
+      </Box>
     </>
   );
 }

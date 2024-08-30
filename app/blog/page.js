@@ -26,7 +26,7 @@ import XIcon from "@mui/icons-material/X";
 import MenuIcon from "@mui/icons-material/Menu";
 
 
-export default function Demos() {
+export default function Blog() {
     return (
         <>
         <AppBar

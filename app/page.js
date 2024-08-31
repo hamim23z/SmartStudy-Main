@@ -1,6 +1,7 @@
 "use client";
 import { useEffect, useState, MouseEvent } from "react";
 import {
+  Grid,
   AppBar,
   Box,
   Container,
@@ -130,7 +131,8 @@ export default function Home() {
             </Link>
 
             <Link
-              href="/blog" target="_blank"
+              href="/blog"
+              target="_blank"
               passHref
               style={{
                 color: "white",
@@ -358,8 +360,238 @@ export default function Home() {
         </Box>
       </Box>
 
+      <Box
+        sx={{
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+          background: "linear-gradient(-270deg, #000000, #2838ae)",
+          padding: "20px",
+        }}
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            textAlign: "center",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            color: "white",
+            marginBottom: "30px",
+          }}
+        >
+          The new
+          <br />
+          Premiere Standard
+        </Typography>
 
-      {/*Bento Box Layout Here. Showcases some features*/}
+        <Typography
+          variant="caption"
+          sx={{
+            textAlign: "center",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            color: "white",
+            marginBottom: "50px",
+          }}
+        >
+          Introducing a new way of building flashcards, getting study materials,
+          and reviewing that leaves the competition in the dust.
+          <br />
+          And we don&apos;t look back.
+        </Typography>
+
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            maxWidth: "1200px",
+            margin: "0 auto",
+          }}
+        >
+          <Grid item xs={12} sm={6} md={3}>
+            <Box
+              sx={{
+                background: "#1a237e",
+                height: "300px",
+                borderRadius: "10px",
+                display: "flex",
+                alignItems: "flex-start",
+                justifyContent: "flex-start",
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "white",
+                  textAlign: "left",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  paddingTop: "20px",
+                  paddingLeft: "15px",
+                  fontSize: "18px",
+                }}
+              >
+                Customized Flashcards
+                <Typography
+                  sx={{
+                    paddingTop: "20px",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                  }}
+                >
+                  Create and tailor your own flashcards with no limitations for
+                  a personalized learning experience. Do it your way.
+                </Typography>
+              </Typography>
+            </Box>
+          </Grid>
+
+          <Grid item xs={12} sm={6} md={3}>
+            <Box
+              sx={{
+                background: "#283593",
+                height: "300px",
+                borderRadius: "10px",
+                display: "flex",
+                alignItems: "flex-start",
+                justifyContent: "flex-start",
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "white",
+                  textAlign: "left",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  paddingTop: "20px",
+                  paddingLeft: "15px",
+                  fontSize: "18px",
+                }}
+              >
+                Quizzes & Timers
+                <Typography
+                  sx={{
+                    paddingTop: "20px",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                  }}
+                >
+                  You can create your own quiz using your flashcards to track
+                  your progress. And you can start a timer to really focus!
+                </Typography>
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={6}>
+            <Box
+              sx={{
+                background: "#3949ab",
+                height: "300px",
+                borderRadius: "10px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "white",
+                  textAlign: "center",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                }}
+              >
+                Never worry about running about of topics or problems, thanks to
+                our AI, guiding you to newer topics and problems.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={6}>
+            <Box
+              sx={{
+                background: "#1e88e5",
+                height: "300px",
+                borderRadius: "10px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "white",
+                  textAlign: "center",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                }}
+              >
+                No need to worry about continuously going on YouTube for videos,
+                we have videos for nearly every engineering major directly on
+                our website.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <Box
+              sx={{
+                background: "#42a5f5",
+                height: "300px",
+                borderRadius: "10px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "white",
+                  textAlign: "center",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                }}
+              >
+                Your account, your rules. Choose different themes and customize
+                your experience.
+              </Typography>
+            </Box>
+          </Grid>
+          <Grid item xs={12} sm={6} md={3}>
+            <Box
+              sx={{
+                background: "#64b5f6",
+                height: "300px",
+                borderRadius: "10px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "white",
+                  textAlign: "center",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                }}
+              >
+                Get access to our own practice tests, study guides, and tips to
+                succeed.
+              </Typography>
+            </Box>
+          </Grid>
+        </Grid>
+      </Box>
+
+      {/*Card Section Here, Only Showcases Chronicle AI*/}
       <Box
         sx={{
           height: "100vh",
@@ -380,11 +612,10 @@ export default function Home() {
             color: "white",
           }}
         >
-          The new
+          Your Smart Study
           <br></br>
-          Premiere Standard
+          Your ChronicleAI
         </Typography>
-
 
         <Typography
           variant="caption"
@@ -394,57 +625,12 @@ export default function Home() {
             fontWeight: "900",
             textTransform: "uppercase",
             color: "white",
-            paddingTop: "25px"
-          }}
-        >
-          Introducing a new way of building flashcards, getting study materials,
-          and reviewing that leaves the competition in the dust.
-          <br></br>
-          And we don&apos;t look back.
-        </Typography>
-      </Box>
-
-      
-
-      {/*Card Section Here, Only Showcases Chronicle AI*/}
-      <Box
-        sx = {{
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
-          background: "linear-gradient(-270deg, #000000, #2838ae)",
-        }}
-      >
-        <Typography variant="h2"
-          sx = {{
-            textAlign: "center",
-            fontFamily: "Kanit, sans-serif",
-            fontWeight: "900",
-            textTransform: "uppercase",
-            color: "white",
-          }}
-        >
-          Your Smart Study
-          <br></br>
-          Your ChronicleAI
-        </Typography>
-
-        <Typography variant="caption"
-          sx = {{
-            textAlign: "center",
-            fontFamily: "Kanit, sans-serif",
-            fontWeight: "900",
-            textTransform: "uppercase",
-            color: "white",
-            paddingTop: "25px"
+            paddingTop: "25px",
           }}
         >
           Get access to your own personalized AI chatbot to help you succeed
         </Typography>
       </Box>
-
     </>
   );
 }

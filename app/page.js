@@ -44,6 +44,12 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import MenuIcon from "@mui/icons-material/Menu";
+import SpeakerNotesIcon from '@mui/icons-material/SpeakerNotes';
+import TimerIcon from '@mui/icons-material/Timer';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
+import YouTubeIcon from '@mui/icons-material/YouTube';
+import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 
 export default function Home() {
   return (
@@ -435,7 +441,7 @@ export default function Home() {
                   fontSize: "18px",
                 }}
               >
-                Customized Flashcards
+                Customized Cards
                 <Typography
                   sx={{
                     paddingTop: "20px",
@@ -487,6 +493,8 @@ export default function Home() {
               </Typography>
             </Box>
           </Grid>
+
+
           <Grid item xs={12} sm={6} md={6}>
             <Box
               sx={{
@@ -494,24 +502,38 @@ export default function Home() {
                 height: "300px",
                 borderRadius: "10px",
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                alignItems: "flex-start",
+                justifyContent: "flex-start",
               }}
             >
               <Typography
                 variant="h6"
                 sx={{
                   color: "white",
-                  textAlign: "center",
+                  textAlign: "left",
                   fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
+                  fontWeight: "900",
+                  paddingTop: "20px",
+                  paddingLeft: "15px",
+                  fontSize: "18px",
                 }}
               >
+                AI Brilliance
+                <Typography
+                  sx = {{
+                    paddingTop: "20px",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                  }}
+                >
                 Never worry about running about of topics or problems, thanks to
                 our AI, guiding you to newer topics and problems.
+                </Typography>
               </Typography>
             </Box>
           </Grid>
+
+          
           <Grid item xs={12} sm={6} md={6}>
             <Box
               sx={{
@@ -519,25 +541,39 @@ export default function Home() {
                 height: "300px",
                 borderRadius: "10px",
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                alignItems: "flex-start",
+                justifyContent: "flex-start",
               }}
             >
               <Typography
                 variant="h6"
                 sx={{
                   color: "white",
-                  textAlign: "center",
+                  textAlign: "left",
                   fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
+                  fontWeight: "900",
+                  paddingTop: "20px",
+                  paddingLeft: "15px",
+                  fontSize: "18px",
                 }}
               >
+                Video Vault
+                <Typography
+                  sx = {{
+                    paddingTop: "20px",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                  }}
+                >
                 No need to worry about continuously going on YouTube for videos,
                 we have videos for nearly every engineering major directly on
                 our website.
+                </Typography>
               </Typography>
             </Box>
           </Grid>
+
+
           <Grid item xs={12} sm={6} md={3}>
             <Box
               sx={{
@@ -545,21 +581,33 @@ export default function Home() {
                 height: "300px",
                 borderRadius: "10px",
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                alignItems: "flex-start",
+                justifyContent: "flex-start",
               }}
             >
               <Typography
                 variant="h6"
                 sx={{
                   color: "white",
-                  textAlign: "center",
+                  textAlign: "left",
                   fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
+                  fontWeight: "900",
+                  paddingTop: "20px",
+                  paddingLeft: "15px",
+                  fontSize: "18px",
                 }}
               >
+                Custom Control
+                <Typography
+                  sx = {{
+                    paddingTop: "20px",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                  }}
+                >
                 Your account, your rules. Choose different themes and customize
                 your experience.
+                </Typography>
               </Typography>
             </Box>
           </Grid>
@@ -570,21 +618,33 @@ export default function Home() {
                 height: "300px",
                 borderRadius: "10px",
                 display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
+                alignItems: "flex-start",
+                justifyContent: "flex-start",
               }}
             >
               <Typography
                 variant="h6"
                 sx={{
                   color: "white",
-                  textAlign: "center",
+                  textAlign: "left",
                   fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
+                  fontWeight: "900",
+                  paddingTop: "20px",
+                  paddingLeft: "15px",
+                  fontSize: "18px",
                 }}
               >
-                Get access to our own practice tests, study guides, and tips to
+                Study Kit
+                <Typography
+                  sx = {{
+                    paddingTop: "20px",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                  }}
+                >
+                Get access to our own practice tests, study guides, and numerous tips to
                 succeed.
+                </Typography>
               </Typography>
             </Box>
           </Grid>

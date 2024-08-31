@@ -44,12 +44,12 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import MenuIcon from "@mui/icons-material/Menu";
-import SpeakerNotesIcon from '@mui/icons-material/SpeakerNotes';
-import TimerIcon from '@mui/icons-material/Timer';
-import SmartToyIcon from '@mui/icons-material/SmartToy';
-import YouTubeIcon from '@mui/icons-material/YouTube';
-import DashboardCustomizeIcon from '@mui/icons-material/DashboardCustomize';
-import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import SpeakerNotesIcon from "@mui/icons-material/SpeakerNotes";
+import TimerIcon from "@mui/icons-material/Timer";
+import SmartToyIcon from "@mui/icons-material/SmartToy";
+import YouTubeIcon from "@mui/icons-material/YouTube";
+import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
+import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 
 export default function Home() {
   return (
@@ -442,6 +442,16 @@ export default function Home() {
                 }}
               >
                 Customized Cards
+                <IconButton
+                  sx={{
+                    color: "white",
+                    alignItems: "center",
+                    marginBottom: "7px",
+                    height: "20px",
+                  }}
+                >
+                  <SpeakerNotesIcon></SpeakerNotesIcon>
+                </IconButton>
                 <Typography
                   sx={{
                     paddingTop: "20px",
@@ -480,6 +490,16 @@ export default function Home() {
                 }}
               >
                 Quizzes & Timers
+                <IconButton
+                  sx={{
+                    color: "white",
+                    alignItems: "center",
+                    marginBottom: "6px",
+                    height: "20px",
+                  }}
+                >
+                  <TimerIcon></TimerIcon>
+                </IconButton>
                 <Typography
                   sx={{
                     paddingTop: "20px",
@@ -493,7 +513,6 @@ export default function Home() {
               </Typography>
             </Box>
           </Grid>
-
 
           <Grid item xs={12} sm={6} md={6}>
             <Box
@@ -519,21 +538,30 @@ export default function Home() {
                 }}
               >
                 AI Brilliance
+                <IconButton
+                  sx={{
+                    color: "white",
+                    alignItems: "center",
+                    marginBottom: "7px",
+                    height: "20px",
+                  }}
+                >
+                  <SmartToyIcon></SmartToyIcon>
+                </IconButton>
                 <Typography
-                  sx = {{
+                  sx={{
                     paddingTop: "20px",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
                   }}
                 >
-                Never worry about running about of topics or problems, thanks to
-                our AI, guiding you to newer topics and problems.
+                  Never worry about running about of topics or problems, thanks
+                  to our AI, guiding you to newer topics and problems.
                 </Typography>
               </Typography>
             </Box>
           </Grid>
 
-          
           <Grid item xs={12} sm={6} md={6}>
             <Box
               sx={{
@@ -558,21 +586,30 @@ export default function Home() {
                 }}
               >
                 Video Vault
+                <IconButton
+                  sx={{
+                    color: "white",
+                    alignItems: "center",
+                    marginBottom: "3px",
+                    height: "20px",
+                  }}
+                >
+                  <YouTubeIcon></YouTubeIcon>
+                </IconButton>
                 <Typography
-                  sx = {{
+                  sx={{
                     paddingTop: "20px",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
                   }}
                 >
-                No need to worry about continuously going on YouTube for videos,
-                we have videos for nearly every engineering major directly on
-                our website.
+                  No need to worry about continuously going on YouTube for
+                  videos, we have videos for nearly every engineering major
+                  directly on our website.
                 </Typography>
               </Typography>
             </Box>
           </Grid>
-
 
           <Grid item xs={12} sm={6} md={3}>
             <Box
@@ -598,23 +635,34 @@ export default function Home() {
                 }}
               >
                 Custom Control
+                <IconButton
+                  sx={{
+                    color: "white",
+                    alignItems: "center",
+                    marginBottom: "3px",
+                    height: "20px",
+                  }}
+                >
+                  <DashboardCustomizeIcon></DashboardCustomizeIcon>
+                </IconButton>
                 <Typography
-                  sx = {{
+                  sx={{
                     paddingTop: "20px",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
                   }}
                 >
-                Your account, your rules. Choose different themes and customize
-                your experience.
+                  Your account, your rules. Choose different themes and
+                  customize your experience.
                 </Typography>
               </Typography>
             </Box>
           </Grid>
+
           <Grid item xs={12} sm={6} md={3}>
             <Box
               sx={{
-                background: "#64b5f6",
+                background: "#42a5f5",
                 height: "300px",
                 borderRadius: "10px",
                 display: "flex",
@@ -635,15 +683,25 @@ export default function Home() {
                 }}
               >
                 Study Kit
+                <IconButton
+                  sx={{
+                    color: "white",
+                    alignItems: "center",
+                    marginBottom: "3px",
+                    height: "20px",
+                  }}
+                >
+                  <LibraryBooksIcon></LibraryBooksIcon>
+                </IconButton>
                 <Typography
-                  sx = {{
+                  sx={{
                     paddingTop: "20px",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
                   }}
                 >
-                Get access to our own practice tests, study guides, and numerous tips to
-                succeed.
+                  Get access to our own practice tests, study guides, and
+                  numerous tips to succeed.
                 </Typography>
               </Typography>
             </Box>

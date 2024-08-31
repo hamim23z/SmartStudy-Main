@@ -357,6 +357,94 @@ export default function Home() {
           </Link>
         </Box>
       </Box>
+
+
+      {/*Bento Box Layout Here. Showcases some features*/}
+      <Box
+        sx={{
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+          background: "linear-gradient(-270deg, #000000, #2838ae)",
+        }}
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            textAlign: "center",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            color: "white",
+          }}
+        >
+          The new
+          <br></br>
+          Premiere Standard
+        </Typography>
+
+
+        <Typography
+          variant="caption"
+          sx={{
+            textAlign: "center",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            color: "white",
+            paddingTop: "25px"
+          }}
+        >
+          Introducing a new way of building flashcards, getting study materials,
+          and reviewing that leaves the competition in the dust.
+          <br></br>
+          And we don&apos;t look back.
+        </Typography>
+      </Box>
+
+      
+
+      {/*Card Section Here, Only Showcases Chronicle AI*/}
+      <Box
+        sx = {{
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+          background: "linear-gradient(-270deg, #000000, #2838ae)",
+        }}
+      >
+        <Typography variant="h2"
+          sx = {{
+            textAlign: "center",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            color: "white",
+          }}
+        >
+          Your Smart Study
+          <br></br>
+          Your ChronicleAI
+        </Typography>
+
+        <Typography variant="caption"
+          sx = {{
+            textAlign: "center",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            color: "white",
+            paddingTop: "25px"
+          }}
+        >
+          Get access to your own personalized AI chatbot to help you succeed
+        </Typography>
+      </Box>
+
     </>
   );
 }

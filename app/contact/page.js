@@ -15,6 +15,7 @@ import {
   TextField,
   Snackbar,
   MenuItem,
+  InputLabel,
 } from "@mui/material";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
@@ -302,7 +303,6 @@ export default function Contact() {
         </Toolbar>
       </AppBar>
 
-
       {/*Contact Form Section*/}
       <Box
         sx={{
@@ -330,13 +330,13 @@ export default function Contact() {
               fontFamily: "Kanit, sans-serif",
               fontWeight: 900,
               color: "white",
-              mb: 4,
+              mb: 3,
             }}
           >
             Contact Us
           </Typography>
 
-          <Typography variant="body1" sx={{ color: "white", mb: 2 }}>
+          <Typography variant="body1" sx={{ color: "white", mb: 3 }}>
             We would love to hear from you! Please fill out the form below with
             any inquiries or suggestions you may have.
           </Typography>
@@ -349,7 +349,11 @@ export default function Contact() {
                 variant="filled"
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
-                sx={{ backgroundColor: "white", borderRadius: 1 }}
+                sx={{
+                  backgroundColor: "white",
+                  borderRadius: 1,
+                  "& .MuiInputLabel-root": { color: "black" },
+                }}
                 required
               />
             </Grid>
@@ -360,7 +364,11 @@ export default function Contact() {
                 variant="filled"
                 value={lastName}
                 onChange={(e) => setLastName(e.target.value)}
-                sx={{ backgroundColor: "white", borderRadius: 1 }}
+                sx={{
+                  backgroundColor: "white",
+                  borderRadius: 1,
+                  "& .MuiInputLabel-root": { color: "black" },
+                }}
                 required
               />
             </Grid>
@@ -372,11 +380,16 @@ export default function Contact() {
             variant="filled"
             value={email}
             onChange={handleEmailChange}
-            sx={{ backgroundColor: "white", mt: 2, borderRadius: 1 }}
+            sx={{
+              backgroundColor: "white",
+              mt: 2,
+              borderRadius: 1,
+              "& .MuiInputLabel-root": { color: "black" },
+            }}
             required
             type="email"
-            error={Boolean(emailError)} // Shows error style if emailError is not empty
-            helperText={emailError} // Displays the error message
+            error={Boolean(emailError)}
+            helperText={emailError}
           />
 
           <TextField
@@ -384,10 +397,15 @@ export default function Contact() {
             label="Message goes here"
             variant="filled"
             multiline
-            rows={4}
+            rows={6}
             value={feedback}
             onChange={(e) => setFeedback(e.target.value)}
-            sx={{ backgroundColor: "white", mt: 2, borderRadius: 1 }}
+            sx={{
+              backgroundColor: "white",
+              mt: 2,
+              borderRadius: 1,
+              "& .MuiInputLabel-root": { color: "black" },
+            }}
             required
           />
 
@@ -411,7 +429,7 @@ export default function Contact() {
         open={snackbarOpen}
         autoHideDuration={6000}
         onClose={handleSnackbarClose}
-        message="Message sent, thanks for the feedback!"
+        message="Your message has been sent. Someone from our team will reach out to you soon!"
       />
     </>
   );

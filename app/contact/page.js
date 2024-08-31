@@ -1,19 +1,21 @@
 "use client";
-import { useEffect, useState, MouseEvent } from "react";
+import { useState } from "react";
+import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "@/firebase";
+
 import {
-  AppBar,
   Box,
-  Container,
   Typography,
-  TextField,
-  Button,
-  Avatar,
+  AppBar,
   Toolbar,
+  Button,
+  Grid,
   IconButton,
-  Icon,
   Menu,
+  TextField,
+  Snackbar,
+  MenuItem,
 } from "@mui/material";
-import { motion } from "framer-motion";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
 
@@ -45,6 +47,54 @@ import XIcon from "@mui/icons-material/X";
 import MenuIcon from "@mui/icons-material/Menu";
 
 export default function Contact() {
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  // State variables for form inputs
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [email, setEmail] = useState("");
+  const [feedback, setFeedback] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+  };
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    if (!emailRegex.test(value)) {
+      setEmailError("Please enter a valid email address.");
+    } else {
+      setEmailError(""); // Clear error if valid
+    }
+  };
+
+  const handleSendMessage = async () => {
+    try {
+      // Save the message to Firestore
+      await addDoc(collection(db, "Contact Form"), {
+        firstName,
+        lastName,
+        email,
+        feedback,
+        timestamp: new Date(),
+      });
+
+      // Show Snackbar
+      setSnackbarOpen(true);
+
+      // Clear form inputs
+      setFirstName("");
+      setLastName("");
+      setEmail("");
+      setFeedback("");
+    } catch (error) {
+      console.error("Error sending message: ", error);
+    }
+  };
+
   return (
     <>
       <AppBar
@@ -252,6 +302,8 @@ export default function Contact() {
         </Toolbar>
       </AppBar>
 
+
+      {/*Contact Form Section*/}
       <Box
         sx={{
           height: "100vh",
@@ -262,7 +314,105 @@ export default function Contact() {
           background: "linear-gradient(270deg, #000000, #2838ae)",
         }}
       >
+        <Box
+          sx={{
+            background: "transparent",
+            padding: 4,
+            maxWidth: "1000px",
+            width: "100%",
+            color: "white",
+          }}
+        >
+          <Typography
+            variant="h4"
+            sx={{
+              textTransform: "uppercase",
+              fontFamily: "Kanit, sans-serif",
+              fontWeight: 900,
+              color: "white",
+              mb: 4,
+            }}
+          >
+            Contact Us
+          </Typography>
+
+          <Typography variant="body1" sx={{ color: "white", mb: 2 }}>
+            We would love to hear from you! Please fill out the form below with
+            any inquiries or suggestions you may have.
+          </Typography>
+
+          <Grid container spacing={2}>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                label="First Name"
+                variant="filled"
+                value={firstName}
+                onChange={(e) => setFirstName(e.target.value)}
+                sx={{ backgroundColor: "white", borderRadius: 1 }}
+                required
+              />
+            </Grid>
+            <Grid item xs={6}>
+              <TextField
+                fullWidth
+                label="Last Name"
+                variant="filled"
+                value={lastName}
+                onChange={(e) => setLastName(e.target.value)}
+                sx={{ backgroundColor: "white", borderRadius: 1 }}
+                required
+              />
+            </Grid>
+          </Grid>
+
+          <TextField
+            fullWidth
+            label="Email Address"
+            variant="filled"
+            value={email}
+            onChange={handleEmailChange}
+            sx={{ backgroundColor: "white", mt: 2, borderRadius: 1 }}
+            required
+            type="email"
+            error={Boolean(emailError)} // Shows error style if emailError is not empty
+            helperText={emailError} // Displays the error message
+          />
+
+          <TextField
+            fullWidth
+            label="Message goes here"
+            variant="filled"
+            multiline
+            rows={4}
+            value={feedback}
+            onChange={(e) => setFeedback(e.target.value)}
+            sx={{ backgroundColor: "white", mt: 2, borderRadius: 1 }}
+            required
+          />
+
+          <Button
+            variant="outlined"
+            color="primary"
+            sx={{
+              fontFamily: "Kanit, sans-serif",
+              fontWeight: 900,
+              color: "white",
+              mt: 3,
+            }}
+            onClick={handleSendMessage}
+          >
+            Send Message
+          </Button>
+        </Box>
       </Box>
+
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleSnackbarClose}
+        message="Message sent, thanks for the feedback!"
+      />
     </>
   );
 }

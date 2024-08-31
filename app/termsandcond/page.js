@@ -130,7 +130,7 @@ export default function TermsandConditions() {
             </Link>
 
             <Link
-              href="/blog"
+              href="/blog" target="_blank"
               passHref
               style={{
                 color: "white",

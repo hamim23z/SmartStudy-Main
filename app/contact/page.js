@@ -181,7 +181,7 @@ export default function Contact() {
             </Link>
 
             <Link
-              href="/blog"
+              href="/blog" target="_blank"
               passHref
               style={{
                 color: "white",

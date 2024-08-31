@@ -130,7 +130,7 @@ export default function Flashcard() {
             </Link>
 
             <Link
-              href="/blog"
+              href="/blog" target="_blank"
               passHref
               style={{
                 color: "white",

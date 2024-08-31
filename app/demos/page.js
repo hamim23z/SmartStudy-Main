@@ -130,7 +130,7 @@ export default function Demos() {
             </Link>
 
             <Link
-              href="/blog"
+              href="/blog" target="_blank"
               passHref
               style={{
                 color: "white",

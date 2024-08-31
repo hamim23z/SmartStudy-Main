@@ -324,7 +324,7 @@ export default function Contact() {
           }}
         >
           <Typography
-            variant="h4"
+            variant="h3"
             sx={{
               textTransform: "uppercase",
               fontFamily: "Kanit, sans-serif",
@@ -336,7 +336,7 @@ export default function Contact() {
             Contact Us
           </Typography>
 
-          <Typography variant="body1" sx={{ color: "white", mb: 3 }}>
+          <Typography variant="body1" sx={{ color: "white", mb: 3, fontFamily: "Kanit, sans-serif" }}>
             We would love to hear from you! Please fill out the form below with
             any inquiries or suggestions you may have.
           </Typography>

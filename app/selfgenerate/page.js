@@ -49,7 +49,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import MenuIcon from "@mui/icons-material/Menu";
 
-export default function Flashcard() {
+export default function GenerateSelf() {
   const [flashcards, setFlashcards] = useState([]);
   const [flipped, setFlipped] = useState({});
   const [newFlashcard, setNewFlashcard] = useState({ front: "", back: "" });

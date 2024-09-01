@@ -358,9 +358,10 @@ export default function GenerateSelf() {
               onClick={handleSubmit}
               sx={{
                 marginTop: "30px",
+                fontFamily: "Kanit, sans-serif"
               }}
             >
-              Submit
+              Create Card
             </Button>
           </Box>
 

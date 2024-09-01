@@ -330,13 +330,11 @@ export default function GenerateAI() {
         </Toolbar>
       </AppBar>
 
-{/* Main Content */}
-<Box
+      {/* Main Content */}
+      <Box
         sx={{
-          backgroundImage: `url(/mainpic1.jpg)`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          minHeight: "calc(100vh - 84px)", // Adjust this if the AppBar height changes
+          background: "linear-gradient(270deg, #000000, #2838ae)",
+          height: "100vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -352,13 +350,12 @@ export default function GenerateAI() {
             }}
           >
             <Typography
-              variant="h4"
+              variant="h3"
               sx={{
                 fontFamily: "Kanit, sans-serif",
                 fontWeight: "900",
                 paddingBottom: "50px",
                 color: "white",
-                textTransform: "uppercase",
               }}
             >
               Generate Flashcards using ChronicleAI
@@ -366,34 +363,60 @@ export default function GenerateAI() {
 
             <Paper
               sx={{
-                p: 4,
                 width: "100%",
+                padding: "20px",
               }}
             >
               <TextField
                 value={text}
                 onChange={(e) => setText(e.target.value)}
-                label="Enter text here"
+                placeholder="Enter text here"
                 fullWidth
                 multiline
                 rows={4}
                 variant="outlined"
                 required
                 sx={{
-                  mb: 2,
+                  "& .MuiInputBase-input::placeholder": {
+                    color: "black", // Placeholder text color
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "700",
+                  },
+                  "& .MuiInputBase-input": {
+                    color: "black", // Color of the input text
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "700",
+                  },
+                  background: "white",
                 }}
               ></TextField>
-
-              <Button
-                variant="contained"
-                color="primary"
-                onClick={handleSubmit}
-                fullWidth
-              >
-                Submit
-              </Button>
             </Paper>
           </Box>
+
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              gap: 10,
+              paddingTop: "30px",
+            }}
+          >
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleSubmit}
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+              }}
+            >
+              Generate
+            </Button>
+          </Box>
+
+
+
+
+
 
           {flashcards.length > 0 && (
             <Box sx={{ mt: 4 }}>
@@ -555,6 +578,254 @@ export default function GenerateAI() {
               </Button>
             </DialogActions>
           </Dialog>
+        </Container>
+      </Box>
+
+      {/*Footer*/}
+      <Box
+        component="footer"
+        sx={{
+          height: "40vh",
+          py: 4,
+          background: "linear-gradient(-270deg, #000000, #2838ae)",
+        }}
+      >
+        <Container maxWidth="lg">
+          <Stack direction="row" spacing={4} justifyContent="space-between">
+            <Stack spacing={2}>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                }}
+              >
+                Smart Study
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                }}
+              >
+                Subscribe to our newsletter
+              </Typography>
+              <Stack direction="row" spacing={1}>
+                <TextField
+                  variant="outlined"
+                  size="small"
+                  placeholder="Your email"
+                  sx={{
+                    flexGrow: 1,
+                    background: "white",
+                    borderRadius: "10px",
+                    "& .MuiInputBase-input::placeholder": {
+                      color: "black",
+                      fontFamily: "Kanit, sans-serif",
+                      fontWeight: "700",
+                    },
+                  }}
+                />
+                <Button variant="contained" sx={{ borderRadius: "10px" }}>
+                  Submit
+                </Button>
+              </Stack>
+              <Stack direction="row" spacing={1}>
+                <IconButton
+                  href="https://github.com/hamim23z"
+                  target="_blank"
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "purple",
+                    },
+                  }}
+                >
+                  <GitHubIcon />
+                </IconButton>
+                <IconButton
+                  href="https://www.linkedin.com/in/hamimc/"
+                  target="_blank"
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "purple",
+                    },
+                  }}
+                >
+                  <LinkedInIcon />
+                </IconButton>
+                <IconButton
+                  href="https://instagram.com"
+                  target="_blank"
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "purple",
+                    },
+                  }}
+                >
+                  <InstagramIcon />
+                </IconButton>
+                <IconButton
+                  href="https://x.com"
+                  target="_blank"
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "purple",
+                    },
+                  }}
+                >
+                  <XIcon />
+                </IconButton>
+              </Stack>
+            </Stack>
+
+            <Stack direction="row" spacing={4}>
+              <Stack spacing={1}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "white",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "900",
+                  }}
+                >
+                  Company
+                </Typography>
+                <Link
+                  href="/aboutus"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "30px",
+                  }}
+                >
+                  About Us
+                </Link>
+                <Link
+                  href="/blog"
+                  target="_blank"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Blog
+                </Link>
+                <Link
+                  href="https://github.com/hamim23z"
+                  target="_blank"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                  }}
+                >
+                  GitHub
+                </Link>
+              </Stack>
+              <Stack spacing={1}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "white",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "900",
+                  }}
+                >
+                  References
+                </Typography>
+                <Link
+                  href="/documentation"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "30px",
+                  }}
+                >
+                  Documentation
+                </Link>
+                <Link
+                  href="/pricing"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Pricing
+                </Link>
+                <Link
+                  href="/demos"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                  }}
+                >
+                  Demos
+                </Link>
+              </Stack>
+              <Stack spacing={1}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "white",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "900",
+                  }}
+                >
+                  Legal
+                </Typography>
+                <Link
+                  href="/privacy"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "30px",
+                  }}
+                >
+                  Privacy
+                </Link>
+                <Link
+                  href="/termsandcond"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Terms and Conditions
+                </Link>
+              </Stack>
+            </Stack>
+          </Stack>
         </Container>
       </Box>
     </>

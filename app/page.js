@@ -1006,28 +1006,52 @@ export default function Home() {
                 <IconButton
                   href="https://github.com/hamim23z"
                   target="_blank"
-                  sx={{ color: "white" }}
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "purple",
+                    },
+                  }}
                 >
                   <GitHubIcon />
                 </IconButton>
                 <IconButton
                   href="https://www.linkedin.com/in/hamimc/"
                   target="_blank"
-                  sx={{ color: "white" }}
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "purple",
+                    },
+                  }}
                 >
                   <LinkedInIcon />
                 </IconButton>
                 <IconButton
                   href="https://instagram.com"
                   target="_blank"
-                  sx={{ color: "white" }}
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "purple",
+                    },
+                  }}
                 >
                   <InstagramIcon />
                 </IconButton>
                 <IconButton
                   href="https://x.com"
                   target="_blank"
-                  sx={{ color: "white" }}
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "purple",
+                    },
+                  }}
                 >
                   <XIcon />
                 </IconButton>

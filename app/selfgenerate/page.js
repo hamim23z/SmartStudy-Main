@@ -12,6 +12,10 @@ import {
   IconButton,
   Icon,
   Menu,
+  Grid,
+  Card,
+  CardActionArea,
+  CardContent,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -45,6 +49,24 @@ import XIcon from "@mui/icons-material/X";
 import MenuIcon from "@mui/icons-material/Menu";
 
 export default function Flashcard() {
+  const [flashcards, setFlashcards] = useState([]);
+  const [flipped, setFlipped] = useState({});
+  const [newFlashcard, setNewFlashcard] = useState({ front: "", back: "" });
+
+  const handleCardClick = (id) => {
+    setFlipped((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
+  };
+
+  const handleSubmit = () => {
+    if (newFlashcard.front && newFlashcard.back) {
+      setFlashcards([...flashcards, newFlashcard]);
+      setNewFlashcard({ front: "", back: "" }); // Reset the input fields
+    }
+  };
+
   return (
     <>
       <AppBar
@@ -57,7 +79,7 @@ export default function Flashcard() {
           sx={{
             paddingTop: "20px",
             paddingBottom: "20px",
-            background: "linear-gradient(270deg, #000000, #2838ae)",
+            background: "linear-gradient(-270deg, #000000, #2838ae)",
           }}
         >
           {/*Toolbar allows us to write and add elements. Gives the appbar spacing and whatnot*/}
@@ -130,7 +152,8 @@ export default function Flashcard() {
             </Link>
 
             <Link
-              href="/blog" target="_blank"
+              href="/blog"
+              target="_blank"
               passHref
               style={{
                 color: "white",
@@ -254,14 +277,121 @@ export default function Flashcard() {
 
       <Box
         sx={{
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
-          background: "linear-gradient(270deg, #000000, #2838ae)",
+          padding: "20px",
+          background: "linear-gradient(-270deg, #000000, #2838ae)",
+          minHeight: "100vh",
+          boxSizing: "border-box",
         }}
       >
+        <Container maxWidth="lg">
+          <Box sx={{ mb: 4 }}>
+            <Typography
+              variant="h6"
+              component="div"
+              sx={{ color: "white", mb: 2 }}
+            >
+              Generate Flashcards
+            </Typography>
+            <TextField
+              label="Front"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              value={newFlashcard.front}
+              onChange={(e) =>
+                setNewFlashcard({ ...newFlashcard, front: e.target.value })
+              }
+              sx={{ mb: 2 }}
+            />
+            <TextField
+              label="Back"
+              variant="outlined"
+              fullWidth
+              margin="normal"
+              value={newFlashcard.back}
+              onChange={(e) =>
+                setNewFlashcard({ ...newFlashcard, back: e.target.value })
+              }
+              sx={{ mb: 2 }}
+            />
+            <Button variant="contained" color="primary" onClick={handleSubmit}>
+              Submit
+            </Button>
+          </Box>
+
+          <Grid container spacing={4} sx={{ mt: 4 }}>
+            {flashcards.map((flashcard, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                <Card sx={{ maxWidth: 700 }}>
+                  <CardActionArea onClick={() => handleCardClick(index)}>
+                    <CardContent>
+                      <Box
+                        sx={{
+                          perspective: "1000px",
+                          "& > div": {
+                            transition: "transform 0.6s",
+                            transformStyle: "preserve-3d",
+                            position: "relative",
+                            width: "100%",
+                            height: "175px",
+                            boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+                            transform: flipped[index]
+                              ? "rotateY(180deg)"
+                              : "rotateY(0deg)",
+                          },
+                          "& > div > div": {
+                            position: "absolute",
+                            width: "100%",
+                            height: "100%",
+                            backfaceVisibility: "hidden",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            padding: 2,
+                            boxSizing: "border-box",
+                          },
+                          "& > div > div:nth-of-type(2)": {
+                            transform: "rotateY(180deg)",
+                          },
+                        }}
+                      >
+                        <div>
+                          <div>
+                            <Typography
+                              variant="h6"
+                              component="div"
+                              sx={{
+                                fontSize: "18px",
+                                textAlign: "center",
+                                fontFamily: "Kanit, sans-serif",
+                                fontWeight: "bold",
+                                color: "black",
+                              }}
+                            >
+                              {flashcard.front}
+                            </Typography>
+                          </div>
+                          <div>
+                            <Typography
+                              variant="h6"
+                              component="div"
+                              sx={{
+                                fontSize: "14px",
+                                color: "black",
+                              }}
+                            >
+                              {flashcard.back}
+                            </Typography>
+                          </div>
+                        </div>
+                      </Box>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
       </Box>
     </>
   );

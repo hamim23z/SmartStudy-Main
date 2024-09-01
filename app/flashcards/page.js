@@ -12,10 +12,14 @@ import {
   IconButton,
   Icon,
   Menu,
+  Card, 
+  Grid, CardContent, CardActionArea
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
+import { db } from "@/firebase";
+import { writeBatch, doc, collection, getDoc } from "firebase/firestore";
 
 const slideUpDown = keyframes`
   0% {
@@ -254,14 +258,61 @@ export default function Flashcards() {
 
       <Box
         sx={{
-          height: "100vh",
+          backgroundImage: `url(/mainpic1.jpg)`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          minHeight: "calc(100vh - 84px)", // Adjust this if the AppBar height changes
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          flexDirection: "column",
-          background: "linear-gradient(270deg, #000000, #2838ae)",
         }}
       >
+        <Container maxWidth="1200px">
+          <Box>
+            <Typography
+              variant="h4"
+              sx={{
+                color: "white",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                textTransform: "uppercase",
+                textAlign: "center",
+              }}
+            >
+              Your Flashcard Collection
+            </Typography>
+          </Box>
+
+          <Grid container spacing={3} sx={{ mt: 4 }}>
+            {flashcards.map((flashcard, index) => (
+              <Grid item xs={12} sm={6} md={4} key={index}>
+                <div style={{ width: "100%", maxWidth: "600px" }}></div>
+
+                <Card>
+                  <CardActionArea
+                    onClick={() => handleCardClick(flashcard.name)}
+                  >
+                    <CardContent>
+                      <Typography
+                        variant="h5"
+                        component="div"
+                        sx={{
+                          textAlign: "center",
+                          fontFamily: "Kanit, sans-serif",
+                          fontWeight: 900,
+                          textTransform: "uppercase",
+                        }}
+                      >
+                        {flashcard.name}
+                      </Typography>
+                    </CardContent>
+                  </CardActionArea>
+                </Card>
+              </Grid>
+            ))}
+          </Grid>
+        </Container>
       </Box>
     </>
   );

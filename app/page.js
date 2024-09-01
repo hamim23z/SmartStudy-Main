@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 "use client";
 import { useEffect, useState, MouseEvent } from "react";
 import {
@@ -17,6 +18,8 @@ import {
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
+import Image from "next/image";
+import chronicleai from "../public/chronicleai.png";
 
 const slideUpDown = keyframes`
   0% {
@@ -712,42 +715,113 @@ export default function Home() {
       {/*Card Section Here, Only Showcases Chronicle AI*/}
       <Box
         sx={{
-          height: "100vh",
+          height: "150vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
           background: "linear-gradient(-270deg, #000000, #2838ae)",
+          padding: "20px",
+          boxSizing: "border-box",
         }}
       >
-        <Typography
-          variant="h2"
+        {/* Header and Text */}
+        <Box
           sx={{
             textAlign: "center",
-            fontFamily: "Kanit, sans-serif",
-            fontWeight: "900",
-            textTransform: "uppercase",
-            color: "white",
+            mb: "40px", 
           }}
         >
-          Your Smart Study
-          <br></br>
-          Your ChronicleAI
-        </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              fontFamily: "Kanit, sans-serif",
+              fontWeight: "900",
+              textTransform: "uppercase",
+              color: "white",
+            }}
+          >
+            Your Smart Study
+            <br />
+            Your ChronicleAI
+          </Typography>
 
-        <Typography
-          variant="caption"
+          <Typography
+            variant="caption"
+            sx={{
+              fontFamily: "Kanit, sans-serif",
+              fontWeight: "900",
+              textTransform: "uppercase",
+              color: "white",
+              paddingTop: "25px",
+            }}
+          >
+            Get access to your own personalized AI chatbot to help you succeed
+          </Typography>
+        </Box>
+
+        {/* Showcase Card */}
+        <Box
           sx={{
-            textAlign: "center",
-            fontFamily: "Kanit, sans-serif",
-            fontWeight: "900",
-            textTransform: "uppercase",
-            color: "white",
-            paddingTop: "25px",
+            display: "flex",
+            alignItems: "center",
+            background: "transparent",
+            borderRadius: "8px",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+            overflow: "hidden",
+            width: "1200px",
+            height: "500px",
+            padding: "20px",
+            position: "relative",
           }}
         >
-          Get access to your own personalized AI chatbot to help you succeed
-        </Typography>
+          <Box
+            sx={{
+              width: "60%",
+              position: "relative",
+              overflow: "visible",
+              marginRight: "20px",
+              height: "300px", 
+            }}
+          >
+            <Image
+              src={chronicleai}
+              alt="Showcase"
+              fill
+              sizes="(max-width: 600px) 100vw, 50vw"
+              style={{
+                position: "absolute",
+                objectFit: "cover",
+              }}
+            />
+          </Box>
+          <Box
+            sx={{
+              width: "50%",
+            }}
+          >
+            <Typography
+              variant="h4"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "900",
+                color: "white",
+                marginBottom: "10px",
+              }}
+            >
+              Endless Exploration 
+            </Typography>
+            <Typography
+              variant="body1"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                color: "#666",
+              }}
+            >
+              Get access to your own personalized AI chatbot to help you succeed
+            </Typography>
+          </Box>
+        </Box>
       </Box>
     </>
   );

@@ -399,7 +399,7 @@ export default function GenerateAI() {
               flexDirection: "row",
               gap: 10,
               paddingTop: "30px",
-              justifyContent: "right"
+              justifyContent: "right",
             }}
           >
             <Button

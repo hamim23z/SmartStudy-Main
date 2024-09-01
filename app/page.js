@@ -419,17 +419,23 @@ export default function Home() {
           sx={{
             maxWidth: "1200px",
             margin: "0 auto",
+            background: "transparent"
           }}
         >
           <Grid item xs={12} sm={6} md={3}>
             <Box
               sx={{
-                background: "#1a237e",
-                height: "300px",
+                background: "transparent",
                 borderRadius: "10px",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+                height: "300px",
                 display: "flex",
                 alignItems: "flex-start",
                 justifyContent: "flex-start",
+                transition: "box-shadow 0.5s ease-in-out",
+                "&:hover": {
+                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)"
+                }
               }}
             >
               <Typography
@@ -472,12 +478,17 @@ export default function Home() {
           <Grid item xs={12} sm={6} md={3}>
             <Box
               sx={{
-                background: "#283593",
-                height: "300px",
+                background: "transparent",
                 borderRadius: "10px",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+                height: "300px",
                 display: "flex",
                 alignItems: "flex-start",
                 justifyContent: "flex-start",
+                transition: "box-shadow 0.5s ease-in-out",
+                "&:hover": {
+                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)"
+                }
               }}
             >
               <Typography
@@ -520,12 +531,17 @@ export default function Home() {
           <Grid item xs={12} sm={6} md={6}>
             <Box
               sx={{
-                background: "#3949ab",
-                height: "300px",
+                background: "transparent",
                 borderRadius: "10px",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+                height: "300px",
                 display: "flex",
                 alignItems: "flex-start",
                 justifyContent: "flex-start",
+                transition: "box-shadow 0.5s ease-in-out",
+                "&:hover": {
+                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)"
+                }
               }}
             >
               <Typography
@@ -569,11 +585,17 @@ export default function Home() {
             <Box
               sx={{
                 background: "#1e88e5",
-                height: "300px",
+                background: "transparent",
                 borderRadius: "10px",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+                height: "300px",
                 display: "flex",
                 alignItems: "flex-start",
                 justifyContent: "flex-start",
+                transition: "box-shadow 0.5s ease-in-out",
+                "&:hover": {
+                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)"
+                }
               }}
             >
               <Typography
@@ -617,12 +639,17 @@ export default function Home() {
           <Grid item xs={12} sm={6} md={3}>
             <Box
               sx={{
-                background: "#42a5f5",
+                background: "transparent",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
                 height: "300px",
                 borderRadius: "10px",
                 display: "flex",
                 alignItems: "flex-start",
                 justifyContent: "flex-start",
+                transition: "box-shadow 0.5s ease-in-out",
+                "&:hover": {
+                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)"
+                }
               }}
             >
               <Typography
@@ -665,12 +692,17 @@ export default function Home() {
           <Grid item xs={12} sm={6} md={3}>
             <Box
               sx={{
-                background: "#42a5f5",
-                height: "300px",
+                background: "transparent",
                 borderRadius: "10px",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+                height: "300px",
                 display: "flex",
                 alignItems: "flex-start",
                 justifyContent: "flex-start",
+                transition: "box-shadow 0.5s ease-in-out",
+                "&:hover": {
+                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)"
+                }
               }}
             >
               <Typography
@@ -703,7 +735,7 @@ export default function Home() {
                     fontWeight: "400",
                   }}
                 >
-                  Get access to our own practice tests, study guides, and
+                  Get access to our own study guides, practice tests, and
                   numerous tips to succeed.
                 </Typography>
               </Typography>
@@ -729,7 +761,7 @@ export default function Home() {
         <Box
           sx={{
             textAlign: "center",
-            mb: "40px", 
+            mb: "40px",
           }}
         >
           <Typography
@@ -773,6 +805,10 @@ export default function Home() {
             height: "500px",
             padding: "20px",
             position: "relative",
+            transition: "box-shadow 0.4s ease-in-out",
+            "&:hover": {
+              boxShadow: "0 4px 8px rgba(255, 251, 0, 5)",
+            },
           }}
         >
           <Box
@@ -781,7 +817,7 @@ export default function Home() {
               position: "relative",
               overflow: "visible",
               marginRight: "20px",
-              height: "300px", 
+              height: "300px",
             }}
           >
             <Image
@@ -809,16 +845,31 @@ export default function Home() {
                 marginBottom: "10px",
               }}
             >
-              Endless Exploration 
+              Endless Exploration
             </Typography>
             <Typography
               variant="body1"
               sx={{
                 fontFamily: "Kanit, sans-serif",
-                color: "#666",
+                color: "white",
+                paddingTop: "20px"
               }}
             >
-              Get access to your own personalized AI chatbot to help you succeed
+              Use our AI, ChronicleAI aka Chad to help guide you to new topics,
+              generate flashcards for you, or any engineering advice.
+              <Link href='/sign-up'>
+                <Button variant="outlined"
+                  sx = {{
+                    marginTop: "20px",
+                    fontFamily: "Kanit, sans-serif",
+                    color: "white",
+                    fontWeight: "900",
+                    borderRadius: "10px"
+                  }}
+                >
+                  Get Started
+                </Button>
+              </Link>
             </Typography>
           </Box>
         </Box>

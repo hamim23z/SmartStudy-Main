@@ -789,7 +789,7 @@ export default function Home() {
               paddingTop: "25px",
             }}
           >
-            Get access to your own personalized AI chatbot to help you succeed
+            Get access to your own personalized AI chatbot to help you succeed.
           </Typography>
         </Box>
 
@@ -913,7 +913,41 @@ export default function Home() {
           Learn why hundreds and thousands of engineering students love to use
           Smart Study&apos;s
           <br />
-          intuitive interface to study and ace their exams
+          intuitive interface to study and ace their exams.
+        </Typography>
+      </Box>
+
+      <Box
+        sx={{
+          height: "100vh",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          justifyContent: "center",
+          background: "linear-gradient(-270deg, #000000, #2838ae)",
+        }}
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+          }}
+        >
+          Frequently Asked Questions
+        </Typography>
+        <Typography
+          variant="caption"
+          sx={{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            paddingTop: "20px",
+            textTransform: "uppercase",
+          }}
+        >
+          If your question is not listed, please fill out our contact form.
         </Typography>
       </Box>
 

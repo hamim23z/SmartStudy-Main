@@ -411,68 +411,80 @@ export default function GenerateAI() {
             >
               Generate
             </Button>
+
+            <Button
+              variant="contained"
+              onClick={handleOpen}
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+              }}
+            >
+              Save
+            </Button>
           </Box>
-
-
-
-
-
 
           {flashcards.length > 0 && (
             <Box sx={{ mt: 4 }}>
-              <Typography
-                variant="h5"
-                sx={{
-                  color: "white",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "900",
-                  textAlign: "center",
-                  paddingBottom: "30px",
-                }}
-              >
-                Flashcards Previewed
-              </Typography>
               <Grid container spacing={3}>
                 {flashcards.map((flashcard, index) => (
-                  <Grid item xs={12} sm={6} md={3} key={index}>
-                    <Card>
-                      <CardActionArea onClick={() => handleCardClick(index)}>
-                        <CardContent>
+                  <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
+                    <Card
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        height: "100%",
+                        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                      }}
+                    >
+                      <CardActionArea
+                        onClick={() => handleCardClick(index)}
+                        sx={{ height: "100%" }}
+                      >
+                        <CardContent
+                          sx={{
+                            display: "flex",
+                            flexDirection: "column",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            textAlign: "center",
+                            height: "200px", // Adjust the height as needed
+                          }}
+                        >
                           <Box
                             sx={{
                               perspective: "1000px",
-                              "& > div": {
+                              width: "100%",
+                              height: "100%",
+                            }}
+                          >
+                            <div
+                              style={{
                                 transition: "transform 0.6s",
                                 transformStyle: "preserve-3d",
                                 position: "relative",
                                 width: "100%",
-                                height: "200px",
-                                boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
+                                height: "100%",
                                 transform: flipped[index]
                                   ? "rotateY(180deg)"
                                   : "rotateY(0deg)",
-                              },
-                              "& > div > div": {
-                                position: "absolute",
-                                width: "100%",
-                                height: "100%",
-                                backfaceVisibility: "hidden",
-                                display: "flex",
-                                justifyContent: "center",
-                                alignItems: "center",
-                                padding: 2,
-                                boxSizing: "border-box",
-                              },
-                              "& > div > div:nth-of-type(2)": {
-                                transform: "rotateY(180deg)",
-                              },
-                            }}
-                          >
-                            <div>
-                              <div>
+                              }}
+                            >
+                              <div
+                                style={{
+                                  position: "absolute",
+                                  width: "100%",
+                                  height: "100%",
+                                  backfaceVisibility: "hidden",
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  padding: "16px",
+                                  boxSizing: "border-box",
+                                  backgroundColor: "#fff", // Add background color if needed
+                                }}
+                              >
                                 <Typography
                                   variant="h5"
-                                  component="div"
                                   sx={{
                                     fontSize: "18px",
                                     fontFamily: "Kanit, sans-serif",
@@ -483,12 +495,26 @@ export default function GenerateAI() {
                                   {flashcard.front}
                                 </Typography>
                               </div>
-                              <div>
+                              <div
+                                style={{
+                                  position: "absolute",
+                                  width: "100%",
+                                  height: "100%",
+                                  backfaceVisibility: "hidden",
+                                  display: "flex",
+                                  justifyContent: "center",
+                                  alignItems: "center",
+                                  padding: "16px",
+                                  boxSizing: "border-box",
+                                  backgroundColor: "#fff", // Add background color if needed
+                                  transform: "rotateY(180deg)",
+                                }}
+                              >
                                 <Typography
                                   variant="h5"
-                                  component="div"
                                   sx={{
                                     fontSize: "14px",
+                                    textAlign: "center",
                                   }}
                                 >
                                   {flashcard.back}
@@ -502,26 +528,6 @@ export default function GenerateAI() {
                   </Grid>
                 ))}
               </Grid>
-
-              <Box
-                sx={{
-                  mt: 4,
-                  display: "flex",
-                  justifyContent: "center",
-                  paddingBottom: "60px",
-                }}
-              >
-                <Button
-                  variant="contained"
-                  onClick={handleOpen}
-                  sx={{
-                    fontFamily: "Kanit, sans-serif",
-                    fontWeight: "900",
-                  }}
-                >
-                  Save
-                </Button>
-              </Box>
             </Box>
           )}
 

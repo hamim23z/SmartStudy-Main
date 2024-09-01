@@ -1078,7 +1078,7 @@ export default function Home() {
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
                     paddingTop: "30px",
-                  }}
+                  }} 
                 >
                   About Us
                 </Link>

@@ -286,14 +286,20 @@ export default function Flashcard() {
         <Container maxWidth="lg">
           <Box sx={{ mb: 4 }}>
             <Typography
-              variant="h6"
+              variant="h3"
               component="div"
-              sx={{ color: "white", mb: 2 }}
+              sx={{
+                color: "white",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "900",
+                textAlign: "center",
+                paddingBottom: "30px",
+              }}
             >
-              Generate Flashcards
+              Create Your Own Flashcards
             </Typography>
             <TextField
-              label="Front"
+              placeholder="Front"
               variant="outlined"
               fullWidth
               margin="normal"
@@ -301,10 +307,24 @@ export default function Flashcard() {
               onChange={(e) =>
                 setNewFlashcard({ ...newFlashcard, front: e.target.value })
               }
-              sx={{ mb: 2 }}
+              sx={{
+                borderRadius: "10px",
+                "& .MuiInputBase-input": {
+                  color: "black", // Color of the input text
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                },
+                "& .MuiInputBase-input::placeholder": {
+                  color: "black", // Placeholder text color
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                },
+                background: "white",
+              }}
             />
+
             <TextField
-              label="Back"
+              placeholder="Back"
               variant="outlined"
               fullWidth
               margin="normal"
@@ -312,9 +332,29 @@ export default function Flashcard() {
               onChange={(e) =>
                 setNewFlashcard({ ...newFlashcard, back: e.target.value })
               }
-              sx={{ mb: 2 }}
+              sx={{
+                borderRadius: "10px",
+                "& .MuiInputBase-input": {
+                  color: "black", // Color of the input text
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                },
+                "& .MuiInputBase-input::placeholder": {
+                  color: "black", // Placeholder text color
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                },
+                background: "white",
+              }}
             />
-            <Button variant="contained" color="primary" onClick={handleSubmit}>
+            <Button
+              variant="contained"
+              color="primary"
+              onClick={handleSubmit}
+              sx={{
+                marginTop: "30px",
+              }}
+            >
               Submit
             </Button>
           </Box>
@@ -322,18 +362,33 @@ export default function Flashcard() {
           <Grid container spacing={4} sx={{ mt: 4 }}>
             {flashcards.map((flashcard, index) => (
               <Grid item xs={12} sm={6} md={4} key={index}>
-                <Card sx={{ maxWidth: 700 }}>
+                <Card
+                  sx={{
+                    maxWidth: 800,
+                    maxHeight: 400, // Adjust as needed
+                    overflow: "hidden", // Ensure overflow is handled
+                    display: "flex", // To ensure the content aligns properly
+                    alignItems: "center", // Center the content
+                    justifyContent: "center", // Center the content
+                  }}
+                >
                   <CardActionArea onClick={() => handleCardClick(index)}>
-                    <CardContent>
+                    <CardContent sx={{ p: 0, height: "100%" }}>
+                      {" "}
+                      {/* Ensure CardContent takes full height */}
                       <Box
                         sx={{
                           perspective: "1000px",
+                          width: "100%",
+                          height: "250px", // Height for flipping content
+                          position: "relative",
+                          overflow: "hidden", // Handle overflow
                           "& > div": {
                             transition: "transform 0.6s",
                             transformStyle: "preserve-3d",
                             position: "relative",
                             width: "100%",
-                            height: "175px",
+                            height: "100%",
                             boxShadow: "0 4px 8px 0 rgba(0,0,0,0.2)",
                             transform: flipped[index]
                               ? "rotateY(180deg)"
@@ -358,10 +413,10 @@ export default function Flashcard() {
                         <div>
                           <div>
                             <Typography
-                              variant="h6"
+                              variant="body2"
                               component="div"
                               sx={{
-                                fontSize: "18px",
+                                fontSize: "12px",
                                 textAlign: "center",
                                 fontFamily: "Kanit, sans-serif",
                                 fontWeight: "bold",
@@ -373,11 +428,13 @@ export default function Flashcard() {
                           </div>
                           <div>
                             <Typography
-                              variant="h6"
+                              variant="body2"
                               component="div"
                               sx={{
-                                fontSize: "14px",
-                                color: "black",
+                                fontSize: "12px",
+                                fontWeight: "bold",
+                                color: "red",
+                                fontFamily: "Kanit, sans-serif",
                               }}
                             >
                               {flashcard.back}

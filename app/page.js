@@ -14,6 +14,7 @@ import {
   IconButton,
   Icon,
   Menu,
+  Stack,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -419,7 +420,7 @@ export default function Home() {
           sx={{
             maxWidth: "1200px",
             margin: "0 auto",
-            background: "transparent"
+            background: "transparent",
           }}
         >
           <Grid item xs={12} sm={6} md={3}>
@@ -434,8 +435,8 @@ export default function Home() {
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
                 "&:hover": {
-                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)"
-                }
+                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)",
+                },
               }}
             >
               <Typography
@@ -487,8 +488,8 @@ export default function Home() {
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
                 "&:hover": {
-                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)"
-                }
+                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)",
+                },
               }}
             >
               <Typography
@@ -540,8 +541,8 @@ export default function Home() {
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
                 "&:hover": {
-                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)"
-                }
+                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)",
+                },
               }}
             >
               <Typography
@@ -594,8 +595,8 @@ export default function Home() {
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
                 "&:hover": {
-                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)"
-                }
+                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)",
+                },
               }}
             >
               <Typography
@@ -648,8 +649,8 @@ export default function Home() {
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
                 "&:hover": {
-                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)"
-                }
+                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)",
+                },
               }}
             >
               <Typography
@@ -701,8 +702,8 @@ export default function Home() {
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
                 "&:hover": {
-                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)"
-                }
+                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)",
+                },
               }}
             >
               <Typography
@@ -852,19 +853,20 @@ export default function Home() {
               sx={{
                 fontFamily: "Kanit, sans-serif",
                 color: "white",
-                paddingTop: "20px"
+                paddingTop: "20px",
               }}
             >
               Use our AI, ChronicleAI aka Chad to help guide you to new topics,
               generate flashcards for you, or any engineering advice.
-              <Link href='/sign-up'>
-                <Button variant="outlined"
-                  sx = {{
+              <Link href="/sign-up">
+                <Button
+                  variant="outlined"
+                  sx={{
                     marginTop: "20px",
                     fontFamily: "Kanit, sans-serif",
                     color: "white",
                     fontWeight: "900",
-                    borderRadius: "10px"
+                    borderRadius: "10px",
                   }}
                 >
                   Get Started
@@ -873,6 +875,280 @@ export default function Home() {
             </Typography>
           </Box>
         </Box>
+      </Box>
+
+
+      
+      <Box
+        sx = {{
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+          background: "linear-gradient(-270deg, #000000, #2838ae)",
+        }}
+      >
+        <Typography variant="h2"
+          sx = {{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900"
+          }}
+        >
+          Students like you
+          <br/>
+          love Smart Study
+        </Typography>
+        <Typography variant="caption"
+          sx = {{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            textAlign: "center",
+            paddingTop: "20px"
+          }}
+        >
+          Learn why hundreds and thousands of engineering students love to use
+          Smart Study&apos;s 
+          <br/>
+          intuitive interface to study and ace their exams
+        </Typography>
+      </Box>
+
+
+
+
+
+
+
+
+
+
+
+      {/*Footer*/}
+      <Box
+        component="footer"
+        sx={{
+          height: "40vh",
+          py: 4,
+          background: "linear-gradient(-270deg, #000000, #2838ae)",
+        }}
+      >
+        <Container maxWidth="lg">
+          <Stack direction="row" spacing={4} justifyContent="space-between">
+            <Stack spacing={2}>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                }}
+              >
+                Smart Study
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                }}
+              >
+                Subscribe to our newsletter
+              </Typography>
+              <Stack direction="row" spacing={1}>
+                <TextField
+                  variant="outlined"
+                  size="small"
+                  placeholder="Your email"
+                  sx={{
+                    flexGrow: 1,
+                    background: "white",
+                    borderRadius: "10px",
+                    "& .MuiInputBase-input::placeholder": {
+                      color: "black",
+                      fontFamily: "Kanit, sans-serif",
+                      fontWeight: "700",
+                    },
+                  }}
+                />
+                <Button variant="contained" sx={{ borderRadius: "10px" }}>
+                  Submit
+                </Button>
+              </Stack>
+              <Stack direction="row" spacing={1}>
+                <IconButton
+                  href="https://github.com/hamim23z"
+                  target="_blank"
+                  sx={{ color: "white" }}
+                >
+                  <GitHubIcon />
+                </IconButton>
+                <IconButton
+                  href="https://www.linkedin.com/in/hamimc/"
+                  target="_blank"
+                  sx={{ color: "white" }}
+                >
+                  <LinkedInIcon />
+                </IconButton>
+                <IconButton
+                  href="https://instagram.com"
+                  target="_blank"
+                  sx={{ color: "white" }}
+                >
+                  <InstagramIcon />
+                </IconButton>
+                <IconButton
+                  href="https://x.com"
+                  target="_blank"
+                  sx={{ color: "white" }}
+                >
+                  <XIcon />
+                </IconButton>
+              </Stack>
+            </Stack>
+
+            <Stack direction="row" spacing={4}>
+              <Stack spacing={1}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "white",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "900",
+                  }}
+                >
+                  Company
+                </Typography>
+                <Link
+                  href="/aboutus"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "30px",
+                  }}
+                >
+                  About Us
+                </Link>
+                <Link
+                  href="/blog"
+                  target="_blank"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Blog
+                </Link>
+                <Link
+                  href="https://github.com/hamim23z"
+                  target="_blank"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                  }}
+                >
+                  GitHub
+                </Link>
+              </Stack>
+              <Stack spacing={1}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "white",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "900",
+                  }}
+                >
+                  References
+                </Typography>
+                <Link
+                  href="/documentation"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "30px",
+                  }}
+                >
+                  Documentation
+                </Link>
+                <Link
+                  href="/pricing"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Pricing
+                </Link>
+                <Link
+                  href="/demos"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                  }}
+                >
+                  Demos
+                </Link>
+              </Stack>
+              <Stack spacing={1}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "white",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "900",
+                  }}
+                >
+                  Legal
+                </Typography>
+                <Link
+                  href="/privacy"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "30px",
+                  }}
+                >
+                  Privacy
+                </Link>
+                <Link
+                  href="/termsandcond"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Terms and Conditions
+                </Link>
+              </Stack>
+            </Stack>
+          </Stack>
+        </Container>
       </Box>
     </>
   );

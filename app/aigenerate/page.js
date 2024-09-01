@@ -399,6 +399,7 @@ export default function GenerateAI() {
               flexDirection: "row",
               gap: 10,
               paddingTop: "30px",
+              justifyContent: "right"
             }}
           >
             <Button
@@ -410,6 +411,16 @@ export default function GenerateAI() {
               }}
             >
               Generate
+            </Button>
+
+            <Button
+              variant="contained"
+              color="primary"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+              }}
+            >
+              Timer
             </Button>
 
             <Button

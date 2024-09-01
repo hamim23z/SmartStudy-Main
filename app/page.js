@@ -877,10 +877,8 @@ export default function Home() {
         </Box>
       </Box>
 
-
-      
       <Box
-        sx = {{
+        sx={{
           height: "100vh",
           display: "flex",
           alignItems: "center",
@@ -889,43 +887,35 @@ export default function Home() {
           background: "linear-gradient(-270deg, #000000, #2838ae)",
         }}
       >
-        <Typography variant="h2"
-          sx = {{
+        <Typography
+          variant="h2"
+          sx={{
             color: "white",
             fontFamily: "Kanit, sans-serif",
-            fontWeight: "900"
+            fontWeight: "900",
           }}
         >
           Students like you
-          <br/>
+          <br />
           love Smart Study
         </Typography>
-        <Typography variant="caption"
-          sx = {{
+        <Typography
+          variant="caption"
+          sx={{
             color: "white",
             fontFamily: "Kanit, sans-serif",
             fontWeight: "900",
             textTransform: "uppercase",
             textAlign: "center",
-            paddingTop: "20px"
+            paddingTop: "20px",
           }}
         >
           Learn why hundreds and thousands of engineering students love to use
-          Smart Study&apos;s 
-          <br/>
+          Smart Study&apos;s
+          <br />
           intuitive interface to study and ace their exams
         </Typography>
       </Box>
-
-
-
-
-
-
-
-
-
-
 
       {/*Footer*/}
       <Box

@@ -138,19 +138,38 @@ export default function GenerateAI() {
           }}
         >
           {/*Toolbar allows us to write and add elements. Gives the appbar spacing and whatnot*/}
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "Kanit, sans-serif",
-              fontWeight: "900",
-              textTransform: "uppercase",
-            }}
-          >
-            Smart Study
-          </Typography>
+          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+            <Link
+              href="/"
+              passHref
+              style={{
+                textDecoration: "none",
+                display: "block",
+                overflow: "hidden",
+              }}
+            >
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "white",
+                  textTransform: "uppercase",
+                  margin: 0,
+                  padding: 0,
+                }}
+                style={{
+                  color: "white",
+                  textDecoration: "none",
+                }}
+              >
+                Smart Study
+              </Typography>
+            </Link>
+          </Box>
 
           <Box
             sx={{

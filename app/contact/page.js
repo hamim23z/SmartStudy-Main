@@ -112,19 +112,38 @@ export default function Contact() {
           }}
         >
           {/*Toolbar allows us to write and add elements. Gives the appbar spacing and whatnot*/}
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "Kanit, sans-serif",
-              fontWeight: "900",
-              textTransform: "uppercase",
-            }}
-          >
-            Smart Study
-          </Typography>
+          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+            <Link
+              href="/"
+              passHref
+              style={{
+                textDecoration: "none",
+                display: "block",
+                overflow: "hidden",
+              }}
+            >
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "white",
+                  textTransform: "uppercase",
+                  margin: 0,
+                  padding: 0,
+                }}
+                style={{
+                  color: "white",
+                  textDecoration: "none",
+                }}
+              >
+                Smart Study
+              </Typography>
+            </Link>
+          </Box>
 
           <Box
             sx={{
@@ -181,7 +200,8 @@ export default function Contact() {
             </Link>
 
             <Link
-              href="/blog" target="_blank"
+              href="/blog"
+              target="_blank"
               passHref
               style={{
                 color: "white",
@@ -336,7 +356,10 @@ export default function Contact() {
             Contact Us
           </Typography>
 
-          <Typography variant="body1" sx={{ color: "white", mb: 3, fontFamily: "Kanit, sans-serif" }}>
+          <Typography
+            variant="body1"
+            sx={{ color: "white", mb: 3, fontFamily: "Kanit, sans-serif" }}
+          >
             We would love to hear from you! Please fill out the form below with
             any inquiries or suggestions you may have.
           </Typography>

@@ -20,7 +20,7 @@ import Link from "next/link";
 import { keyframes } from "@mui/material";
 import Image from "next/image";
 import chronicleai from "../public/chronicleai.png";
-import { UserButton } from '@stackframe/stack';
+import { UserButton } from "@stackframe/stack";
 
 const slideUpDown = keyframes`
   0% {
@@ -69,22 +69,43 @@ export default function Home() {
             paddingTop: "20px",
             paddingBottom: "20px",
             background: "linear-gradient(-270deg, #000000, #2838ae)",
+            display: "flex",
+            alignItems: "center",
           }}
         >
           {/*Toolbar allows us to write and add elements. Gives the appbar spacing and whatnot*/}
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "Kanit, sans-serif",
-              fontWeight: "900",
-              textTransform: "uppercase",
-            }}
-          >
-            Smart Study
-          </Typography>
+          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+            <Link
+              href="/"
+              passHref
+              style={{
+                textDecoration: "none",
+                display: "block",
+                overflow: "hidden",
+              }}
+            >
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "white",
+                  textTransform: "uppercase",
+                  margin: 0,
+                  padding: 0,
+                }}
+                style={{
+                  color: "white",
+                  textDecoration: "none",
+                }}
+              >
+                Smart Study
+              </Typography>
+            </Link>
+          </Box>
 
           <Box
             sx={{
@@ -273,7 +294,7 @@ export default function Home() {
           flexDirection: "column",
           background: "linear-gradient(-270deg, #000000, #2838ae)",
           position: "relative",
-          overflow: "hidden"
+          overflow: "hidden",
         }}
       >
         <Typography

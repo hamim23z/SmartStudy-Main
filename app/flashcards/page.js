@@ -12,8 +12,10 @@ import {
   IconButton,
   Icon,
   Menu,
-  Card, 
-  Grid, CardContent, CardActionArea
+  Card,
+  Grid,
+  CardContent,
+  CardActionArea,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -65,19 +67,38 @@ export default function Flashcards() {
           }}
         >
           {/*Toolbar allows us to write and add elements. Gives the appbar spacing and whatnot*/}
-          <Typography
-            variant="h6"
-            component="div"
-            sx={{
-              flexGrow: 1,
-              display: { xs: "none", md: "flex" },
-              fontFamily: "Kanit, sans-serif",
-              fontWeight: "900",
-              textTransform: "uppercase",
-            }}
-          >
-            Smart Study
-          </Typography>
+          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+            <Link
+              href="/"
+              passHref
+              style={{
+                textDecoration: "none",
+                display: "block",
+                overflow: "hidden",
+              }}
+            >
+              <Typography
+                variant="h6"
+                component="div"
+                sx={{
+                  flexGrow: 1,
+                  display: { xs: "none", md: "flex" },
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "white",
+                  textTransform: "uppercase",
+                  margin: 0,
+                  padding: 0,
+                }}
+                style={{
+                  color: "white",
+                  textDecoration: "none",
+                }}
+              >
+                Smart Study
+              </Typography>
+            </Link>
+          </Box>
 
           <Box
             sx={{
@@ -134,7 +155,8 @@ export default function Flashcards() {
             </Link>
 
             <Link
-              href="/blog" target="_blank"
+              href="/blog"
+              target="_blank"
               passHref
               style={{
                 color: "white",

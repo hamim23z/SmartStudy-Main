@@ -1,5 +1,4 @@
 "use client";
-import { SignUp } from "@stackframe/stack";
 import { useEffect, useState, MouseEvent } from "react";
 import { useRouter } from "next/navigation";
 import { useStackApp } from "@stackframe/stack";
@@ -69,14 +68,14 @@ export default function CustomSignIn() {
   };
 
   useEffect(() => {
-    const checkAuthStatus = async () => {
-      const isAuthenticated = await app.isAuthenticated();
-      if (isAuthenticated) {
-        router.push("/"); // Redirect to home page if already signed in
+    // Check if user is authenticated
+    const checkAuth = async () => {
+      const user = await app.getUser();
+      if (user) {
+        router.push('/'); // Redirect to home if authenticated
       }
     };
-
-    checkAuthStatus();
+    checkAuth();
   }, [app, router]);
 
   return (

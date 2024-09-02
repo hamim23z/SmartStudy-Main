@@ -13,7 +13,7 @@ import {
   IconButton,
   Icon,
   Menu,
-  Stack
+  Stack,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";

@@ -13,7 +13,7 @@ import {
   IconButton,
   Icon,
   Menu,
-  Stack
+  Stack,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -267,7 +267,6 @@ export default function CustomSignIn() {
       >
         <SignIn></SignIn>
       </Box>
-
 
       {/*Footer*/}
       <Box

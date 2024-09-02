@@ -16,7 +16,7 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  Stack,
+  Stack, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -68,6 +68,51 @@ export default function GenerateSelf() {
     }
   };
 
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  const saveFlashcards = async () => {
+    if (!name) {
+      alert(`Please enter a name for the flashcards!`);
+      return;
+    }
+
+    const batch = writeBatch(db);
+    const userDocRef = doc(collection(db, "users"), user.id);
+    const docSnap = await getDoc(userDocRef);
+
+    if (docSnap.exists()) {
+      const data = docSnap.data();
+      const collections = data.flashcards || [];
+      if (collections.find((f) => f.name === name)) {
+        alert("Flashcard collection with the same name already exists");
+        return;
+      }
+
+      // Update flashcards array with new collection name
+      collections.push({ name });
+      batch.update(userDocRef, { flashcards: collections });
+    } else {
+      // Create new document with flashcards
+      batch.set(userDocRef, { flashcards: [{ name }] });
+    }
+
+    const colRef = collection(userDocRef, name);
+    flashcards.forEach((flashcard) => {
+      const cardDocRef = doc(colRef);
+      batch.set(cardDocRef, flashcard);
+    });
+
+    await batch.commit();
+    handleClose();
+    router.push("/flashcards");
+  };
+
   return (
     <>
       <AppBar
@@ -80,7 +125,7 @@ export default function GenerateSelf() {
           sx={{
             paddingTop: "20px",
             paddingBottom: "20px",
-            background: "linear-gradient(-270deg, #000000, #2838ae)",
+            background: "linear-gradient(270deg, #000000, #2838ae)",
           }}
         >
           {/*Toolbar allows us to write and add elements. Gives the appbar spacing and whatnot*/}
@@ -279,7 +324,7 @@ export default function GenerateSelf() {
       <Box
         sx={{
           padding: "20px",
-          background: "linear-gradient(-270deg, #000000, #2838ae)",
+          background: "linear-gradient(270deg, #000000, #2838ae)",
           minHeight: "100vh",
           boxSizing: "border-box",
           display: "flex",
@@ -352,17 +397,55 @@ export default function GenerateSelf() {
                 background: "white",
               }}
             />
-            <Button
-              variant="contained"
-              color="primary"
-              onClick={handleSubmit}
+            <Box
               sx={{
-                marginTop: "30px",
-                fontFamily: "Kanit, sans-serif",
+                display: "flex",
+                flexDirection: "row",
+                gap: 10,
+                paddingTop: "30px",
+                justifyContent: "center",
               }}
             >
-              Create Card
-            </Button>
+              <Button
+                variant="contained"
+                onClick={handleSubmit}
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                }}
+              >
+                Create Card
+              </Button>
+
+              <Button
+                variant="contained"
+                onClick={handleOpen}
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                }}
+              >
+                Save to Collection
+              </Button>
+
+              <Button
+                variant="contained"
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                }}
+              >
+                Timer
+              </Button>
+
+              <Link href="/aigenerate">
+                <Button
+                  variant="contained"
+                  sx={{
+                    fontFamily: "Kanit, sans-serif",
+                  }}
+                >
+                  Generate using AI
+                </Button>
+              </Link>
+            </Box>
           </Box>
 
           <Grid container spacing={4} sx={{ mt: 4 }}>
@@ -455,6 +538,60 @@ export default function GenerateSelf() {
             ))}
           </Grid>
         </Container>
+
+        <Dialog open={open} onClose={handleClose}>
+            <DialogTitle
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                textTransform: "uppercase",
+              }}
+            >
+              Save Flashcards
+            </DialogTitle>
+
+            <DialogContent>
+              <DialogContentText
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  paddingBottom: "20px",
+                }}
+              >
+                Please enter a name for your flashcards collection.
+              </DialogContentText>
+              <TextField
+                autoFocus
+                margin="dense"
+                label="Collection Name"
+                type="text"
+                fullWidth
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                variant="outlined"
+                required
+              ></TextField>
+            </DialogContent>
+
+            <DialogActions>
+              <Button
+                onClick={handleClose}
+                sx={{
+                  fontWeight: "bold",
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={saveFlashcards}
+                sx={{
+                  fontWeight: "bold",
+                }}
+              >
+                Save
+              </Button>
+            </DialogActions>
+          </Dialog>
       </Box>
 
       {/*Footer*/}
@@ -463,7 +600,7 @@ export default function GenerateSelf() {
         sx={{
           height: "40vh",
           py: 4,
-          background: "linear-gradient(-270deg, #000000, #2838ae)",
+          background: "linear-gradient(270deg, #000000, #2838ae)",
           paddingTop: "100px",
         }}
       >

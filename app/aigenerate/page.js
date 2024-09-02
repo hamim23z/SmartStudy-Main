@@ -399,7 +399,7 @@ export default function GenerateAI() {
               flexDirection: "row",
               gap: 10,
               paddingTop: "30px",
-              justifyContent: "right",
+              justifyContent: "center",
             }}
           >
             <Button
@@ -410,17 +410,7 @@ export default function GenerateAI() {
                 fontFamily: "Kanit, sans-serif",
               }}
             >
-              Generate
-            </Button>
-
-            <Button
-              variant="contained"
-              color="primary"
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-              }}
-            >
-              Timer
+              Generate Cards
             </Button>
 
             <Button
@@ -430,8 +420,27 @@ export default function GenerateAI() {
                 fontFamily: "Kanit, sans-serif",
               }}
             >
-              Save
+              Save to Collection
             </Button>
+
+            <Button
+              variant="contained"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+              }}
+            >
+              Timer
+            </Button>
+
+            <Link href="/selfgenerate">
+              <Button variant="contained"
+                sx = {{
+                  fontFamily: "Kanit, sans-serif"
+                }}
+              >
+                Create your Own
+              </Button>
+            </Link>
           </Box>
 
           {flashcards.length > 0 && (
@@ -604,7 +613,7 @@ export default function GenerateAI() {
         sx={{
           height: "40vh",
           py: 4,
-          background: "linear-gradient(-270deg, #000000, #2838ae)",
+          background: "linear-gradient(270deg, #000000, #2838ae)",
         }}
       >
         <Container maxWidth="lg">

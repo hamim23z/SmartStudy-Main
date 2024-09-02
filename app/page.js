@@ -20,6 +20,7 @@ import Link from "next/link";
 import { keyframes } from "@mui/material";
 import Image from "next/image";
 import chronicleai from "../public/chronicleai.png";
+import { UserButton } from '@stackframe/stack';
 
 const slideUpDown = keyframes`
   0% {

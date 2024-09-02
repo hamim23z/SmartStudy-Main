@@ -72,7 +72,7 @@ export default function CustomSignIn() {
     const checkAuth = async () => {
       const user = await app.getUser();
       if (user) {
-        router.push('/'); // Redirect to home if authenticated
+        router.push("/"); // Redirect to home if authenticated
       }
     };
     checkAuth();
@@ -266,22 +266,7 @@ export default function CustomSignIn() {
                 color: "white",
                 textDecoration: "none",
               }}
-            >
-              <Button
-                color="inherit"
-                sx={{
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
-                  fontSize: "15px",
-                  transition: "transform 0.6s ease-in-out",
-                  "&:hover": {
-                    animation: `${slideUpDown} 0.6s ease-in-out`,
-                  },
-                }}
-              >
-                Sign Up
-              </Button>
-            </Link>
+            ></Link>
           </Box>
         </Toolbar>
       </AppBar>
@@ -305,6 +290,23 @@ export default function CustomSignIn() {
           }}
         >
           Sign up for Smart Study
+        </Typography>
+
+        <Typography variant="h5"
+          sx = {{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            paddingTop: "20px"
+          }}
+        >
+          Already have an account? 
+          <Link href="sign-in"
+            style = {{
+              textDecoration: "none",
+              color: "red"
+            }}
+          > Sign In Here </Link>
         </Typography>
 
         <Box
@@ -404,6 +406,22 @@ export default function CustomSignIn() {
           <Button type="submit" variant="contained">
             Sign Up
           </Button>
+
+          <Typography
+            variant="caption"
+            sx={{
+              textAlign: "center",
+              fontFamily: "Kanit, sans-serif",
+              fontWeight: "900",
+              textTransform: "uppercase",
+              color: "white",
+              paddingTop: "20px",
+              paddingBottom: "10px",
+            }}
+          >
+            Upon signing up, you will be redirected to the create flashcards
+            page.
+          </Typography>
         </Box>
       </Box>
 

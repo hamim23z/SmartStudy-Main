@@ -226,30 +226,6 @@ export default function CustomSignIn() {
             </Link>
 
             <Link
-              href="/sign-in"
-              passHref
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              <Button
-                color="inherit"
-                sx={{
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
-                  fontSize: "15px",
-                  transition: "transform 0.6s ease-in-out",
-                  "&:hover": {
-                    animation: `${slideUpDown} 0.6s ease-in-out`,
-                  },
-                }}
-              >
-                Sign In
-              </Button>
-            </Link>
-
-            <Link
               href="/sign-up"
               passHref
               style={{
@@ -295,6 +271,23 @@ export default function CustomSignIn() {
           }}
         >
           Sign into Smart Study
+        </Typography>
+
+        <Typography variant="h5"
+          sx = {{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            paddingTop: "20px"
+          }}
+        >
+          Need an account? 
+          <Link href="sign-up"
+            style = {{
+              textDecoration: "none",
+              color: "red"
+            }}
+          > Create One Here </Link>
         </Typography>
 
         <Box
@@ -394,6 +387,22 @@ export default function CustomSignIn() {
           <Button type="submit" variant="contained">
             Sign In
           </Button>
+
+          <Typography
+            variant="caption"
+            sx={{
+              textAlign: "center",
+              fontFamily: "Kanit, sans-serif",
+              fontWeight: "900",
+              textTransform: "uppercase",
+              color: "white",
+              paddingTop: "20px",
+              paddingBottom: "10px",
+            }}
+          >
+            Upon signing in, you will be redirected to the create flashcards
+            page.
+          </Typography>
         </Box>
       </Box>
 

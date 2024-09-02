@@ -58,14 +58,16 @@ export default function CustomSignIn() {
       setError("Please enter your password");
       return;
     }
-    // this will redirect to app.urls.afterSignIn if successful, you can customize it in the StackServerApp constructor
     const errorCode = await app.signInWithCredential({ email, password });
-    // It is better to handle each error code separately, but we will just show the error code directly for simplicity here
     if (errorCode) {
       setError(errorCode.message);
     }
   };
 
+  const signOut = async () => {
+    await app.signOut();
+    router.push("/"); // Redirect to home page after sign out
+  };
   return (
     <>
       <AppBar

@@ -1,8 +1,6 @@
 "use client";
 import { SignUp } from "@stackframe/stack";
 import { useEffect, useState, MouseEvent } from "react";
-import { useRouter } from "next/navigation";
-import { useStackApp } from "@stackframe/stack";
 import {
   AppBar,
   Box,
@@ -49,36 +47,6 @@ import XIcon from "@mui/icons-material/X";
 import MenuIcon from "@mui/icons-material/Menu";
 
 export default function CustomSignIn() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const app = useStackApp();
-  const router = useRouter();
-
-  const onSubmit = async () => {
-    if (!password) {
-      setError("Please enter your password");
-      return;
-    }
-    // this will redirect to app.urls.afterSignUp if successful, you can customize it in the StackServerApp constructor
-    const errorCode = await app.signUpWithCredential({ email, password });
-    // It is better to handle each error code separately, but we will just show the error code directly for simplicity here
-    if (errorCode) {
-      setError(errorCode.message);
-    }
-  };
-
-  useEffect(() => {
-    const checkAuthStatus = async () => {
-      const isAuthenticated = await app.isAuthenticated();
-      if (isAuthenticated) {
-        router.push("/"); // Redirect to home page if already signed in
-      }
-    };
-
-    checkAuthStatus();
-  }, [app, router]);
-
   return (
     <>
       <AppBar
@@ -287,126 +255,7 @@ export default function CustomSignIn() {
         </Toolbar>
       </AppBar>
 
-      <Box
-        sx={{
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
-          background: "linear-gradient(270deg, #000000, #2838ae)",
-        }}
-      >
-        <Typography
-          variant="h2"
-          sx={{
-            color: "white",
-            fontFamily: "Kanit, sans-serif",
-            fontWeight: "900",
-          }}
-        >
-          Sign up for Smart Study
-        </Typography>
 
-        <Box
-          sx={{
-            display: "flex",
-            flexDirection: "row",
-            paddingTop: "30px",
-            gap: 2,
-          }}
-        >
-          <Button
-            variant="contained"
-            onClick={async () => {
-              await app.signInWithOAuth("Google");
-            }}
-          >
-            Sign Up with Google
-          </Button>
-          <Button
-            variant="contained"
-            onClick={async () => {
-              await app.signInWithOAuth("github");
-            }}
-          >
-            Sign Up with GitHub
-          </Button>
-          <Button
-            variant="contained"
-            onClick={async () => {
-              await app.signInWithOAuth("microsoft");
-            }}
-          >
-            Sign Up with Microsoft
-          </Button>
-        </Box>
-
-        <Box
-          component="form"
-          onSubmit={(e) => {
-            e.preventDefault();
-            onSubmit();
-          }}
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-            paddingTop: "30px",
-          }}
-        >
-          {error && <Typography color="error">{error}</Typography>}
-
-          <TextField
-            type="email"
-            variant="outlined"
-            placeholder="Your Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            sx={{
-              "& .MuiInputBase-input::placeholder": {
-                color: "black", // Placeholder text color
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-              },
-              "& .MuiInputBase-input": {
-                color: "black", // Color of the input text
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-              },
-              background: "white",
-              width: "900px",
-            }}
-          />
-
-          <TextField
-            type="password"
-            variant="outlined"
-            placeholder="Your Password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            sx={{
-              "& .MuiInputBase-input::placeholder": {
-                color: "black", // Placeholder text color
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-              },
-              "& .MuiInputBase-input": {
-                color: "black", // Color of the input text
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-              },
-              background: "white",
-            }}
-          />
-
-          <Button type="submit" variant="contained">
-            Sign Up
-          </Button>
-        </Box>
-      </Box>
 
       {/*Footer*/}
       <Box

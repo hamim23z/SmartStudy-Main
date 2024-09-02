@@ -20,6 +20,7 @@ import Link from "next/link";
 import { keyframes } from "@mui/material";
 import Image from "next/image";
 import chronicleai from "../public/chronicleai.png";
+import selfgenerate from "../public/selfgenerate.png";
 import { UserButton } from "@stackframe/stack";
 
 const slideUpDown = keyframes`
@@ -454,9 +455,11 @@ export default function Home() {
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
                 height: "300px",
                 display: "flex",
+                flexDirection: "column",
                 alignItems: "flex-start",
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
+                position: "relative",
                 "&:hover": {
                   boxShadow: "0 4px 8px rgba(255, 255, 0, 1)",
                 },
@@ -472,6 +475,7 @@ export default function Home() {
                   paddingTop: "20px",
                   paddingLeft: "15px",
                   fontSize: "18px",
+                  marginBottom: "20px", // Space between text and image
                 }}
               >
                 Customized Cards
@@ -483,11 +487,10 @@ export default function Home() {
                     height: "20px",
                   }}
                 >
-                  <SpeakerNotesIcon></SpeakerNotesIcon>
+                  <SpeakerNotesIcon />
                 </IconButton>
                 <Typography
                   sx={{
-                    paddingTop: "20px",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
                   }}
@@ -496,6 +499,30 @@ export default function Home() {
                   a personalized learning experience. Do it your way.
                 </Typography>
               </Typography>
+
+              <Box
+                sx={{
+                  width: "100%",
+                  height: "150px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  position: "relative",
+                }}
+              >
+                <Image
+                  src={selfgenerate}
+                  alt="Showcase"
+                  sizes="(max-width: 600px) 100vw, 50vw"
+                  style={{
+                    height: "120px",
+                    width: "90%",
+                    objectFit: "cover",
+                    marginBottom: "20px",
+                  }}
+                />
+              </Box>
             </Box>
           </Grid>
 
@@ -601,6 +628,29 @@ export default function Home() {
                   Never worry about running about of topics or problems, thanks
                   to our AI, guiding you to newer topics and problems.
                 </Typography>
+                <Box
+                  sx={{
+                    width: "100%",
+                    height: "170px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    overflow: "hidden",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    src={chronicleai}
+                    alt="Showcase"
+                    sizes="(max-width: 600px) 100vw, 50vw"
+                    style={{
+                      height: "100%", // Set to 100% to fit the height of the Box
+                      width: "100%", // Set to 100% to fit the width of the Box
+                      objectFit: "contain", // Ensures the whole image is visible
+                      marginTop: "0", // Remove margin to ensure full fit
+                    }}
+                  />
+                </Box>
               </Typography>
             </Box>
           </Grid>

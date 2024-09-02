@@ -61,6 +61,22 @@ export default function GenerateAI() {
   const [name, setName] = useState("");
   const [open, setOpen] = useState(false);
 
+  const [openTimer, setOpenTimer] = useState(false);
+  const [timerValue, setTimerValue] = useState("");
+
+  const handleOpenTimer = () => {
+    setOpenTimer(true);
+  };
+
+  const handleCloseTimer = () => {
+    setOpenTimer(false);
+  };
+
+  const handleStartTimer = () => {
+    // Logic to start the timer goes here
+    setOpenTimer(false); // Close the dialog after starting the timer
+  };
+
   const handleSubmit = async () => {
     fetch("api/generate", {
       method: "POST",
@@ -447,9 +463,35 @@ export default function GenerateAI() {
               sx={{
                 fontFamily: "Kanit, sans-serif",
               }}
+              onClick={handleOpenTimer}
             >
               Timer
             </Button>
+
+            <Dialog open={openTimer} onClose={handleCloseTimer}>
+              <DialogTitle>Set a Timer</DialogTitle>
+              <DialogContent>
+                <DialogContentText>
+                  Enter the time in minutes to review the flashcards.
+                </DialogContentText>
+                <TextField
+                  autoFocus
+                  margin="dense"
+                  label="Minutes"
+                  type="number"
+                  fullWidth
+                  variant="outlined"
+                  value={timerValue}
+                  onChange={(e) => setTimerValue(e.target.value)}
+                />
+              </DialogContent>
+              <DialogActions>
+                <Button onClick={handleCloseTimer}>Cancel</Button>
+                <Button onClick={handleStartTimer} variant="contained">
+                  Start
+                </Button>
+              </DialogActions>
+            </Dialog>
 
             <Link href="/selfgenerate">
               <Button

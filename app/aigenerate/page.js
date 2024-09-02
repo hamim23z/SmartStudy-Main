@@ -469,9 +469,24 @@ export default function GenerateAI() {
             </Button>
 
             <Dialog open={openTimer} onClose={handleCloseTimer}>
-              <DialogTitle>Set a Timer</DialogTitle>
+              <DialogTitle
+                sx={{
+                  color: "black",
+                  fontFamily: "Kanit, sans-serif",
+                  textAlign: "center",
+                  fontWeight: "900",
+                  textTransform: "uppercase",
+                }}
+              >
+                Set a Timer
+              </DialogTitle>
               <DialogContent>
-                <DialogContentText>
+                <DialogContentText
+                  sx={{
+                    fontFamily: "Kanit, sans-serif",
+                    paddingBottom: "20px",
+                  }}
+                >
                   Enter the time in minutes to review the flashcards.
                 </DialogContentText>
                 <TextField
@@ -482,6 +497,7 @@ export default function GenerateAI() {
                   fullWidth
                   variant="outlined"
                   value={timerValue}
+                  required
                   onChange={(e) => setTimerValue(e.target.value)}
                 />
               </DialogContent>

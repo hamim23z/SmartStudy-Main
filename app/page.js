@@ -344,6 +344,11 @@ export default function Home() {
                 fontWeight: "700",
                 fontSize: "17px",
                 color: "white",
+                border: "1px solid primary",
+                transition: "0.4s ease-in-out",
+                "&:hover": {
+                  border: "1px solid rgba(145, 83, 209, 1)",
+                },
               }}
             >
               Learn More
@@ -358,6 +363,11 @@ export default function Home() {
                 fontWeight: "700",
                 fontSize: "17px",
                 color: "white",
+                border: "1px solid primary",
+                transition: "0.4s ease-in-out",
+                "&:hover": {
+                  border: "1px solid rgba(145, 83, 209, 1)",
+                },
               }}
             >
               Contact
@@ -372,6 +382,11 @@ export default function Home() {
                 fontWeight: "700",
                 fontSize: "17px",
                 color: "white",
+                border: "1px solid primary",
+                transition: "0.4s ease-in-out",
+                "&:hover": {
+                  border: "1px solid rgba(145, 83, 209, 1)",
+                },
               }}
             >
               Sign In
@@ -386,6 +401,11 @@ export default function Home() {
                 fontWeight: "700",
                 fontSize: "17px",
                 color: "white",
+                border: "1px solid primary",
+                transition: "0.4s ease-in-out",
+                "&:hover": {
+                  border: "1px solid rgba(145, 83, 209, 1)",
+                },
               }}
             >
               Sign Up
@@ -461,7 +481,7 @@ export default function Home() {
                 transition: "box-shadow 0.5s ease-in-out",
                 position: "relative",
                 "&:hover": {
-                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)",
+                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                 },
               }}
             >
@@ -538,7 +558,7 @@ export default function Home() {
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
                 "&:hover": {
-                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)",
+                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                 },
               }}
             >
@@ -591,7 +611,7 @@ export default function Home() {
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
                 "&:hover": {
-                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)",
+                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                 },
               }}
             >
@@ -668,7 +688,7 @@ export default function Home() {
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
                 "&:hover": {
-                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)",
+                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                 },
               }}
             >
@@ -722,7 +742,7 @@ export default function Home() {
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
                 "&:hover": {
-                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)",
+                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                 },
               }}
             >
@@ -775,7 +795,7 @@ export default function Home() {
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
                 "&:hover": {
-                  boxShadow: "0 4px 8px rgba(255, 255, 0, 1)",
+                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                 },
               }}
             >
@@ -881,7 +901,7 @@ export default function Home() {
             position: "relative",
             transition: "box-shadow 0.4s ease-in-out",
             "&:hover": {
-              boxShadow: "0 4px 8px rgba(255, 251, 0, 5)",
+              boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
             },
           }}
         >
@@ -940,6 +960,11 @@ export default function Home() {
                     color: "white",
                     fontWeight: "900",
                     borderRadius: "10px",
+                    border: "1px solid primary",
+                    transition: "0.4s ease-in-out",
+                    "&:hover": {
+                      border: "1px solid rgba(145, 83, 209, 1)",
+                    },
                   }}
                 >
                   Get Started
@@ -1083,7 +1108,7 @@ export default function Home() {
                     color: "white",
                     transition: "color 0.2s ease-in-out",
                     "&:hover": {
-                      color: "purple",
+                      color: "rgba(145, 83, 209, 1)",
                     },
                   }}
                 >
@@ -1096,7 +1121,7 @@ export default function Home() {
                     color: "white",
                     transition: "color 0.2s ease-in-out",
                     "&:hover": {
-                      color: "purple",
+                      color: "rgba(145, 83, 209, 1)",
                     },
                   }}
                 >
@@ -1109,7 +1134,7 @@ export default function Home() {
                     color: "white",
                     transition: "color 0.2s ease-in-out",
                     "&:hover": {
-                      color: "purple",
+                      color: "rgba(145, 83, 209, 1)",
                     },
                   }}
                 >
@@ -1122,7 +1147,7 @@ export default function Home() {
                     color: "white",
                     transition: "color 0.2s ease-in-out",
                     "&:hover": {
-                      color: "purple",
+                      color: "rgba(145, 83, 209, 1)",
                     },
                   }}
                 >

@@ -433,9 +433,10 @@ export default function GenerateAI() {
             </Button>
 
             <Link href="/selfgenerate">
-              <Button variant="contained"
-                sx = {{
-                  fontFamily: "Kanit, sans-serif"
+              <Button
+                variant="contained"
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
                 }}
               >
                 Create your Own

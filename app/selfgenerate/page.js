@@ -16,7 +16,12 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  Stack, Dialog, DialogTitle, DialogContent, DialogActions, DialogContentText
+  Stack,
+  Dialog,
+  DialogTitle,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -53,6 +58,8 @@ export default function GenerateSelf() {
   const [flashcards, setFlashcards] = useState([]);
   const [flipped, setFlipped] = useState({});
   const [newFlashcard, setNewFlashcard] = useState({ front: "", back: "" });
+  const [open, setOpen] = useState(false); // State for dialog visibility
+  const [name, setName] = useState(""); // State for collection name
 
   const handleCardClick = (id) => {
     setFlipped((prev) => ({
@@ -334,6 +341,58 @@ export default function GenerateSelf() {
         }}
       >
         <Container maxWidth="lg">
+          <Dialog open={open} onClose={handleClose}>
+            <DialogTitle
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                textTransform: "uppercase",
+              }}
+            >
+              Save Flashcards
+            </DialogTitle>
+            <DialogContent>
+              <DialogContentText
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  paddingBottom: "20px",
+                }}
+              >
+                Please enter a name for your flashcards collection.
+              </DialogContentText>
+              <TextField
+                autoFocus
+                margin="dense"
+                label="Collection Name"
+                type="text"
+                fullWidth
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                variant="outlined"
+                required
+              />
+            </DialogContent>
+            <DialogActions>
+              <Button
+                onClick={handleClose}
+                sx={{
+                  fontWeight: "bold",
+                }}
+              >
+                Cancel
+              </Button>
+              <Button
+                onClick={saveFlashcards}
+                sx={{
+                  fontWeight: "bold",
+                }}
+              >
+                Save
+              </Button>
+            </DialogActions>
+          </Dialog>
+
           <Box sx={{ mb: 4 }}>
             <Typography
               variant="h3"
@@ -372,7 +431,6 @@ export default function GenerateSelf() {
                 background: "white",
               }}
             />
-
             <TextField
               placeholder="Back"
               variant="outlined"
@@ -415,17 +473,15 @@ export default function GenerateSelf() {
               >
                 Create Card
               </Button>
-
               <Button
                 variant="contained"
-                onClick={handleOpen}
+                onClick={handleOpen} // Show the dialog
                 sx={{
                   fontFamily: "Kanit, sans-serif",
                 }}
               >
                 Save to Collection
               </Button>
-
               <Button
                 variant="contained"
                 sx={{
@@ -434,7 +490,6 @@ export default function GenerateSelf() {
               >
                 Timer
               </Button>
-
               <Link href="/aigenerate">
                 <Button
                   variant="contained"
@@ -538,60 +593,6 @@ export default function GenerateSelf() {
             ))}
           </Grid>
         </Container>
-
-        <Dialog open={open} onClose={handleClose}>
-            <DialogTitle
-              sx={{
-                textAlign: "center",
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: 900,
-                textTransform: "uppercase",
-              }}
-            >
-              Save Flashcards
-            </DialogTitle>
-
-            <DialogContent>
-              <DialogContentText
-                sx={{
-                  fontFamily: "Kanit, sans-serif",
-                  paddingBottom: "20px",
-                }}
-              >
-                Please enter a name for your flashcards collection.
-              </DialogContentText>
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Collection Name"
-                type="text"
-                fullWidth
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                variant="outlined"
-                required
-              ></TextField>
-            </DialogContent>
-
-            <DialogActions>
-              <Button
-                onClick={handleClose}
-                sx={{
-                  fontWeight: "bold",
-                }}
-              >
-                Cancel
-              </Button>
-              <Button
-                onClick={saveFlashcards}
-                sx={{
-                  fontWeight: "bold",
-                }}
-              >
-                Save
-              </Button>
-            </DialogActions>
-          </Dialog>
       </Box>
 
       {/*Footer*/}

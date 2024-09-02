@@ -271,6 +271,8 @@ export default function Home() {
           justifyContent: "center",
           flexDirection: "column",
           background: "linear-gradient(-270deg, #000000, #2838ae)",
+          position: "relative",
+          overflow: "hidden"
         }}
       >
         <Typography

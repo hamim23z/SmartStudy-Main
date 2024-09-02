@@ -519,6 +519,20 @@ export default function GenerateSelf() {
                   Generate using AI
                 </Button>
               </Link>
+
+              <Link
+                href="https://chronicle-ai-omega.vercel.app/chat"
+                target="_blank"
+              >
+                <Button
+                  variant="contained"
+                  sx={{
+                    fontFamily: "Kanit, sans-serif",
+                  }}
+                >
+                  Chat with Chronicle
+                </Button>
+              </Link>
             </Box>
           </Box>
 

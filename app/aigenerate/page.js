@@ -461,6 +461,20 @@ export default function GenerateAI() {
                 Create your Own
               </Button>
             </Link>
+
+            <Link
+              href="https://chronicle-ai-omega.vercel.app/chat"
+              target="_blank"
+            >
+              <Button
+                variant="contained"
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                }}
+              >
+                Chat with Chronicle
+              </Button>
+            </Link>
           </Box>
 
           {flashcards.length > 0 && (

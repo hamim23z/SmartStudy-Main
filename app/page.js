@@ -82,6 +82,13 @@ export default function Home() {
   };
 
   const handleSendMessage = async () => {
+    if (!email.trim()) {
+      // Show Snackbar with error message if the email is empty
+      setSnackbarOpen(true);
+      setEmailError("Please enter a valid email address.");
+      return;
+    }
+
     try {
       // Save the message to Firestore
       await addDoc(collection(db, "Waitlist - Homepage"), {
@@ -89,8 +96,9 @@ export default function Home() {
         timestamp: new Date(),
       });
 
-      // Show Snackbar
+      // Show success Snackbar
       setSnackbarOpen(true);
+      setEmailError(""); // Clear any previous error messages
 
       // Clear form inputs
       setEmail("");
@@ -500,7 +508,10 @@ export default function Home() {
         open={snackbarOpen}
         autoHideDuration={6000}
         onClose={handleSnackbarClose}
-        message="You have successfully signed up for the waitlist! We will reach out when the site is ready, which is very soon!"
+        message={
+          emailError ||
+          "You have successfully signed up for the waitlist! We will reach out when the site is ready, which is very soon!"
+        }
       />
 
       <Box

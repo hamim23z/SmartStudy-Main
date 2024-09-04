@@ -14,6 +14,7 @@ import {
   Icon,
   Menu,
   Stack,
+  Snackbar,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -22,6 +23,8 @@ import Image from "next/image";
 import chronicleai from "../public/chronicleai.png";
 import selfgenerate from "../public/selfgenerate.png";
 import { UserButton } from "@stackframe/stack";
+import { db } from "@/firebase";
+import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
 
 const slideUpDown = keyframes`
   0% {
@@ -57,6 +60,45 @@ import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 
 export default function Home() {
+  const [snackbarOpen, setSnackbarOpen] = useState(false);
+  // State variables for form inputs
+  const [email, setEmail] = useState("");
+  const [emailError, setEmailError] = useState("");
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const handleSnackbarClose = () => {
+    setSnackbarOpen(false);
+  };
+
+  const handleEmailChange = (e) => {
+    const value = e.target.value;
+    setEmail(value);
+
+    if (!emailRegex.test(value)) {
+      setEmailError("Please enter a valid email address.");
+    } else {
+      setEmailError(""); // Clear error if valid
+    }
+  };
+
+  const handleSendMessage = async () => {
+    try {
+      // Save the message to Firestore
+      await addDoc(collection(db, "Waitlist - Homepage"), {
+        email,
+        timestamp: new Date(),
+      });
+
+      // Show Snackbar
+      setSnackbarOpen(true);
+
+      // Clear form inputs
+      setEmail("");
+    } catch (error) {
+      console.error("Error sending message: ", error);
+    }
+  };
+
   return (
     <>
       <AppBar
@@ -412,7 +454,54 @@ export default function Home() {
             </Button>
           </Link>
         </Box>
+        <Stack direction="row" spacing={2} sx={{ paddingTop: "30px" }}>
+          <TextField
+            variant="outlined"
+            size="small"
+            placeholder="Your Email Address"
+            value={email}
+            onChange={handleEmailChange}
+            type="email"
+            error={Boolean(emailError)}
+            helperText={emailError}
+            sx={{
+              width: "350px",
+              flexGrow: 1,
+              background: "white",
+              borderRadius: "10px",
+              "& .MuiInputBase-input::placeholder": {
+                color: "black",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "900",
+              },
+            }}
+          />
+          <Button
+            variant="contained"
+            sx={{
+              borderRadius: "10px",
+              fontFamily: "Kanit, sans-serif",
+              fontWeight: 900,
+              color: "white",
+              background: "primary",
+              transition: "background 0.4s ease-in-out",
+              "&:hover": {
+                background: "rgba(145, 83, 209, 1)",
+              },
+            }}
+            onClick={handleSendMessage}
+          >
+            Join the Waitlist
+          </Button>
+        </Stack>
       </Box>
+
+      <Snackbar
+        open={snackbarOpen}
+        autoHideDuration={6000}
+        onClose={handleSnackbarClose}
+        message="You have successfully signed up for the waitlist! We will reach out when the site is ready, which is very soon!"
+      />
 
       <Box
         sx={{

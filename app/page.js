@@ -462,28 +462,50 @@ export default function Home() {
             </Button>
           </Link>
         </Box>
-        <Stack direction="row" spacing={2} sx={{ paddingTop: "30px" }}>
-          <TextField
-            variant="outlined"
-            size="small"
-            placeholder="Your Email Address"
-            value={email}
-            onChange={handleEmailChange}
-            type="email"
-            error={Boolean(emailError)}
-            helperText={emailError}
-            sx={{
-              width: "350px",
-              flexGrow: 1,
-              background: "white",
-              borderRadius: "10px",
-              "& .MuiInputBase-input::placeholder": {
-                color: "black",
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "900",
-              },
-            }}
-          />
+        <Stack
+          direction="row"
+          spacing={2}
+          sx={{ paddingTop: "30px", alignItems: "flex-start" }}
+        >
+          <Box sx={{ position: "relative", width: "350px" }}>
+            <TextField
+              variant="outlined"
+              size="small"
+              placeholder="Your Email Address"
+              value={email}
+              onChange={handleEmailChange}
+              type="email"
+              error={Boolean(emailError)}
+              helperText={emailError}
+              sx={{
+                width: "100%",
+                background: "white",
+                borderRadius: "10px",
+                "& .MuiInputBase-input::placeholder": {
+                  color: "black",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                },
+                "& .MuiFormHelperText-root": {
+                  position: "absolute",
+                  bottom: "-30px",
+                  left: "50%",
+                  transform: "translateX(-50%)",
+                  textAlign: "center",
+                  fontSize: "12px",
+                  whiteSpace: "nowrap",
+                  fontWeight: "bold",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                },
+                "& .MuiInputBase-input": {
+                  color: "black",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                },
+              }}
+            />
+          </Box>
           <Button
             variant="contained"
             sx={{
@@ -496,6 +518,7 @@ export default function Home() {
               "&:hover": {
                 background: "rgba(145, 83, 209, 1)",
               },
+              height: "40px",
             }}
             onClick={handleSendMessage}
           >
@@ -1192,7 +1215,12 @@ export default function Home() {
                     "& .MuiInputBase-input::placeholder": {
                       color: "black",
                       fontFamily: "Kanit, sans-serif",
-                      fontWeight: "700",
+                      fontWeight: "900",
+                    },
+                    "& .MuiInputBase-input": {
+                      color: "black",
+                      fontFamily: "Kanit, sans-serif",
+                      fontWeight: "900",
                     },
                   }}
                 />

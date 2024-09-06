@@ -629,7 +629,7 @@ export default function Home() {
               <Typography
                 variant="h6"
                 sx={{
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                   textAlign: "left",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
@@ -642,7 +642,7 @@ export default function Home() {
                 Customized Cards
                 <IconButton
                   sx={{
-                    color: "white",
+                    color: "rgba(145, 83, 209, 1)",
                     alignItems: "center",
                     marginBottom: "7px",
                     height: "20px",
@@ -653,7 +653,9 @@ export default function Home() {
                 <Typography
                   sx={{
                     fontFamily: "Kanit, sans-serif",
-                    fontWeight: "400",
+                    fontWeight: "700",
+                    color: "white",
+                    paddingTop: "7px",
                   }}
                 >
                   Create and tailor your own flashcards with no limitations for
@@ -706,7 +708,7 @@ export default function Home() {
               <Typography
                 variant="h6"
                 sx={{
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                   textAlign: "left",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
@@ -718,7 +720,7 @@ export default function Home() {
                 Quizzes & Timers
                 <IconButton
                   sx={{
-                    color: "white",
+                    color: "rgba(145, 83, 209, 1)",
                     alignItems: "center",
                     marginBottom: "6px",
                     height: "20px",
@@ -730,7 +732,9 @@ export default function Home() {
                   sx={{
                     paddingTop: "20px",
                     fontFamily: "Kanit, sans-serif",
-                    fontWeight: "400",
+                    fontWeight: "700",
+                    color: "white",
+                    paddingTop: "7px",
                   }}
                 >
                   You can create your own quiz using your flashcards to track
@@ -759,7 +763,7 @@ export default function Home() {
               <Typography
                 variant="h6"
                 sx={{
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                   textAlign: "left",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
@@ -771,7 +775,7 @@ export default function Home() {
                 AI Brilliance
                 <IconButton
                   sx={{
-                    color: "white",
+                    color: "rgba(145, 83, 209, 1)",
                     alignItems: "center",
                     marginBottom: "7px",
                     height: "20px",
@@ -783,7 +787,10 @@ export default function Home() {
                   sx={{
                     paddingTop: "20px",
                     fontFamily: "Kanit, sans-serif",
-                    fontWeight: "400",
+                    fontWeight: "700",
+                    color: "white",
+                    paddingTop: "7px",
+                    paddingBottom: "10px",
                   }}
                 >
                   Never worry about running about of topics or problems, thanks
@@ -836,7 +843,7 @@ export default function Home() {
               <Typography
                 variant="h6"
                 sx={{
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                   textAlign: "left",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
@@ -848,7 +855,7 @@ export default function Home() {
                 Video Vault
                 <IconButton
                   sx={{
-                    color: "white",
+                    color: "rgba(145, 83, 209, 1)",
                     alignItems: "center",
                     marginBottom: "3px",
                     height: "20px",
@@ -860,7 +867,9 @@ export default function Home() {
                   sx={{
                     paddingTop: "20px",
                     fontFamily: "Kanit, sans-serif",
-                    fontWeight: "400",
+                    fontWeight: "700",
+                    paddingTop: "7px",
+                    color: "white",
                   }}
                 >
                   No need to worry about continuously going on YouTube for
@@ -890,7 +899,7 @@ export default function Home() {
               <Typography
                 variant="h6"
                 sx={{
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                   textAlign: "left",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
@@ -902,7 +911,7 @@ export default function Home() {
                 Custom Control
                 <IconButton
                   sx={{
-                    color: "white",
+                    color: "rgba(145, 83, 209, 1)",
                     alignItems: "center",
                     marginBottom: "3px",
                     height: "20px",
@@ -914,7 +923,9 @@ export default function Home() {
                   sx={{
                     paddingTop: "20px",
                     fontFamily: "Kanit, sans-serif",
-                    fontWeight: "400",
+                    fontWeight: "700",
+                    color: "white",
+                    paddingTop: "7px",
                   }}
                 >
                   Your account, your rules. Choose different themes and
@@ -943,7 +954,7 @@ export default function Home() {
               <Typography
                 variant="h6"
                 sx={{
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                   textAlign: "left",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
@@ -955,7 +966,7 @@ export default function Home() {
                 Study Kit
                 <IconButton
                   sx={{
-                    color: "white",
+                    color: "rgba(145, 83, 209, 1)",
                     alignItems: "center",
                     marginBottom: "3px",
                     height: "20px",
@@ -967,7 +978,9 @@ export default function Home() {
                   sx={{
                     paddingTop: "20px",
                     fontFamily: "Kanit, sans-serif",
-                    fontWeight: "400",
+                    fontWeight: "700",
+                    color: "white",
+                    paddingTop: "7px",
                   }}
                 >
                   Get access to our own study guides, practice tests, and
@@ -1087,7 +1100,7 @@ export default function Home() {
               sx={{
                 fontFamily: "Kanit, sans-serif",
                 fontWeight: "900",
-                color: "white",
+                color: "rgba(145, 83, 209, 1)",
                 marginBottom: "10px",
               }}
             >
@@ -1425,7 +1438,7 @@ export default function Home() {
                 sx={{
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                 }}
               >
                 What is Smart Study?
@@ -1436,7 +1449,7 @@ export default function Home() {
                 sx={{
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "700",
-                  color: "rgba(145, 83, 209, 1)",
+                  color: "white",
                 }}
               >
                 Smart Study is a website where students can create flashcards
@@ -1461,7 +1474,7 @@ export default function Home() {
                 sx={{
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                 }}
               >
                 How do I create flashcards?
@@ -1472,7 +1485,7 @@ export default function Home() {
                 sx={{
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "700",
-                  color: "rgba(145, 83, 209, 1)",
+                  color: "white",
                 }}
               >
                 Creating flashcards has never been easier. Upon logging in, you
@@ -1499,7 +1512,7 @@ export default function Home() {
                 sx={{
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                 }}
               >
                 Can I use pre-made flashcards?
@@ -1510,7 +1523,7 @@ export default function Home() {
                 sx={{
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "700",
-                  color: "rgba(145, 83, 209, 1)",
+                  color: "white",
                 }}
               >
                 Yes! Pre-made flashcards will be available. However, the team is
@@ -1534,7 +1547,7 @@ export default function Home() {
                 sx={{
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                 }}
               >
                 Is Smart Study free to use?
@@ -1545,7 +1558,7 @@ export default function Home() {
                 sx={{
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "700",
-                  color: "rgba(145, 83, 209, 1)",
+                  color: "white",
                 }}
               >
                 Yes, Smart Study is currently free to use. However, we do plan
@@ -1569,7 +1582,7 @@ export default function Home() {
                 sx={{
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                 }}
               >
                 Do you offer customer support?
@@ -1580,7 +1593,7 @@ export default function Home() {
                 sx={{
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "700",
-                  color: "rgba(145, 83, 209, 1)",
+                  color: "white",
                 }}
               >
                 Yes, there are many different ways to contact us. The first
@@ -1657,7 +1670,17 @@ export default function Home() {
                     },
                   }}
                 />
-                <Button variant="contained" sx={{ borderRadius: "10px" }}>
+                <Button
+                  variant="contained"
+                  sx={{
+                    borderRadius: "10px",
+                    background: "primary",
+                    transition: "background 0.4s ease-in-out",
+                    "&:hover": {
+                      background: "rgba(145, 83, 209, 1)",
+                    },
+                  }}
+                >
                   Submit
                 </Button>
               </Stack>

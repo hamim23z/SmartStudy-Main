@@ -372,7 +372,7 @@ export default function Home() {
             fontFamily: "Kanit, sans-serif",
             fontWeight: "900",
             textTransform: "uppercase",
-            color: "white",
+            color: "rgba(145, 83, 209, 1)",
           }}
         >
           To make life a little bit easier for engineering students
@@ -555,17 +555,25 @@ export default function Home() {
         <Typography
           variant="h2"
           sx={{
-            textAlign: "center",
             fontFamily: "Kanit, sans-serif",
             fontWeight: "900",
             textTransform: "uppercase",
             color: "white",
-            marginBottom: "30px",
           }}
         >
-          The new
+          THE NEW
           <br />
-          Premiere Standard
+        </Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            color: "rgba(145, 83, 209, 1)",
+          }}
+        >
+          PREMIERE STANDARD
         </Typography>
 
         <Typography
@@ -577,6 +585,7 @@ export default function Home() {
             textTransform: "uppercase",
             color: "white",
             marginBottom: "50px",
+            paddingTop: "25px",
           }}
         >
           Introducing a new way of building flashcards, getting study materials,
@@ -996,6 +1005,17 @@ export default function Home() {
           >
             Your Smart Study
             <br />
+          </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              fontFamily: "Kanit, sans-serif",
+              fontWeight: "900",
+              textTransform: "uppercase",
+              color: "rgba(145, 83, 209, 1)",
+              paddingBottom: "25px"
+            }}
+          >
             Your ChronicleAI
           </Typography>
 
@@ -1006,7 +1026,7 @@ export default function Home() {
               fontWeight: "900",
               textTransform: "uppercase",
               color: "white",
-              paddingTop: "25px",
+              marginTop: "500px"
             }}
           >
             Get access to your own personalized AI chatbot to help you succeed.
@@ -1122,6 +1142,15 @@ export default function Home() {
         >
           Students like you
           <br />
+        </Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            color: "rgba(145, 83, 209, 1)",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+          }}
+        >
           love Smart Study
         </Typography>
         <Typography

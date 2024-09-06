@@ -1013,7 +1013,7 @@ export default function Home() {
               fontWeight: "900",
               textTransform: "uppercase",
               color: "rgba(145, 83, 209, 1)",
-              paddingBottom: "25px"
+              paddingBottom: "25px",
             }}
           >
             Your ChronicleAI
@@ -1026,7 +1026,7 @@ export default function Home() {
               fontWeight: "900",
               textTransform: "uppercase",
               color: "white",
-              marginTop: "500px"
+              marginTop: "500px",
             }}
           >
             Get access to your own personalized AI chatbot to help you succeed.
@@ -1096,8 +1096,9 @@ export default function Home() {
                 paddingTop: "20px",
               }}
             >
-              Use our AI, ChronicleAI aka Chad to help guide you to new topics,
-              generate flashcards for you, or any engineering advice.
+              Use our AI, ChronicleAI aka Chad, to help guide you to new topics,
+              generate flashcards for you, or any engineering advice you may
+              need.
               <Link href="/sign-up">
                 <Button
                   variant="outlined"
@@ -1169,6 +1170,123 @@ export default function Home() {
           <br />
           intuitive interface to study and ace their exams.
         </Typography>
+
+        <Box
+          sx={{
+            paddingTop: "80px",
+          }}
+        >
+          <Stack spacing={5}>
+            <Box
+              sx={{
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                }}
+              >
+                Organize your Study Materials
+              </Typography>
+              <Typography
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  paddingTop: "15px",
+                }}
+              >
+                Keep all your notes and flashcards in one place. Easy to access.
+                Easy to review. Easy to study smart.
+              </Typography>
+            </Box>
+
+            <Box
+              sx={{
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                }}
+              >
+                Personalize your Learning
+              </Typography>
+              <Typography
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  paddingTop: "15px",
+                }}
+              >
+                Focus on the topics where you need the most help. Use our AI to
+                help make you flashcards.
+              </Typography>
+            </Box>
+
+            <Box
+              sx={{
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                }}
+              >
+                Track your Progress
+              </Typography>
+              <Typography
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  paddingTop: "15px",
+                }}
+              >
+                See how much you&apos;ve improved with practice tests and
+                quizzes. Take a look at our worksheets as well.
+              </Typography>
+            </Box>
+
+            <Box
+              sx={{
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                }}
+              >
+                Watch Videos Directly
+              </Typography>
+              <Typography
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  paddingTop: "15px",
+                }}
+              >
+                We have YouTube videos directly on our website. No need to open
+                any external apps. Videos from <br></br> different websites are
+                coming soon!
+              </Typography>
+            </Box>
+          </Stack>
+        </Box>
       </Box>
 
       <Box

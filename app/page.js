@@ -62,6 +62,11 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import Inventory2Icon from "@mui/icons-material/Inventory2";
+import PersonPinIcon from "@mui/icons-material/PersonPin";
+import PieChartIcon from "@mui/icons-material/PieChart";
+import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
+import TimelapseIcon from "@mui/icons-material/Timelapse";
 
 export default function Home() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -1180,16 +1185,24 @@ export default function Home() {
             <Box
               sx={{
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+                padding: "20px",
+                transition: "box-shadow 0.4s ease-in-out",
+                "&:hover": {
+                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
+                },
               }}
             >
               <Typography
                 sx={{
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
                 }}
               >
                 Organize your Study Materials
+                <Icon sx={{ marginLeft: "15px" }}>
+                  <Inventory2Icon></Inventory2Icon>
+                </Icon>
               </Typography>
               <Typography
                 sx={{
@@ -1207,16 +1220,24 @@ export default function Home() {
             <Box
               sx={{
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+                padding: "20px",
+                transition: "box-shadow 0.4s ease-in-out",
+                "&:hover": {
+                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
+                },
               }}
             >
               <Typography
                 sx={{
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
                 }}
               >
                 Personalize your Learning
+                <Icon sx={{ marginLeft: "10px" }}>
+                  <PersonPinIcon></PersonPinIcon>
+                </Icon>
               </Typography>
               <Typography
                 sx={{
@@ -1234,16 +1255,24 @@ export default function Home() {
             <Box
               sx={{
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+                padding: "20px",
+                transition: "box-shadow 0.4s ease-in-out",
+                "&:hover": {
+                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
+                },
               }}
             >
               <Typography
                 sx={{
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
                 }}
               >
                 Track your Progress
+                <Icon sx={{ marginLeft: "10px" }}>
+                  <PieChartIcon></PieChartIcon>
+                </Icon>
               </Typography>
               <Typography
                 sx={{
@@ -1261,16 +1290,24 @@ export default function Home() {
             <Box
               sx={{
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+                padding: "20px",
+                transition: "box-shadow 0.4s ease-in-out",
+                "&:hover": {
+                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
+                },
               }}
             >
               <Typography
                 sx={{
-                  color: "white",
+                  color: "rgba(145, 83, 209, 1)",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
                 }}
               >
                 Watch Videos Directly
+                <Icon sx={{ marginLeft: "10px" }}>
+                  <VideoLibraryIcon></VideoLibraryIcon>
+                </Icon>
               </Typography>
               <Typography
                 sx={{
@@ -1281,8 +1318,48 @@ export default function Home() {
                 }}
               >
                 We have YouTube videos directly on our website. No need to open
-                any external apps. Videos from <br></br> different websites are
-                coming soon!
+                any external apps. Videos from different websites are coming
+                soon!
+              </Typography>
+            </Box>
+
+            <Box
+              sx={{
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+                padding: "20px",
+                transition: "box-shadow 0.4s ease-in-out",
+                "&:hover": {
+                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
+                },
+              }}
+            >
+              <Typography
+                sx={{
+                  color: "rgba(145, 83, 209, 1)",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                }}
+              >
+                Pomodoro Technique
+                <Icon
+                  sx={{
+                    marginLeft: "10px",
+                  }}
+                >
+                  <TimelapseIcon></TimelapseIcon>
+                </Icon>
+              </Typography>
+              <Typography
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  paddingTop: "15px",
+                }}
+              >
+                Balance your study sessions with Smart Study’s Pomodoro timer,
+                which reminds you to take breaks and stay productive without
+                burning out.
               </Typography>
             </Box>
           </Stack>

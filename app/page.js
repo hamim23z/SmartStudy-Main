@@ -15,6 +15,9 @@ import {
   Menu,
   Stack,
   Snackbar,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -58,6 +61,7 @@ import SmartToyIcon from "@mui/icons-material/SmartToy";
 import YouTubeIcon from "@mui/icons-material/YouTube";
 import DashboardCustomizeIcon from "@mui/icons-material/DashboardCustomize";
 import LibraryBooksIcon from "@mui/icons-material/LibraryBooks";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 export default function Home() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -1140,7 +1144,7 @@ export default function Home() {
 
       <Box
         sx={{
-          height: "100vh",
+          height: "130vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -1170,6 +1174,211 @@ export default function Home() {
         >
           If your question is not listed, please fill out our contact form.
         </Typography>
+
+        {/* FAQ Accordion Section */}
+        <Stack
+          spacing={2}
+          sx={{
+            marginTop: "40px",
+            width: "80%",
+            background: "transparent",
+            borderRadius: "8px",
+            padding: "20px",
+            boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          <Accordion
+            sx={{
+              background: "transparent",
+            }}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "white",
+                }}
+              >
+                What is Smart Study?
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  color: "rgba(145, 83, 209, 1)",
+                }}
+              >
+                Smart Study is a website where students can create flashcards
+                from scratch or use our AI, ChronicleAI, to generate flashcards.
+                Students will also have access to study materials such as
+                YouTube videos, worksheets, and pre-made cards.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion
+            sx={{
+              background: "transparent",
+            }}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel2a-content"
+              id="panel2a-header"
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "white",
+                }}
+              >
+                How do I create flashcards?
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  color: "rgba(145, 83, 209, 1)",
+                }}
+              >
+                Creating flashcards has never been easier. Upon logging in, you
+                will be automatically redirected to the self generate flashcard
+                page. On this page, you can make as many flashcards as you want.
+                There is also a button that redirects you to the AI where you
+                can enter a topic and flashcards will be made for you. All of
+                these flashcards can be saved to your own collection.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion
+            sx={{
+              background: "transparent",
+            }}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel3a-content"
+              id="panel3a-header"
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "white",
+                }}
+              >
+                Can I use pre-made flashcards?
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  color: "rgba(145, 83, 209, 1)",
+                }}
+              >
+                Yes! Pre-made flashcards will be available. However, the team is
+                still working on this feature due to the number of topics. Rest
+                assured, this feature will be available to everyone very soon.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion
+            sx={{
+              background: "transparent",
+            }}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel3a-content"
+              id="panel3a-header"
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "white",
+                }}
+              >
+                Is Smart Study free to use?
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  color: "rgba(145, 83, 209, 1)",
+                }}
+              >
+                Yes, Smart Study is currently free to use. However, we do plan
+                to introduce paid features later down the road as we gain more
+                users and more traction but nothing anytime soon.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion
+            sx={{
+              background: "transparent",
+            }}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon />}
+              aria-controls="panel3a-content"
+              id="panel3a-header"
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "white",
+                }}
+              >
+                Do you offer customer support?
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  color: "rgba(145, 83, 209, 1)",
+                }}
+              >
+                Yes, there are many different ways to contact us. The first
+                being through the
+                <Link
+                  href="/contact"
+                  style={{
+                    textDecoration: "none",
+                    color: "red",
+                  }}
+                >
+                  {" "}
+                  Contact Form{" "}
+                </Link>
+                linked here. It can also be found on the top of every page. The
+                second way to contact us is by emailing us at
+                smartstudycs0@gmail.com. We will respond to your inquiry as soon
+                as possible.
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        </Stack>
       </Box>
 
       {/*Footer*/}

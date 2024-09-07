@@ -46,6 +46,8 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import MenuIcon from "@mui/icons-material/Menu";
+import GoogleIcon from "@mui/icons-material/Google";
+import MicrosoftIcon from "@mui/icons-material/Microsoft";
 
 export default function CustomSignIn() {
   const app = useStackApp();
@@ -327,7 +329,19 @@ export default function CustomSignIn() {
             onClick={async () => {
               await app.signInWithOAuth("Google");
             }}
+            sx={{
+              background: "primary",
+              transition: "0.4s ease-in-out",
+              "&:hover": {
+                background: "rgba(145, 83, 209, 1)",
+              },
+            }}
           >
+            <GoogleIcon
+              sx={{
+                marginRight: "10px",
+              }}
+            ></GoogleIcon>
             Sign In with Google
           </Button>
           <Button
@@ -335,7 +349,19 @@ export default function CustomSignIn() {
             onClick={async () => {
               await app.signInWithOAuth("github");
             }}
+            sx={{
+              background: "primary",
+              transition: "0.4s ease-in-out",
+              "&:hover": {
+                background: "rgba(145, 83, 209, 1)",
+              },
+            }}
           >
+            <GitHubIcon
+              sx={{
+                marginRight: "10px",
+              }}
+            ></GitHubIcon>
             Sign In with GitHub
           </Button>
           <Button
@@ -343,7 +369,19 @@ export default function CustomSignIn() {
             onClick={async () => {
               await app.signInWithOAuth("microsoft");
             }}
+            sx={{
+              background: "primary",
+              transition: "0.4s ease-in-out",
+              "&:hover": {
+                background: "rgba(145, 83, 209, 1)",
+              },
+            }}
           >
+            <MicrosoftIcon
+              sx={{
+                marginRight: "10px",
+              }}
+            ></MicrosoftIcon>
             Sign In with Microsoft
           </Button>
         </Box>
@@ -408,7 +446,17 @@ export default function CustomSignIn() {
             }}
           />
 
-          <Button type="submit" variant="contained">
+          <Button
+            type="submit"
+            variant="contained"
+            sx={{
+              background: "primary",
+              transition: "0.4s ease-in-out",
+              "&:hover": {
+                background: "rgba(145, 83, 209, 1)",
+              },
+            }}
+          >
             Sign In
           </Button>
 

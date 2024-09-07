@@ -122,6 +122,63 @@ export default function Home() {
     }
   };
 
+  {
+    /*For the Newsletter Submit Button*/
+  }
+  const [snackbarOpenNews, setSnackbarOpenNews] = useState(false);
+  // State variables for form inputs
+  const [emailNews, setEmailNews] = useState("");
+  const [emailErrorNews, setEmailErrorNews] = useState("");
+  const emailRegexNews = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const handleSnackbarCloseNews = () => {
+    setSnackbarOpenNews(false);
+  };
+
+  const handleEmailChangeNews = (e) => {
+    const value = e.target.value;
+    setEmailNews(value);
+
+    if (!emailRegexNews.test(value)) {
+      setEmailErrorNews("Please enter a valid email address.");
+    } else {
+      setEmailErrorNews(""); // Clear error if valid
+    }
+  };
+
+  const handleSendMessageNews = async () => {
+    if (!emailNews.trim()) {
+      // Show Snackbar with error message if the email is empty
+      setSnackbarOpenNews(true);
+      setEmailErrorNews("Please enter a valid email address.");
+      return;
+    }
+
+    if (!emailRegexNews.test(emailNews)) {
+      // Show Snackbar with error message if the email is not valid
+      setSnackbarOpenNews(true);
+      setEmailErrorNews("Please enter a valid email address.");
+      return;
+    }
+
+    try {
+      // Save the message to Firestore
+      await addDoc(collection(db, "Newsletter - Homepage"), {
+        email: emailNews,
+        timestamp: new Date(),
+      });
+
+      // Show success Snackbar
+      setSnackbarOpenNews(true);
+      setEmailErrorNews(""); // Clear any previous error messages
+
+      // Clear form inputs
+      setEmailNews("");
+    } catch (error) {
+      console.error("Error sending message: ", error);
+    }
+  };
+
   return (
     <>
       <AppBar
@@ -1712,6 +1769,7 @@ export default function Home() {
                 sx={{
                   color: "white",
                   fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
                 }}
               >
                 Subscribe to our newsletter
@@ -1721,6 +1779,9 @@ export default function Home() {
                   variant="outlined"
                   size="small"
                   placeholder="Your email"
+                  value={emailNews}
+                  onChange={handleEmailChangeNews}
+                  type="email"
                   sx={{
                     flexGrow: 1,
                     background: "white",
@@ -1747,10 +1808,22 @@ export default function Home() {
                       background: "rgba(145, 83, 209, 1)",
                     },
                   }}
+                  onClick={handleSendMessageNews}
                 >
                   Submit
                 </Button>
               </Stack>
+
+              <Snackbar
+                open={snackbarOpenNews}
+                autoHideDuration={6000}
+                onClose={handleSnackbarCloseNews}
+                message={
+                  emailErrorNews ||
+                  "You have successfully signed up for the newsletter!"
+                }
+              />
+
               <Stack direction="row" spacing={1}>
                 <IconButton
                   href="https://github.com/hamim23z"

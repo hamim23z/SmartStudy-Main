@@ -420,7 +420,7 @@ export default function CustomSignIn() {
                 fontWeight: "700",
               },
               background: "white",
-              width: "700px",
+              width: "705px",
             }}
           />
 

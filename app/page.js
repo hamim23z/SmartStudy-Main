@@ -72,6 +72,7 @@ import PersonPinIcon from "@mui/icons-material/PersonPin";
 import PieChartIcon from "@mui/icons-material/PieChart";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import TimelapseIcon from "@mui/icons-material/Timelapse";
+import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 
 export default function Home() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -642,26 +643,17 @@ export default function Home() {
                   paddingTop: "20px",
                   paddingLeft: "15px",
                   fontSize: "18px",
-                  marginBottom: "20px", // Space between text and image
+                  marginBottom: "20px",
                 }}
               >
                 Customized Cards
-                <IconButton
-                  sx={{
-                    color: "rgba(145, 83, 209, 1)",
-                    alignItems: "center",
-                    marginBottom: "7px",
-                    height: "20px",
-                  }}
-                >
-                  <SpeakerNotesIcon />
-                </IconButton>
                 <Typography
                   sx={{
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "700",
                     color: "white",
                     paddingTop: "7px",
+                    textAlign: "left",
                   }}
                 >
                   Create and tailor your own flashcards with no limitations for
@@ -680,17 +672,16 @@ export default function Home() {
                   position: "relative",
                 }}
               >
-                <Image
-                  src={selfgenerate}
-                  alt="Showcase"
-                  sizes="(max-width: 600px) 100vw, 50vw"
-                  style={{
-                    height: "120px",
-                    width: "90%",
-                    objectFit: "cover",
-                    marginBottom: "20px",
+                <IconButton
+                  sx={{
+                    color: "rgba(145, 83, 209, 1)",
+                    alignItems: "center",
+                    marginBottom: "7px",
+                    fontSize: "95px", // Increase icon size
                   }}
-                />
+                >
+                  <SpeakerNotesIcon sx={{ fontSize: "inherit" }} />
+                </IconButton>
               </Box>
             </Box>
           </Grid>
@@ -723,20 +714,10 @@ export default function Home() {
                   paddingTop: "20px",
                   paddingLeft: "15px",
                   fontSize: "18px",
-                  marginBottom: "20px", // Space between text and image
+                  marginBottom: "20px",
                 }}
               >
                 Quizzes & Timers
-                <IconButton
-                  sx={{
-                    color: "rgba(145, 83, 209, 1)",
-                    alignItems: "center",
-                    marginBottom: "7px",
-                    height: "20px",
-                  }}
-                >
-                  <TimerIcon></TimerIcon>
-                </IconButton>
                 <Typography
                   sx={{
                     fontFamily: "Kanit, sans-serif",
@@ -745,8 +726,9 @@ export default function Home() {
                     paddingTop: "7px",
                   }}
                 >
-                  Create and tailor your own flashcards with no limitations for
-                  a personalized learning experience. Do it your way.
+                  Use our timer to test your skills under pressure. Also have
+                  access to our Pomodoro Technique. Quizzes are in our study
+                  kit!
                 </Typography>
               </Typography>
 
@@ -761,17 +743,17 @@ export default function Home() {
                   position: "relative",
                 }}
               >
-                <Image
-                  src={smartstudytimer}
-                  alt="Showcase"
-                  sizes="(max-width: 600px) 100vw, 50vw"
-                  style={{
-                    height: "120px",
-                    width: "90%",
-                    objectFit: "cover",
-                    marginBottom: "20px",
+                <IconButton
+                  sx={{
+                    color: "rgba(145, 83, 209, 1)",
+                    alignItems: "center",
+                    marginBottom: "7px",
+                    height: "20px",
+                    fontSize: "95px",
                   }}
-                />
+                >
+                  <TimerIcon sx={{ fontSize: "inherit" }}></TimerIcon>
+                </IconButton>
               </Box>
             </Box>
           </Grid>
@@ -805,16 +787,6 @@ export default function Home() {
                 }}
               >
                 AI Brilliance
-                <IconButton
-                  sx={{
-                    color: "rgba(145, 83, 209, 1)",
-                    alignItems: "center",
-                    marginBottom: "7px",
-                    height: "20px",
-                  }}
-                >
-                  <SmartToyIcon></SmartToyIcon>
-                </IconButton>
                 <Typography
                   sx={{
                     paddingTop: "20px",
@@ -825,8 +797,11 @@ export default function Home() {
                     paddingBottom: "10px",
                   }}
                 >
-                  Never worry about running about of topics or problems, thanks
-                  to our AI, guiding you to newer topics and problems.
+                  Never worry about running out of topics to study. Thanks to
+                  our own AI, you can generate your own flashcards, ask it
+                  anything, and can even use it to help study along side with
+                  you! ChronicleAI is integrated both in the website and
+                  externally.
                 </Typography>
                 <Box
                   sx={{
@@ -839,17 +814,17 @@ export default function Home() {
                     position: "relative",
                   }}
                 >
-                  <Image
-                    src={chronicleai}
-                    alt="Showcase"
-                    sizes="(max-width: 600px) 100vw, 50vw"
-                    style={{
-                      height: "100%", // Set to 100% to fit the height of the Box
-                      width: "100%", // Set to 100% to fit the width of the Box
-                      objectFit: "contain", // Ensures the whole image is visible
-                      marginTop: "0", // Remove margin to ensure full fit
+                  <IconButton
+                    sx={{
+                      color: "rgba(145, 83, 209, 1)",
+                      alignItems: "center",
+                      marginBottom: "25px",
+                      height: "20px",
+                      fontSize: "95px",
                     }}
-                  />
+                  >
+                    <SmartToyIcon sx={{ fontSize: "inherit" }}></SmartToyIcon>
+                  </IconButton>
                 </Box>
               </Typography>
             </Box>
@@ -884,16 +859,6 @@ export default function Home() {
                 }}
               >
                 Video Vault
-                <IconButton
-                  sx={{
-                    color: "rgba(145, 83, 209, 1)",
-                    alignItems: "center",
-                    marginBottom: "7px",
-                    height: "20px",
-                  }}
-                >
-                  <YouTubeIcon></YouTubeIcon>
-                </IconButton>
                 <Typography
                   sx={{
                     paddingTop: "20px",
@@ -906,7 +871,8 @@ export default function Home() {
                 >
                   No need to worry about continuously going on YouTube for
                   videos, we have videos for nearly every engineering major
-                  directly on our website.
+                  directly on our website. Videos are updated at the end of
+                  every month.
                 </Typography>
                 <Box
                   sx={{
@@ -919,17 +885,17 @@ export default function Home() {
                     position: "relative",
                   }}
                 >
-                  <Image
-                    src={videovaultcomingsoon}
-                    alt="Showcase"
-                    sizes="(max-width: 600px) 100vw, 50vw"
-                    style={{
-                      height: "100%", // Set to 100% to fit the height of the Box
-                      width: "100%", // Set to 100% to fit the width of the Box
-                      objectFit: "contain", // Ensures the whole image is visible
-                      marginTop: "0", // Remove margin to ensure full fit
+                  <IconButton
+                    sx={{
+                      color: "rgba(145, 83, 209, 1)",
+                      alignItems: "center",
+                      marginBottom: "7px",
+                      height: "20px",
+                      fontSize: "95px",
                     }}
-                  />
+                  >
+                    <YouTubeIcon sx={{ fontSize: "inherit" }}></YouTubeIcon>
+                  </IconButton>
                 </Box>
               </Typography>
             </Box>
@@ -967,16 +933,6 @@ export default function Home() {
                 }}
               >
                 Custom Control
-                <IconButton
-                  sx={{
-                    color: "rgba(145, 83, 209, 1)",
-                    alignItems: "center",
-                    marginBottom: "7px",
-                    height: "20px",
-                  }}
-                >
-                  <LibraryBooksIcon></LibraryBooksIcon>
-                </IconButton>
                 <Typography
                   sx={{
                     fontFamily: "Kanit, sans-serif",
@@ -1001,17 +957,19 @@ export default function Home() {
                   position: "relative",
                 }}
               >
-                <Image
-                  src={dashboard}
-                  alt="Showcase"
-                  sizes="(max-width: 600px) 100vw, 50vw"
-                  style={{
-                    height: "120px",
-                    width: "90%",
-                    objectFit: "cover",
-                    marginBottom: "20px",
+                <IconButton
+                  sx={{
+                    color: "rgba(145, 83, 209, 1)",
+                    alignItems: "center",
+                    marginBottom: "7px",
+                    height: "20px",
+                    fontSize: "95px",
                   }}
-                />
+                >
+                  <DashboardCustomizeIcon
+                    sx={{ fontSize: "inherit" }}
+                  ></DashboardCustomizeIcon>
+                </IconButton>
               </Box>
             </Box>
           </Grid>
@@ -1048,16 +1006,6 @@ export default function Home() {
                 }}
               >
                 Study Kit
-                <IconButton
-                  sx={{
-                    color: "rgba(145, 83, 209, 1)",
-                    alignItems: "center",
-                    marginBottom: "7px",
-                    height: "20px",
-                  }}
-                >
-                  <LibraryBooksIcon></LibraryBooksIcon>
-                </IconButton>
                 <Typography
                   sx={{
                     fontFamily: "Kanit, sans-serif",
@@ -1082,17 +1030,19 @@ export default function Home() {
                   position: "relative",
                 }}
               >
-                <Image
-                  src={studykitcomingsoon}
-                  alt="Showcase"
-                  sizes="(max-width: 600px) 100vw, 50vw"
-                  style={{
-                    height: "120px",
-                    width: "90%",
-                    objectFit: "cover",
-                    marginBottom: "20px",
+                <IconButton
+                  sx={{
+                    color: "rgba(145, 83, 209, 1)",
+                    alignItems: "center",
+                    marginBottom: "7px",
+                    height: "20px",
+                    fontSize: "95px",
                   }}
-                />
+                >
+                  <LibraryBooksIcon
+                    sx={{ fontSize: "inherit" }}
+                  ></LibraryBooksIcon>
+                </IconButton>
               </Box>
             </Box>
           </Grid>

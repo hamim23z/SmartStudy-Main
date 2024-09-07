@@ -26,6 +26,9 @@ import Image from "next/image";
 import chronicleai from "../public/chronicleai.png";
 import selfgenerate from "../public/selfgenerate.png";
 import smartstudytimer from "../public/smartstudytimer.png";
+import studykitcomingsoon from "../public/studykitcomingsoon.png";
+import videovaultcomingsoon from "../public/videovaultcomingsoon.png";
+import dashboard from "../public/dashboard.png";
 import { UserButton } from "@stackframe/stack";
 import { db } from "@/firebase";
 import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
@@ -855,7 +858,6 @@ export default function Home() {
           <Grid item xs={12} sm={6} md={6}>
             <Box
               sx={{
-                background: "#1e88e5",
                 background: "transparent",
                 borderRadius: "10px",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
@@ -886,7 +888,7 @@ export default function Home() {
                   sx={{
                     color: "rgba(145, 83, 209, 1)",
                     alignItems: "center",
-                    marginBottom: "3px",
+                    marginBottom: "7px",
                     height: "20px",
                   }}
                 >
@@ -897,14 +899,38 @@ export default function Home() {
                     paddingTop: "20px",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "700",
-                    paddingTop: "7px",
                     color: "white",
+                    paddingTop: "7px",
+                    paddingBottom: "10px",
                   }}
                 >
                   No need to worry about continuously going on YouTube for
                   videos, we have videos for nearly every engineering major
                   directly on our website.
                 </Typography>
+                <Box
+                  sx={{
+                    width: "100%",
+                    height: "170px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    overflow: "hidden",
+                    position: "relative",
+                  }}
+                >
+                  <Image
+                    src={videovaultcomingsoon}
+                    alt="Showcase"
+                    sizes="(max-width: 600px) 100vw, 50vw"
+                    style={{
+                      height: "100%", // Set to 100% to fit the height of the Box
+                      width: "100%", // Set to 100% to fit the width of the Box
+                      objectFit: "contain", // Ensures the whole image is visible
+                      marginTop: "0", // Remove margin to ensure full fit
+                    }}
+                  />
+                </Box>
               </Typography>
             </Box>
           </Grid>
@@ -913,13 +939,15 @@ export default function Home() {
             <Box
               sx={{
                 background: "transparent",
+                borderRadius: "10px",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
                 height: "300px",
-                borderRadius: "10px",
                 display: "flex",
+                flexDirection: "column",
                 alignItems: "flex-start",
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
+                position: "relative",
                 "&:hover": {
                   boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                 },
@@ -935,6 +963,7 @@ export default function Home() {
                   paddingTop: "20px",
                   paddingLeft: "15px",
                   fontSize: "18px",
+                  marginBottom: "20px", // Space between text and image
                 }}
               >
                 Custom Control
@@ -942,15 +971,14 @@ export default function Home() {
                   sx={{
                     color: "rgba(145, 83, 209, 1)",
                     alignItems: "center",
-                    marginBottom: "3px",
+                    marginBottom: "7px",
                     height: "20px",
                   }}
                 >
-                  <DashboardCustomizeIcon></DashboardCustomizeIcon>
+                  <LibraryBooksIcon></LibraryBooksIcon>
                 </IconButton>
                 <Typography
                   sx={{
-                    paddingTop: "20px",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "700",
                     color: "white",
@@ -961,6 +989,30 @@ export default function Home() {
                   customize your experience.
                 </Typography>
               </Typography>
+
+              <Box
+                sx={{
+                  width: "100%",
+                  height: "150px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  position: "relative",
+                }}
+              >
+                <Image
+                  src={dashboard}
+                  alt="Showcase"
+                  sizes="(max-width: 600px) 100vw, 50vw"
+                  style={{
+                    height: "120px",
+                    width: "90%",
+                    objectFit: "cover",
+                    marginBottom: "20px",
+                  }}
+                />
+              </Box>
             </Box>
           </Grid>
 
@@ -972,9 +1024,11 @@ export default function Home() {
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
                 height: "300px",
                 display: "flex",
+                flexDirection: "column",
                 alignItems: "flex-start",
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
+                position: "relative",
                 "&:hover": {
                   boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                 },
@@ -990,6 +1044,7 @@ export default function Home() {
                   paddingTop: "20px",
                   paddingLeft: "15px",
                   fontSize: "18px",
+                  marginBottom: "20px", // Space between text and image
                 }}
               >
                 Study Kit
@@ -997,7 +1052,7 @@ export default function Home() {
                   sx={{
                     color: "rgba(145, 83, 209, 1)",
                     alignItems: "center",
-                    marginBottom: "3px",
+                    marginBottom: "7px",
                     height: "20px",
                   }}
                 >
@@ -1005,7 +1060,6 @@ export default function Home() {
                 </IconButton>
                 <Typography
                   sx={{
-                    paddingTop: "20px",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "700",
                     color: "white",
@@ -1016,6 +1070,30 @@ export default function Home() {
                   numerous tips to succeed.
                 </Typography>
               </Typography>
+
+              <Box
+                sx={{
+                  width: "100%",
+                  height: "150px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  position: "relative",
+                }}
+              >
+                <Image
+                  src={studykitcomingsoon}
+                  alt="Showcase"
+                  sizes="(max-width: 600px) 100vw, 50vw"
+                  style={{
+                    height: "120px",
+                    width: "90%",
+                    objectFit: "cover",
+                    marginBottom: "20px",
+                  }}
+                />
+              </Box>
             </Box>
           </Grid>
         </Grid>

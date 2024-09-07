@@ -1554,7 +1554,7 @@ export default function Home() {
             }}
           >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon sx = {{color: "white"}}></ExpandMoreIcon>}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
@@ -1590,7 +1590,7 @@ export default function Home() {
             }}
           >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon sx = {{color: "white"}}></ExpandMoreIcon>}
               aria-controls="panel2a-content"
               id="panel2a-header"
             >
@@ -1628,7 +1628,7 @@ export default function Home() {
             }}
           >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon sx = {{color: "white"}}></ExpandMoreIcon>}
               aria-controls="panel3a-content"
               id="panel3a-header"
             >
@@ -1663,7 +1663,7 @@ export default function Home() {
             }}
           >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon sx = {{color: "white"}}></ExpandMoreIcon>}
               aria-controls="panel3a-content"
               id="panel3a-header"
             >
@@ -1698,7 +1698,7 @@ export default function Home() {
             }}
           >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon />}
+              expandIcon={<ExpandMoreIcon sx = {{color: "white"}}></ExpandMoreIcon>}
               aria-controls="panel3a-content"
               id="panel3a-header"
             >

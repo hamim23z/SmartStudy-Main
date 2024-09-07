@@ -25,9 +25,11 @@ import { keyframes } from "@mui/material";
 import Image from "next/image";
 import chronicleai from "../public/chronicleai.png";
 import selfgenerate from "../public/selfgenerate.png";
+import smartstudytimer from "../public/smartstudytimer.png";
 import { UserButton } from "@stackframe/stack";
 import { db } from "@/firebase";
 import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
+import WhiteRain from "./components/whiterain";
 
 const slideUpDown = keyframes`
   0% {
@@ -546,6 +548,7 @@ export default function Home() {
         }
       />
 
+      {/*BENTO BOX SECTION*/}
       <Box
         sx={{
           height: "100vh",
@@ -697,9 +700,11 @@ export default function Home() {
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
                 height: "300px",
                 display: "flex",
+                flexDirection: "column",
                 alignItems: "flex-start",
                 justifyContent: "flex-start",
                 transition: "box-shadow 0.5s ease-in-out",
+                position: "relative",
                 "&:hover": {
                   boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                 },
@@ -715,6 +720,7 @@ export default function Home() {
                   paddingTop: "20px",
                   paddingLeft: "15px",
                   fontSize: "18px",
+                  marginBottom: "20px", // Space between text and image
                 }}
               >
                 Quizzes & Timers
@@ -722,7 +728,7 @@ export default function Home() {
                   sx={{
                     color: "rgba(145, 83, 209, 1)",
                     alignItems: "center",
-                    marginBottom: "6px",
+                    marginBottom: "7px",
                     height: "20px",
                   }}
                 >
@@ -730,17 +736,40 @@ export default function Home() {
                 </IconButton>
                 <Typography
                   sx={{
-                    paddingTop: "20px",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "700",
                     color: "white",
                     paddingTop: "7px",
                   }}
                 >
-                  You can create your own quiz using your flashcards to track
-                  your progress. And you can start a timer to really focus!
+                  Create and tailor your own flashcards with no limitations for
+                  a personalized learning experience. Do it your way.
                 </Typography>
               </Typography>
+
+              <Box
+                sx={{
+                  width: "100%",
+                  height: "150px",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  position: "relative",
+                }}
+              >
+                <Image
+                  src={smartstudytimer}
+                  alt="Showcase"
+                  sizes="(max-width: 600px) 100vw, 50vw"
+                  style={{
+                    height: "120px",
+                    width: "90%",
+                    objectFit: "cover",
+                    marginBottom: "20px",
+                  }}
+                />
+              </Box>
             </Box>
           </Grid>
 

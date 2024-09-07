@@ -584,7 +584,7 @@ export default function Home() {
             color: "rgba(145, 83, 209, 1)",
           }}
         >
-          PREMIERE STANDARD
+          PREMIERE STANDARD.
         </Typography>
 
         <Typography
@@ -1141,7 +1141,7 @@ export default function Home() {
               paddingBottom: "25px",
             }}
           >
-            Your ChronicleAI
+            Your ChronicleAI.
           </Typography>
 
           <Typography
@@ -1277,7 +1277,7 @@ export default function Home() {
             fontWeight: "900",
           }}
         >
-          love Smart Study
+          love Smart Study.
         </Typography>
         <Typography
           variant="caption"
@@ -1505,6 +1505,16 @@ export default function Home() {
           }}
         >
           Frequently Asked Questions
+        </Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            color: "rgba(145, 83, 209, 1)",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+          }}
+        >
+          You ask. We Answer.
         </Typography>
         <Typography
           variant="caption"

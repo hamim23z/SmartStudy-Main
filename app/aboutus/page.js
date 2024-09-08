@@ -12,11 +12,12 @@ import {
   IconButton,
   Icon,
   Menu,
-  Stack
+  Stack,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
+import FloatingText from "../components/floatingtext";
 
 const slideUpDown = keyframes`
   0% {
@@ -275,14 +276,124 @@ export default function About() {
 
       <Box
         sx={{
-          height: "100vh",
+          height: "90vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
           background: "linear-gradient(270deg, #000000, #2838ae)",
         }}
-      ></Box>
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            color: "rgba(145, 83, 209, 1)",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: 900,
+            textAlign: "center",
+          }}
+        >
+          About Us
+        </Typography>
+
+        <Typography
+          variant="h6"
+          sx={{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: 700,
+            textAlign: "center",
+            maxWidth: "800px",
+            paddingTop: "30px",
+            fontSize: "18px",
+          }}
+        >
+          At Smart Study, our mission is to revolutionize the way engineering
+          students learn and access support. By offering a comprehensive
+          platform tailored specifically for computer science and computer
+          engineering students — while supporting all branches of engineering —
+          we aim to make learning easier, intuitive, and impactful.
+        </Typography>
+
+        <Typography
+          variant="h6"
+          sx={{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: 700,
+            textAlign: "center",
+            maxWidth: "800px",
+            paddingTop: "30px",
+            fontSize: "18px",
+          }}
+        >
+          We believe that learning should be more than just reading textbooks or
+          attending lectures. You can&apos;t do well in a class without
+          studying. And studying isn&apos;t just watching YouTube videos for
+          hours, it requires practice, memorization, and dedication. Smart Study
+          is committed to leading this evolution by providing a user-friendly,
+          modern solution that puts students needs first.
+        </Typography>
+
+        <Typography
+          variant="h6"
+          sx={{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: 700,
+            textAlign: "center",
+            maxWidth: "800px",
+            paddingTop: "30px",
+            fontSize: "18px",
+          }}
+        >
+          Within today&apos;s day and age, the number of students majoring or
+          planning to major in Computer Science or Computer Engineering is
+          massive. Some of the information online such as textbooks or videos
+          are outdated and it can be a hassle to find an up to date version.
+          Smart Study does that for you.
+        </Typography>
+
+        <Typography
+          variant="h6"
+          sx={{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: 700,
+            textAlign: "center",
+            maxWidth: "800px",
+            paddingTop: "30px",
+            fontSize: "18px",
+          }}
+        >
+          Our platform is designed to keep you ahead, because your success is
+          our mission.
+        </Typography>
+      </Box>
+
+      <Box
+        sx={{
+          height: "90vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+          background: "linear-gradient(270deg, #000000, #2838ae)",
+          position: "relative",
+          overflow: "hidden",
+        }}
+      >
+        <FloatingText
+          text="Smart Study"
+          sx={{
+            color: "white",
+            textShadow: "2px 2px 4px rgba(0,0,0,0.5)",
+            fontFamily: "Kanit, sans-serif",
+            textTransform: "uppercase",
+            fontWeight: 900,
+          }}
+        />
+      </Box>
 
       {/*Footer*/}
       <Box

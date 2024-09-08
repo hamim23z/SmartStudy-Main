@@ -45,7 +45,7 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import MenuIcon from "@mui/icons-material/Menu";
 
-export default function Pricing() {
+export default function StudyKit() {
   return (
     <>
       <AppBar

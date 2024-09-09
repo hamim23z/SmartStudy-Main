@@ -405,6 +405,8 @@ export default function Home() {
                 Sign Up
               </Button>
             </Link>
+
+            <UserButton></UserButton>
           </Box>
         </Toolbar>
       </AppBar>

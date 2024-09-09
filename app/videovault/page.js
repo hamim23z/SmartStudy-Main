@@ -126,7 +126,8 @@ export default function VideoVault() {
             </Link>
 
             <Link
-              href="/documentation"
+              href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
+              target="_blank"
               passHref
               style={{
                 color: "white",
@@ -308,7 +309,6 @@ export default function VideoVault() {
         </Typography>
       </Box>
 
-
       {/*Footer*/}
       <Box
         component="footer"
@@ -484,7 +484,8 @@ export default function VideoVault() {
                   References
                 </Typography>
                 <Link
-                  href="/documentation"
+                  href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
+                  target="_blank"
                   style={{
                     color: "white",
                     textDecoration: "none",

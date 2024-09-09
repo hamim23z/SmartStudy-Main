@@ -542,10 +542,12 @@ export default function GenerateAI() {
                   <Grid item xs={12} sm={6} md={4} lg={3} key={index}>
                     <Card
                       sx={{
-                        display: "flex",
-                        flexDirection: "column",
-                        height: "100%",
-                        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                        maxWidth: 800,
+                        maxHeight: 400, // Adjust as needed
+                        overflow: "hidden", // Ensure overflow is handled
+                        display: "flex", // To ensure the content aligns properly
+                        alignItems: "center", // Center the content
+                        justifyContent: "center", // Center the content
                       }}
                     >
                       <CardActionArea
@@ -706,6 +708,8 @@ export default function GenerateAI() {
           height: "40vh",
           py: 4,
           background: "linear-gradient(270deg, #000000, #2838ae)",
+          paddingTop: "200px",
+          paddingBottom: "300px"
         }}
       >
         <Container maxWidth="lg">

@@ -468,7 +468,7 @@ export default function Contact() {
         sx={{
           height: "40vh",
           py: 4,
-          background: "linear-gradient(-270deg, #000000, #2838ae)",
+          background: "linear-gradient(270deg, #000000, #2838ae)",
         }}
       >
         <Container maxWidth="lg">

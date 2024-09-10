@@ -12,7 +12,7 @@ import {
   IconButton,
   Icon,
   Menu,
-  Stack
+  Stack,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -126,7 +126,8 @@ export default function Demos() {
             </Link>
 
             <Link
-              href="/documentation"
+              href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
+              target="_blank"
               passHref
               style={{
                 color: "white",
@@ -459,7 +460,8 @@ export default function Demos() {
                   References
                 </Typography>
                 <Link
-                  href="/documentation"
+                  href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
+                  target="_blank"
                   style={{
                     color: "white",
                     textDecoration: "none",

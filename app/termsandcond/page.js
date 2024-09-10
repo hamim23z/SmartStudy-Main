@@ -126,7 +126,8 @@ export default function TermsandConditions() {
             </Link>
 
             <Link
-              href="/documentation"
+              href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
+              target="_blank"
               passHref
               style={{
                 color: "white",
@@ -459,7 +460,8 @@ export default function TermsandConditions() {
                   References
                 </Typography>
                 <Link
-                  href="/documentation"
+                  href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
+                  target="_blank"
                   style={{
                     color: "white",
                     textDecoration: "none",

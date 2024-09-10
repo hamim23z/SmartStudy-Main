@@ -218,7 +218,8 @@ export default function GenerateAI() {
             </Link>
 
             <Link
-              href="/documentation"
+              href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
+              target="_blank"
               passHref
               style={{
                 color: "white",
@@ -709,7 +710,7 @@ export default function GenerateAI() {
           py: 4,
           background: "linear-gradient(270deg, #000000, #2838ae)",
           paddingTop: "200px",
-          paddingBottom: "300px"
+          paddingBottom: "300px",
         }}
       >
         <Container maxWidth="lg">
@@ -873,7 +874,8 @@ export default function GenerateAI() {
                   References
                 </Typography>
                 <Link
-                  href="/documentation"
+                  href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
+                  target="_blank"
                   style={{
                     color: "white",
                     textDecoration: "none",

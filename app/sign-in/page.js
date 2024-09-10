@@ -1,5 +1,5 @@
 "use client";
-import { SignIn } from "@stackframe/stack";
+import { SignIn, UserButton } from "@stackframe/stack";
 import { useStackApp } from "@stackframe/stack";
 import { useEffect, useState, MouseEvent } from "react";
 import {
@@ -270,6 +270,8 @@ export default function CustomSignIn() {
                 Sign Up
               </Button>
             </Link>
+
+            <UserButton></UserButton>
           </Box>
         </Toolbar>
       </AppBar>

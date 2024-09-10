@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState, MouseEvent } from "react";
 import { useRouter } from "next/navigation";
-import { useStackApp } from "@stackframe/stack";
+import { UserButton, useStackApp } from "@stackframe/stack";
 import {
   AppBar,
   Box,
@@ -288,7 +288,24 @@ export default function CustomSignIn() {
                 color: "white",
                 textDecoration: "none",
               }}
-            ></Link>
+            >
+              <Button
+                color="inherit"
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "15px",
+                  transition: "transform 0.6s ease-in-out",
+                  "&:hover": {
+                    animation: `${slideUpDown} 0.6s ease-in-out`,
+                  },
+                }}
+              >
+                Sign Up
+              </Button>
+            </Link>
+
+            <UserButton></UserButton>
           </Box>
         </Toolbar>
       </AppBar>

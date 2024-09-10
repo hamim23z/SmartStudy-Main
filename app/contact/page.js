@@ -48,6 +48,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import MenuIcon from "@mui/icons-material/Menu";
+import { UserButton } from "@stackframe/stack";
 
 export default function Contact() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -322,6 +323,8 @@ export default function Contact() {
                 Sign Up
               </Button>
             </Link>
+
+            <UserButton></UserButton>
           </Box>
         </Toolbar>
       </AppBar>

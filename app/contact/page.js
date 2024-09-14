@@ -586,7 +586,7 @@ export default function Contact() {
               textTransform: "uppercase",
               fontFamily: "Kanit, sans-serif",
               fontWeight: 900,
-              color: "white",
+              color: "rgba(145, 83, 209, 1)",
               mb: 3,
             }}
           >

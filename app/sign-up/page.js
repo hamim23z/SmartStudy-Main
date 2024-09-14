@@ -541,6 +541,7 @@ export default function CustomSignIn() {
           </Link>
         </Box>
       </Drawer>
+
       <Box
         sx={{
           height: "100vh",
@@ -549,6 +550,7 @@ export default function CustomSignIn() {
           justifyContent: "center",
           flexDirection: "column",
           background: "linear-gradient(270deg, #000000, #2838ae)",
+          padding: { xs: 2, sm: 3 },
         }}
       >
         <Typography
@@ -557,18 +559,20 @@ export default function CustomSignIn() {
             color: "white",
             fontFamily: "Kanit, sans-serif",
             fontWeight: "900",
+            textAlign: "center",
           }}
         >
           Sign up for Smart Study
         </Typography>
 
         <Typography
-          variant="h5"
+          variant="h6"
           sx={{
             color: "white",
             fontFamily: "Kanit, sans-serif",
             fontWeight: "900",
             paddingTop: "20px",
+            textAlign: "center",
           }}
         >
           Already have an account?
@@ -587,9 +591,11 @@ export default function CustomSignIn() {
         <Box
           sx={{
             display: "flex",
-            flexDirection: "row",
+            flexDirection: { xs: "column", sm: "row" },
             paddingTop: "30px",
             gap: 2,
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
           <Button
@@ -603,6 +609,7 @@ export default function CustomSignIn() {
               "&:hover": {
                 background: "rgba(145, 83, 209, 1)",
               },
+              minWidth: { xs: "100%", sm: "auto" },
             }}
           >
             <GoogleIcon sx={{ marginRight: "10px" }}></GoogleIcon>
@@ -619,6 +626,7 @@ export default function CustomSignIn() {
               "&:hover": {
                 background: "rgba(145, 83, 209, 1)",
               },
+              minWidth: { xs: "100%", sm: "auto" },
             }}
           >
             <GitHubIcon sx={{ marginRight: "10px" }}></GitHubIcon>
@@ -635,6 +643,7 @@ export default function CustomSignIn() {
               "&:hover": {
                 background: "rgba(145, 83, 209, 1)",
               },
+              minWidth: { xs: "100%", sm: "auto" },
             }}
           >
             <MicrosoftIcon sx={{ marginRight: "10px" }}></MicrosoftIcon>
@@ -653,10 +662,15 @@ export default function CustomSignIn() {
             flexDirection: "column",
             gap: 2,
             paddingTop: "30px",
+            width: { xs: "100%", sm: "auto" },
+            maxWidth: "900px",
           }}
         >
-          {error && <Typography color="error">{error}</Typography>}
-
+          {error && (
+            <Typography color="error" textAlign="center">
+              {error}
+            </Typography>
+          )}
           <TextField
             type="email"
             variant="outlined"
@@ -676,7 +690,7 @@ export default function CustomSignIn() {
                 fontWeight: "700",
               },
               background: "white",
-              width: "715px",
+              width: "100%",
             }}
           />
 
@@ -699,6 +713,7 @@ export default function CustomSignIn() {
                 fontWeight: "700",
               },
               background: "white",
+              width: "100%",
             }}
           />
 

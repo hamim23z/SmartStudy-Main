@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, MouseEvent } from "react";
+import { useState } from "react";
 import {
   Grid,
   AppBar,
@@ -8,31 +8,24 @@ import {
   Typography,
   TextField,
   Button,
-  Avatar,
   Toolbar,
   IconButton,
   Icon,
-  Menu,
   Stack,
   Snackbar,
   Accordion,
   AccordionSummary,
   AccordionDetails,
+  Drawer,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
 import Image from "next/image";
 import chronicleai from "../public/chronicleai.png";
-import selfgenerate from "../public/selfgenerate.png";
-import smartstudytimer from "../public/smartstudytimer.png";
-import studykitcomingsoon from "../public/studykitcomingsoon.png";
-import videovaultcomingsoon from "../public/videovaultcomingsoon.png";
-import dashboard from "../public/dashboard.png";
 import { UserButton } from "@stackframe/stack";
 import { db } from "@/firebase";
 import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
-import WhiteRain from "./components/whiterain";
 
 const slideUpDown = keyframes`
   0% {
@@ -72,7 +65,6 @@ import PersonPinIcon from "@mui/icons-material/PersonPin";
 import PieChartIcon from "@mui/icons-material/PieChart";
 import VideoLibraryIcon from "@mui/icons-material/VideoLibrary";
 import TimelapseIcon from "@mui/icons-material/Timelapse";
-import PrecisionManufacturingIcon from "@mui/icons-material/PrecisionManufacturing";
 
 export default function Home() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
@@ -92,7 +84,7 @@ export default function Home() {
     if (!emailRegex.test(value)) {
       setEmailError("Please enter a valid email address.");
     } else {
-      setEmailError(""); // Clear error if valid
+      setEmailError("");
     }
   };
 
@@ -113,7 +105,7 @@ export default function Home() {
 
       // Show success Snackbar
       setSnackbarOpen(true);
-      setEmailError(""); // Clear any previous error messages
+      setEmailError("");
 
       // Clear form inputs
       setEmail("");
@@ -126,7 +118,6 @@ export default function Home() {
     /*For the Newsletter Submit Button*/
   }
   const [snackbarOpenNews, setSnackbarOpenNews] = useState(false);
-  // State variables for form inputs
   const [emailNews, setEmailNews] = useState("");
   const [emailErrorNews, setEmailErrorNews] = useState("");
   const emailRegexNews = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -142,27 +133,24 @@ export default function Home() {
     if (!emailRegexNews.test(value)) {
       setEmailErrorNews("Please enter a valid email address.");
     } else {
-      setEmailErrorNews(""); // Clear error if valid
+      setEmailErrorNews("");
     }
   };
 
   const handleSendMessageNews = async () => {
     if (!emailNews.trim()) {
-      // Show Snackbar with error message if the email is empty
       setSnackbarOpenNews(true);
       setEmailErrorNews("Please enter a valid email address.");
       return;
     }
 
     if (!emailRegexNews.test(emailNews)) {
-      // Show Snackbar with error message if the email is not valid
       setSnackbarOpenNews(true);
       setEmailErrorNews("Please enter a valid email address.");
       return;
     }
 
     try {
-      // Save the message to Firestore
       await addDoc(collection(db, "Newsletter - Homepage"), {
         email: emailNews,
         timestamp: new Date(),
@@ -170,13 +158,19 @@ export default function Home() {
 
       // Show success Snackbar
       setSnackbarOpenNews(true);
-      setEmailErrorNews(""); // Clear any previous error messages
+      setEmailErrorNews("");
 
       // Clear form inputs
       setEmailNews("");
     } catch (error) {
       console.error("Error sending message: ", error);
     }
+  };
+
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer = (open) => () => {
+    setDrawerOpen(open);
   };
 
   return (
@@ -193,36 +187,49 @@ export default function Home() {
             paddingBottom: "20px",
             background: "linear-gradient(-270deg, #000000, #2838ae)",
             display: "flex",
+            justifyContent: "space-between",
             alignItems: "center",
           }}
         >
-          {/*Toolbar allows us to write and add elements. Gives the appbar spacing and whatnot*/}
-          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
-            <Link
-              href="/"
-              passHref
-              style={{
-                textDecoration: "none",
-                display: "block",
-                overflow: "hidden",
-              }}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              width: "100%",
+              px: 2,
+              display: { xs: "flex", md: "none" },
+            }}
+          >
+            {/* Menu icon for mobile */}
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={toggleDrawer(true)}
             >
+              <MenuIcon sx={{ fontSize: "35px" }} />
+            </IconButton>
+
+            {/* User Button on right side for mobile */}
+            <Box>
+              <UserButton />
+            </Box>
+          </Box>
+
+          {/* App Logo */}
+          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+            <Link href="/" passHref style={{ textDecoration: "none" }}>
               <Typography
                 variant="h6"
                 component="div"
                 sx={{
                   flexGrow: 1,
-                  display: { xs: "none", md: "flex" },
+                  display: { xs: "none", md: "flex" }, // Visible on desktop, hidden on mobile
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
                   color: "white",
                   textTransform: "uppercase",
-                  margin: 0,
-                  padding: 0,
-                }}
-                style={{
-                  color: "white",
-                  textDecoration: "none",
                 }}
               >
                 Smart Study
@@ -230,6 +237,7 @@ export default function Home() {
             </Link>
           </Box>
 
+          {/* Links for desktop, hidden on mobile */}
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
@@ -410,6 +418,215 @@ export default function Home() {
           </Box>
         </Toolbar>
       </AppBar>
+
+      <Drawer
+        anchor="bottom"
+        open={drawerOpen}
+        onClose={toggleDrawer(false)}
+        PaperProps={{
+          sx: {
+            width: "calc(100% - 40px)",
+            height: "50vh",
+            background: "black",
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "20px",
+            transition: "transform 0.3s ease",
+            position: "fixed",
+            bottom: 200,
+            left: 20,
+            right: 20,
+            transform: drawerOpen ? "translateY(100%)" : "translateY(100%)",
+          },
+        }}
+      >
+        {/* Drawer content */}
+        <Box
+          sx={{ textAlign: "center", display: "flex", flexDirection: "column" }}
+        >
+          <Link
+            href="/pricing"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Pricing
+            </Button>
+          </Link>
+
+          <Link
+            href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
+            target="_blank"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Documentation
+            </Button>
+          </Link>
+
+          <Link
+            href="/blog"
+            target="_blank"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Blog
+            </Button>
+          </Link>
+
+          <Link
+            href="/aboutus"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              About Us
+            </Button>
+          </Link>
+
+          <Link
+            href="/contact"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Contact
+            </Button>
+          </Link>
+
+          <Link
+            href="/sign-in"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Sign In
+            </Button>
+          </Link>
+
+          <Link
+            href="/sign-up"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Sign Up
+            </Button>
+          </Link>
+        </Box>
+      </Drawer>
 
       <Box
         sx={{
@@ -1557,7 +1774,9 @@ export default function Home() {
             }}
           >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx = {{color: "white"}}></ExpandMoreIcon>}
+              expandIcon={
+                <ExpandMoreIcon sx={{ color: "white" }}></ExpandMoreIcon>
+              }
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
@@ -1593,7 +1812,9 @@ export default function Home() {
             }}
           >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx = {{color: "white"}}></ExpandMoreIcon>}
+              expandIcon={
+                <ExpandMoreIcon sx={{ color: "white" }}></ExpandMoreIcon>
+              }
               aria-controls="panel2a-content"
               id="panel2a-header"
             >
@@ -1631,7 +1852,9 @@ export default function Home() {
             }}
           >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx = {{color: "white"}}></ExpandMoreIcon>}
+              expandIcon={
+                <ExpandMoreIcon sx={{ color: "white" }}></ExpandMoreIcon>
+              }
               aria-controls="panel3a-content"
               id="panel3a-header"
             >
@@ -1666,7 +1889,9 @@ export default function Home() {
             }}
           >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx = {{color: "white"}}></ExpandMoreIcon>}
+              expandIcon={
+                <ExpandMoreIcon sx={{ color: "white" }}></ExpandMoreIcon>
+              }
               aria-controls="panel3a-content"
               id="panel3a-header"
             >
@@ -1701,7 +1926,9 @@ export default function Home() {
             }}
           >
             <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx = {{color: "white"}}></ExpandMoreIcon>}
+              expandIcon={
+                <ExpandMoreIcon sx={{ color: "white" }}></ExpandMoreIcon>
+              }
               aria-controls="panel3a-content"
               id="panel3a-header"
             >
@@ -1745,17 +1972,22 @@ export default function Home() {
         </Stack>
       </Box>
 
-      {/*Footer*/}
+      {/* Footer */}
       <Box
         component="footer"
         sx={{
-          height: "40vh",
+          height: "auto",
           py: 4,
+          pb: 10,
           background: "linear-gradient(-270deg, #000000, #2838ae)",
         }}
       >
         <Container maxWidth="lg">
-          <Stack direction="row" spacing={4} justifyContent="space-between">
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={4}
+            justifyContent="space-between"
+          >
             <Stack spacing={2}>
               <Typography
                 variant="h6"
@@ -1769,11 +2001,7 @@ export default function Home() {
               </Typography>
               <Typography
                 variant="body1"
-                sx={{
-                  color: "white",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
-                }}
+                sx={{ color: "white", fontFamily: "Kanit, sans-serif" }}
               >
                 Subscribe to our newsletter
               </Typography>
@@ -1782,9 +2010,6 @@ export default function Home() {
                   variant="outlined"
                   size="small"
                   placeholder="Your email"
-                  value={emailNews}
-                  onChange={handleEmailChangeNews}
-                  type="email"
                   sx={{
                     flexGrow: 1,
                     background: "white",
@@ -1811,23 +2036,13 @@ export default function Home() {
                       background: "rgba(145, 83, 209, 1)",
                     },
                   }}
-                  onClick={handleSendMessageNews}
                 >
                   Submit
                 </Button>
               </Stack>
 
-              <Snackbar
-                open={snackbarOpenNews}
-                autoHideDuration={6000}
-                onClose={handleSnackbarCloseNews}
-                message={
-                  emailErrorNews ||
-                  "You have successfully signed up for the newsletter!"
-                }
-              />
-
               <Stack direction="row" spacing={1}>
+                {/* Social media links */}
                 <IconButton
                   href="https://github.com/hamim23z"
                   target="_blank"
@@ -1883,7 +2098,8 @@ export default function Home() {
               </Stack>
             </Stack>
 
-            <Stack direction="row" spacing={4}>
+            <Stack direction={{ xs: "column", md: "row" }} spacing={4}>
+              {/* Company Section */}
               <Stack spacing={1}>
                 <Typography
                   variant="h6"
@@ -1902,7 +2118,8 @@ export default function Home() {
                     textDecoration: "none",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
-                    paddingTop: "30px",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
                   }}
                 >
                   About Us
@@ -1929,11 +2146,15 @@ export default function Home() {
                     textDecoration: "none",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
                   }}
                 >
                   GitHub
                 </Link>
               </Stack>
+
+              {/* References Section */}
               <Stack spacing={1}>
                 <Typography
                   variant="h6"
@@ -1953,7 +2174,8 @@ export default function Home() {
                     textDecoration: "none",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
-                    paddingTop: "30px",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
                   }}
                 >
                   Documentation
@@ -1978,11 +2200,15 @@ export default function Home() {
                     textDecoration: "none",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
                   }}
                 >
                   Demos
                 </Link>
               </Stack>
+
+              {/* Legal Section */}
               <Stack spacing={1}>
                 <Typography
                   variant="h6"
@@ -2001,7 +2227,8 @@ export default function Home() {
                     textDecoration: "none",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
-                    paddingTop: "30px",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
                   }}
                 >
                   Privacy

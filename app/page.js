@@ -22,7 +22,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
 import Image from "next/image";
-import chronicleai from "../public/chronicleai.png";
+import chronicleainewpic from "../public/chronicleainewpic.png";
 import { UserButton } from "@stackframe/stack";
 import { db } from "@/firebase";
 import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
@@ -968,19 +968,19 @@ export default function Home() {
               icon: <LibraryBooksIcon sx={{ fontSize: "inherit" }} />,
             },
           ].map((item, index) => (
-<Grid
-  item
-  xs={12}
-  sm={6}
-  md={item.gridSize?.md || 3}
-  key={index}
-  sx={{
-    display: 'flex',
-    justifyContent: { xs: 'flex-start', sm: 'center' },
-    paddingLeft: { xs: '16px', sm: 0 },
-    paddingRight: { xs: '16px', sm: 0 },
-  }}
->
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={item.gridSize?.md || 3}
+              key={index}
+              sx={{
+                display: "flex",
+                justifyContent: { xs: "flex-start", sm: "center" },
+                paddingLeft: { xs: "16px", sm: 0 },
+                paddingRight: { xs: "16px", sm: 0 },
+              }}
+            >
               <Box
                 sx={{
                   background: "transparent",
@@ -1138,18 +1138,23 @@ export default function Home() {
               marginRight: { xs: 0, md: "20px" },
               height: { xs: "200px", sm: "300px", md: "400px" },
               marginBottom: { xs: "20px", md: 0 },
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
             }}
           >
             <Image
-              src={chronicleai}
+              src={chronicleainewpic}
               alt="Showcase"
               fill
-              sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              sizes="(max-width: 600px) 100vw, (max-width: 1200px) 60vw, 60vw"
               style={{
                 objectFit: "cover",
+                objectPosition: { xs: "center", md: "left" },
               }}
             />
           </Box>
+
           <Box
             sx={{
               width: { xs: "100%", md: "40%" },

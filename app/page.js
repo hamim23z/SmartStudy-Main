@@ -926,7 +926,7 @@ export default function Home() {
             margin: "0 auto",
             justifyContent: "center",
             paddingX: { xs: 1, sm: 4 },
-            marginLeft: { xs: "-10px", sm: "auto" },
+            marginLeft: { xs: "-6px", sm: "auto" },
           }}
         >
           {[
@@ -947,14 +947,12 @@ export default function Home() {
               description:
                 "Never worry about running out of topics to study. Thanks to our own AI, you can generate your own flashcards, ask it anything, and can even use it to help study along side with you! ChronicleAI is integrated both in the website and externally.",
               icon: <SmartToyIcon sx={{ fontSize: "inherit" }} />,
-              gridSize: { xs: 12, sm: 12, md: 6 },
             },
             {
               title: "Video Vault",
               description:
                 "No need to worry about continuously going on YouTube for videos, we have videos for nearly every engineering major directly on our website. Videos are updated at the end of every month.",
               icon: <YouTubeIcon sx={{ fontSize: "inherit" }} />,
-              gridSize: { xs: 12, sm: 12, md: 6 },
             },
             {
               title: "Custom Control",
@@ -972,7 +970,7 @@ export default function Home() {
             <Grid
               item
               xs={12}
-              sm={6}
+              sm={12}
               md={item.gridSize?.md || 3}
               key={index}
               sx={{
@@ -980,6 +978,10 @@ export default function Home() {
                 justifyContent: { xs: "flex-start", sm: "center" },
                 paddingLeft: { xs: "16px", sm: 0 },
                 paddingRight: { xs: "16px", sm: 0 },
+                "@media (max-width: 1024px)": {
+                  flexDirection: "column",
+                  alignItems: "center",
+                },
               }}
             >
               <Box
@@ -990,13 +992,13 @@ export default function Home() {
                   height: { xs: "auto", sm: "300px" },
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "center", // Center content horizontally
-                  justifyContent: "center", // Center content vertically
+                  alignItems: "center",
+                  justifyContent: "center",
                   transition: "box-shadow 0.5s ease-in-out",
                   position: "relative",
                   padding: "20px",
-                  maxWidth: "100%", // Ensure it fits within Grid item
-                  boxSizing: "border-box", // Include padding and border in element's total width and height
+                  maxWidth: "100%",
+                  boxSizing: "border-box",
                   "&:hover": {
                     boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                   },
@@ -1006,7 +1008,7 @@ export default function Home() {
                   variant="h6"
                   sx={{
                     color: "rgba(145, 83, 209, 1)",
-                    textAlign: "center", // Center text
+                    textAlign: "center",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "900",
                     fontSize: { xs: "1.2rem", sm: "1.4rem" },
@@ -1022,7 +1024,7 @@ export default function Home() {
                     color: "white",
                     fontSize: { xs: "0.9rem", sm: "1rem" },
                     marginBottom: "20px",
-                    textAlign: "center", // Center text
+                    textAlign: "center",
                   }}
                 >
                   {item.description}

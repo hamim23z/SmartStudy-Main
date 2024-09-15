@@ -932,7 +932,7 @@ export default function Home() {
             {
               title: "Customized Cards",
               description:
-                "Create and tailor your own flashcards with no limitations for a personalized learning experience. Do it your way.",
+                "Create and tailor your own flashcards with no limitations for a personalized learning experience.",
               icon: <SpeakerNotesIcon sx={{ fontSize: "inherit" }} />,
             },
             {
@@ -968,18 +968,19 @@ export default function Home() {
               icon: <LibraryBooksIcon sx={{ fontSize: "inherit" }} />,
             },
           ].map((item, index) => (
-            <Grid
-              item
-              xs={12}
-              sm={6}
-              md={item.gridSize?.md || 3}
-              key={index}
-              sx={{
-                display: "flex",
-                justifyContent: "center",
-                paddingRight: "20px",
-              }}
-            >
+<Grid
+  item
+  xs={12}
+  sm={6}
+  md={item.gridSize?.md || 3}
+  key={index}
+  sx={{
+    display: 'flex',
+    justifyContent: { xs: 'flex-start', sm: 'center' },
+    paddingLeft: { xs: '16px', sm: 0 },
+    paddingRight: { xs: '16px', sm: 0 },
+  }}
+>
               <Box
                 sx={{
                   background: "transparent",

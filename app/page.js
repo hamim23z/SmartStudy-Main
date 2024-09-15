@@ -925,7 +925,7 @@ export default function Home() {
             maxWidth: "1200px",
             margin: "0 auto",
             justifyContent: "center",
-            paddingX: { xs: 4, sm: 4 }, // Add horizontal padding for better spacing on mobile
+            paddingX: { xs: 2, sm: 4 },
           }}
         >
           {[
@@ -968,7 +968,18 @@ export default function Home() {
               icon: <LibraryBooksIcon sx={{ fontSize: "inherit" }} />,
             },
           ].map((item, index) => (
-            <Grid item xs={12} sm={6} md={item.gridSize || 3} key={index}>
+            <Grid
+              item
+              xs={12}
+              sm={6}
+              md={item.gridSize?.md || 3}
+              key={index}
+              sx={{
+                display: "flex",
+                justifyContent: "center",
+                paddingRight: "20px",
+              }}
+            >
               <Box
                 sx={{
                   background: "transparent",
@@ -982,6 +993,8 @@ export default function Home() {
                   transition: "box-shadow 0.5s ease-in-out",
                   position: "relative",
                   padding: "20px",
+                  maxWidth: "100%", // Ensure it fits within Grid item
+                  boxSizing: "border-box", // Include padding and border in element's total width and height
                   "&:hover": {
                     boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                   },

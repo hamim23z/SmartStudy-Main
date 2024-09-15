@@ -925,7 +925,7 @@ export default function Home() {
             maxWidth: "1200px",
             margin: "0 auto",
             justifyContent: "center",
-            paddingX: { xs: 2, sm: 4 },
+            paddingX: { xs: 1, sm: 4 },
           }}
         >
           {[

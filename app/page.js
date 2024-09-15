@@ -924,7 +924,7 @@ export default function Home() {
           sx={{
             maxWidth: "1200px",
             margin: "0 auto",
-            justifyContent: "center",
+            background: "transparent",
             paddingX: { xs: 1, sm: 4 },
             marginLeft: { xs: "-6px", sm: "auto" },
           }}
@@ -933,13 +933,13 @@ export default function Home() {
             {
               title: "Customized Cards",
               description:
-                "Create and tailor your own flashcards with no limitations for a personalized learning experience.",
+                "Create and tailor your own flashcards for a personalized learning experience. Do it your way.",
               icon: <SpeakerNotesIcon sx={{ fontSize: "inherit" }} />,
             },
             {
               title: "Quizzes & Timers",
               description:
-                "Use our timer to test your skills and access our Pomodoro Technique. Quizzes are in our study kit!",
+                "Use our timer to test your skills and access to our Pomodoro Technique. Quizzes are in our study kit!",
               icon: <TimerIcon sx={{ fontSize: "inherit" }} />,
             },
             {
@@ -947,12 +947,14 @@ export default function Home() {
               description:
                 "Never worry about running out of topics to study. Thanks to our own AI, you can generate your own flashcards, ask it anything, and can even use it to help study along side with you! ChronicleAI is integrated both in the website and externally.",
               icon: <SmartToyIcon sx={{ fontSize: "inherit" }} />,
+              gridSize: { xs: 12, sm: 12, md: 6, lg: 6 },
             },
             {
               title: "Video Vault",
               description:
                 "No need to worry about continuously going on YouTube for videos, we have videos for nearly every engineering major directly on our website. Videos are updated at the end of every month.",
               icon: <YouTubeIcon sx={{ fontSize: "inherit" }} />,
+              gridSize: { xs: 12, sm: 12, md: 6, lg: 6 },
             },
             {
               title: "Custom Control",
@@ -970,17 +972,14 @@ export default function Home() {
             <Grid
               item
               xs={12}
-              sm={12}
+              sm={item.gridSize?.sm || 6}
               md={item.gridSize?.md || 3}
+              lg={item.gridSize?.lg || 3}
               key={index}
               sx={{
-                display: "flex",
-                justifyContent: { xs: "flex-start", sm: "center" },
-                paddingLeft: { xs: "16px", sm: 0 },
-                paddingRight: { xs: "16px", sm: 0 },
-                "@media (max-width: 1024px)": {
-                  flexDirection: "column",
-                  alignItems: "center",
+                "@media (min-width: 768px) and (max-width: 1024px)": {
+                  flexBasis: "100%",
+                  maxWidth: "100%",
                 },
               }}
             >
@@ -992,15 +991,17 @@ export default function Home() {
                   height: { xs: "auto", sm: "300px" },
                   display: "flex",
                   flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
+                  alignItems: "flex-start",
+                  justifyContent: "flex-start",
                   transition: "box-shadow 0.5s ease-in-out",
                   position: "relative",
                   padding: "20px",
-                  maxWidth: "100%",
-                  boxSizing: "border-box",
                   "&:hover": {
                     boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
+                  },
+                  "@media (min-width: 768px) and (max-width: 1024px)": {
+                    height: "auto",
+                    minHeight: "200px",
                   },
                 }}
               >
@@ -1008,7 +1009,7 @@ export default function Home() {
                   variant="h6"
                   sx={{
                     color: "rgba(145, 83, 209, 1)",
-                    textAlign: "center",
+                    textAlign: "left",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "900",
                     fontSize: { xs: "1.2rem", sm: "1.4rem" },
@@ -1024,7 +1025,6 @@ export default function Home() {
                     color: "white",
                     fontSize: { xs: "0.9rem", sm: "1rem" },
                     marginBottom: "20px",
-                    textAlign: "center",
                   }}
                 >
                   {item.description}
@@ -1032,6 +1032,7 @@ export default function Home() {
                 <Box
                   sx={{
                     width: "100%",
+                    flex: 1,
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",

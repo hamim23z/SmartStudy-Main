@@ -678,88 +678,116 @@ export default function Home() {
             flexDirection: { xs: "column", sm: "row" },
           }}
         >
-          <Link href="/aboutus">
-            <Button
-              variant="outlined"
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-                fontSize: "17px",
-                color: "white",
-                border: "1px solid primary",
-                transition: "0.4s ease-in-out",
-                "&:hover": {
-                  border: "1px solid rgba(145, 83, 209, 1)",
-                },
-              }}
-            >
-              Learn More
-            </Button>
-          </Link>
+          <Box
+            sx={{
+              display: "flex",
+              flexDirection: { xs: "column", sm: "row" },
+              gap: 2,
+              width: { xs: "100%", sm: "auto" },
+              maxWidth: { xs: "none", sm: "none" },
+              margin: "0 auto",
+            }}
+          >
+            <Link href="/aboutus">
+              <Button
+                variant="outlined"
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "17px",
+                  color: "white",
+                  border: "1px solid primary",
+                  transition: "0.4s ease-in-out",
+                  width: { xs: "100%", sm: "auto" },
+                  "&:hover": {
+                    border: "1px solid rgba(145, 83, 209, 1)",
+                  },
+                }}
+              >
+                Learn More
+              </Button>
+            </Link>
 
-          <Link href="/contact">
-            <Button
-              variant="outlined"
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-                fontSize: "17px",
-                color: "white",
-                border: "1px solid primary",
-                transition: "0.4s ease-in-out",
-                "&:hover": {
-                  border: "1px solid rgba(145, 83, 209, 1)",
-                },
-              }}
-            >
-              Contact
-            </Button>
-          </Link>
+            <Link href="/contact">
+              <Button
+                variant="outlined"
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "17px",
+                  color: "white",
+                  border: "1px solid primary",
+                  transition: "0.4s ease-in-out",
+                  width: { xs: "100%", sm: "auto" },
+                  "&:hover": {
+                    border: "1px solid rgba(145, 83, 209, 1)",
+                  },
+                }}
+              >
+                Contact
+              </Button>
+            </Link>
 
-          <Link href="/sign-in">
-            <Button
-              variant="outlined"
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-                fontSize: "17px",
-                color: "white",
-                border: "1px solid primary",
-                transition: "0.4s ease-in-out",
-                "&:hover": {
-                  border: "1px solid rgba(145, 83, 209, 1)",
-                },
-              }}
-            >
-              Sign In
-            </Button>
-          </Link>
+            <Link href="/sign-in">
+              <Button
+                variant="outlined"
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "17px",
+                  color: "white",
+                  border: "1px solid primary",
+                  transition: "0.4s ease-in-out",
+                  width: { xs: "100%", sm: "auto" },
+                  "&:hover": {
+                    border: "1px solid rgba(145, 83, 209, 1)",
+                  },
+                }}
+              >
+                Sign In
+              </Button>
+            </Link>
 
-          <Link href="/sign-up">
-            <Button
-              variant="outlined"
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-                fontSize: "17px",
-                color: "white",
-                border: "1px solid primary",
-                transition: "0.4s ease-in-out",
-                "&:hover": {
-                  border: "1px solid rgba(145, 83, 209, 1)",
-                },
-              }}
-            >
-              Sign Up
-            </Button>
-          </Link>
+            <Link href="/sign-up">
+              <Button
+                variant="outlined"
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "17px",
+                  color: "white",
+                  border: "1px solid primary",
+                  transition: "0.4s ease-in-out",
+                  width: { xs: "100%", sm: "auto" },
+                  "&:hover": {
+                    border: "1px solid rgba(145, 83, 209, 1)",
+                  },
+                }}
+              >
+                Sign Up
+              </Button>
+            </Link>
+          </Box>
         </Box>
+
         <Stack
-          direction="row"
+          direction={{ xs: "column", sm: "row" }}
           spacing={2}
-          sx={{ paddingTop: "30px", alignItems: "flex-start" }}
+          sx={{
+            paddingTop: "30px",
+            alignItems: "center",
+            justifyContent: "center",
+            width: "100%",
+          }}
         >
-          <Box sx={{ position: "relative", width: "350px" }}>
+          <Box
+            sx={{
+              position: "relative",
+              width: { xs: "90%", sm: "350px" },
+              maxWidth: "350px",
+              mx: "auto",
+            }}
+          >
             <TextField
               variant="outlined"
               size="small"
@@ -798,6 +826,7 @@ export default function Home() {
               }}
             />
           </Box>
+
           <Button
             variant="contained"
             sx={{
@@ -811,6 +840,9 @@ export default function Home() {
                 background: "rgba(145, 83, 209, 1)",
               },
               height: "40px",
+              width: "auto",
+              mt: { xs: 2, sm: 0 },
+              alignSelf: { xs: "center", sm: "flex-start" },
             }}
             onClick={handleSendMessage}
           >
@@ -829,183 +861,190 @@ export default function Home() {
         }
       />
 
-<Box
-      sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'column',
-        background: 'linear-gradient(-270deg, #000000, #2838ae)',
-        padding: { xs: '20px', sm: '40px' },
-      }}
-    >
-      <Typography
-        variant="h2"
-        sx={{
-          fontFamily: 'Kanit, sans-serif',
-          fontWeight: '900',
-          textTransform: 'uppercase',
-          color: 'white',
-          fontSize: { xs: '2rem', sm: '3rem', md: '4rem' },
-          textAlign: 'center',
-        }}
-      >
-        THE NEW
-      </Typography>
-      <Typography
-        variant="h2"
-        sx={{
-          fontFamily: 'Kanit, sans-serif',
-          fontWeight: '900',
-          textTransform: 'uppercase',
-          color: 'rgba(145, 83, 209, 1)',
-          fontSize: { xs: '2rem', sm: '3rem', md: '4rem' },
-          textAlign: 'center',
-        }}
-      >
-        PREMIERE STANDARD.
-      </Typography>
-
-      <Typography
-        variant="caption"
-        sx={{
-          textAlign: 'center',
-          fontFamily: 'Kanit, sans-serif',
-          fontWeight: '900',
-          textTransform: 'uppercase',
-          color: 'white',
-          marginBottom: { xs: '30px', sm: '50px' },
-          paddingTop: { xs: '15px', sm: '25px' },
-          fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' },
-        }}
-      >
-        Introducing a new way of building flashcards, getting study materials,
-        and reviewing that leaves the competition in the dust.
-        <br />
-        And we don&apos;t look back.
-      </Typography>
-
-      <Grid
-        container
-        spacing={2}
-        sx={{
-          maxWidth: '1200px',
-          margin: '0 auto',
-          background: 'transparent',
-        }}
-      >
-        {[
-          {
-            title: 'Customized Cards',
-            description: 'Create and tailor your own flashcards with no limitations for a personalized learning experience. Do it your way.',
-            icon: <SpeakerNotesIcon sx={{ fontSize: 'inherit' }} />,
-          },
-          {
-            title: 'Quizzes & Timers',
-            description: 'Use our timer to test your skills under pressure. Also have access to our Pomodoro Technique. Quizzes are in our study kit!',
-            icon: <TimerIcon sx={{ fontSize: 'inherit' }} />,
-          },
-          {
-            title: 'AI Brilliance',
-            description: 'Never worry about running out of topics to study. Thanks to our own AI, you can generate your own flashcards, ask it anything, and can even use it to help study along side with you! ChronicleAI is integrated both in the website and externally.',
-            icon: <SmartToyIcon sx={{ fontSize: 'inherit' }} />,
-            gridSize: { xs: 12, sm: 12, md: 6 },
-          },
-          {
-            title: 'Video Vault',
-            description: 'No need to worry about continuously going on YouTube for videos, we have videos for nearly every engineering major directly on our website. Videos are updated at the end of every month.',
-            icon: <YouTubeIcon sx={{ fontSize: 'inherit' }} />,
-            gridSize: { xs: 12, sm: 12, md: 6 },
-          },
-          {
-            title: 'Custom Control',
-            description: 'Your account, your rules. Choose different themes and customize your experience.',
-            icon: <DashboardCustomizeIcon sx={{ fontSize: 'inherit' }} />,
-          },
-          {
-            title: 'Study Kit',
-            description: 'Get access to our own study guides, practice tests, and numerous tips to succeed.',
-            icon: <LibraryBooksIcon sx={{ fontSize: 'inherit' }} />,
-          },
-        ].map((item, index) => (
-          <Grid item xs={12} sm={6} md={item.gridSize || 3} key={index}>
-            <Box
-              sx={{
-                background: 'transparent',
-                borderRadius: '10px',
-                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.9)',
-                height: { xs: 'auto', sm: '300px' },
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'flex-start',
-                justifyContent: 'flex-start',
-                transition: 'box-shadow 0.5s ease-in-out',
-                position: 'relative',
-                padding: '20px',
-                '&:hover': {
-                  boxShadow: '0 4px 8px rgba(145, 83, 209, 1)',
-                },
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  color: 'rgba(145, 83, 209, 1)',
-                  textAlign: 'left',
-                  fontFamily: 'Kanit, sans-serif',
-                  fontWeight: '900',
-                  fontSize: { xs: '1.2rem', sm: '1.4rem' },
-                  marginBottom: '10px',
-                }}
-              >
-                {item.title}
-              </Typography>
-              <Typography
-                sx={{
-                  fontFamily: 'Kanit, sans-serif',
-                  fontWeight: '700',
-                  color: 'white',
-                  fontSize: { xs: '0.9rem', sm: '1rem' },
-                  marginBottom: '20px',
-                }}
-              >
-                {item.description}
-              </Typography>
-              <Box
-                sx={{
-                  width: '100%',
-                  flex: 1,
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                }}
-              >
-                <IconButton
-                  sx={{
-                    color: 'rgba(145, 83, 209, 1)',
-                    fontSize: { xs: '60px', sm: '80px', md: '95px' },
-                  }}
-                >
-                  {item.icon}
-                </IconButton>
-              </Box>
-            </Box>
-          </Grid>
-        ))}
-      </Grid>
-    </Box>
-
-      {/*Card Section Here, Only Showcases Chronicle AI*/}
       <Box
         sx={{
-          height: "150vh",
+          minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
           background: "linear-gradient(-270deg, #000000, #2838ae)",
-          padding: "20px",
+          padding: { xs: "20px", sm: "40px" },
+        }}
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            color: "white",
+            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
+            textAlign: "center",
+          }}
+        >
+          THE NEW
+        </Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            color: "rgba(145, 83, 209, 1)",
+            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
+            textAlign: "center",
+          }}
+        >
+          PREMIERE STANDARD.
+        </Typography>
+
+        <Typography
+          variant="caption"
+          sx={{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            textAlign: "center",
+            paddingTop: "20px",
+            fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
+            maxWidth: "800px",
+            margin: "0 auto",
+          }}
+        >
+          Introducing a new way of building flashcards, getting study materials,
+          and reviewing that leaves the competition in the dust. And we
+          don&apos;t look back.
+        </Typography>
+
+        <Grid
+          container
+          spacing={2}
+          sx={{
+            maxWidth: "1200px",
+            margin: "0 auto",
+            justifyContent: "center",
+            paddingX: { xs: 2, sm: 3 }, // Add horizontal padding for better spacing on mobile
+          }}
+        >
+          {[
+            {
+              title: "Customized Cards",
+              description:
+                "Create and tailor your own flashcards with no limitations for a personalized learning experience. Do it your way.",
+              icon: <SpeakerNotesIcon sx={{ fontSize: "inherit" }} />,
+            },
+            {
+              title: "Quizzes & Timers",
+              description:
+                "Use our timer to test your skills and access our Pomodoro Technique. Quizzes are in our study kit!",
+              icon: <TimerIcon sx={{ fontSize: "inherit" }} />,
+            },
+            {
+              title: "AI Brilliance",
+              description:
+                "Never worry about running out of topics to study. Thanks to our own AI, you can generate your own flashcards, ask it anything, and can even use it to help study along side with you! ChronicleAI is integrated both in the website and externally.",
+              icon: <SmartToyIcon sx={{ fontSize: "inherit" }} />,
+              gridSize: { xs: 12, sm: 12, md: 6 },
+            },
+            {
+              title: "Video Vault",
+              description:
+                "No need to worry about continuously going on YouTube for videos, we have videos for nearly every engineering major directly on our website. Videos are updated at the end of every month.",
+              icon: <YouTubeIcon sx={{ fontSize: "inherit" }} />,
+              gridSize: { xs: 12, sm: 12, md: 6 },
+            },
+            {
+              title: "Custom Control",
+              description:
+                "Your account, your rules. Choose different themes and customize your experience.",
+              icon: <DashboardCustomizeIcon sx={{ fontSize: "inherit" }} />,
+            },
+            {
+              title: "Study Kit",
+              description:
+                "Get access to our own study guides, practice tests, and numerous tips to succeed.",
+              icon: <LibraryBooksIcon sx={{ fontSize: "inherit" }} />,
+            },
+          ].map((item, index) => (
+            <Grid item xs={12} sm={6} md={item.gridSize || 3} key={index}>
+              <Box
+                sx={{
+                  background: "transparent",
+                  borderRadius: "10px",
+                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
+                  height: { xs: "auto", sm: "300px" },
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center", // Center content horizontally
+                  justifyContent: "center", // Center content vertically
+                  transition: "box-shadow 0.5s ease-in-out",
+                  position: "relative",
+                  padding: "20px",
+                  "&:hover": {
+                    boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
+                  },
+                }}
+              >
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "rgba(145, 83, 209, 1)",
+                    textAlign: "center", // Center text
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "900",
+                    fontSize: { xs: "1.2rem", sm: "1.4rem" },
+                    marginBottom: "10px",
+                  }}
+                >
+                  {item.title}
+                </Typography>
+                <Typography
+                  sx={{
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "700",
+                    color: "white",
+                    fontSize: { xs: "0.9rem", sm: "1rem" },
+                    marginBottom: "20px",
+                    textAlign: "center", // Center text
+                  }}
+                >
+                  {item.description}
+                </Typography>
+                <Box
+                  sx={{
+                    width: "100%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                  }}
+                >
+                  <IconButton
+                    sx={{
+                      color: "rgba(145, 83, 209, 1)",
+                      fontSize: { xs: "60px", sm: "80px", md: "95px" },
+                    }}
+                  >
+                    {item.icon}
+                  </IconButton>
+                </Box>
+              </Box>
+            </Grid>
+          ))}
+        </Grid>
+      </Box>
+
+      {/*ChronicleAI Showcase Section*/}
+      <Box
+        sx={{
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "column",
+          background: "linear-gradient(-270deg, #000000, #2838ae)",
+          padding: { xs: "20px", sm: "40px" },
           boxSizing: "border-box",
         }}
       >
@@ -1013,7 +1052,7 @@ export default function Home() {
         <Box
           sx={{
             textAlign: "center",
-            mb: "40px",
+            mb: { xs: "20px", sm: "40px" },
           }}
         >
           <Typography
@@ -1023,10 +1062,10 @@ export default function Home() {
               fontWeight: "900",
               textTransform: "uppercase",
               color: "white",
+              fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
             }}
           >
             Your Smart Study
-            <br />
           </Typography>
           <Typography
             variant="h2"
@@ -1035,7 +1074,8 @@ export default function Home() {
               fontWeight: "900",
               textTransform: "uppercase",
               color: "rgba(145, 83, 209, 1)",
-              paddingBottom: "25px",
+              paddingBottom: { xs: "15px", sm: "25px" },
+              fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
             }}
           >
             Your ChronicleAI.
@@ -1048,7 +1088,7 @@ export default function Home() {
               fontWeight: "900",
               textTransform: "uppercase",
               color: "white",
-              marginTop: "500px",
+              fontSize: { xs: "0.8rem", sm: "1rem" },
             }}
           >
             Get access to your own personalized AI chatbot to help you succeed.
@@ -1059,14 +1099,16 @@ export default function Home() {
         <Box
           sx={{
             display: "flex",
+            flexDirection: { xs: "column", md: "row" },
             alignItems: "center",
             background: "transparent",
             borderRadius: "8px",
             boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
             overflow: "hidden",
-            width: "1200px",
-            height: "500px",
-            padding: "20px",
+            width: "100%",
+            maxWidth: "1200px",
+            height: "auto",
+            padding: { xs: "20px", sm: "30px" },
             position: "relative",
             transition: "box-shadow 0.4s ease-in-out",
             "&:hover": {
@@ -1076,27 +1118,27 @@ export default function Home() {
         >
           <Box
             sx={{
-              width: "60%",
+              width: { xs: "100%", md: "60%" },
               position: "relative",
-              overflow: "visible",
-              marginRight: "20px",
-              height: "300px",
+              overflow: "hidden",
+              marginRight: { xs: 0, md: "20px" },
+              height: { xs: "200px", sm: "300px", md: "400px" },
+              marginBottom: { xs: "20px", md: 0 },
             }}
           >
             <Image
               src={chronicleai}
               alt="Showcase"
               fill
-              sizes="(max-width: 600px) 100vw, 50vw"
+              sizes="(max-width: 600px) 100vw, (max-width: 1200px) 50vw, 33vw"
               style={{
-                position: "absolute",
                 objectFit: "cover",
               }}
             />
           </Box>
           <Box
             sx={{
-              width: "50%",
+              width: { xs: "100%", md: "40%" },
             }}
           >
             <Typography
@@ -1106,6 +1148,7 @@ export default function Home() {
                 fontWeight: "900",
                 color: "rgba(145, 83, 209, 1)",
                 marginBottom: "10px",
+                fontSize: { xs: "1.5rem", sm: "2rem" },
               }}
             >
               Endless Exploration
@@ -1116,51 +1159,57 @@ export default function Home() {
                 fontFamily: "Kanit, sans-serif",
                 color: "white",
                 paddingTop: "20px",
+                fontSize: { xs: "0.9rem", sm: "1rem" },
               }}
             >
               Use our AI, ChronicleAI aka Chad, to help guide you to new topics,
               generate flashcards for you, or any engineering advice you may
               need.
-              <Link href="/sign-up">
-                <Button
-                  variant="outlined"
-                  sx={{
-                    marginTop: "20px",
-                    fontFamily: "Kanit, sans-serif",
-                    color: "white",
-                    fontWeight: "900",
-                    borderRadius: "10px",
-                    border: "1px solid primary",
-                    transition: "0.4s ease-in-out",
-                    "&:hover": {
-                      border: "1px solid rgba(145, 83, 209, 1)",
-                    },
-                  }}
-                >
-                  Get Started
-                </Button>
-              </Link>
             </Typography>
+            <Link href="/sign-up" passHref>
+              <Button
+                variant="outlined"
+                sx={{
+                  marginTop: "20px",
+                  fontFamily: "Kanit, sans-serif",
+                  color: "white",
+                  fontWeight: "900",
+                  borderRadius: "10px",
+                  border: "1px solid primary",
+                  transition: "0.4s ease-in-out",
+                  "&:hover": {
+                    border: "1px solid rgba(145, 83, 209, 1)",
+                  },
+                }}
+              >
+                Get Started
+              </Button>
+            </Link>
           </Box>
         </Box>
       </Box>
 
       <Box
         sx={{
-          height: "100vh",
+          minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
           background: "linear-gradient(-270deg, #000000, #2838ae)",
+          padding: { xs: "40px 20px", md: "60px 40px" },
+          boxSizing: "border-box",
         }}
       >
         <Typography
           variant="h2"
           sx={{
-            color: "white",
             fontFamily: "Kanit, sans-serif",
             fontWeight: "900",
+            textTransform: "uppercase",
+            color: "white",
+            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
+            textAlign: "center",
           }}
         >
           Students like you
@@ -1169,9 +1218,13 @@ export default function Home() {
         <Typography
           variant="h2"
           sx={{
-            color: "rgba(145, 83, 209, 1)",
             fontFamily: "Kanit, sans-serif",
             fontWeight: "900",
+            textTransform: "uppercase",
+            color: "rgba(145, 83, 209, 1)",
+            paddingBottom: { xs: "15px", sm: "25px" },
+            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
+            textAlign: "center",
           }}
         >
           love Smart Study.
@@ -1185,20 +1238,23 @@ export default function Home() {
             textTransform: "uppercase",
             textAlign: "center",
             paddingTop: "20px",
+            fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
+            maxWidth: "800px",
+            margin: "0 auto",
           }}
         >
           Learn why hundreds and thousands of engineering students love to use
-          Smart Study&apos;s
-          <br />
-          intuitive interface to study and ace their exams.
+          Smart Study&apos;s intuitive interface to study and ace their exams.
         </Typography>
 
         <Box
           sx={{
-            paddingTop: "80px",
+            paddingTop: { xs: "40px", md: "80px" },
+            width: "100%",
+            maxWidth: "1200px",
           }}
         >
-          <Stack spacing={5}>
+          <Stack spacing={{ xs: 3, md: 5 }}>
             <Box
               sx={{
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
@@ -1207,6 +1263,7 @@ export default function Home() {
                 "&:hover": {
                   boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                 },
+                borderRadius: "8px",
               }}
             >
               <Typography
@@ -1214,11 +1271,14 @@ export default function Home() {
                   color: "rgba(145, 83, 209, 1)",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
+                  fontSize: { xs: "1.2rem", md: "1.5rem" },
+                  display: "flex",
+                  alignItems: "center",
                 }}
               >
                 Organize your Study Materials
                 <Icon sx={{ marginLeft: "15px" }}>
-                  <Inventory2Icon></Inventory2Icon>
+                  <Inventory2Icon />
                 </Icon>
               </Typography>
               <Typography
@@ -1227,6 +1287,7 @@ export default function Home() {
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "700",
                   paddingTop: "15px",
+                  fontSize: { xs: "0.9rem", md: "1rem" },
                 }}
               >
                 Keep all your notes and flashcards in one place. Easy to access.
@@ -1242,6 +1303,7 @@ export default function Home() {
                 "&:hover": {
                   boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                 },
+                borderRadius: "8px",
               }}
             >
               <Typography
@@ -1249,11 +1311,14 @@ export default function Home() {
                   color: "rgba(145, 83, 209, 1)",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
+                  fontSize: { xs: "1.2rem", md: "1.5rem" },
+                  display: "flex",
+                  alignItems: "center",
                 }}
               >
                 Personalize your Learning
                 <Icon sx={{ marginLeft: "10px" }}>
-                  <PersonPinIcon></PersonPinIcon>
+                  <PersonPinIcon />
                 </Icon>
               </Typography>
               <Typography
@@ -1262,6 +1327,7 @@ export default function Home() {
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "700",
                   paddingTop: "15px",
+                  fontSize: { xs: "0.9rem", md: "1rem" },
                 }}
               >
                 Focus on the topics where you need the most help. Use our AI to
@@ -1277,6 +1343,7 @@ export default function Home() {
                 "&:hover": {
                   boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                 },
+                borderRadius: "8px",
               }}
             >
               <Typography
@@ -1284,11 +1351,14 @@ export default function Home() {
                   color: "rgba(145, 83, 209, 1)",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
+                  fontSize: { xs: "1.2rem", md: "1.5rem" },
+                  display: "flex",
+                  alignItems: "center",
                 }}
               >
-                Track your Progress
+                Track your Learning Progress
                 <Icon sx={{ marginLeft: "10px" }}>
-                  <PieChartIcon></PieChartIcon>
+                  <PieChartIcon />
                 </Icon>
               </Typography>
               <Typography
@@ -1297,6 +1367,7 @@ export default function Home() {
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "700",
                   paddingTop: "15px",
+                  fontSize: { xs: "0.9rem", md: "1rem" },
                 }}
               >
                 See how much you&apos;ve improved with practice tests and
@@ -1312,6 +1383,7 @@ export default function Home() {
                 "&:hover": {
                   boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                 },
+                borderRadius: "8px",
               }}
             >
               <Typography
@@ -1319,11 +1391,14 @@ export default function Home() {
                   color: "rgba(145, 83, 209, 1)",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
+                  fontSize: { xs: "1.2rem", md: "1.5rem" },
+                  display: "flex",
+                  alignItems: "center",
                 }}
               >
-                Watch Videos Directly
+                Watch Videos Directly and Easily
                 <Icon sx={{ marginLeft: "10px" }}>
-                  <VideoLibraryIcon></VideoLibraryIcon>
+                  <VideoLibraryIcon />
                 </Icon>
               </Typography>
               <Typography
@@ -1332,6 +1407,7 @@ export default function Home() {
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "700",
                   paddingTop: "15px",
+                  fontSize: { xs: "0.9rem", md: "1rem" },
                 }}
               >
                 We have YouTube videos directly on our website. No need to open
@@ -1348,6 +1424,7 @@ export default function Home() {
                 "&:hover": {
                   boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
                 },
+                borderRadius: "8px",
               }}
             >
               <Typography
@@ -1355,15 +1432,18 @@ export default function Home() {
                   color: "rgba(145, 83, 209, 1)",
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
+                  fontSize: { xs: "1.2rem", md: "1.5rem" },
+                  display: "flex",
+                  alignItems: "center",
                 }}
               >
-                Pomodoro Technique
+                Use the Pomodoro Technique
                 <Icon
                   sx={{
                     marginLeft: "10px",
                   }}
                 >
-                  <TimelapseIcon></TimelapseIcon>
+                  <TimelapseIcon />
                 </Icon>
               </Typography>
               <Typography
@@ -1372,9 +1452,10 @@ export default function Home() {
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "700",
                   paddingTop: "15px",
+                  fontSize: { xs: "0.9rem", md: "1rem" },
                 }}
               >
-                Balance your study sessions with Smart Study’s Pomodoro timer,
+                Balance your study sessions with Smart Studys Pomodoro timer,
                 which reminds you to take breaks and stay productive without
                 burning out.
               </Typography>
@@ -1383,6 +1464,7 @@ export default function Home() {
         </Box>
       </Box>
 
+      {/*FAQ Section*/}
       <Box
         sx={{
           height: "130vh",
@@ -1391,6 +1473,7 @@ export default function Home() {
           alignItems: "center",
           justifyContent: "center",
           background: "linear-gradient(-270deg, #000000, #2838ae)",
+          padding: { xs: "10px", sm: "20px" },
         }}
       >
         <Typography
@@ -1399,28 +1482,40 @@ export default function Home() {
             color: "white",
             fontFamily: "Kanit, sans-serif",
             fontWeight: "900",
+            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" }, // Responsive font size
+            textAlign: "center", // Center the text for smaller screens
+            marginBottom: { xs: "15px", sm: "20px" }, // Responsive margin
           }}
         >
           Frequently Asked Questions
         </Typography>
+
         <Typography
           variant="h2"
           sx={{
             color: "rgba(145, 83, 209, 1)",
             fontFamily: "Kanit, sans-serif",
             fontWeight: "900",
+            fontSize: { xs: "1.8rem", sm: "2.5rem", md: "3rem" }, // Responsive font size
+            textAlign: "center", // Center the text
+            marginBottom: { xs: "10px", sm: "15px" }, // Responsive margin
           }}
         >
           You ask. We Answer.
         </Typography>
+
         <Typography
           variant="caption"
           sx={{
             color: "white",
             fontFamily: "Kanit, sans-serif",
             fontWeight: "900",
-            paddingTop: "20px",
             textTransform: "uppercase",
+            textAlign: "center",
+            paddingTop: "20px",
+            fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
+            maxWidth: "800px",
+            margin: "0 auto",
           }}
         >
           If your question is not listed, please fill out our contact form.

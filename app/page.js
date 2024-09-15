@@ -926,6 +926,7 @@ export default function Home() {
             margin: "0 auto",
             justifyContent: "center",
             paddingX: { xs: 1, sm: 4 },
+            marginLeft: { xs: "-5px", sm: "auto" },
           }}
         >
           {[
@@ -1486,13 +1487,14 @@ export default function Home() {
       {/*FAQ Section*/}
       <Box
         sx={{
-          height: "110vh",
+          minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: "flex-start",
           background: "linear-gradient(-270deg, #000000, #2838ae)",
-          padding: { xs: "10px", sm: "20px" },
+          padding: { xs: "40px 10px", sm: "60px 20px" },
+          overflow: "auto",
         }}
       >
         <Typography
@@ -1534,33 +1536,27 @@ export default function Home() {
             paddingTop: "20px",
             fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
             maxWidth: "800px",
-            margin: "0 auto",
+            margin: "0 auto 20px",
           }}
         >
           If your question is not listed, please fill out our contact form.
         </Typography>
 
-        {/* FAQ Accordion Section */}
         <Stack
           spacing={2}
           sx={{
-            marginTop: "40px",
-            width: "80%",
+            width: "100%",
+            maxWidth: "1000px",
             background: "transparent",
             borderRadius: "8px",
             padding: "20px",
             boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
           }}
         >
-          <Accordion
-            sx={{
-              background: "transparent",
-            }}
-          >
+          {/* FAQ Accordions */}
+          <Accordion sx={{ background: "transparent" }}>
             <AccordionSummary
-              expandIcon={
-                <ExpandMoreIcon sx={{ color: "white" }}></ExpandMoreIcon>
-              }
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
               aria-controls="panel1a-content"
               id="panel1a-header"
             >
@@ -1590,17 +1586,11 @@ export default function Home() {
             </AccordionDetails>
           </Accordion>
 
-          <Accordion
-            sx={{
-              background: "transparent",
-            }}
-          >
+          <Accordion sx={{ background: "transparent" }}>
             <AccordionSummary
-              expandIcon={
-                <ExpandMoreIcon sx={{ color: "white" }}></ExpandMoreIcon>
-              }
-              aria-controls="panel2a-content"
-              id="panel2a-header"
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
             >
               <Typography
                 sx={{
@@ -1630,17 +1620,11 @@ export default function Home() {
             </AccordionDetails>
           </Accordion>
 
-          <Accordion
-            sx={{
-              background: "transparent",
-            }}
-          >
+          <Accordion sx={{ background: "transparent" }}>
             <AccordionSummary
-              expandIcon={
-                <ExpandMoreIcon sx={{ color: "white" }}></ExpandMoreIcon>
-              }
-              aria-controls="panel3a-content"
-              id="panel3a-header"
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
             >
               <Typography
                 sx={{
@@ -1667,17 +1651,11 @@ export default function Home() {
             </AccordionDetails>
           </Accordion>
 
-          <Accordion
-            sx={{
-              background: "transparent",
-            }}
-          >
+          <Accordion sx={{ background: "transparent" }}>
             <AccordionSummary
-              expandIcon={
-                <ExpandMoreIcon sx={{ color: "white" }}></ExpandMoreIcon>
-              }
-              aria-controls="panel3a-content"
-              id="panel3a-header"
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
             >
               <Typography
                 sx={{
@@ -1704,17 +1682,11 @@ export default function Home() {
             </AccordionDetails>
           </Accordion>
 
-          <Accordion
-            sx={{
-              background: "transparent",
-            }}
-          >
+          <Accordion sx={{ background: "transparent" }}>
             <AccordionSummary
-              expandIcon={
-                <ExpandMoreIcon sx={{ color: "white" }}></ExpandMoreIcon>
-              }
-              aria-controls="panel3a-content"
-              id="panel3a-header"
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
             >
               <Typography
                 sx={{

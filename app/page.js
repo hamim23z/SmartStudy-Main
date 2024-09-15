@@ -829,502 +829,172 @@ export default function Home() {
         }
       />
 
-      {/*BENTO BOX SECTION*/}
-      <Box
+<Box
+      sx={{
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        background: 'linear-gradient(-270deg, #000000, #2838ae)',
+        padding: { xs: '20px', sm: '40px' },
+      }}
+    >
+      <Typography
+        variant="h2"
         sx={{
-          height: "100vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          flexDirection: "column",
-          background: "linear-gradient(-270deg, #000000, #2838ae)",
-          padding: "20px",
+          fontFamily: 'Kanit, sans-serif',
+          fontWeight: '900',
+          textTransform: 'uppercase',
+          color: 'white',
+          fontSize: { xs: '2rem', sm: '3rem', md: '4rem' },
+          textAlign: 'center',
         }}
       >
-        <Typography
-          variant="h2"
-          sx={{
-            fontFamily: "Kanit, sans-serif",
-            fontWeight: "900",
-            textTransform: "uppercase",
-            color: "white",
-          }}
-        >
-          THE NEW
-          <br />
-        </Typography>
-        <Typography
-          variant="h2"
-          sx={{
-            fontFamily: "Kanit, sans-serif",
-            fontWeight: "900",
-            textTransform: "uppercase",
-            color: "rgba(145, 83, 209, 1)",
-          }}
-        >
-          PREMIERE STANDARD.
-        </Typography>
+        THE NEW
+      </Typography>
+      <Typography
+        variant="h2"
+        sx={{
+          fontFamily: 'Kanit, sans-serif',
+          fontWeight: '900',
+          textTransform: 'uppercase',
+          color: 'rgba(145, 83, 209, 1)',
+          fontSize: { xs: '2rem', sm: '3rem', md: '4rem' },
+          textAlign: 'center',
+        }}
+      >
+        PREMIERE STANDARD.
+      </Typography>
 
-        <Typography
-          variant="caption"
-          sx={{
-            textAlign: "center",
-            fontFamily: "Kanit, sans-serif",
-            fontWeight: "900",
-            textTransform: "uppercase",
-            color: "white",
-            marginBottom: "50px",
-            paddingTop: "25px",
-          }}
-        >
-          Introducing a new way of building flashcards, getting study materials,
-          and reviewing that leaves the competition in the dust.
-          <br />
-          And we don&apos;t look back.
-        </Typography>
+      <Typography
+        variant="caption"
+        sx={{
+          textAlign: 'center',
+          fontFamily: 'Kanit, sans-serif',
+          fontWeight: '900',
+          textTransform: 'uppercase',
+          color: 'white',
+          marginBottom: { xs: '30px', sm: '50px' },
+          paddingTop: { xs: '15px', sm: '25px' },
+          fontSize: { xs: '0.7rem', sm: '0.8rem', md: '0.9rem' },
+        }}
+      >
+        Introducing a new way of building flashcards, getting study materials,
+        and reviewing that leaves the competition in the dust.
+        <br />
+        And we don&apos;t look back.
+      </Typography>
 
-        <Grid
-          container
-          spacing={2}
-          sx={{
-            maxWidth: "1200px",
-            margin: "0 auto",
-            background: "transparent",
-          }}
-        >
-          <Grid item xs={12} sm={6} md={3}>
+      <Grid
+        container
+        spacing={2}
+        sx={{
+          maxWidth: '1200px',
+          margin: '0 auto',
+          background: 'transparent',
+        }}
+      >
+        {[
+          {
+            title: 'Customized Cards',
+            description: 'Create and tailor your own flashcards with no limitations for a personalized learning experience. Do it your way.',
+            icon: <SpeakerNotesIcon sx={{ fontSize: 'inherit' }} />,
+          },
+          {
+            title: 'Quizzes & Timers',
+            description: 'Use our timer to test your skills under pressure. Also have access to our Pomodoro Technique. Quizzes are in our study kit!',
+            icon: <TimerIcon sx={{ fontSize: 'inherit' }} />,
+          },
+          {
+            title: 'AI Brilliance',
+            description: 'Never worry about running out of topics to study. Thanks to our own AI, you can generate your own flashcards, ask it anything, and can even use it to help study along side with you! ChronicleAI is integrated both in the website and externally.',
+            icon: <SmartToyIcon sx={{ fontSize: 'inherit' }} />,
+            gridSize: { xs: 12, sm: 12, md: 6 },
+          },
+          {
+            title: 'Video Vault',
+            description: 'No need to worry about continuously going on YouTube for videos, we have videos for nearly every engineering major directly on our website. Videos are updated at the end of every month.',
+            icon: <YouTubeIcon sx={{ fontSize: 'inherit' }} />,
+            gridSize: { xs: 12, sm: 12, md: 6 },
+          },
+          {
+            title: 'Custom Control',
+            description: 'Your account, your rules. Choose different themes and customize your experience.',
+            icon: <DashboardCustomizeIcon sx={{ fontSize: 'inherit' }} />,
+          },
+          {
+            title: 'Study Kit',
+            description: 'Get access to our own study guides, practice tests, and numerous tips to succeed.',
+            icon: <LibraryBooksIcon sx={{ fontSize: 'inherit' }} />,
+          },
+        ].map((item, index) => (
+          <Grid item xs={12} sm={6} md={item.gridSize || 3} key={index}>
             <Box
               sx={{
-                background: "transparent",
-                borderRadius: "10px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
-                height: "300px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                justifyContent: "flex-start",
-                transition: "box-shadow 0.5s ease-in-out",
-                position: "relative",
-                "&:hover": {
-                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
+                background: 'transparent',
+                borderRadius: '10px',
+                boxShadow: '0 4px 8px rgba(0, 0, 0, 0.9)',
+                height: { xs: 'auto', sm: '300px' },
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'flex-start',
+                justifyContent: 'flex-start',
+                transition: 'box-shadow 0.5s ease-in-out',
+                position: 'relative',
+                padding: '20px',
+                '&:hover': {
+                  boxShadow: '0 4px 8px rgba(145, 83, 209, 1)',
                 },
               }}
             >
               <Typography
                 variant="h6"
                 sx={{
-                  color: "rgba(145, 83, 209, 1)",
-                  textAlign: "left",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "900",
-                  paddingTop: "20px",
-                  paddingLeft: "15px",
-                  fontSize: "18px",
-                  marginBottom: "20px",
+                  color: 'rgba(145, 83, 209, 1)',
+                  textAlign: 'left',
+                  fontFamily: 'Kanit, sans-serif',
+                  fontWeight: '900',
+                  fontSize: { xs: '1.2rem', sm: '1.4rem' },
+                  marginBottom: '10px',
                 }}
               >
-                Customized Cards
-                <Typography
-                  sx={{
-                    fontFamily: "Kanit, sans-serif",
-                    fontWeight: "700",
-                    color: "white",
-                    paddingTop: "7px",
-                    textAlign: "left",
-                  }}
-                >
-                  Create and tailor your own flashcards with no limitations for
-                  a personalized learning experience. Do it your way.
-                </Typography>
+                {item.title}
               </Typography>
-
+              <Typography
+                sx={{
+                  fontFamily: 'Kanit, sans-serif',
+                  fontWeight: '700',
+                  color: 'white',
+                  fontSize: { xs: '0.9rem', sm: '1rem' },
+                  marginBottom: '20px',
+                }}
+              >
+                {item.description}
+              </Typography>
               <Box
                 sx={{
-                  width: "100%",
-                  height: "150px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  overflow: "hidden",
-                  position: "relative",
+                  width: '100%',
+                  flex: 1,
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
                 }}
               >
                 <IconButton
                   sx={{
-                    color: "rgba(145, 83, 209, 1)",
-                    alignItems: "center",
-                    marginBottom: "7px",
-                    fontSize: "95px", // Increase icon size
+                    color: 'rgba(145, 83, 209, 1)',
+                    fontSize: { xs: '60px', sm: '80px', md: '95px' },
                   }}
                 >
-                  <SpeakerNotesIcon sx={{ fontSize: "inherit" }} />
+                  {item.icon}
                 </IconButton>
               </Box>
             </Box>
           </Grid>
-
-          <Grid item xs={12} sm={6} md={3}>
-            <Box
-              sx={{
-                background: "transparent",
-                borderRadius: "10px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
-                height: "300px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                justifyContent: "flex-start",
-                transition: "box-shadow 0.5s ease-in-out",
-                position: "relative",
-                "&:hover": {
-                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
-                },
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  color: "rgba(145, 83, 209, 1)",
-                  textAlign: "left",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "900",
-                  paddingTop: "20px",
-                  paddingLeft: "15px",
-                  fontSize: "18px",
-                  marginBottom: "20px",
-                }}
-              >
-                Quizzes & Timers
-                <Typography
-                  sx={{
-                    fontFamily: "Kanit, sans-serif",
-                    fontWeight: "700",
-                    color: "white",
-                    paddingTop: "7px",
-                  }}
-                >
-                  Use our timer to test your skills under pressure. Also have
-                  access to our Pomodoro Technique. Quizzes are in our study
-                  kit!
-                </Typography>
-              </Typography>
-
-              <Box
-                sx={{
-                  width: "100%",
-                  height: "150px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  overflow: "hidden",
-                  position: "relative",
-                }}
-              >
-                <IconButton
-                  sx={{
-                    color: "rgba(145, 83, 209, 1)",
-                    alignItems: "center",
-                    marginBottom: "7px",
-                    height: "20px",
-                    fontSize: "95px",
-                  }}
-                >
-                  <TimerIcon sx={{ fontSize: "inherit" }}></TimerIcon>
-                </IconButton>
-              </Box>
-            </Box>
-          </Grid>
-
-          <Grid item xs={12} sm={6} md={6}>
-            <Box
-              sx={{
-                background: "transparent",
-                borderRadius: "10px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
-                height: "300px",
-                display: "flex",
-                alignItems: "flex-start",
-                justifyContent: "flex-start",
-                transition: "box-shadow 0.5s ease-in-out",
-                "&:hover": {
-                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
-                },
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  color: "rgba(145, 83, 209, 1)",
-                  textAlign: "left",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "900",
-                  paddingTop: "20px",
-                  paddingLeft: "15px",
-                  fontSize: "18px",
-                }}
-              >
-                AI Brilliance
-                <Typography
-                  sx={{
-                    paddingTop: "20px",
-                    fontFamily: "Kanit, sans-serif",
-                    fontWeight: "700",
-                    color: "white",
-                    paddingTop: "7px",
-                    paddingBottom: "10px",
-                  }}
-                >
-                  Never worry about running out of topics to study. Thanks to
-                  our own AI, you can generate your own flashcards, ask it
-                  anything, and can even use it to help study along side with
-                  you! ChronicleAI is integrated both in the website and
-                  externally.
-                </Typography>
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: "170px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    overflow: "hidden",
-                    position: "relative",
-                  }}
-                >
-                  <IconButton
-                    sx={{
-                      color: "rgba(145, 83, 209, 1)",
-                      alignItems: "center",
-                      marginBottom: "25px",
-                      height: "20px",
-                      fontSize: "95px",
-                    }}
-                  >
-                    <SmartToyIcon sx={{ fontSize: "inherit" }}></SmartToyIcon>
-                  </IconButton>
-                </Box>
-              </Typography>
-            </Box>
-          </Grid>
-
-          <Grid item xs={12} sm={6} md={6}>
-            <Box
-              sx={{
-                background: "transparent",
-                borderRadius: "10px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
-                height: "300px",
-                display: "flex",
-                alignItems: "flex-start",
-                justifyContent: "flex-start",
-                transition: "box-shadow 0.5s ease-in-out",
-                "&:hover": {
-                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
-                },
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  color: "rgba(145, 83, 209, 1)",
-                  textAlign: "left",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "900",
-                  paddingTop: "20px",
-                  paddingLeft: "15px",
-                  fontSize: "18px",
-                }}
-              >
-                Video Vault
-                <Typography
-                  sx={{
-                    paddingTop: "20px",
-                    fontFamily: "Kanit, sans-serif",
-                    fontWeight: "700",
-                    color: "white",
-                    paddingTop: "7px",
-                    paddingBottom: "10px",
-                  }}
-                >
-                  No need to worry about continuously going on YouTube for
-                  videos, we have videos for nearly every engineering major
-                  directly on our website. Videos are updated at the end of
-                  every month.
-                </Typography>
-                <Box
-                  sx={{
-                    width: "100%",
-                    height: "170px",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    overflow: "hidden",
-                    position: "relative",
-                  }}
-                >
-                  <IconButton
-                    sx={{
-                      color: "rgba(145, 83, 209, 1)",
-                      alignItems: "center",
-                      marginBottom: "7px",
-                      height: "20px",
-                      fontSize: "95px",
-                    }}
-                  >
-                    <YouTubeIcon sx={{ fontSize: "inherit" }}></YouTubeIcon>
-                  </IconButton>
-                </Box>
-              </Typography>
-            </Box>
-          </Grid>
-
-          <Grid item xs={12} sm={6} md={3}>
-            <Box
-              sx={{
-                background: "transparent",
-                borderRadius: "10px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
-                height: "300px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                justifyContent: "flex-start",
-                transition: "box-shadow 0.5s ease-in-out",
-                position: "relative",
-                "&:hover": {
-                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
-                },
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  color: "rgba(145, 83, 209, 1)",
-                  textAlign: "left",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "900",
-                  paddingTop: "20px",
-                  paddingLeft: "15px",
-                  fontSize: "18px",
-                  marginBottom: "20px", // Space between text and image
-                }}
-              >
-                Custom Control
-                <Typography
-                  sx={{
-                    fontFamily: "Kanit, sans-serif",
-                    fontWeight: "700",
-                    color: "white",
-                    paddingTop: "7px",
-                  }}
-                >
-                  Your account, your rules. Choose different themes and
-                  customize your experience.
-                </Typography>
-              </Typography>
-
-              <Box
-                sx={{
-                  width: "100%",
-                  height: "150px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  overflow: "hidden",
-                  position: "relative",
-                }}
-              >
-                <IconButton
-                  sx={{
-                    color: "rgba(145, 83, 209, 1)",
-                    alignItems: "center",
-                    marginBottom: "7px",
-                    height: "20px",
-                    fontSize: "95px",
-                  }}
-                >
-                  <DashboardCustomizeIcon
-                    sx={{ fontSize: "inherit" }}
-                  ></DashboardCustomizeIcon>
-                </IconButton>
-              </Box>
-            </Box>
-          </Grid>
-
-          <Grid item xs={12} sm={6} md={3}>
-            <Box
-              sx={{
-                background: "transparent",
-                borderRadius: "10px",
-                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.9)",
-                height: "300px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "flex-start",
-                justifyContent: "flex-start",
-                transition: "box-shadow 0.5s ease-in-out",
-                position: "relative",
-                "&:hover": {
-                  boxShadow: "0 4px 8px rgba(145, 83, 209, 1)",
-                },
-              }}
-            >
-              <Typography
-                variant="h6"
-                sx={{
-                  color: "rgba(145, 83, 209, 1)",
-                  textAlign: "left",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "900",
-                  paddingTop: "20px",
-                  paddingLeft: "15px",
-                  fontSize: "18px",
-                  marginBottom: "20px", // Space between text and image
-                }}
-              >
-                Study Kit
-                <Typography
-                  sx={{
-                    fontFamily: "Kanit, sans-serif",
-                    fontWeight: "700",
-                    color: "white",
-                    paddingTop: "7px",
-                  }}
-                >
-                  Get access to our own study guides, practice tests, and
-                  numerous tips to succeed.
-                </Typography>
-              </Typography>
-
-              <Box
-                sx={{
-                  width: "100%",
-                  height: "150px",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  overflow: "hidden",
-                  position: "relative",
-                }}
-              >
-                <IconButton
-                  sx={{
-                    color: "rgba(145, 83, 209, 1)",
-                    alignItems: "center",
-                    marginBottom: "7px",
-                    height: "20px",
-                    fontSize: "95px",
-                  }}
-                >
-                  <LibraryBooksIcon
-                    sx={{ fontSize: "inherit" }}
-                  ></LibraryBooksIcon>
-                </IconButton>
-              </Box>
-            </Box>
-          </Grid>
-        </Grid>
-      </Box>
+        ))}
+      </Grid>
+    </Box>
 
       {/*Card Section Here, Only Showcases Chronicle AI*/}
       <Box

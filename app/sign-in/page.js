@@ -548,7 +548,7 @@ export default function CustomSignIn() {
             textAlign: "center",
           }}
         >
-          Sign into Smart Study
+          Sign In
         </Typography>
 
         <Typography
@@ -570,7 +570,7 @@ export default function CustomSignIn() {
             }}
           >
             {" "}
-            Create One Here{" "}
+            Sign Up{" "}
           </Link>
         </Typography>
 
@@ -690,6 +690,7 @@ export default function CustomSignIn() {
               },
               background: "white",
               width: "100%",
+              borderRadius: "10px"
             }}
           />
 
@@ -713,6 +714,7 @@ export default function CustomSignIn() {
               },
               background: "white",
               width: "100%",
+              borderRadius: "10px"
             }}
           />
 

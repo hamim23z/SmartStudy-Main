@@ -562,7 +562,7 @@ export default function CustomSignIn() {
             textAlign: "center",
           }}
         >
-          Sign up for Smart Study
+          Sign up
         </Typography>
 
         <Typography
@@ -575,7 +575,7 @@ export default function CustomSignIn() {
             textAlign: "center",
           }}
         >
-          Already have an account?
+          Have an account?
           <Link
             href="sign-in"
             style={{
@@ -584,7 +584,7 @@ export default function CustomSignIn() {
             }}
           >
             {" "}
-            Sign In Here{" "}
+            Sign In{" "}
           </Link>
         </Typography>
 
@@ -691,6 +691,7 @@ export default function CustomSignIn() {
               },
               background: "white",
               width: "100%",
+              borderRadius: "10px"
             }}
           />
 
@@ -714,6 +715,7 @@ export default function CustomSignIn() {
               },
               background: "white",
               width: "100%",
+              borderRadius: "10px"
             }}
           />
 

@@ -925,7 +925,7 @@ export default function Home() {
             maxWidth: "1200px",
             margin: "0 auto",
             justifyContent: "center",
-            paddingX: { xs: 2, sm: 3 }, // Add horizontal padding for better spacing on mobile
+            paddingX: { xs: 3, sm: 3 }, // Add horizontal padding for better spacing on mobile
           }}
         >
           {[
@@ -1467,7 +1467,7 @@ export default function Home() {
       {/*FAQ Section*/}
       <Box
         sx={{
-          height: "130vh",
+          height: "110vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

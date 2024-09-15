@@ -925,7 +925,7 @@ export default function Home() {
             maxWidth: "1200px",
             margin: "0 auto",
             justifyContent: "center",
-            paddingX: { xs: 3, sm: 3 }, // Add horizontal padding for better spacing on mobile
+            paddingX: { xs: 4, sm: 4 }, // Add horizontal padding for better spacing on mobile
           }}
         >
           {[

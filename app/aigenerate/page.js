@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState, MouseEvent } from "react";
+import { useState, MouseEvent } from "react";
 import {
   Box,
   Container,
@@ -10,8 +10,6 @@ import {
   Button,
   Grid,
   IconButton,
-  Menu,
-  MenuItem,
   Paper,
   TextField,
   Card,
@@ -22,6 +20,7 @@ import {
   DialogActions,
   DialogContent,
   DialogContentText,
+  Drawer,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -139,6 +138,12 @@ export default function GenerateAI() {
     router.push("/flashcards");
   };
 
+  const [drawerOpen, setDrawerOpen] = useState(false);
+
+  const toggleDrawer = (open) => () => {
+    setDrawerOpen(open);
+  };
+
   return (
     <>
       <AppBar
@@ -152,35 +157,50 @@ export default function GenerateAI() {
             paddingTop: "20px",
             paddingBottom: "20px",
             background: "linear-gradient(270deg, #000000, #2838ae)",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
           }}
         >
-          {/*Toolbar allows us to write and add elements. Gives the appbar spacing and whatnot*/}
-          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
-            <Link
-              href="/"
-              passHref
-              style={{
-                textDecoration: "none",
-                display: "block",
-                overflow: "hidden",
-              }}
+          <Box
+            sx={{
+              display: "flex",
+              justifyContent: "space-between",
+              alignItems: "center",
+              width: "100%",
+              px: 2,
+              display: { xs: "flex", md: "none" },
+            }}
+          >
+            {/* Menu icon for mobile */}
+            <IconButton
+              edge="start"
+              color="inherit"
+              aria-label="menu"
+              onClick={toggleDrawer(true)}
             >
+              <MenuIcon sx={{ fontSize: "35px" }} />
+            </IconButton>
+
+            {/* User Button on right side for mobile */}
+            <Box>
+              <UserButton />
+            </Box>
+          </Box>
+
+          {/* App Logo */}
+          <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
+            <Link href="/" passHref style={{ textDecoration: "none" }}>
               <Typography
                 variant="h6"
                 component="div"
                 sx={{
                   flexGrow: 1,
-                  display: { xs: "none", md: "flex" },
+                  display: { xs: "none", md: "flex" }, // Visible on desktop, hidden on mobile
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
                   color: "white",
                   textTransform: "uppercase",
-                  margin: 0,
-                  padding: 0,
-                }}
-                style={{
-                  color: "white",
-                  textDecoration: "none",
                 }}
               >
                 Smart Study
@@ -188,6 +208,7 @@ export default function GenerateAI() {
             </Link>
           </Box>
 
+          {/* Links for desktop, hidden on mobile */}
           <Box
             sx={{
               display: { xs: "none", md: "flex" },
@@ -369,6 +390,216 @@ export default function GenerateAI() {
         </Toolbar>
       </AppBar>
 
+      {/* Drawer for mobile menu */}
+      <Drawer
+        anchor="bottom"
+        open={drawerOpen}
+        onClose={toggleDrawer(false)}
+        PaperProps={{
+          sx: {
+            width: "calc(100% - 40px)",
+            height: "50vh",
+            background: "black",
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            display: "flex",
+            flexDirection: "column",
+            justifyContent: "center",
+            alignItems: "center",
+            borderRadius: "20px",
+            transition: "transform 0.3s ease",
+            position: "fixed",
+            bottom: 200,
+            left: 20,
+            right: 20,
+            transform: drawerOpen ? "translateY(100%)" : "translateY(100%)",
+          },
+        }}
+      >
+        {/* Drawer content */}
+        <Box
+          sx={{ textAlign: "center", display: "flex", flexDirection: "column" }}
+        >
+          <Link
+            href="/pricing"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Pricing
+            </Button>
+          </Link>
+
+          <Link
+            href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
+            target="_blank"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Documentation
+            </Button>
+          </Link>
+
+          <Link
+            href="/blog"
+            target="_blank"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Blog
+            </Button>
+          </Link>
+
+          <Link
+            href="/aboutus"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              About Us
+            </Button>
+          </Link>
+
+          <Link
+            href="/contact"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Contact
+            </Button>
+          </Link>
+
+          <Link
+            href="/sign-in"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Sign In
+            </Button>
+          </Link>
+
+          <Link
+            href="/sign-up"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Sign Up
+            </Button>
+          </Link>
+        </Box>
+      </Drawer>
+
       {/* Main Content */}
       <Box
         sx={{
@@ -394,7 +625,7 @@ export default function GenerateAI() {
                 fontFamily: "Kanit, sans-serif",
                 fontWeight: "900",
                 paddingBottom: "50px",
-                color: "white",
+                color: "rgba(145, 83, 209, 1)",
               }}
             >
               Generate Flashcards using ChronicleAI
@@ -705,19 +936,22 @@ export default function GenerateAI() {
         </Container>
       </Box>
 
-      {/*Footer*/}
+      {/* Footer */}
       <Box
         component="footer"
         sx={{
-          height: "40vh",
+          height: "auto",
           py: 4,
+          pb: 10,
           background: "linear-gradient(270deg, #000000, #2838ae)",
-          paddingTop: "200px",
-          paddingBottom: "300px",
         }}
       >
         <Container maxWidth="lg">
-          <Stack direction="row" spacing={4} justifyContent="space-between">
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={4}
+            justifyContent="space-between"
+          >
             <Stack spacing={2}>
               <Typography
                 variant="h6"
@@ -731,10 +965,7 @@ export default function GenerateAI() {
               </Typography>
               <Typography
                 variant="body1"
-                sx={{
-                  color: "white",
-                  fontFamily: "Kanit, sans-serif",
-                }}
+                sx={{ color: "white", fontFamily: "Kanit, sans-serif" }}
               >
                 Subscribe to our newsletter
               </Typography>
@@ -750,15 +981,32 @@ export default function GenerateAI() {
                     "& .MuiInputBase-input::placeholder": {
                       color: "black",
                       fontFamily: "Kanit, sans-serif",
-                      fontWeight: "700",
+                      fontWeight: "900",
+                    },
+                    "& .MuiInputBase-input": {
+                      color: "black",
+                      fontFamily: "Kanit, sans-serif",
+                      fontWeight: "900",
                     },
                   }}
                 />
-                <Button variant="contained" sx={{ borderRadius: "10px" }}>
+                <Button
+                  variant="contained"
+                  sx={{
+                    borderRadius: "10px",
+                    background: "primary",
+                    transition: "background 0.4s ease-in-out",
+                    "&:hover": {
+                      background: "rgba(145, 83, 209, 1)",
+                    },
+                  }}
+                >
                   Submit
                 </Button>
               </Stack>
+
               <Stack direction="row" spacing={1}>
+                {/* Social media links */}
                 <IconButton
                   href="https://github.com/hamim23z"
                   target="_blank"
@@ -766,7 +1014,7 @@ export default function GenerateAI() {
                     color: "white",
                     transition: "color 0.2s ease-in-out",
                     "&:hover": {
-                      color: "purple",
+                      color: "rgba(145, 83, 209, 1)",
                     },
                   }}
                 >
@@ -779,7 +1027,7 @@ export default function GenerateAI() {
                     color: "white",
                     transition: "color 0.2s ease-in-out",
                     "&:hover": {
-                      color: "purple",
+                      color: "rgba(145, 83, 209, 1)",
                     },
                   }}
                 >
@@ -792,7 +1040,7 @@ export default function GenerateAI() {
                     color: "white",
                     transition: "color 0.2s ease-in-out",
                     "&:hover": {
-                      color: "purple",
+                      color: "rgba(145, 83, 209, 1)",
                     },
                   }}
                 >
@@ -805,7 +1053,7 @@ export default function GenerateAI() {
                     color: "white",
                     transition: "color 0.2s ease-in-out",
                     "&:hover": {
-                      color: "purple",
+                      color: "rgba(145, 83, 209, 1)",
                     },
                   }}
                 >
@@ -814,7 +1062,8 @@ export default function GenerateAI() {
               </Stack>
             </Stack>
 
-            <Stack direction="row" spacing={4}>
+            <Stack direction={{ xs: "column", md: "row" }} spacing={4}>
+              {/* Company Section */}
               <Stack spacing={1}>
                 <Typography
                   variant="h6"
@@ -833,7 +1082,8 @@ export default function GenerateAI() {
                     textDecoration: "none",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
-                    paddingTop: "30px",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
                   }}
                 >
                   About Us
@@ -860,11 +1110,15 @@ export default function GenerateAI() {
                     textDecoration: "none",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
                   }}
                 >
                   GitHub
                 </Link>
               </Stack>
+
+              {/* References Section */}
               <Stack spacing={1}>
                 <Typography
                   variant="h6"
@@ -884,7 +1138,8 @@ export default function GenerateAI() {
                     textDecoration: "none",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
-                    paddingTop: "30px",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
                   }}
                 >
                   Documentation
@@ -909,11 +1164,15 @@ export default function GenerateAI() {
                     textDecoration: "none",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
                   }}
                 >
                   Demos
                 </Link>
               </Stack>
+
+              {/* Legal Section */}
               <Stack spacing={1}>
                 <Typography
                   variant="h6"
@@ -932,7 +1191,8 @@ export default function GenerateAI() {
                     textDecoration: "none",
                     fontFamily: "Kanit, sans-serif",
                     fontWeight: "400",
-                    paddingTop: "30px",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
                   }}
                 >
                   Privacy

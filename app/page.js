@@ -926,7 +926,7 @@ export default function Home() {
             margin: "0 auto",
             background: "transparent",
             paddingX: { xs: 1, sm: 4 },
-            marginLeft: { xs: "-6px", sm: "auto" },
+            marginLeft: { xs: "-10px", sm: "auto" },
           }}
         >
           {[

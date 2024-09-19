@@ -857,7 +857,7 @@ export default function Home() {
         onClose={handleSnackbarClose}
         message={
           emailError ||
-          "You have successfully signed up for the waitlist! We will reach out when the site is ready, which is very soon!"
+          "You have successfully signed up for the waitlist! We will reach out when the site is ready."
         }
       />
 

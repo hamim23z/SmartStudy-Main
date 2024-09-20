@@ -380,7 +380,7 @@ export default function GenerateSelf() {
         PaperProps={{
           sx: {
             width: "calc(100% - 40px)",
-            height: "50vh",
+            height: "55vh",
             background: "black",
             color: "white",
             fontFamily: "Kanit, sans-serif",
@@ -392,7 +392,7 @@ export default function GenerateSelf() {
             borderRadius: "20px",
             transition: "transform 0.3s ease",
             position: "fixed",
-            bottom: 200,
+            bottom: 175,
             left: 20,
             right: 20,
             transform: drawerOpen ? "translateY(100%)" : "translateY(100%)",
@@ -403,6 +403,31 @@ export default function GenerateSelf() {
         <Box
           sx={{ textAlign: "center", display: "flex", flexDirection: "column" }}
         >
+          <Link
+            href="https://smart-study-official.vercel.app/"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Home
+            </Button>
+          </Link>
+
           <Link
             href="/pricing"
             passHref

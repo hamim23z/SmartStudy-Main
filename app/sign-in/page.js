@@ -542,7 +542,7 @@ export default function CustomSignIn() {
         <Typography
           variant="h2"
           sx={{
-            color: "white",
+            color: "rgba(145, 83, 209, 1)",
             fontFamily: "Kanit, sans-serif",
             fontWeight: "900",
             textAlign: "center",
@@ -603,7 +603,7 @@ export default function CustomSignIn() {
                 marginRight: "10px",
               }}
             />
-            Sign In with Google
+            Sign In via Google
           </Button>
           <Button
             variant="contained"
@@ -624,7 +624,7 @@ export default function CustomSignIn() {
                 marginRight: "10px",
               }}
             />
-            Sign In with GitHub
+            Sign In via GitHub
           </Button>
           <Button
             variant="contained"
@@ -645,7 +645,7 @@ export default function CustomSignIn() {
                 marginRight: "10px",
               }}
             />
-            Sign In with Microsoft
+            Sign In via Microsoft
           </Button>
         </Box>
 
@@ -690,7 +690,7 @@ export default function CustomSignIn() {
               },
               background: "white",
               width: "100%",
-              borderRadius: "10px"
+              borderRadius: "10px",
             }}
           />
 
@@ -714,7 +714,7 @@ export default function CustomSignIn() {
               },
               background: "white",
               width: "100%",
-              borderRadius: "10px"
+              borderRadius: "10px",
             }}
           />
 

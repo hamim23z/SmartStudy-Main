@@ -583,11 +583,19 @@ export default function Contact() {
           <Typography
             variant="h3"
             sx={{
+              color: "rgba(145, 83, 209, 1)",
               textTransform: "uppercase",
               fontFamily: "Kanit, sans-serif",
               fontWeight: 900,
-              color: "rgba(145, 83, 209, 1)",
-              mb: 3,
+              fontSize: { xs: "h4.fontSize", sm: "h2.fontSize" },
+              maxWidth: "800px",
+              width: "100%",
+              paddingBottom: "30px",
+              textAlign: {
+                xs: "center",
+                md: "initial",
+                lg: "initial",
+              },
             }}
           >
             Contact Us
@@ -613,6 +621,7 @@ export default function Contact() {
                   backgroundColor: "white",
                   borderRadius: 1,
                   "& .MuiInputLabel-root": { color: "black" },
+                  opacity: 1,
                 }}
                 required
               />
@@ -628,6 +637,7 @@ export default function Contact() {
                   backgroundColor: "white",
                   borderRadius: 1,
                   "& .MuiInputLabel-root": { color: "black" },
+                  opacity: 1,
                 }}
                 required
               />
@@ -645,6 +655,7 @@ export default function Contact() {
               mt: 2,
               borderRadius: 1,
               "& .MuiInputLabel-root": { color: "black" },
+              opacity: 1,
             }}
             required
             type="email"
@@ -665,6 +676,7 @@ export default function Contact() {
               mt: 2,
               borderRadius: 1,
               "& .MuiInputLabel-root": { color: "black" },
+              opacity: 1,
             }}
             required
           />

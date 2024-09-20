@@ -556,13 +556,13 @@ export default function CustomSignIn() {
         <Typography
           variant="h2"
           sx={{
-            color: "white",
+            color: "rgba(145, 83, 209, 1)",
             fontFamily: "Kanit, sans-serif",
             fontWeight: "900",
             textAlign: "center",
           }}
         >
-          Sign up
+          Sign Up
         </Typography>
 
         <Typography
@@ -613,7 +613,7 @@ export default function CustomSignIn() {
             }}
           >
             <GoogleIcon sx={{ marginRight: "10px" }}></GoogleIcon>
-            Sign Up with Google
+            Sign Up via Google
           </Button>
           <Button
             variant="contained"
@@ -630,7 +630,7 @@ export default function CustomSignIn() {
             }}
           >
             <GitHubIcon sx={{ marginRight: "10px" }}></GitHubIcon>
-            Sign Up with GitHub
+            Sign Up via GitHub
           </Button>
           <Button
             variant="contained"
@@ -647,7 +647,7 @@ export default function CustomSignIn() {
             }}
           >
             <MicrosoftIcon sx={{ marginRight: "10px" }}></MicrosoftIcon>
-            Sign Up with Microsoft
+            Sign Up via Microsoft
           </Button>
         </Box>
 
@@ -680,7 +680,7 @@ export default function CustomSignIn() {
             required
             sx={{
               "& .MuiInputBase-input::placeholder": {
-                color: "black", // Placeholder text color
+                color: "black",
                 fontFamily: "Kanit, sans-serif",
                 fontWeight: "700",
               },
@@ -704,12 +704,12 @@ export default function CustomSignIn() {
             required
             sx={{
               "& .MuiInputBase-input::placeholder": {
-                color: "black", // Placeholder text color
+                color: "black",
                 fontFamily: "Kanit, sans-serif",
                 fontWeight: "700",
               },
               "& .MuiInputBase-input": {
-                color: "black", // Color of the input text
+                color: "black",
                 fontFamily: "Kanit, sans-serif",
                 fontWeight: "700",
               },

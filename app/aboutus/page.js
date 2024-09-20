@@ -526,9 +526,10 @@ export default function About() {
         }}
       >
         <Typography
-          variant="h2"
+          variant="h3"
           sx={{
             color: "rgba(145, 83, 209, 1)",
+            textTransform: "uppercase",
             fontFamily: "Kanit, sans-serif",
             fontWeight: 900,
             fontSize: { xs: "h4.fontSize", sm: "h2.fontSize" },
@@ -536,6 +537,10 @@ export default function About() {
             width: "100%",
             margin: "0 auto",
             paddingBottom: "30px",
+            paddingTop: {
+              xs: "initial",
+              md: "100px",
+            },
           }}
         >
           About Us
@@ -547,11 +552,11 @@ export default function About() {
             color: "white",
             fontFamily: "Kanit, sans-serif",
             fontWeight: 700,
-            maxWidth: "800px", 
-            width: "100%", 
+            maxWidth: "800px",
+            width: "100%",
             px: 2,
-            fontSize: { xs: "body2.fontSize", sm: "18px" }, 
-            lineHeight: 1.6, 
+            fontSize: { xs: "body2.fontSize", sm: "18px" },
+            lineHeight: 1.6,
             mt: 2,
             margin: "0 auto",
           }}
@@ -572,13 +577,13 @@ export default function About() {
             color: "white",
             fontFamily: "Kanit, sans-serif",
             fontWeight: 700,
-            maxWidth: "800px", 
+            maxWidth: "800px",
             width: "100%",
-            px: 2, 
+            px: 2,
             fontSize: { xs: "body2.fontSize", sm: "18px" },
-            lineHeight: 1.6, 
-            mt: 2, 
-            margin: "0 auto", 
+            lineHeight: 1.6,
+            mt: 2,
+            margin: "0 auto",
           }}
         >
           We believe that learning should be more than just reading textbooks or
@@ -599,12 +604,12 @@ export default function About() {
             fontFamily: "Kanit, sans-serif",
             fontWeight: 700,
             maxWidth: "800px",
-            width: "100%", 
-            px: 2, 
-            fontSize: { xs: "body2.fontSize", sm: "18px" }, 
-            lineHeight: 1.6, 
-            mt: 2, 
-            margin: "0 auto", 
+            width: "100%",
+            px: 2,
+            fontSize: { xs: "body2.fontSize", sm: "18px" },
+            lineHeight: 1.6,
+            mt: 2,
+            margin: "0 auto",
           }}
         >
           Within today&apos;s day and age, the number of students majoring or
@@ -623,12 +628,12 @@ export default function About() {
             color: "white",
             fontFamily: "Kanit, sans-serif",
             fontWeight: 700,
-            maxWidth: "800px", 
-            width: "100%", 
-            px: 2, 
-            fontSize: { xs: "body2.fontSize", sm: "18px" }, 
-            lineHeight: 1.6, 
-            mt: 2, 
+            maxWidth: "800px",
+            width: "100%",
+            px: 2,
+            fontSize: { xs: "body2.fontSize", sm: "18px" },
+            lineHeight: 1.6,
+            mt: 2,
             margin: "0 auto",
           }}
         >
@@ -671,7 +676,7 @@ export default function About() {
           background: "linear-gradient(270deg, #000000, #2838ae)",
           borderTop: "none",
           boxShadow: "none",
-          border: "none"
+          border: "none",
         }}
       >
         <Container maxWidth="lg">

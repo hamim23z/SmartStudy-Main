@@ -16,11 +16,13 @@ export const metadata = {
     title: "Smart Study - For Engineering Students",
     description: "Making life a little bit easier for engineering students.",
     type: "website",
+    images: [],
   },
   twitter: {
     card: "summary",
     title: "Smart Study - For Engineering Students",
     description: "Making life a little bit easier for engineering students",
+    images: [],
   },
 };
 

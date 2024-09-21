@@ -104,7 +104,7 @@ export default function Dashboard() {
                 component="div"
                 sx={{
                   flexGrow: 1,
-                  display: { xs: "none", md: "flex" }, // Visible on desktop, hidden on mobile
+                  display: { xs: "none", md: "flex" },
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
                   color: "white",
@@ -123,30 +123,6 @@ export default function Dashboard() {
               gap: 3,
             }}
           >
-            <Link
-              href="/pricing"
-              passHref
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              <Button
-                color="inherit"
-                sx={{
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
-                  fontSize: "15px",
-                  transition: "transform 0.6s ease-in-out",
-                  "&:hover": {
-                    animation: `${slideUpDown} 0.6s ease-in-out`,
-                  },
-                }}
-              >
-                Pricing
-              </Button>
-            </Link>
-
             <Link
               href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
               target="_blank"
@@ -330,7 +306,7 @@ export default function Dashboard() {
           sx={{ textAlign: "center", display: "flex", flexDirection: "column" }}
         >
           <Link
-            href="/pricing"
+            href="https://smart-study-official.vercel.app/"
             passHref
             style={{
               color: "white",
@@ -350,7 +326,7 @@ export default function Dashboard() {
                 paddingBottom: "10px",
               }}
             >
-              Pricing
+              Home
             </Button>
           </Link>
 
@@ -686,20 +662,6 @@ export default function Dashboard() {
                 >
                   Blog
                 </Link>
-                <Link
-                  href="https://github.com/hamim23z"
-                  target="_blank"
-                  style={{
-                    color: "white",
-                    textDecoration: "none",
-                    fontFamily: "Kanit, sans-serif",
-                    fontWeight: "400",
-                    paddingTop: "10px",
-                    paddingBottom: "10px",
-                  }}
-                >
-                  GitHub
-                </Link>
               </Stack>
 
               {/* References Section */}
@@ -727,19 +689,6 @@ export default function Dashboard() {
                   }}
                 >
                   Documentation
-                </Link>
-                <Link
-                  href="/pricing"
-                  style={{
-                    color: "white",
-                    textDecoration: "none",
-                    fontFamily: "Kanit, sans-serif",
-                    fontWeight: "400",
-                    paddingTop: "10px",
-                    paddingBottom: "10px",
-                  }}
-                >
-                  Pricing
                 </Link>
                 <Link
                   href="/demos"

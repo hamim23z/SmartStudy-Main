@@ -176,30 +176,6 @@ export default function Contact() {
             }}
           >
             <Link
-              href="/pricing"
-              passHref
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              <Button
-                color="inherit"
-                sx={{
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
-                  fontSize: "15px",
-                  transition: "transform 0.6s ease-in-out",
-                  "&:hover": {
-                    animation: `${slideUpDown} 0.6s ease-in-out`,
-                  },
-                }}
-              >
-                Pricing
-              </Button>
-            </Link>
-
-            <Link
               href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
               target="_blank"
               passHref
@@ -358,7 +334,7 @@ export default function Contact() {
         PaperProps={{
           sx: {
             width: "calc(100% - 40px)",
-            height: "55vh",
+            height: "50vh",
             background: "black",
             color: "white",
             fontFamily: "Kanit, sans-serif",
@@ -370,7 +346,7 @@ export default function Contact() {
             borderRadius: "20px",
             transition: "transform 0.3s ease",
             position: "fixed",
-            bottom: 175,
+            bottom: 200,
             left: 20,
             right: 20,
             transform: drawerOpen ? "translateY(100%)" : "translateY(100%)",
@@ -403,31 +379,6 @@ export default function Contact() {
               }}
             >
               Home
-            </Button>
-          </Link>
-
-          <Link
-            href="/pricing"
-            passHref
-            style={{
-              color: "white",
-              textDecoration: "none",
-            }}
-          >
-            <Button
-              color="inherit"
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-                fontSize: "15px",
-                transition: "transform 0.6s ease-in-out",
-                "&:hover": {
-                  animation: `${slideUpDown} 0.6s ease-in-out`,
-                },
-                paddingBottom: "10px",
-              }}
-            >
-              Pricing
             </Button>
           </Link>
 
@@ -900,20 +851,6 @@ export default function Contact() {
                 >
                   Blog
                 </Link>
-                <Link
-                  href="https://github.com/hamim23z"
-                  target="_blank"
-                  style={{
-                    color: "white",
-                    textDecoration: "none",
-                    fontFamily: "Kanit, sans-serif",
-                    fontWeight: "400",
-                    paddingTop: "10px",
-                    paddingBottom: "10px",
-                  }}
-                >
-                  GitHub
-                </Link>
               </Stack>
 
               {/* References Section */}
@@ -941,19 +878,6 @@ export default function Contact() {
                   }}
                 >
                   Documentation
-                </Link>
-                <Link
-                  href="/pricing"
-                  style={{
-                    color: "white",
-                    textDecoration: "none",
-                    fontFamily: "Kanit, sans-serif",
-                    fontWeight: "400",
-                    paddingTop: "10px",
-                    paddingBottom: "10px",
-                  }}
-                >
-                  Pricing
                 </Link>
                 <Link
                   href="/demos"

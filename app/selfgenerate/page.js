@@ -356,7 +356,7 @@ export default function GenerateSelf() {
         PaperProps={{
           sx: {
             width: "calc(100% - 40px)",
-            height: "55vh",
+            height: "50vh",
             background: "black",
             color: "white",
             fontFamily: "Kanit, sans-serif",
@@ -368,7 +368,7 @@ export default function GenerateSelf() {
             borderRadius: "20px",
             transition: "transform 0.3s ease",
             position: "fixed",
-            bottom: 175,
+            bottom: 200,
             left: 20,
             right: 20,
             transform: drawerOpen ? "translateY(100%)" : "translateY(100%)",

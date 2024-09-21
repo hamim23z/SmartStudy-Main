@@ -540,7 +540,7 @@ export default function About() {
 
       <Box
         sx={{
-          minHeight: "90vh",
+          minHeight: "110vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

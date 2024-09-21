@@ -540,7 +540,7 @@ export default function Blog() {
       {/* Main Content */}
       <Box
         sx={{
-          minHeight: "90vh",
+          minHeight: "100vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -587,12 +587,12 @@ export default function Blog() {
             fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
             maxWidth: "800px",
             margin: "0 auto 20px",
-            paddingBottom: "10px"
+            paddingBottom: "10px",
           }}
         >
-          Education is the most powerful weapon which you can use to change the world.
-          <br></br>
-          - Nelson Mandela
+          Education is the most powerful weapon which you can use to change the
+          world.
+          <br></br>- Nelson Mandela
         </Typography>
 
         <Stack
@@ -737,6 +737,35 @@ export default function Blog() {
                 }}
               >
                 My Background and Coding Journey
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  color: "white",
+                }}
+              >
+                BLOG COMING SOON
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion sx={{ background: "transparent" }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "rgba(145, 83, 209, 1)",
+                }}
+              >
+                TOPIC #1: How is AI Changing Education?
               </Typography>
             </AccordionSummary>
             <AccordionDetails>

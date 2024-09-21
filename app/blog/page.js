@@ -12,6 +12,9 @@ import {
   Stack,
   Snackbar,
   Drawer,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -43,6 +46,7 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 import MenuIcon from "@mui/icons-material/Menu";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { UserButton } from "@stackframe/stack";
 
 export default function Blog() {
@@ -536,14 +540,219 @@ export default function Blog() {
       {/* Main Content */}
       <Box
         sx={{
-          height: "100vh",
+          minHeight: "90vh",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          flexDirection: "column",
           background: "linear-gradient(270deg, #000000, #2838ae)",
+          overflow: "auto",
+          padding: { xs: "40px 10px", sm: "60px 20px" },
         }}
-      ></Box>
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
+            textAlign: "center",
+          }}
+        >
+          Building Smart Study:
+        </Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            color: "rgba(145, 83, 209, 1)",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
+            textAlign: "center",
+          }}
+        >
+          A Founder&apos;s Perspective
+        </Typography>
+
+        <Typography
+          variant="caption"
+          sx={{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            textAlign: "center",
+            paddingTop: "20px",
+            fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
+            maxWidth: "800px",
+            margin: "0 auto 20px",
+            paddingBottom: "10px"
+          }}
+        >
+          Education is the most powerful weapon which you can use to change the world.
+          <br></br>
+          - Nelson Mandela
+        </Typography>
+
+        <Stack
+          spacing={2}
+          sx={{
+            width: "100%",
+            maxWidth: "1000px",
+            background: "transparent",
+            borderRadius: "8px",
+            padding: "20px",
+            boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.1)",
+          }}
+        >
+          {/* FAQ Accordions */}
+          <Accordion sx={{ background: "transparent" }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "rgba(145, 83, 209, 1)",
+                }}
+              >
+                Why did I create Smart Study?
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  color: "white",
+                }}
+              >
+                BLOG COMING SOON!
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion sx={{ background: "transparent" }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "rgba(145, 83, 209, 1)",
+                }}
+              >
+                What do I want Smart Study to be?
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  color: "white",
+                }}
+              >
+                BLOG COMING SOON!
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion sx={{ background: "transparent" }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "rgba(145, 83, 209, 1)",
+                }}
+              >
+                How should someone utilize Smart Study?
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  color: "white",
+                }}
+              >
+                BLOG COMING SOON!
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion sx={{ background: "transparent" }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "rgba(145, 83, 209, 1)",
+                }}
+              >
+                What features and updates can you expect?
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  color: "white",
+                }}
+              >
+                BLOG COMING SOON!
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion sx={{ background: "transparent" }}>
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+            >
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                  color: "rgba(145, 83, 209, 1)",
+                }}
+              >
+                My Background and Coding Journey
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <Typography
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  color: "white",
+                }}
+              >
+                BLOG COMING SOON
+              </Typography>
+            </AccordionDetails>
+          </Accordion>
+        </Stack>
+      </Box>
 
       {/* Footer */}
       <Box

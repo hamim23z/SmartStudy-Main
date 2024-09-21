@@ -540,35 +540,40 @@ export default function About() {
 
       <Box
         sx={{
-          height: { xs: "auto", sm: "90vh" },
+          minHeight: "90vh",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          flexDirection: "column",
           background: "linear-gradient(270deg, #000000, #2838ae)",
-          px: 2,
-          textAlign: "center",
+          overflow: "auto",
+          padding: { xs: "40px 10px", sm: "60px 20px" },
         }}
       >
         <Typography
-          variant="h3"
+          variant="h2"
           sx={{
-            color: "rgba(145, 83, 209, 1)",
-            textTransform: "uppercase",
+            color: "white",
             fontFamily: "Kanit, sans-serif",
-            fontWeight: 900,
-            fontSize: { xs: "h4.fontSize", sm: "h2.fontSize" },
-            maxWidth: "800px",
-            width: "100%",
-            margin: "0 auto",
-            paddingBottom: "30px",
-            paddingTop: {
-              xs: "initial",
-              md: "100px",
-            },
+            fontWeight: "900",
+            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
+            textAlign: "center",
           }}
         >
-          About Us
+          About Us:
+        </Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            color: "rgba(145, 83, 209, 1)",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
+            textAlign: "center",
+            paddingBottom: "30px",
+          }}
+        >
+          Our Values and Vision
         </Typography>
 
         <Typography

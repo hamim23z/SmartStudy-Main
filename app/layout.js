@@ -15,7 +15,7 @@ export const metadata = {
     description: "Making life a little bit easier for engineering students.",
     url: "https://smart-study-official.vercel.app/",
     type: "website",
-    images: [
+    image: [
       {
         url: "",
         alt: "Smart Study Logo",
@@ -26,7 +26,7 @@ export const metadata = {
     card: "summary_large_image",
     title: "Smart Study - For Engineering Students",
     description: "Making life a little bit easier for engineering students.",
-    images: [
+    image: [
       {
         url: "",
         alt: "Smart Study Logo",

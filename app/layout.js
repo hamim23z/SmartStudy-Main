@@ -10,22 +10,7 @@ const kanit = Kanit({ subsets: ["latin"], weight: ["100", "200", "300", "400","5
 export const metadata = {
   title: "Smart Study - For Engineering Students",
   description: "Making life a little bit easier for engineering students.",
-  openGraph: {
-    title: "Smart Study - For Engineering Students",
-    description: "Making life a little bit easier for engineering students.",
-    url: "https://smart-study-official.vercel.app/",
-    type: "website",
-    image: "https://images.pexels.com/photos/759960/pexels-photo-759960.jpeg" // Use a direct image link
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Smart Study - For Engineering Students",
-    description: "Making life a little bit easier for engineering students.",
-    image: "https://images.pexels.com/photos/759960/pexels-photo-759960.jpeg" // Use a direct image link
-  },
 };
-
-
 
 export default function RootLayout({ children }) {
   return (

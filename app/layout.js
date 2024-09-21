@@ -4,10 +4,8 @@ import { stackServerApp } from "../stack";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });
-const kanit = Kanit({
-  subsets: ["latin"],
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
-});
+const kanit = Kanit({ subsets: ["latin"], weight: ["100", "200", "300", "400","500", "600", "700", "800", "900"] });
+
 
 export const metadata = {
   title: "Smart Study - For Engineering Students",
@@ -15,20 +13,23 @@ export const metadata = {
   openGraph: {
     title: "Smart Study - For Engineering Students",
     description: "Making life a little bit easier for engineering students.",
+    url: "https://smart-study-official.vercel.app/",
     type: "website",
     images: [
       {
         url: "",
+        alt: "Smart Study Logo",
       },
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Smart Study - For Engineering Students",
-    description: "Making life a little bit easier for engineering students",
+    description: "Making life a little bit easier for engineering students.",
     images: [
       {
         url: "",
+        alt: "Smart Study Logo",
       },
     ],
   },
@@ -45,3 +46,4 @@ export default function RootLayout({ children }) {
     </html>
   );
 }
+

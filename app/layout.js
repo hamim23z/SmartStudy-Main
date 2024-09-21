@@ -15,15 +15,16 @@ export const metadata = {
     description: "Making life a little bit easier for engineering students.",
     url: "https://smart-study-official.vercel.app/",
     type: "website",
-    image: "https://www.pexels.com/photo/photography-of-person-holding-black-camera-lens-759960/",
+    image: ""
   },
   twitter: {
     card: "summary_large_image",
     title: "Smart Study - For Engineering Students",
     description: "Making life a little bit easier for engineering students.",
-    image: "https://www.pexels.com/photo/photography-of-person-holding-black-camera-lens-759960/",
+    image: ""
   },
 };
+
 
 export default function RootLayout({ children }) {
   return (

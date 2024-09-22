@@ -1315,7 +1315,7 @@ export default function Home() {
                   alignItems: "center",
                 }}
               >
-                Personalize your Learning
+                Personalize your Learning Experience
                 <Icon sx={{ marginLeft: "10px" }}>
                   <PersonPinIcon />
                 </Icon>

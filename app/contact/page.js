@@ -539,7 +539,7 @@ export default function Contact() {
       {/*Contact Form Section*/}
       <Box
         sx={{
-          minHeight: "90vh",
+          minHeight: "95vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -552,36 +552,52 @@ export default function Contact() {
         <Box
           sx={{
             background: "transparent",
-            padding: 4,
             maxWidth: "1000px",
             width: "100%",
             color: "white",
           }}
         >
           <Typography
-            variant="h3"
+            variant="h2"
             sx={{
-              color: "rgba(145, 83, 209, 1)",
-              textTransform: "uppercase",
+              color: "white",
               fontFamily: "Kanit, sans-serif",
-              fontWeight: 900,
-              fontSize: { xs: "h4.fontSize", sm: "h2.fontSize" },
-              maxWidth: "800px",
-              width: "100%",
-              paddingBottom: "30px",
-              textAlign: {
-                xs: "center",
-                md: "initial",
-                lg: "initial",
-              },
+              fontWeight: "900",
+              fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
+              textAlign: "center",
             }}
           >
-            Contact Us
+            Contact Us:
+          </Typography>
+          <Typography
+            variant="h2"
+            sx={{
+              color: "rgba(145, 83, 209, 1)",
+              fontFamily: "Kanit, sans-serif",
+              fontWeight: "900",
+              fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
+              textAlign: "center",
+            }}
+          >
+            We&apos;re Here to Help
           </Typography>
 
           <Typography
-            variant="body1"
-            sx={{ color: "white", mb: 3, fontFamily: "Kanit, sans-serif" }}
+            variant="caption"
+            sx={{
+              color: "white",
+              fontFamily: "Kanit, sans-serif",
+              fontWeight: "900",
+              textTransform: "uppercase",
+              textAlign: "center",
+              paddingTop: "20px",
+              fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
+              maxWidth: "800px",
+              display: "block",
+              mx: "auto",
+              mb: "20px",
+              paddingBottom: "10px",
+            }}
           >
             We would love to hear from you! Please fill out the form below with
             any inquiries or suggestions you may have.

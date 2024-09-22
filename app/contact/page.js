@@ -539,14 +539,18 @@ export default function Contact() {
       {/*Contact Form Section*/}
       <Box
         sx={{
-          minHeight: "95vh",
+          minHeight: { xs: "90vh", sm: "95vh" },
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
-          justifyContent: "center",
+          justifyContent: { xs: "flex-start", sm: "center" },
           background: "linear-gradient(270deg, #000000, #2838ae)",
           overflow: "auto",
-          padding: { xs: "40px 10px", sm: "60px 20px" },
+          padding: {
+            xs: "20px 10px 40px",
+            sm: "60px 20px",
+          },
+          pt: { xs: "40px", sm: "60px" },
         }}
       >
         <Box

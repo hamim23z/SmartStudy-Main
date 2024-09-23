@@ -1436,7 +1436,7 @@ export default function Home() {
                   alignItems: "center",
                 }}
               >
-                Use the Pomodoro Technique
+                Use our In-House Pomodoro Technique
                 <Icon
                   sx={{
                     marginLeft: "10px",

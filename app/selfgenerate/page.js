@@ -633,9 +633,10 @@ export default function GenerateSelf() {
                 fontWeight: "900",
                 textAlign: "center",
                 paddingBottom: "30px",
+                mt: { xs: -8, sm: -2, md: 0 },
               }}
             >
-              Create Your Own Flashcards
+              Create Your Custom Flashcards
             </Typography>
             <TextField
               placeholder="Front"
@@ -688,10 +689,14 @@ export default function GenerateSelf() {
             <Box
               sx={{
                 display: "flex",
-                flexDirection: "row",
-                gap: 10,
+                flexDirection: { xs: "column", md: "row" },
+                gap: { xs: 2, md: 10 },
                 paddingTop: "30px",
                 justifyContent: "center",
+                "& > *": {
+                  flex: { xs: "1 1 100%", md: "0 1 auto" },
+                  minWidth: { xs: "100%", md: "auto" },
+                },
               }}
             >
               <Button
@@ -705,7 +710,7 @@ export default function GenerateSelf() {
               </Button>
               <Button
                 variant="contained"
-                onClick={handleOpen} // Show the dialog
+                onClick={handleOpen}
                 sx={{
                   fontFamily: "Kanit, sans-serif",
                 }}
@@ -720,9 +725,10 @@ export default function GenerateSelf() {
               >
                 Timer
               </Button>
-              <Link href="/aigenerate">
+              <Link href="/aigenerate" passHref legacyBehavior>
                 <Button
                   variant="contained"
+                  component="a"
                   sx={{
                     fontFamily: "Kanit, sans-serif",
                   }}
@@ -730,13 +736,16 @@ export default function GenerateSelf() {
                   Generate using AI
                 </Button>
               </Link>
-
               <Link
                 href="https://chronicle-ai-omega.vercel.app/chat"
-                target="_blank"
+                passHref
+                legacyBehavior
               >
                 <Button
                   variant="contained"
+                  component="a"
+                  target="_blank"
+                  rel="noopener noreferrer"
                   sx={{
                     fontFamily: "Kanit, sans-serif",
                   }}

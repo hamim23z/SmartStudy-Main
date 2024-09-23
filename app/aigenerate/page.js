@@ -600,17 +600,19 @@ export default function GenerateAI() {
               sx={{
                 fontFamily: "Kanit, sans-serif",
                 fontWeight: "900",
-                paddingBottom: "50px",
+                paddingBottom: "30px",
                 color: "rgba(145, 83, 209, 1)",
+                textAlign: "center",
+                mt: { xs: -14, sm: -2, md: -6 },
               }}
             >
-              Generate Flashcards using ChronicleAI
+              Generate Cards With ChronicleAI
             </Typography>
 
             <Paper
               sx={{
                 width: "100%",
-                padding: "20px",
+                padding: "10px",
               }}
             >
               <TextField
@@ -642,10 +644,14 @@ export default function GenerateAI() {
           <Box
             sx={{
               display: "flex",
-              flexDirection: "row",
-              gap: 10,
+              flexDirection: { xs: "column", md: "row" },
+              gap: { xs: 2, md: 10 },
               paddingTop: "30px",
               justifyContent: "center",
+              "& > *": {
+                flex: { xs: "1 1 100%", md: "0 1 auto" },
+                minWidth: { xs: "100%", md: "auto" },
+              },
             }}
           >
             <Button
@@ -720,7 +726,7 @@ export default function GenerateAI() {
               </DialogActions>
             </Dialog>
 
-            <Link href="/selfgenerate">
+            <Link href="/selfgenerate" passHref legacyBehavior>
               <Button
                 variant="contained"
                 sx={{
@@ -733,6 +739,8 @@ export default function GenerateAI() {
 
             <Link
               href="https://chronicle-ai-omega.vercel.app/chat"
+              passHref
+              legacyBehavior
               target="_blank"
             >
               <Button
@@ -754,11 +762,11 @@ export default function GenerateAI() {
                     <Card
                       sx={{
                         maxWidth: 800,
-                        maxHeight: 400, // Adjust as needed
-                        overflow: "hidden", // Ensure overflow is handled
-                        display: "flex", // To ensure the content aligns properly
-                        alignItems: "center", // Center the content
-                        justifyContent: "center", // Center the content
+                        maxHeight: 400,
+                        overflow: "hidden",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
                       }}
                     >
                       <CardActionArea
@@ -772,7 +780,7 @@ export default function GenerateAI() {
                             justifyContent: "center",
                             alignItems: "center",
                             textAlign: "center",
-                            height: "200px", // Adjust the height as needed
+                            height: "200px",
                           }}
                         >
                           <Box
@@ -805,7 +813,7 @@ export default function GenerateAI() {
                                   alignItems: "center",
                                   padding: "16px",
                                   boxSizing: "border-box",
-                                  backgroundColor: "#fff", // Add background color if needed
+                                  backgroundColor: "#fff",
                                 }}
                               >
                                 <Typography
@@ -831,7 +839,7 @@ export default function GenerateAI() {
                                   alignItems: "center",
                                   padding: "16px",
                                   boxSizing: "border-box",
-                                  backgroundColor: "#fff", // Add background color if needed
+                                  backgroundColor: "#fff",
                                   transform: "rotateY(180deg)",
                                 }}
                               >

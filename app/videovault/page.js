@@ -487,14 +487,59 @@ export default function Videovault() {
       {/* Main Content */}
       <Box
         sx={{
-          height: "100vh",
+          minHeight: "100vh",
           display: "flex",
+          flexDirection: "column",
           alignItems: "center",
           justifyContent: "center",
-          flexDirection: "column",
           background: "linear-gradient(270deg, #000000, #2838ae)",
+          overflow: "auto",
+          padding: { xs: "40px 10px", sm: "60px 20px" },
         }}
-      ></Box>
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
+            textAlign: "center",
+          }}
+        >
+          Video Vault:
+        </Typography>
+        <Typography
+          variant="h2"
+          sx={{
+            color: "rgba(145, 83, 209, 1)",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
+            textAlign: "center",
+          }}
+        >
+          Get Access to Videos Here
+        </Typography>
+
+        <Typography
+          variant="caption"
+          sx={{
+            color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            textTransform: "uppercase",
+            textAlign: "center",
+            paddingTop: "20px",
+            fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
+            maxWidth: "800px",
+            margin: "0 auto 20px",
+            paddingBottom: "10px",
+          }}
+        >
+          Some text will go here.
+        </Typography>
+      </Box>
 
       {/* Footer */}
       <Box

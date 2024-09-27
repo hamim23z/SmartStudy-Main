@@ -1,11 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from "react";
 
 const RainEffect = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     let animationFrameId;
 
     const resizeCanvas = () => {
@@ -13,7 +13,7 @@ const RainEffect = () => {
       canvas.height = window.innerHeight;
     };
 
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
 
     const raindrops = [];
@@ -24,18 +24,18 @@ const RainEffect = () => {
       }
 
       reset() {
-        this.x = Math.random() * (canvas.width + 100) - 90; // Start raindrops outside the left edge
-        this.y = -20 - Math.random() * canvas.height; // Start above the canvas
-        this.speed = 3 + Math.random() * 5;
+        this.x = Math.random() * (canvas.width + 100) - 90;
+        this.y = -10;
+        this.speed = 2 + Math.random() * 5;
         this.length = 10 + Math.random() * 20;
         this.opacity = 0.1 + Math.random() * 0.4;
       }
 
       fall() {
         this.y += this.speed;
-        this.x += this.speed / 6; // Slight diagonal movement
+        this.x += this.speed / 4; // Reduced diagonal movement
 
-        if (this.y > canvas.height) {
+        if (this.y > canvas.height || this.x > canvas.width + 100) {
           this.reset();
         }
       }
@@ -51,7 +51,7 @@ const RainEffect = () => {
     }
 
     const createRaindrops = () => {
-      const raindropCount = Math.floor(canvas.width / 3); // Increased density
+      const raindropCount = Math.floor(canvas.width / 3);
       for (let i = 0; i < raindropCount; i++) {
         raindrops.push(new Raindrop());
       }
@@ -71,7 +71,7 @@ const RainEffect = () => {
     animate();
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationFrameId);
     };
   }, []);
@@ -80,12 +80,12 @@ const RainEffect = () => {
     <canvas
       ref={canvasRef}
       style={{
-        position: 'fixed',
+        position: "absolute",
         top: 0,
         left: 0,
-        width: '100%',
-        height: '100%',
-        pointerEvents: 'none',
+        width: "100%",
+        height: "100%",
+        pointerEvents: "none",
         zIndex: 1,
       }}
     />

@@ -115,59 +115,6 @@ export default function Home() {
     }
   };
 
-  {
-    /*For the Newsletter Submit Button*/
-  }
-  const [snackbarOpenNews, setSnackbarOpenNews] = useState(false);
-  const [emailNews, setEmailNews] = useState("");
-  const [emailErrorNews, setEmailErrorNews] = useState("");
-  const emailRegexNews = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  const handleSnackbarCloseNews = () => {
-    setSnackbarOpenNews(false);
-  };
-
-  const handleEmailChangeNews = (e) => {
-    const value = e.target.value;
-    setEmailNews(value);
-
-    if (!emailRegexNews.test(value)) {
-      setEmailErrorNews("Please enter a valid email address.");
-    } else {
-      setEmailErrorNews("");
-    }
-  };
-
-  const handleSendMessageNews = async () => {
-    if (!emailNews.trim()) {
-      setSnackbarOpenNews(true);
-      setEmailErrorNews("Please enter a valid email address.");
-      return;
-    }
-
-    if (!emailRegexNews.test(emailNews)) {
-      setSnackbarOpenNews(true);
-      setEmailErrorNews("Please enter a valid email address.");
-      return;
-    }
-
-    try {
-      await addDoc(collection(db, "Newsletter - Homepage"), {
-        email: emailNews,
-        timestamp: new Date(),
-      });
-
-      // Show success Snackbar
-      setSnackbarOpenNews(true);
-      setEmailErrorNews("");
-
-      // Clear form inputs
-      setEmailNews("");
-    } catch (error) {
-      console.error("Error sending message: ", error);
-    }
-  };
-
   const [drawerOpen, setDrawerOpen] = useState(false);
 
   const toggleDrawer = (open) => () => {
@@ -176,7 +123,6 @@ export default function Home() {
 
   return (
     <>
-      <RainEffect></RainEffect>
       <AppBar
         position="static"
         sx={{
@@ -618,7 +564,6 @@ export default function Home() {
           overflow: "hidden",
         }}
       >
-        <RainEffect />
         <Typography
           variant="h2"
           sx={{

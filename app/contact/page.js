@@ -792,7 +792,7 @@ export default function Contact() {
                   <GitHubIcon />
                 </IconButton>
                 <IconButton
-                  href="https://www.linkedin.com/in/hamimc/"
+                  href="https://www.linkedin.com/company/smart-studyapp"
                   target="_blank"
                   sx={{
                     color: "white",

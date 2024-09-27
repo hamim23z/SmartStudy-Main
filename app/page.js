@@ -26,6 +26,7 @@ import chronicleainewpic from "../public/chronicleainewpic.png";
 import { UserButton } from "@stackframe/stack";
 import { db } from "@/firebase";
 import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
+import RainEffect from "./components/whiterain";
 
 const slideUpDown = keyframes`
   0% {
@@ -175,6 +176,7 @@ export default function Home() {
 
   return (
     <>
+      <RainEffect></RainEffect>
       <AppBar
         position="static"
         sx={{
@@ -616,6 +618,7 @@ export default function Home() {
           overflow: "hidden",
         }}
       >
+        <RainEffect />
         <Typography
           variant="h2"
           sx={{
@@ -624,6 +627,8 @@ export default function Home() {
             fontWeight: "900",
             textTransform: "uppercase",
             color: "white",
+            position: "relative",
+            zIndex: 1,
           }}
         >
           Smart Study
@@ -637,6 +642,8 @@ export default function Home() {
             fontWeight: "900",
             textTransform: "uppercase",
             color: "rgba(145, 83, 209, 1)",
+            position: "relative",
+            zIndex: 1,
           }}
         >
           To make life a little bit easier for engineering students
@@ -652,6 +659,8 @@ export default function Home() {
             gap: 3,
             margin: "0 auto",
             flexDirection: { xs: "column", sm: "row" },
+            position: "relative",
+            zIndex: 1,
           }}
         >
           <Box

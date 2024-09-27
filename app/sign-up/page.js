@@ -532,7 +532,7 @@ export default function CustomSignIn() {
         <Typography
           variant="h2"
           sx={{
-            color: "rgba(145, 83, 209, 1)",
+            color: "white",
             fontFamily: "Kanit, sans-serif",
             fontWeight: "900",
             textAlign: "center",

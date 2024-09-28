@@ -1,56 +1,36 @@
 "use client";
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   AppBar,
   Box,
-  Container,
-  Typography,
-  TextField,
-  Button,
-  Toolbar,
+  Drawer,
   IconButton,
+  Toolbar,
+  List,
+  ListItem,
+  ListItemButton,
+  ListItemText,
+  Typography,
+  Button,
+  Link,
+  Divider,
+  Grid,
+  Container,
   Stack,
   Snackbar,
-  Drawer,
+  TextField,
 } from "@mui/material";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { keyframes } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { UserButton } from "@stackframe/stack";
 
-const slideUpDown = keyframes`
-  0% {
-    transform: translateY(0);
-  }
-  25% {
-    transform: translateY(-10px); /* Adjust the value as needed */
-  }
-  50% {
-    transform: translateY(10px); /* Slide down */
-  }
-  75% {
-    transform: translateY(-5px); /* Adjust to create a smooth effect */
-  }
-  100% {
-    transform: translateY(0);
-  }
-`;
-
-{
-  /*MUI ICONS*/
-}
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
-import MenuIcon from "@mui/icons-material/Menu";
-import { UserButton } from "@stackframe/stack";
 
-export default function Videovault() {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const toggleDrawer = (open) => () => {
-    setDrawerOpen(open);
-  };
+const drawerWidth = 260;
 
+export default function Home() {
   {
     /* For the Newsletter Now */
   }
@@ -104,14 +84,36 @@ export default function Videovault() {
     }
   };
 
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const [selectedTopic, setSelectedTopic] = useState("Introduction");
+
+  const toggleDrawer = (open) => () => {
+    setDrawerOpen(open);
+  };
+
+  const handleListItemClick = (text) => {
+    setSelectedTopic(text);
+  };
+
+  const algebraVideos = [
+    {
+      title: "Algebra Basics",
+      url: "https://www.youtube.com/embed/6tuZHqcf2QA?si=5qupz2vYWe5eb4Qi",
+    },
+    {
+      title: "Linear Equations",
+      url: "https://www.youtube.com/embed/3tKj2vU3l8I",
+    },
+    {
+      title: "Quadratic Equations",
+      url: "https://www.youtube.com/embed/6uZtYOFIjqg",
+    },
+    // Add more videos as needed
+  ];
+
   return (
     <>
-      <AppBar
-        position="static"
-        sx={{
-          backgroundColor: "black",
-        }}
-      >
+      <AppBar position="static" sx={{ backgroundColor: "black" }}>
         <Toolbar
           sx={{
             paddingTop: "20px",
@@ -124,15 +126,13 @@ export default function Videovault() {
         >
           <Box
             sx={{
-              display: "flex",
+              display: { xs: "flex", md: "none" },
               justifyContent: "space-between",
               alignItems: "center",
               width: "100%",
               px: 2,
-              display: { xs: "flex", md: "none" },
             }}
           >
-            {/* Menu icon for mobile */}
             <IconButton
               edge="start"
               color="inherit"
@@ -141,14 +141,9 @@ export default function Videovault() {
             >
               <MenuIcon sx={{ fontSize: "35px" }} />
             </IconButton>
-
-            {/* User Button on right side for mobile */}
-            <Box>
-              <UserButton />
-            </Box>
+            <UserButton />
           </Box>
 
-          {/* App Logo */}
           <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
             <Link href="/" passHref style={{ textDecoration: "none" }}>
               <Typography
@@ -156,7 +151,7 @@ export default function Videovault() {
                 component="div"
                 sx={{
                   flexGrow: 1,
-                  display: { xs: "none", md: "flex" }, // Visible on desktop, hidden on mobile
+                  display: { xs: "none", md: "flex" },
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
                   color: "white",
@@ -168,21 +163,12 @@ export default function Videovault() {
             </Link>
           </Box>
 
-          {/* Links for desktop, hidden on mobile */}
-          <Box
-            sx={{
-              display: { xs: "none", md: "flex" },
-              gap: 3,
-            }}
-          >
+          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
             <Link
               href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
               target="_blank"
               passHref
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
+              style={{ color: "white", textDecoration: "none" }}
             >
               <Button
                 color="inherit"
@@ -192,70 +178,17 @@ export default function Videovault() {
                   fontSize: "15px",
                   transition: "transform 0.6s ease-in-out",
                   "&:hover": {
-                    animation: `${slideUpDown} 0.6s ease-in-out`,
+                    animation: "slideUpDown 0.6s ease-in-out",
                   },
                 }}
               >
                 Documentation
               </Button>
             </Link>
-
-            <Link
-              href="/blog"
-              target="_blank"
-              passHref
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              <Button
-                color="inherit"
-                sx={{
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
-                  fontSize: "15px",
-                  transition: "transform 0.6s ease-in-out",
-                  "&:hover": {
-                    animation: `${slideUpDown} 0.6s ease-in-out`,
-                  },
-                }}
-              >
-                Blog
-              </Button>
-            </Link>
-
-            <Link
-              href="/aboutus"
-              passHref
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              <Button
-                color="inherit"
-                sx={{
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
-                  fontSize: "15px",
-                  transition: "transform 0.6s ease-in-out",
-                  "&:hover": {
-                    animation: `${slideUpDown} 0.6s ease-in-out`,
-                  },
-                }}
-              >
-                About Us
-              </Button>
-            </Link>
-
             <Link
               href="/contact"
               passHref
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
+              style={{ color: "white", textDecoration: "none" }}
             >
               <Button
                 color="inherit"
@@ -265,68 +198,18 @@ export default function Videovault() {
                   fontSize: "15px",
                   transition: "transform 0.6s ease-in-out",
                   "&:hover": {
-                    animation: `${slideUpDown} 0.6s ease-in-out`,
+                    animation: "slideUpDown 0.6s ease-in-out",
                   },
                 }}
               >
                 Contact
               </Button>
             </Link>
-
-            <Link
-              href="/sign-in"
-              passHref
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              <Button
-                color="inherit"
-                sx={{
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
-                  fontSize: "15px",
-                  transition: "transform 0.6s ease-in-out",
-                  "&:hover": {
-                    animation: `${slideUpDown} 0.6s ease-in-out`,
-                  },
-                }}
-              >
-                Sign In
-              </Button>
-            </Link>
-
-            <Link
-              href="/sign-up"
-              passHref
-              style={{
-                color: "white",
-                textDecoration: "none",
-              }}
-            >
-              <Button
-                color="inherit"
-                sx={{
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
-                  fontSize: "15px",
-                  transition: "transform 0.6s ease-in-out",
-                  "&:hover": {
-                    animation: `${slideUpDown} 0.6s ease-in-out`,
-                  },
-                }}
-              >
-                Sign Up
-              </Button>
-            </Link>
-
-            <UserButton></UserButton>
+            <UserButton />
           </Box>
         </Toolbar>
       </AppBar>
 
-      {/* Drawer for mobile menu */}
       <Drawer
         anchor="bottom"
         open={drawerOpen}
@@ -349,251 +232,371 @@ export default function Videovault() {
             bottom: 200,
             left: 20,
             right: 20,
-            transform: drawerOpen ? "translateY(100%)" : "translateY(100%)",
+            transform: drawerOpen ? "translateY(0)" : "translateY(100%)",
           },
         }}
       >
-        {/* Drawer content */}
         <Box
           sx={{ textAlign: "center", display: "flex", flexDirection: "column" }}
         >
           <Link
             href="https://smart-study-official.vercel.app/"
             passHref
-            style={{
-              color: "white",
-              textDecoration: "none",
-            }}
+            style={{ color: "white", textDecoration: "none" }}
           >
-            <Button
-              color="inherit"
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-                fontSize: "15px",
-                transition: "transform 0.6s ease-in-out",
-                "&:hover": {
-                  animation: `${slideUpDown} 0.6s ease-in-out`,
-                },
-                paddingBottom: "10px",
-              }}
-            >
+            <Button color="inherit" sx={{ paddingBottom: "10px" }}>
               Home
             </Button>
           </Link>
-
           <Link
             href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
             target="_blank"
             passHref
-            style={{
-              color: "white",
-              textDecoration: "none",
-            }}
+            style={{ color: "white", textDecoration: "none" }}
           >
-            <Button
-              color="inherit"
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-                fontSize: "15px",
-                transition: "transform 0.6s ease-in-out",
-                "&:hover": {
-                  animation: `${slideUpDown} 0.6s ease-in-out`,
-                },
-                paddingBottom: "10px",
-              }}
-            >
+            <Button color="inherit" sx={{ paddingBottom: "10px" }}>
               Documentation
             </Button>
           </Link>
-
           <Link
             href="/blog"
             target="_blank"
             passHref
-            style={{
-              color: "white",
-              textDecoration: "none",
-            }}
+            style={{ color: "white", textDecoration: "none" }}
           >
-            <Button
-              color="inherit"
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-                fontSize: "15px",
-                transition: "transform 0.6s ease-in-out",
-                "&:hover": {
-                  animation: `${slideUpDown} 0.6s ease-in-out`,
-                },
-                paddingBottom: "10px",
-              }}
-            >
+            <Button color="inherit" sx={{ paddingBottom: "10px" }}>
               Blog
             </Button>
           </Link>
-
           <Link
             href="/aboutus"
             passHref
-            style={{
-              color: "white",
-              textDecoration: "none",
-            }}
+            style={{ color: "white", textDecoration: "none" }}
           >
-            <Button
-              color="inherit"
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-                fontSize: "15px",
-                transition: "transform 0.6s ease-in-out",
-                "&:hover": {
-                  animation: `${slideUpDown} 0.6s ease-in-out`,
-                },
-                paddingBottom: "10px",
-              }}
-            >
+            <Button color="inherit" sx={{ paddingBottom: "10px" }}>
               About Us
             </Button>
           </Link>
-
           <Link
             href="/contact"
             passHref
-            style={{
-              color: "white",
-              textDecoration: "none",
-            }}
+            style={{ color: "white", textDecoration: "none" }}
           >
-            <Button
-              color="inherit"
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-                fontSize: "15px",
-                transition: "transform 0.6s ease-in-out",
-                "&:hover": {
-                  animation: `${slideUpDown} 0.6s ease-in-out`,
-                },
-                paddingBottom: "10px",
-              }}
-            >
+            <Button color="inherit" sx={{ paddingBottom: "10px" }}>
               Contact
-            </Button>
-          </Link>
-
-          <Link
-            href="/sign-in"
-            passHref
-            style={{
-              color: "white",
-              textDecoration: "none",
-            }}
-          >
-            <Button
-              color="inherit"
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-                fontSize: "15px",
-                transition: "transform 0.6s ease-in-out",
-                "&:hover": {
-                  animation: `${slideUpDown} 0.6s ease-in-out`,
-                },
-                paddingBottom: "10px",
-              }}
-            >
-              Sign In
-            </Button>
-          </Link>
-
-          <Link
-            href="/sign-up"
-            passHref
-            style={{
-              color: "white",
-              textDecoration: "none",
-            }}
-          >
-            <Button
-              color="inherit"
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: "700",
-                fontSize: "15px",
-                transition: "transform 0.6s ease-in-out",
-                "&:hover": {
-                  animation: `${slideUpDown} 0.6s ease-in-out`,
-                },
-                paddingBottom: "10px",
-              }}
-            >
-              Sign Up
             </Button>
           </Link>
         </Box>
       </Drawer>
 
-      {/* Main Content */}
       <Box
         sx={{
-          minHeight: "100vh",
           display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          justifyContent: "center",
           background: "linear-gradient(270deg, #000000, #2838ae)",
-          overflow: "auto",
-          padding: { xs: "40px 10px", sm: "60px 20px" },
+          height: "100vh",
         }}
       >
-        <Typography
-          variant="h2"
+        <Drawer
           sx={{
-            color: "white",
-            fontFamily: "Kanit, sans-serif",
-            fontWeight: "900",
-            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
-            textAlign: "center",
+            width: drawerWidth,
+            flexShrink: 0,
+            "& .MuiDrawer-paper": {
+              width: drawerWidth,
+              boxSizing: "border-box",
+              backgroundColor: "transparent",
+              "&::-webkit-scrollbar": {
+                width: "5px", // Width of the scrollbar
+              },
+              "&::-webkit-scrollbar-track": {
+                backgroundColor: "transparent",
+                borderRadius: "10px",
+              },
+              "&::-webkit-scrollbar-thumb": {
+                backgroundColor: "rgba(145, 83, 209, 1)",
+                borderRadius: "10px",
+              },
+            },
           }}
+          variant="permanent"
+          anchor="left"
         >
-          Video Vault:
-        </Typography>
-        <Typography
-          variant="h2"
-          sx={{
-            color: "rgba(145, 83, 209, 1)",
-            fontFamily: "Kanit, sans-serif",
-            fontWeight: "900",
-            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
-            textAlign: "center",
-          }}
-        >
-          Get Access to Videos Here
-        </Typography>
+          <Toolbar />
+          <List sx={{ color: "white", marginBottom: "10px" }}>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                paddingTop: "30px",
+                color: "white",
+                textTransform: "uppercase",
+                marginBottom: "20px",
+                fontSize: "13px",
+              }}
+            >
+              Getting Started
+            </Typography>
 
-        <Typography
-          variant="caption"
-          sx={{
-            color: "white",
-            fontFamily: "Kanit, sans-serif",
-            fontWeight: "900",
-            textTransform: "uppercase",
-            textAlign: "center",
-            paddingTop: "20px",
-            fontSize: { xs: "0.7rem", sm: "0.8rem", md: "0.9rem" },
-            maxWidth: "800px",
-            margin: "0 auto 20px",
-            paddingBottom: "10px",
-          }}
-        >
-          Some text will go here.
-        </Typography>
+            {["Introduction", "Live Demo"].map((text) => (
+              <ListItem
+                key={text}
+                disablePadding
+                sx={{
+                  color: "white",
+                  textTransform: "uppercase",
+                }}
+              >
+                <ListItemButton onClick={() => handleListItemClick(text)}>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontWeight: 700,
+                          color: "white",
+                          fontSize: "13px",
+                          fontFamily: "Kanit, sans-serif",
+                        }}
+                      >
+                        {text}
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+
+          <Divider
+            sx={{
+              bgcolor: "white",
+            }}
+          ></Divider>
+
+          <List sx={{ color: "white", marginBottom: "10px" }}>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                paddingTop: "30px",
+                color: "white",
+                fontSize: "13px",
+                textTransform: "uppercase",
+                paddingBottom: "20px",
+              }}
+            >
+              Computer Science - Part 1
+            </Typography>
+            {[
+              "Intro to C++",
+              "Intro to Python",
+              "Intro to Java",
+              "Intro to HTML & CSS",
+              "Intro to Javascript",
+              "Intro to SQL",
+            ].map((text) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton onClick={() => handleListItemClick(text)}>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        sx={{
+                          color: "white",
+                          fontFamily: "Kanit, sans-serif",
+                          textTransform: "uppercase",
+                          fontWeight: 700,
+                          fontSize: "13px",
+                        }}
+                      >
+                        {text}
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+
+          <Divider
+            sx={{
+              bgcolor: "white",
+            }}
+          ></Divider>
+          <List sx={{ color: "white", marginBottom: "10px" }}>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                paddingTop: "30px",
+                color: "white",
+                fontSize: "13px",
+                textTransform: "uppercase",
+                paddingBottom: "20px",
+              }}
+            >
+              Math Topics
+            </Typography>
+            {[
+              "Algebra",
+              "Pre-Calc",
+              "Calculus 1",
+              "Calculus 2",
+              "Calculus 3",
+              "Linear Algebra",
+              "Differential Equations",
+            ].map((text) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton onClick={() => handleListItemClick(text)}>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        sx={{
+                          color: "white",
+                          fontFamily: "Kanit, sans-serif",
+                          fontWeight: 700,
+                          textTransform: "uppercase",
+                          fontSize: "13px",
+                        }}
+                      >
+                        {text}
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+        </Drawer>
+
+        <Box sx={{ flexGrow: 1, padding: 2 }}>
+          <Typography
+            variant="h4"
+            sx={{
+              marginBottom: 2,
+              color: "white",
+              fontFamily: "Kanit, sans-serif",
+              fontWeight: 900,
+              textTransform: "uppercase",
+              paddingBottom: "20px",
+            }}
+          >
+            {selectedTopic}
+          </Typography>
+
+          {/* Inline content for each topic */}
+          {selectedTopic === "Introduction" && (
+            <Typography
+              variant="body1"
+              sx={{
+                color: "white",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 700,
+              }}
+            >
+              Welcome to the Video Vault! In this introduction page, you will
+              learn how to use the video vault, search for topics, search for
+              videos, and maximize your learning. If you have any questions,
+              concerns, or feedback, please send us a message.
+            </Typography>
+          )}
+          {selectedTopic === "Live Demo" && (
+            <Typography variant="body1" sx={{ color: "white" }}>
+              In the live demo section, you can explore real-time features and
+              functionalities of the platform.
+            </Typography>
+          )}
+          {selectedTopic === "Algebra" && (
+            <Box>
+              {/* Algebra Description */}
+              <Typography
+                variant="body1"
+                sx={{ color: "white", marginBottom: 3 }}
+              >
+                This section covers basic to advanced topics in Algebra,
+                including linear equations, polynomials, and more.
+              </Typography>
+
+              {/* Algebra Videos */}
+              <Grid container spacing={4}>
+                {algebraVideos.map((video, index) => (
+                  <Grid item xs={12} sm={6} md={4} key={index}>
+                    <Box
+                      sx={{
+                        position: "relative",
+                        paddingBottom: "56.25%", // 16:9 aspect ratio
+                        height: 0,
+                        overflow: "hidden",
+                        borderRadius: "8px",
+                        boxShadow: 3,
+                      }}
+                    >
+                      <iframe
+                        src={video.url}
+                        title={video.title}
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen
+                        style={{
+                          position: "absolute",
+                          top: 0,
+                          left: 0,
+                          width: "100%",
+                          height: "100%",
+                        }}
+                      ></iframe>
+                    </Box>
+                    <Typography
+                      variant="h6"
+                      sx={{ marginTop: 1, color: "white" }}
+                    >
+                      {video.title}
+                    </Typography>
+                  </Grid>
+                ))}
+              </Grid>
+            </Box>
+          )}
+          {selectedTopic === "Pre-Calc" && (
+            <Typography variant="body1" sx={{ color: "white" }}>
+              Pre-Calculus prepares you for Calculus by introducing key concepts
+              like functions, trigonometry, and limits.
+            </Typography>
+          )}
+          {selectedTopic === "Calculus 1" && (
+            <Typography variant="body1" sx={{ color: "white" }}>
+              Calculus 1 dives into limits, derivatives, and the fundamentals of
+              integration.
+            </Typography>
+          )}
+          {selectedTopic === "Calculus 2" && (
+            <Typography variant="body1" sx={{ color: "white" }}>
+              Calculus 2 explores techniques of integration, sequences, and
+              series.
+            </Typography>
+          )}
+          {selectedTopic === "Calculus 3" && (
+            <Typography variant="body1" sx={{ color: "white" }}>
+              In Calculus 3, youll study multivariable calculus including
+              partial derivatives and multiple integrals.
+            </Typography>
+          )}
+          {selectedTopic === "Linear Algebra" && (
+            <Typography variant="body1" sx={{ color: "white" }}>
+              Linear Algebra covers vectors, matrices, determinants,
+              eigenvalues, and eigenvectors.
+            </Typography>
+          )}
+          {selectedTopic === "Differential Equations" && (
+            <Typography variant="body1" sx={{ color: "white" }}>
+              Differential Equations introduces solving techniques for ordinary
+              differential equations and real-world applications.
+            </Typography>
+          )}
+        </Box>
       </Box>
 
-      {/* Footer */}
       <Box
         component="footer"
         sx={{

@@ -28,62 +28,28 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
 
+const slideUpDown = keyframes`
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-10px); /* Adjust the value as needed */
+  }
+  50% {
+    transform: translateY(10px); /* Slide down */
+  }
+  75% {
+    transform: translateY(-5px); /* Adjust to create a smooth effect */
+  }
+  100% {
+    transform: translateY(0);
+  }
+`;
+
+{/*For the width of the drawer*/}
 const drawerWidth = 260;
 
 export default function Home() {
-  {
-    /* For the Newsletter Now */
-  }
-  const [snackbarOpenNews, setSnackbarOpenNews] = useState(false);
-  const [emailNews, setEmailNews] = useState("");
-  const [emailErrorNews, setEmailErrorNews] = useState("");
-  const emailRegexNews = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  const handleSnackbarCloseNews = () => {
-    setSnackbarOpenNews(false);
-  };
-
-  const handleEmailChangeNews = (e) => {
-    const value = e.target.value;
-    setEmailNews(value);
-
-    if (!emailRegexNews.test(value)) {
-      setEmailErrorNews("Enter a valid email address.");
-    } else {
-      setEmailErrorNews("");
-    }
-  };
-
-  const handleSendMessageNews = async () => {
-    setEmailErrorNews("");
-
-    if (!emailNews.trim()) {
-      setSnackbarOpenNews(true);
-      setEmailErrorNews("Email cannot be empty.");
-      return;
-    }
-
-    if (!emailRegexNews.test(emailNews)) {
-      setSnackbarOpenNews(true);
-      setEmailErrorNews("Enter a valid email address.");
-      return;
-    }
-
-    try {
-      await addDoc(collection(db, "Newsletter"), {
-        email: emailNews,
-        timestamp: new Date(),
-      });
-
-      setSnackbarOpenNews(true);
-      setEmailErrorNews("");
-
-      setEmailNews("");
-    } catch (error) {
-      console.error("Error sending message: ", error);
-    }
-  };
-
   const [drawerOpen, setDrawerOpen] = useState(false);
   const [selectedTopic, setSelectedTopic] = useState("Introduction");
 

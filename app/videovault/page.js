@@ -95,22 +95,6 @@ export default function Home() {
     setSelectedTopic(text);
   };
 
-  const algebraVideos = [
-    {
-      title: "Algebra Basics",
-      url: "https://www.youtube.com/embed/6tuZHqcf2QA?si=5qupz2vYWe5eb4Qi",
-    },
-    {
-      title: "Linear Equations",
-      url: "https://www.youtube.com/embed/3tKj2vU3l8I",
-    },
-    {
-      title: "Quadratic Equations",
-      url: "https://www.youtube.com/embed/6uZtYOFIjqg",
-    },
-    // Add more videos as needed
-  ];
-
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <AppBar
@@ -118,9 +102,9 @@ export default function Home() {
         sx={{
           zIndex: (theme) => theme.zIndex.drawer + 1,
           backgroundColor: "black",
-          boxShadow: "none", // Remove the default shadow
+          boxShadow: "none",
         }}
-        elevation={0} // Remove the elevation
+        elevation={0}
       >
         <Toolbar
           sx={{
@@ -453,11 +437,113 @@ export default function Home() {
             </Typography>
             {[
               "Discrete Math",
-              "Data Structures",
-              "Algorithms",
               "Computer Systems",
-              "Computer Security",
+              "Data Structures",
               "Probability & Stats",
+              "Algorithms",
+              "Scientific Computing",
+            ].map((text) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton onClick={() => handleListItemClick(text)}>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        sx={{
+                          color: "white",
+                          fontFamily: "Kanit, sans-serif",
+                          textTransform: "uppercase",
+                          fontWeight: 700,
+                          fontSize: "13px",
+                        }}
+                      >
+                        {text}
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+
+          <Divider
+            sx={{
+              bgcolor: "white",
+            }}
+          ></Divider>
+
+          <List sx={{ color: "white", marginBottom: "10px" }}>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                paddingTop: "30px",
+                color: "white",
+                fontSize: "13px",
+                textTransform: "uppercase",
+                paddingBottom: "20px",
+              }}
+            >
+              Computer Science - Part 3
+            </Typography>
+            {[
+              "Theoretical Computer Science",
+              "Computer Security",
+              "Programming Language Paradigms",
+              "Software Engineering",
+              "Intro to Database Systems",
+              "Operating Systems",
+            ].map((text) => (
+              <ListItem key={text} disablePadding>
+                <ListItemButton onClick={() => handleListItemClick(text)}>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        sx={{
+                          color: "white",
+                          fontFamily: "Kanit, sans-serif",
+                          textTransform: "uppercase",
+                          fontWeight: 700,
+                          fontSize: "13px",
+                        }}
+                      >
+                        {text}
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+
+          <Divider
+            sx={{
+              bgcolor: "white",
+            }}
+          ></Divider>
+
+          <List sx={{ color: "white", marginBottom: "10px" }}>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                paddingTop: "30px",
+                color: "white",
+                fontSize: "13px",
+                textTransform: "uppercase",
+                paddingBottom: "20px",
+              }}
+            >
+              Computer Science - Part 4
+            </Typography>
+            {[
+              "Computer Organization",
+              "Artificial Intelligence",
+              "Big Data Management & Analysis",
+              "Computer Networks",
+              "Intro to Database Systems",
+              "Operating Systems",
             ].map((text) => (
               <ListItem key={text} disablePadding>
                 <ListItemButton onClick={() => handleListItemClick(text)}>
@@ -572,55 +658,9 @@ export default function Home() {
             </Typography>
           )}
           {selectedTopic === "Algebra" && (
-            <Box>
-              {/* Algebra Description */}
-              <Typography
-                variant="body1"
-                sx={{ color: "white", marginBottom: 3 }}
-              >
-                This section covers basic to advanced topics in Algebra,
-                including linear equations, polynomials, and more.
-              </Typography>
-
-              {/* Algebra Videos */}
-              <Grid container spacing={4}>
-                {algebraVideos.map((video, index) => (
-                  <Grid item xs={12} sm={6} md={4} key={index}>
-                    <Box
-                      sx={{
-                        position: "relative",
-                        paddingBottom: "56.25%", // 16:9 aspect ratio
-                        height: 0,
-                        overflow: "hidden",
-                        borderRadius: "8px",
-                        boxShadow: 3,
-                      }}
-                    >
-                      <iframe
-                        src={video.url}
-                        title={video.title}
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowFullScreen
-                        style={{
-                          position: "absolute",
-                          top: 0,
-                          left: 0,
-                          width: "100%",
-                          height: "100%",
-                        }}
-                      ></iframe>
-                    </Box>
-                    <Typography
-                      variant="h6"
-                      sx={{ marginTop: 1, color: "white" }}
-                    >
-                      {video.title}
-                    </Typography>
-                  </Grid>
-                ))}
-              </Grid>
-            </Box>
+            <Typography variant="body1" sx={{ color: "white" }}>
+              Algebruh
+            </Typography>
           )}
           {selectedTopic === "Pre-Calc" && (
             <Typography variant="body1" sx={{ color: "white" }}>

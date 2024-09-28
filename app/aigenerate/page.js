@@ -21,6 +21,7 @@ import {
   DialogContent,
   DialogContentText,
   Drawer,
+  Snackbar
 } from "@mui/material";
 import { motion } from "framer-motion";
 import Link from "next/link";
@@ -139,9 +140,61 @@ export default function GenerateAI() {
   };
 
   const [drawerOpen, setDrawerOpen] = useState(false);
-
   const toggleDrawer = (open) => () => {
     setDrawerOpen(open);
+  };
+
+  {
+    /* For the Newsletter Now */
+  }
+  const [snackbarOpenNews, setSnackbarOpenNews] = useState(false);
+  const [emailNews, setEmailNews] = useState("");
+  const [emailErrorNews, setEmailErrorNews] = useState("");
+  const emailRegexNews = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const handleSnackbarCloseNews = () => {
+    setSnackbarOpenNews(false);
+  };
+
+  const handleEmailChangeNews = (e) => {
+    const value = e.target.value;
+    setEmailNews(value);
+
+    if (!emailRegexNews.test(value)) {
+      setEmailErrorNews("Enter a valid email address.");
+    } else {
+      setEmailErrorNews("");
+    }
+  };
+
+  const handleSendMessageNews = async () => {
+    setEmailErrorNews("");
+
+    if (!emailNews.trim()) {
+      setSnackbarOpenNews(true);
+      setEmailErrorNews("Email cannot be empty.");
+      return;
+    }
+
+    if (!emailRegexNews.test(emailNews)) {
+      setSnackbarOpenNews(true);
+      setEmailErrorNews("Enter a valid email address.");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "Newsletter"), {
+        email: emailNews,
+        timestamp: new Date(),
+      });
+
+      setSnackbarOpenNews(true);
+      setEmailErrorNews("");
+
+      setEmailNews("");
+    } catch (error) {
+      console.error("Error sending message: ", error);
+    }
   };
 
   return (
@@ -954,10 +1007,12 @@ export default function GenerateAI() {
                 Subscribe to our newsletter
               </Typography>
               <Stack direction="row" spacing={1}>
-                <TextField
+              <TextField
                   variant="outlined"
                   size="small"
+                  onChange={handleEmailChangeNews}
                   placeholder="Your email"
+                  value={emailNews}
                   sx={{
                     flexGrow: 1,
                     background: "white",
@@ -984,9 +1039,20 @@ export default function GenerateAI() {
                       background: "rgba(145, 83, 209, 1)",
                     },
                   }}
+                  onClick={handleSendMessageNews}
                 >
                   Submit
                 </Button>
+
+                <Snackbar
+                  open={snackbarOpenNews}
+                  autoHideDuration={6000}
+                  onClose={handleSnackbarCloseNews}
+                  message={
+                    emailErrorNews ||
+                    "You have successfully signed up for our newsletter."
+                  }
+                />
               </Stack>
 
               <Stack direction="row" spacing={1}>

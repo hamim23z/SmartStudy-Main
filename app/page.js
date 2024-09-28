@@ -26,7 +26,6 @@ import chronicleainewpic from "../public/chronicleainewpic.png";
 import { UserButton } from "@stackframe/stack";
 import { db } from "@/firebase";
 import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
-import RainEffect from "./components/whiterain";
 
 const slideUpDown = keyframes`
   0% {
@@ -69,7 +68,6 @@ import TimelapseIcon from "@mui/icons-material/Timelapse";
 
 export default function Home() {
   const [snackbarOpen, setSnackbarOpen] = useState(false);
-  // State variables for form inputs
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -83,40 +81,96 @@ export default function Home() {
     setEmail(value);
 
     if (!emailRegex.test(value)) {
-      setEmailError("Please enter a valid email address.");
+      setEmailError("Enter a valid email address.");
     } else {
       setEmailError("");
     }
   };
 
   const handleSendMessage = async () => {
+    setEmailError("");
+
     if (!email.trim()) {
-      // Show Snackbar with error message if the email is empty
       setSnackbarOpen(true);
-      setEmailError("Please enter a valid email address.");
+      setEmailError("Email cannot be empty.");
+      return;
+    }
+
+    if (!emailRegex.test(email)) {
+      setSnackbarOpen(true);
+      setEmailError("Enter a valid email address.");
       return;
     }
 
     try {
-      // Save the message to Firestore
       await addDoc(collection(db, "Waitlist - Homepage"), {
         email,
         timestamp: new Date(),
       });
 
-      // Show success Snackbar
       setSnackbarOpen(true);
       setEmailError("");
 
-      // Clear form inputs
       setEmail("");
     } catch (error) {
       console.error("Error sending message: ", error);
     }
   };
 
-  const [drawerOpen, setDrawerOpen] = useState(false);
+  {
+    /* For the Newsletter Now */
+  }
+  const [snackbarOpenNews, setSnackbarOpenNews] = useState(false);
+  const [emailNews, setEmailNews] = useState("");
+  const [emailErrorNews, setEmailErrorNews] = useState("");
+  const emailRegexNews = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
+  const handleSnackbarCloseNews = () => {
+    setSnackbarOpenNews(false);
+  };
+
+  const handleEmailChangeNews = (e) => {
+    const value = e.target.value;
+    setEmailNews(value);
+
+    if (!emailRegexNews.test(value)) {
+      setEmailErrorNews("Enter a valid email address.");
+    } else {
+      setEmailErrorNews("");
+    }
+  };
+
+  const handleSendMessageNews = async () => {
+    setEmailErrorNews("");
+
+    if (!emailNews.trim()) {
+      setSnackbarOpenNews(true);
+      setEmailErrorNews("Email cannot be empty.");
+      return;
+    }
+
+    if (!emailRegexNews.test(emailNews)) {
+      setSnackbarOpenNews(true);
+      setEmailErrorNews("Enter a valid email address.");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "Newsletter"), {
+        email: emailNews,
+        timestamp: new Date(),
+      });
+
+      setSnackbarOpenNews(true);
+      setEmailErrorNews("");
+
+      setEmailNews("");
+    } catch (error) {
+      console.error("Error sending message: ", error);
+    }
+  };
+
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const toggleDrawer = (open) => () => {
     setDrawerOpen(open);
   };
@@ -725,8 +779,6 @@ export default function Home() {
               value={email}
               onChange={handleEmailChange}
               type="email"
-              error={Boolean(emailError)}
-              helperText={emailError}
               sx={{
                 width: "100%",
                 background: "white",
@@ -1698,7 +1750,9 @@ export default function Home() {
                 <TextField
                   variant="outlined"
                   size="small"
+                  onChange={handleEmailChangeNews}
                   placeholder="Your email"
+                  value={emailNews}
                   sx={{
                     flexGrow: 1,
                     background: "white",
@@ -1725,9 +1779,20 @@ export default function Home() {
                       background: "rgba(145, 83, 209, 1)",
                     },
                   }}
+                  onClick={handleSendMessageNews}
                 >
                   Submit
                 </Button>
+
+                <Snackbar
+                  open={snackbarOpenNews}
+                  autoHideDuration={6000}
+                  onClose={handleSnackbarCloseNews}
+                  message={
+                    emailErrorNews ||
+                    "You have successfully signed up for our newsletter."
+                  }
+                />
               </Stack>
 
               <Stack direction="row" spacing={1}>

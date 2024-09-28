@@ -112,16 +112,8 @@ export default function Home() {
   ];
 
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
-      <AppBar
-        position="fixed"
-        sx={{
-          zIndex: (theme) => theme.zIndex.drawer + 1,
-          backgroundColor: "black",
-          boxShadow: "none", // Remove the default shadow
-        }}
-        elevation={0} // Remove the elevation
-      >
+    <>
+      <AppBar position="static" sx={{ backgroundColor: "black" }}>
         <Toolbar
           sx={{
             paddingTop: "20px",
@@ -218,7 +210,6 @@ export default function Home() {
         </Toolbar>
       </AppBar>
 
-      {/* Mobile Drawer */}
       <Drawer
         anchor="bottom"
         open={drawerOpen}
@@ -298,16 +289,15 @@ export default function Home() {
         </Box>
       </Drawer>
 
-      {/* Main content area */}
+        
+      {/*Permanent Left Side Drawer*/}
       <Box
         sx={{
           display: "flex",
           background: "linear-gradient(270deg, #000000, #2838ae)",
-          flexGrow: 1,
-          pt: "84px", // Increased from 64px to account for the AppBar's padding
+          height: "100vh",
         }}
       >
-        {/* Permanent left drawer */}
         <Drawer
           sx={{
             width: drawerWidth,
@@ -317,7 +307,7 @@ export default function Home() {
               boxSizing: "border-box",
               backgroundColor: "transparent",
               "&::-webkit-scrollbar": {
-                width: "5px",
+                width: "5px", // Width of the scrollbar
               },
               "&::-webkit-scrollbar-track": {
                 backgroundColor: "transparent",
@@ -327,8 +317,6 @@ export default function Home() {
                 backgroundColor: "rgba(145, 83, 209, 1)",
                 borderRadius: "10px",
               },
-              top: "40px", // Increased from 64px to account for the AppBar's padding
-              height: "calc(100% - 40px)",
             },
           }}
           variant="permanent"
@@ -341,6 +329,7 @@ export default function Home() {
                 textAlign: "center",
                 fontFamily: "Kanit, sans-serif",
                 fontWeight: 900,
+                paddingTop: "30px",
                 color: "white",
                 textTransform: "uppercase",
                 marginBottom: "20px",
@@ -449,56 +438,6 @@ export default function Home() {
                 paddingBottom: "20px",
               }}
             >
-              Computer Science - Part 2
-            </Typography>
-            {[
-              "Discrete Math",
-              "Data Structures",
-              "Algorithms",
-              "Computer Systems",
-              "Computer Security",
-              "Probability & Stats",
-            ].map((text) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton onClick={() => handleListItemClick(text)}>
-                  <ListItemText
-                    primary={
-                      <Typography
-                        sx={{
-                          color: "white",
-                          fontFamily: "Kanit, sans-serif",
-                          textTransform: "uppercase",
-                          fontWeight: 700,
-                          fontSize: "13px",
-                        }}
-                      >
-                        {text}
-                      </Typography>
-                    }
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
-
-          <Divider
-            sx={{
-              bgcolor: "white",
-            }}
-          ></Divider>
-          <List sx={{ color: "white", marginBottom: "10px" }}>
-            <Typography
-              sx={{
-                textAlign: "center",
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: 900,
-                paddingTop: "30px",
-                color: "white",
-                fontSize: "13px",
-                textTransform: "uppercase",
-                paddingBottom: "20px",
-              }}
-            >
               Math Topics
             </Typography>
             {[
@@ -533,7 +472,6 @@ export default function Home() {
           </List>
         </Drawer>
 
-        {/* Main content */}
         <Box sx={{ flexGrow: 1, padding: 2 }}>
           <Typography
             variant="h4"
@@ -660,6 +598,271 @@ export default function Home() {
           )}
         </Box>
       </Box>
-    </Box>
+
+      <Box
+        component="footer"
+        sx={{
+          height: "auto",
+          py: 4,
+          pb: 10,
+          background: "linear-gradient(270deg, #000000, #2838ae)",
+        }}
+      >
+        <Container maxWidth="lg">
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={4}
+            justifyContent="space-between"
+          >
+            <Stack spacing={2}>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                }}
+              >
+                Smart Study
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{ color: "white", fontFamily: "Kanit, sans-serif" }}
+              >
+                Subscribe to our newsletter
+              </Typography>
+              <Stack direction="row" spacing={1}>
+                <TextField
+                  variant="outlined"
+                  size="small"
+                  onChange={handleEmailChangeNews}
+                  placeholder="Your email"
+                  value={emailNews}
+                  sx={{
+                    flexGrow: 1,
+                    background: "white",
+                    borderRadius: "10px",
+                    "& .MuiInputBase-input::placeholder": {
+                      color: "black",
+                      fontFamily: "Kanit, sans-serif",
+                      fontWeight: "900",
+                    },
+                    "& .MuiInputBase-input": {
+                      color: "black",
+                      fontFamily: "Kanit, sans-serif",
+                      fontWeight: "900",
+                    },
+                  }}
+                />
+                <Button
+                  variant="contained"
+                  sx={{
+                    borderRadius: "10px",
+                    background: "primary",
+                    transition: "background 0.4s ease-in-out",
+                    "&:hover": {
+                      background: "rgba(145, 83, 209, 1)",
+                    },
+                  }}
+                  onClick={handleSendMessageNews}
+                >
+                  Submit
+                </Button>
+
+                <Snackbar
+                  open={snackbarOpenNews}
+                  autoHideDuration={6000}
+                  onClose={handleSnackbarCloseNews}
+                  message={
+                    emailErrorNews ||
+                    "You have successfully signed up for our newsletter."
+                  }
+                />
+              </Stack>
+
+              <Stack direction="row" spacing={1}>
+                {/* Social media links */}
+                <IconButton
+                  href="https://github.com/hamim23z"
+                  target="_blank"
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "rgba(145, 83, 209, 1)",
+                    },
+                  }}
+                >
+                  <GitHubIcon />
+                </IconButton>
+                <IconButton
+                  href="https://www.linkedin.com/company/smart-studyapp"
+                  target="_blank"
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "rgba(145, 83, 209, 1)",
+                    },
+                  }}
+                >
+                  <LinkedInIcon />
+                </IconButton>
+                <IconButton
+                  href="https://instagram.com"
+                  target="_blank"
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "rgba(145, 83, 209, 1)",
+                    },
+                  }}
+                >
+                  <InstagramIcon />
+                </IconButton>
+                <IconButton
+                  href="https://x.com"
+                  target="_blank"
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "rgba(145, 83, 209, 1)",
+                    },
+                  }}
+                >
+                  <XIcon />
+                </IconButton>
+              </Stack>
+            </Stack>
+
+            <Stack direction={{ xs: "column", md: "row" }} spacing={4}>
+              {/* Company Section */}
+              <Stack spacing={1}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "white",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "900",
+                  }}
+                >
+                  Company
+                </Typography>
+                <Link
+                  href="/aboutus"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  About Us
+                </Link>
+                <Link
+                  href="/blog"
+                  target="_blank"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Blog
+                </Link>
+              </Stack>
+
+              {/* References Section */}
+              <Stack spacing={1}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "white",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "900",
+                  }}
+                >
+                  References
+                </Typography>
+                <Link
+                  href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
+                  target="_blank"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Documentation
+                </Link>
+                <Link
+                  href="/demos"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Demos
+                </Link>
+              </Stack>
+
+              {/* Legal Section */}
+              <Stack spacing={1}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "white",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "900",
+                  }}
+                >
+                  Legal
+                </Typography>
+                <Link
+                  href="/privacy"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Privacy
+                </Link>
+                <Link
+                  href="/termsandcond"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Terms and Conditions
+                </Link>
+              </Stack>
+            </Stack>
+          </Stack>
+        </Container>
+      </Box>
+    </>
   );
 }

@@ -1084,7 +1084,7 @@ export default function GenerateAI() {
                   <LinkedInIcon />
                 </IconButton>
                 <IconButton
-                  href="https://instagram.com"
+                  href="https://www.instagram.com/smartstudy_00/"
                   target="_blank"
                   sx={{
                     color: "white",

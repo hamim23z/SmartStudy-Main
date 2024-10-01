@@ -19,10 +19,10 @@ import {
   Stack,
   Snackbar,
   TextField,
-  Accordion, 
-  AccordionActions, 
-  AccordionDetails, 
-  AccordionSummary
+  Accordion,
+  AccordionActions,
+  AccordionDetails,
+  AccordionSummary,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { UserButton } from "@stackframe/stack";
@@ -628,9 +628,34 @@ export default function Home() {
             </Typography>
           )}
           {selectedTopic === "Live Demo" && (
-            <Typography variant="body1" sx={{ color: "white" }}>
-              In the live demo section, you can explore real-time features and
-              functionalities of the platform.
+            <Typography
+              variant="body1"
+              sx={{
+                color: "white",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 700,
+              }}
+            >
+              In this live demo page, you will learn how to use the video vault.
+              It may seem simple at first, but we want to make sure that you can
+              maximize your learning while saving time and our main focal point
+              was to make sure that you don&apos;t scroll forever trying to find
+              the perfect video.
+            </Typography>
+          )}
+          {selectedTopic === "Feedback" && (
+            <Typography
+              variant="body1"
+              sx={{
+                color: "white",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 700,
+              }}
+            >
+              We value your feedback, whether positive or constructive, as it
+              helps us learn and improve. By sharing your thoughts, you enable
+              us to better understand your needs. Unlike our regular contact
+              form, this feedback form ensures a quicker response from our team.
             </Typography>
           )}
           {selectedTopic === "Algebra" && (

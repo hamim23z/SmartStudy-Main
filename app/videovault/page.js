@@ -19,6 +19,10 @@ import {
   Stack,
   Snackbar,
   TextField,
+  Accordion, 
+  AccordionActions, 
+  AccordionDetails, 
+  AccordionSummary
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
 import { UserButton } from "@stackframe/stack";
@@ -47,7 +51,9 @@ const slideUpDown = keyframes`
   }
 `;
 
-{/*For the width of the drawer*/}
+{
+  /*For the width of the drawer*/
+}
 const drawerWidth = 260;
 
 export default function Home() {
@@ -62,7 +68,9 @@ export default function Home() {
     setSelectedTopic(text);
   };
 
-  {/*Return Content Here*/}
+  {
+    /*Return Content Here*/
+  }
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <AppBar
@@ -302,7 +310,7 @@ export default function Home() {
               Getting Started
             </Typography>
 
-            {["Introduction", "Live Demo"].map((text) => (
+            {["Introduction", "Live Demo", "Feedback"].map((text) => (
               <ListItem
                 key={text}
                 disablePadding

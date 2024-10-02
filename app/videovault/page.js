@@ -24,6 +24,7 @@ import {
   AccordionDetails,
   AccordionSummary,
 } from "@mui/material";
+import TopicContent from "./TopicContent";
 import MenuIcon from "@mui/icons-material/Menu";
 import { UserButton } from "@stackframe/stack";
 import { keyframes } from "@mui/material";
@@ -32,6 +33,7 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
 import XIcon from "@mui/icons-material/X";
+import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const slideUpDown = keyframes`
   0% {
@@ -54,7 +56,7 @@ const slideUpDown = keyframes`
 {
   /*For the width of the drawer*/
 }
-const drawerWidth = 260;
+const drawerWidth = 240;
 
 export default function Home() {
   const [drawerOpen, setDrawerOpen] = useState(false);
@@ -277,7 +279,7 @@ export default function Home() {
               boxSizing: "border-box",
               backgroundColor: "transparent",
               "&::-webkit-scrollbar": {
-                width: "5px",
+                width: "2px",
               },
               "&::-webkit-scrollbar-track": {
                 backgroundColor: "transparent",
@@ -340,259 +342,371 @@ export default function Home() {
             ))}
           </List>
 
-          <Divider
+          <Accordion
             sx={{
-              bgcolor: "white",
+              background: "transparent",
+              "& .MuiAccordion-root": {
+                border: "none",
+                boxShadow: "none",
+              },
             }}
-          ></Divider>
-
-          <List sx={{ color: "white", marginBottom: "10px" }}>
-            <Typography
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
               sx={{
-                textAlign: "center",
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: 900,
-                paddingTop: "30px",
-                color: "white",
-                fontSize: "13px",
-                textTransform: "uppercase",
-                paddingBottom: "20px",
+                padding: "0 16px",
+                "& .MuiAccordionSummary-content": {
+                  margin: "0",
+                },
               }}
             >
-              Computer Science - Part 1
-            </Typography>
-            {[
-              "Intro to C++",
-              "Intro to Python",
-              "Intro to Java",
-              "Intro to HTML & CSS",
-              "Intro to Javascript",
-              "Intro to SQL",
-            ].map((text) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton onClick={() => handleListItemClick(text)}>
-                  <ListItemText
-                    primary={
-                      <Typography
-                        sx={{
-                          color: "white",
-                          fontFamily: "Kanit, sans-serif",
-                          textTransform: "uppercase",
-                          fontWeight: 700,
-                          fontSize: "13px",
-                        }}
-                      >
-                        {text}
-                      </Typography>
-                    }
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: 900,
+                  color: "white",
+                  fontSize: "13px",
+                  textTransform: "uppercase",
+                  textAlign: "center",
+                  flexGrow: 1,
+                }}
+              >
+                Comp Sci - Part 1
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ padding: 0 }}>
+              <List
+                sx={{
+                  color: "white",
+                  padding: 0,
+                }}
+              >
+                {[
+                  "Intro to HTML & CSS",
+                  "Intro to Javascript",
+                  "Intro to Nodejs/Nextjs",
+                  "Intro to Python",
+                  "Intro to C/C++",
+                  "Intro to Java",
+                  "Intro to SQL",
+                ].map((text) => (
+                  <ListItem key={text} disablePadding>
+                    <ListItemButton onClick={() => handleListItemClick(text)}>
+                      <ListItemText
+                        primary={
+                          <Typography
+                            sx={{
+                              color: "white",
+                              fontFamily: "Kanit, sans-serif",
+                              textTransform: "uppercase",
+                              fontWeight: 700,
+                              fontSize: "13px",
+                              textAlign: "center",
+                            }}
+                          >
+                            {text}
+                          </Typography>
+                        }
+                      />
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
 
-          <Divider
+          <Accordion
             sx={{
-              bgcolor: "white",
+              background: "transparent",
+              "& .MuiAccordion-root": {
+                border: "none",
+                boxShadow: "none",
+              },
+              paddingTop: "25px",
             }}
-          ></Divider>
-          <List sx={{ color: "white", marginBottom: "10px" }}>
-            <Typography
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
               sx={{
-                textAlign: "center",
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: 900,
-                paddingTop: "30px",
-                color: "white",
-                fontSize: "13px",
-                textTransform: "uppercase",
-                paddingBottom: "20px",
+                padding: "0 16px",
+                "& .MuiAccordionSummary-content": {
+                  margin: "0",
+                },
               }}
             >
-              Computer Science - Part 2
-            </Typography>
-            {[
-              "Discrete Math",
-              "Computer Systems",
-              "Data Structures",
-              "Probability & Stats",
-              "Algorithms",
-              "Scientific Computing",
-            ].map((text) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton onClick={() => handleListItemClick(text)}>
-                  <ListItemText
-                    primary={
-                      <Typography
-                        sx={{
-                          color: "white",
-                          fontFamily: "Kanit, sans-serif",
-                          textTransform: "uppercase",
-                          fontWeight: 700,
-                          fontSize: "13px",
-                        }}
-                      >
-                        {text}
-                      </Typography>
-                    }
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: 900,
+                  color: "white",
+                  fontSize: "13px",
+                  textTransform: "uppercase",
+                  textAlign: "center",
+                  flexGrow: 1,
+                }}
+              >
+                Comp Sci - Part 2
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ padding: 0 }}>
+              <List
+                sx={{
+                  color: "white",
+                  padding: 0,
+                }}
+              >
+                {[
+                  "Discrete Math",
+                  "Computer Systems",
+                  "Data Structures",
+                  "Probability & Stats",
+                  "Algorithms",
+                  "Scientific Computing",
+                ].map((text) => (
+                  <ListItem key={text} disablePadding>
+                    <ListItemButton onClick={() => handleListItemClick(text)}>
+                      <ListItemText
+                        primary={
+                          <Typography
+                            sx={{
+                              color: "white",
+                              fontFamily: "Kanit, sans-serif",
+                              textTransform: "uppercase",
+                              fontWeight: 700,
+                              fontSize: "13px",
+                              textAlign: "center",
+                            }}
+                          >
+                            {text}
+                          </Typography>
+                        }
+                      />
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
 
-          <Divider
+          <Accordion
             sx={{
-              bgcolor: "white",
+              background: "transparent",
+              "& .MuiAccordion-root": {
+                border: "none",
+                boxShadow: "none",
+              },
+              paddingTop: "25px",
             }}
-          ></Divider>
-
-          <List sx={{ color: "white", marginBottom: "10px" }}>
-            <Typography
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
               sx={{
-                textAlign: "center",
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: 900,
-                paddingTop: "30px",
-                color: "white",
-                fontSize: "13px",
-                textTransform: "uppercase",
-                paddingBottom: "20px",
+                padding: "0 16px",
+                "& .MuiAccordionSummary-content": {
+                  margin: "0",
+                },
               }}
             >
-              Computer Science - Part 3
-            </Typography>
-            {[
-              "Theoretical Computer Science",
-              "Computer Security",
-              "Programming Language Paradigms",
-              "Software Engineering",
-              "Intro to Database Systems",
-              "Operating Systems",
-            ].map((text) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton onClick={() => handleListItemClick(text)}>
-                  <ListItemText
-                    primary={
-                      <Typography
-                        sx={{
-                          color: "white",
-                          fontFamily: "Kanit, sans-serif",
-                          textTransform: "uppercase",
-                          fontWeight: 700,
-                          fontSize: "13px",
-                        }}
-                      >
-                        {text}
-                      </Typography>
-                    }
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: 900,
+                  color: "white",
+                  fontSize: "13px",
+                  textTransform: "uppercase",
+                  textAlign: "center",
+                  flexGrow: 1,
+                }}
+              >
+                Comp Sci - Part 3
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ padding: 0 }}>
+              <List sx={{ color: "white", padding: 0 }}>
+                {[
+                  "Theoretical Computer Science",
+                  "Computer Security",
+                  "Programming Language Paradigms",
+                  "Software Engineering",
+                  "Intro to Database Systems",
+                  "Operating Systems",
+                ].map((text) => (
+                  <ListItem key={text} disablePadding>
+                    <ListItemButton onClick={() => handleListItemClick(text)}>
+                      <ListItemText
+                        primary={
+                          <Typography
+                            sx={{
+                              color: "white",
+                              fontFamily: "Kanit, sans-serif",
+                              textTransform: "uppercase",
+                              fontWeight: 700,
+                              fontSize: "13px",
+                              textAlign: "center",
+                            }}
+                          >
+                            {text}
+                          </Typography>
+                        }
+                      />
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
 
-          <Divider
+          <Accordion
             sx={{
-              bgcolor: "white",
+              background: "transparent",
+              paddingTop: "25px",
+              "& .MuiAccordion-root": {
+                border: "none",
+                boxShadow: "none",
+              },
             }}
-          ></Divider>
-
-          <List sx={{ color: "white", marginBottom: "10px" }}>
-            <Typography
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
               sx={{
-                textAlign: "center",
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: 900,
-                paddingTop: "30px",
-                color: "white",
-                fontSize: "13px",
-                textTransform: "uppercase",
-                paddingBottom: "20px",
+                padding: "0 16px",
+                "& .MuiAccordionSummary-content": {
+                  margin: "0",
+                },
               }}
             >
-              Computer Science - Part 4
-            </Typography>
-            {[
-              "Computer Organization",
-              "Artificial Intelligence",
-              "Big Data Management & Analysis",
-              "Computer Networks",
-              "Intro to Database Systems",
-              "Operating Systems",
-            ].map((text) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton onClick={() => handleListItemClick(text)}>
-                  <ListItemText
-                    primary={
-                      <Typography
-                        sx={{
-                          color: "white",
-                          fontFamily: "Kanit, sans-serif",
-                          textTransform: "uppercase",
-                          fontWeight: 700,
-                          fontSize: "13px",
-                        }}
-                      >
-                        {text}
-                      </Typography>
-                    }
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: 900,
+                  color: "white",
+                  fontSize: "13px",
+                  textTransform: "uppercase",
+                  flexGrow: 1,
+                }}
+              >
+                Comp Sci - Part 4
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <List>
+                {[
+                  "Computer Organization",
+                  "Computability",
+                  "Intro to Distributed Algorithms",
+                  "Formal Language and Automation",
+                  "Artificial Intelligence",
+                  "Combinatorics and Graph Theory",
+                ].map((text) => (
+                  <ListItem key={text} disablePadding>
+                    <ListItemButton onClick={() => handleListItemClick(text)}>
+                      <ListItemText
+                        primary={
+                          <Typography
+                            sx={{
+                              color: "white",
+                              fontFamily: "Kanit, sans-serif",
+                              textTransform: "uppercase",
+                              fontWeight: 700,
+                              fontSize: "13px",
+                              textAlign: "center",
+                            }}
+                          >
+                            {text}
+                          </Typography>
+                        }
+                      />
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
 
-          <Divider
+          <Accordion
             sx={{
-              bgcolor: "white",
+              background: "transparent",
+              paddingTop: "25px",
+              "& .MuiAccordion-root": {
+                border: "none",
+                boxShadow: "none",
+              },
             }}
-          ></Divider>
-          <List sx={{ color: "white", marginBottom: "10px" }}>
-            <Typography
+          >
+            <AccordionSummary
+              expandIcon={
+                <ExpandMoreIcon sx={{ color: "white", padding: 0 }} />
+              }
+              aria-controls="panel1a-content"
+              id="panel1a-header"
               sx={{
-                textAlign: "center",
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: 900,
-                paddingTop: "30px",
-                color: "white",
-                fontSize: "13px",
-                textTransform: "uppercase",
-                paddingBottom: "20px",
+                padding: "0 16px",
+                "& .MuiAccordionSummary-content": {
+                  margin: "0",
+                },
               }}
             >
-              Math Topics
-            </Typography>
-            {[
-              "Algebra",
-              "Pre-Calc",
-              "Calculus 1",
-              "Calculus 2",
-              "Calculus 3",
-              "Linear Algebra",
-              "Differential Equations",
-            ].map((text) => (
-              <ListItem key={text} disablePadding>
-                <ListItemButton onClick={() => handleListItemClick(text)}>
-                  <ListItemText
-                    primary={
-                      <Typography
-                        sx={{
-                          color: "white",
-                          fontFamily: "Kanit, sans-serif",
-                          fontWeight: 700,
-                          textTransform: "uppercase",
-                          fontSize: "13px",
-                        }}
-                      >
-                        {text}
-                      </Typography>
-                    }
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: 900,
+                  color: "white",
+                  fontSize: "13px",
+                  textTransform: "uppercase",
+                  flexGrow: 1,
+                }}
+              >
+                Mathematics
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails>
+              <List>
+                {[
+                  "Algebra",
+                  "Pre-Calc",
+                  "Calculus 1",
+                  "Calculus 2",
+                  "Calculus 3",
+                  "Linear Algebra",
+                  "Differential Equations",
+                ].map((text) => (
+                  <ListItem key={text} disablePadding>
+                    <ListItemButton onClick={() => handleListItemClick(text)}>
+                      <ListItemText
+                        primary={
+                          <Typography
+                            sx={{
+                              color: "white",
+                              fontFamily: "Kanit, sans-serif",
+                              fontWeight: 700,
+                              textTransform: "uppercase",
+                              fontSize: "13px",
+                              textAlign: "center",
+                            }}
+                          >
+                            {text}
+                          </Typography>
+                        }
+                      />
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
         </Drawer>
 
         {/* Main content */}
@@ -600,105 +714,15 @@ export default function Home() {
           <Typography
             variant="h4"
             sx={{
-              marginBottom: 2,
               color: "white",
               fontFamily: "Kanit, sans-serif",
               fontWeight: 900,
-              textTransform: "uppercase",
               paddingBottom: "20px",
             }}
           >
             {selectedTopic}
           </Typography>
-
-          {/* Inline content for each topic */}
-          {selectedTopic === "Introduction" && (
-            <Typography
-              variant="body1"
-              sx={{
-                color: "white",
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: 700,
-              }}
-            >
-              Welcome to the Video Vault! In this introduction page, you will
-              learn how to use the video vault, search for topics, search for
-              videos, and maximize your learning. If you have any questions,
-              concerns, or feedback, please send us a message.
-            </Typography>
-          )}
-          {selectedTopic === "Live Demo" && (
-            <Typography
-              variant="body1"
-              sx={{
-                color: "white",
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: 700,
-              }}
-            >
-              In this live demo page, you will learn how to use the video vault.
-              It may seem simple at first, but we want to make sure that you can
-              maximize your learning while saving time and our main focal point
-              was to make sure that you don&apos;t scroll forever trying to find
-              the perfect video.
-            </Typography>
-          )}
-          {selectedTopic === "Feedback" && (
-            <Typography
-              variant="body1"
-              sx={{
-                color: "white",
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: 700,
-              }}
-            >
-              We value your feedback, whether positive or constructive, as it
-              helps us learn and improve. By sharing your thoughts, you enable
-              us to better understand your needs. Unlike our regular contact
-              form, this feedback form ensures a quicker response from our team.
-            </Typography>
-          )}
-          {selectedTopic === "Algebra" && (
-            <Typography variant="body1" sx={{ color: "white" }}>
-              Algebruh
-            </Typography>
-          )}
-          {selectedTopic === "Pre-Calc" && (
-            <Typography variant="body1" sx={{ color: "white" }}>
-              Pre-Calculus prepares you for Calculus by introducing key concepts
-              like functions, trigonometry, and limits.
-            </Typography>
-          )}
-          {selectedTopic === "Calculus 1" && (
-            <Typography variant="body1" sx={{ color: "white" }}>
-              Calculus 1 dives into limits, derivatives, and the fundamentals of
-              integration.
-            </Typography>
-          )}
-          {selectedTopic === "Calculus 2" && (
-            <Typography variant="body1" sx={{ color: "white" }}>
-              Calculus 2 explores techniques of integration, sequences, and
-              series.
-            </Typography>
-          )}
-          {selectedTopic === "Calculus 3" && (
-            <Typography variant="body1" sx={{ color: "white" }}>
-              In Calculus 3, youll study multivariable calculus including
-              partial derivatives and multiple integrals.
-            </Typography>
-          )}
-          {selectedTopic === "Linear Algebra" && (
-            <Typography variant="body1" sx={{ color: "white" }}>
-              Linear Algebra covers vectors, matrices, determinants,
-              eigenvalues, and eigenvectors.
-            </Typography>
-          )}
-          {selectedTopic === "Differential Equations" && (
-            <Typography variant="body1" sx={{ color: "white" }}>
-              Differential Equations introduces solving techniques for ordinary
-              differential equations and real-world applications.
-            </Typography>
-          )}
+          <TopicContent selectedTopic={selectedTopic} />
         </Box>
       </Box>
     </Box>

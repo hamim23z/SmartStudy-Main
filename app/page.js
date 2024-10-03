@@ -26,6 +26,7 @@ import chronicleainewpic from "../public/chronicleainewpic.png";
 import { UserButton } from "@stackframe/stack";
 import { db } from "@/firebase";
 import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
+import RainEffect from "./components/whiterain";
 
 const slideUpDown = keyframes`
   0% {
@@ -183,6 +184,7 @@ export default function Home() {
           backgroundColor: "black",
         }}
       >
+        <RainEffect></RainEffect>
         <Toolbar
           sx={{
             paddingTop: "20px",
@@ -618,6 +620,7 @@ export default function Home() {
           overflow: "hidden",
         }}
       >
+        <RainEffect></RainEffect>
         <Typography
           variant="h2"
           sx={{

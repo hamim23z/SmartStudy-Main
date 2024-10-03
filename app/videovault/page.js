@@ -638,6 +638,158 @@ export default function Home() {
           <Accordion
             sx={{
               background: "transparent",
+              "& .MuiAccordion-root": {
+                border: "none",
+                boxShadow: "none",
+              },
+              paddingTop: "25px",
+            }}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+              sx={{
+                padding: "0 16px",
+                "& .MuiAccordionSummary-content": {
+                  margin: "0",
+                },
+              }}
+            >
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: 900,
+                  color: "white",
+                  fontSize: "13px",
+                  textTransform: "uppercase",
+                  textAlign: "center",
+                  flexGrow: 1,
+                }}
+              >
+                Comp Engr - Part 1
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ padding: 0 }}>
+              <List
+                sx={{
+                  color: "white",
+                  padding: 0,
+                }}
+              >
+                {[
+                  "Electrical Circuits",
+                  "Switching Systems",
+                  "Linear Systems 1",
+                  "Linear Systems 2",
+                  "Probability and Statistics",
+                  "Assembly Language",
+                  "Electromagnetics",
+                  "Communication Theory",
+                ].map((text) => (
+                  <ListItem key={text} disablePadding>
+                    <ListItemButton onClick={() => handleListItemClick(text)}>
+                      <ListItemText
+                        primary={
+                          <Typography
+                            sx={{
+                              color: "white",
+                              fontFamily: "Kanit, sans-serif",
+                              textTransform: "uppercase",
+                              fontWeight: 700,
+                              fontSize: "13px",
+                              textAlign: "center",
+                            }}
+                          >
+                            {text}
+                          </Typography>
+                        }
+                      />
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion
+            sx={{
+              background: "transparent",
+              "& .MuiAccordion-root": {
+                border: "none",
+                boxShadow: "none",
+              },
+              paddingTop: "25px",
+            }}
+          >
+            <AccordionSummary
+              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
+              aria-controls="panel1a-content"
+              id="panel1a-header"
+              sx={{
+                padding: "0 16px",
+                "& .MuiAccordionSummary-content": {
+                  margin: "0",
+                },
+              }}
+            >
+              <Typography
+                sx={{
+                  textAlign: "center",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: 900,
+                  color: "white",
+                  fontSize: "13px",
+                  textTransform: "uppercase",
+                  textAlign: "center",
+                  flexGrow: 1,
+                }}
+              >
+                Comp Engr - Part 2
+              </Typography>
+            </AccordionSummary>
+            <AccordionDetails sx={{ padding: 0 }}>
+              <List
+                sx={{
+                  color: "white",
+                  padding: 0,
+                }}
+              >
+                {[
+                  "Electronics 1",
+                  "Digital Integrated Circuits",
+                  "Operating Systems",
+                  "Computer Organization",
+                ].map((text) => (
+                  <ListItem key={text} disablePadding>
+                    <ListItemButton onClick={() => handleListItemClick(text)}>
+                      <ListItemText
+                        primary={
+                          <Typography
+                            sx={{
+                              color: "white",
+                              fontFamily: "Kanit, sans-serif",
+                              textTransform: "uppercase",
+                              fontWeight: 700,
+                              fontSize: "13px",
+                              textAlign: "center",
+                            }}
+                          >
+                            {text}
+                          </Typography>
+                        }
+                      />
+                    </ListItemButton>
+                  </ListItem>
+                ))}
+              </List>
+            </AccordionDetails>
+          </Accordion>
+
+          <Accordion
+            sx={{
+              background: "transparent",
               paddingTop: "25px",
               "& .MuiAccordion-root": {
                 border: "none",

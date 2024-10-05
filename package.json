@@ -10,16 +10,21 @@
   },
   "dependencies": {
     "@clerk/nextjs": "^5.3.7",
+    "@emnapi/core": "^0.45.0",
+    "@emnapi/runtime": "^0.45.0",
     "@emotion/react": "^11.13.3",
     "@emotion/styled": "^11.13.0",
     "@huggingface/inference": "^2.8.0",
     "@mui/icons-material": "^6.0.2",
     "@mui/material": "^6.0.2",
-    "@stackframe/stack": "^2.5.25",
+    "@stackframe/stack": "^2.6.0",
+    "@tybys/wasm-util": "^0.8.3",
     "autoprefixer": "^10.4.20",
     "axios": "^1.7.7",
-    "firebase": "^10.13.1",
-    "framer-motion": "^11.3.31",
+    "extraneous": "^2.1.1",
+    "firebase": "^10.13.2",
+    "framer-motion": "^11.9.0",
+    "fs-monkey": "^1.0.6",
     "next": "^14.2.13",
     "next-seo": "^6.5.0",
     "openai": "^4.57.0",
@@ -28,7 +33,7 @@
     "stripe": "^16.8.0"
   },
   "devDependencies": {
-    "eslint": "^8",
-    "eslint-config-next": "14.2.7"
+    "eslint": "^8.57.1",
+    "eslint-config-next": "^14.2.7"
   }
 }

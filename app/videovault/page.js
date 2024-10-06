@@ -1,39 +1,25 @@
 "use client";
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   AppBar,
   Box,
-  Drawer,
-  IconButton,
-  Toolbar,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemText,
-  Typography,
-  Button,
-  Link,
-  Divider,
-  Grid,
   Container,
+  Typography,
+  TextField,
+  Button,
+  Toolbar,
+  IconButton,
   Stack,
   Snackbar,
-  TextField,
-  Accordion,
-  AccordionActions,
-  AccordionDetails,
-  AccordionSummary,
+  Drawer,
+  Card,
+  CardActions,
+  CardContent,
+  CardMedia,
 } from "@mui/material";
-import TopicContent from "./TopicContent";
-import MenuIcon from "@mui/icons-material/Menu";
-import { UserButton } from "@stackframe/stack";
+import { motion } from "framer-motion";
+import Link from "next/link";
 import { keyframes } from "@mui/material";
-
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import XIcon from "@mui/icons-material/X";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
 const slideUpDown = keyframes`
   0% {
@@ -54,35 +40,81 @@ const slideUpDown = keyframes`
 `;
 
 {
-  /*For the width of the drawer*/
+  /*MUI ICONS*/
 }
-const drawerWidth = 240;
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import XIcon from "@mui/icons-material/X";
+import MenuIcon from "@mui/icons-material/Menu";
+import { UserButton } from "@stackframe/stack";
 
-export default function Home() {
+export default function VideoVault() {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [selectedTopic, setSelectedTopic] = useState("Introduction");
-
   const toggleDrawer = (open) => () => {
     setDrawerOpen(open);
   };
 
-  const handleListItemClick = (text) => {
-    setSelectedTopic(text);
+  {
+    /* For the Newsletter Now */
+  }
+  const [snackbarOpenNews, setSnackbarOpenNews] = useState(false);
+  const [emailNews, setEmailNews] = useState("");
+  const [emailErrorNews, setEmailErrorNews] = useState("");
+  const emailRegexNews = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const handleSnackbarCloseNews = () => {
+    setSnackbarOpenNews(false);
   };
 
-  {
-    /*Return Content Here*/
-  }
+  const handleEmailChangeNews = (e) => {
+    const value = e.target.value;
+    setEmailNews(value);
+
+    if (!emailRegexNews.test(value)) {
+      setEmailErrorNews("Enter a valid email address.");
+    } else {
+      setEmailErrorNews("");
+    }
+  };
+
+  const handleSendMessageNews = async () => {
+    setEmailErrorNews("");
+
+    if (!emailNews.trim()) {
+      setSnackbarOpenNews(true);
+      setEmailErrorNews("Email cannot be empty.");
+      return;
+    }
+
+    if (!emailRegexNews.test(emailNews)) {
+      setSnackbarOpenNews(true);
+      setEmailErrorNews("Enter a valid email address.");
+      return;
+    }
+
+    try {
+      await addDoc(collection(db, "Newsletter"), {
+        email: emailNews,
+        timestamp: new Date(),
+      });
+
+      setSnackbarOpenNews(true);
+      setEmailErrorNews("");
+
+      setEmailNews("");
+    } catch (error) {
+      console.error("Error sending message: ", error);
+    }
+  };
+
   return (
-    <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
+    <>
       <AppBar
-        position="fixed"
+        position="static"
         sx={{
-          zIndex: (theme) => theme.zIndex.drawer + 1,
           backgroundColor: "black",
-          boxShadow: "none",
         }}
-        elevation={0}
       >
         <Toolbar
           sx={{
@@ -96,13 +128,15 @@ export default function Home() {
         >
           <Box
             sx={{
-              display: { xs: "flex", md: "none" },
+              display: "flex",
               justifyContent: "space-between",
               alignItems: "center",
               width: "100%",
               px: 2,
+              display: { xs: "flex", md: "none" },
             }}
           >
+            {/* Menu icon for mobile */}
             <IconButton
               edge="start"
               color="inherit"
@@ -111,9 +145,14 @@ export default function Home() {
             >
               <MenuIcon sx={{ fontSize: "35px" }} />
             </IconButton>
-            <UserButton />
+
+            {/* User Button on right side for mobile */}
+            <Box>
+              <UserButton />
+            </Box>
           </Box>
 
+          {/* App Logo */}
           <Box sx={{ flexGrow: 1, display: "flex", alignItems: "center" }}>
             <Link href="/" passHref style={{ textDecoration: "none" }}>
               <Typography
@@ -121,7 +160,7 @@ export default function Home() {
                 component="div"
                 sx={{
                   flexGrow: 1,
-                  display: { xs: "none", md: "flex" },
+                  display: { xs: "none", md: "flex" }, // Visible on desktop, hidden on mobile
                   fontFamily: "Kanit, sans-serif",
                   fontWeight: "900",
                   color: "white",
@@ -133,12 +172,21 @@ export default function Home() {
             </Link>
           </Box>
 
-          <Box sx={{ display: { xs: "none", md: "flex" }, gap: 3 }}>
+          {/* Links for desktop, hidden on mobile */}
+          <Box
+            sx={{
+              display: { xs: "none", md: "flex" },
+              gap: 3,
+            }}
+          >
             <Link
               href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
               target="_blank"
               passHref
-              style={{ color: "white", textDecoration: "none" }}
+              style={{
+                color: "white",
+                textDecoration: "none",
+              }}
             >
               <Button
                 color="inherit"
@@ -148,17 +196,22 @@ export default function Home() {
                   fontSize: "15px",
                   transition: "transform 0.6s ease-in-out",
                   "&:hover": {
-                    animation: "slideUpDown 0.6s ease-in-out",
+                    animation: `${slideUpDown} 0.6s ease-in-out`,
                   },
                 }}
               >
                 Documentation
               </Button>
             </Link>
+
             <Link
-              href="/contact"
+              href="/blog"
+              target="_blank"
               passHref
-              style={{ color: "white", textDecoration: "none" }}
+              style={{
+                color: "white",
+                textDecoration: "none",
+              }}
             >
               <Button
                 color="inherit"
@@ -168,19 +221,116 @@ export default function Home() {
                   fontSize: "15px",
                   transition: "transform 0.6s ease-in-out",
                   "&:hover": {
-                    animation: "slideUpDown 0.6s ease-in-out",
+                    animation: `${slideUpDown} 0.6s ease-in-out`,
+                  },
+                }}
+              >
+                Blog
+              </Button>
+            </Link>
+
+            <Link
+              href="/aboutus"
+              passHref
+              style={{
+                color: "white",
+                textDecoration: "none",
+              }}
+            >
+              <Button
+                color="inherit"
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "15px",
+                  transition: "transform 0.6s ease-in-out",
+                  "&:hover": {
+                    animation: `${slideUpDown} 0.6s ease-in-out`,
+                  },
+                }}
+              >
+                About Us
+              </Button>
+            </Link>
+
+            <Link
+              href="/contact"
+              passHref
+              style={{
+                color: "white",
+                textDecoration: "none",
+              }}
+            >
+              <Button
+                color="inherit"
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "15px",
+                  transition: "transform 0.6s ease-in-out",
+                  "&:hover": {
+                    animation: `${slideUpDown} 0.6s ease-in-out`,
                   },
                 }}
               >
                 Contact
               </Button>
             </Link>
-            <UserButton />
+
+            <Link
+              href="/sign-in"
+              passHref
+              style={{
+                color: "white",
+                textDecoration: "none",
+              }}
+            >
+              <Button
+                color="inherit"
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "15px",
+                  transition: "transform 0.6s ease-in-out",
+                  "&:hover": {
+                    animation: `${slideUpDown} 0.6s ease-in-out`,
+                  },
+                }}
+              >
+                Sign In
+              </Button>
+            </Link>
+
+            <Link
+              href="/sign-up"
+              passHref
+              style={{
+                color: "white",
+                textDecoration: "none",
+              }}
+            >
+              <Button
+                color="inherit"
+                sx={{
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "700",
+                  fontSize: "15px",
+                  transition: "transform 0.6s ease-in-out",
+                  "&:hover": {
+                    animation: `${slideUpDown} 0.6s ease-in-out`,
+                  },
+                }}
+              >
+                Sign Up
+              </Button>
+            </Link>
+
+            <UserButton></UserButton>
           </Box>
         </Toolbar>
       </AppBar>
 
-      {/* Mobile Drawer */}
+      {/* Drawer for mobile menu */}
       <Drawer
         anchor="bottom"
         open={drawerOpen}
@@ -203,680 +353,527 @@ export default function Home() {
             bottom: 200,
             left: 20,
             right: 20,
-            transform: drawerOpen ? "translateY(0)" : "translateY(100%)",
+            transform: drawerOpen ? "translateY(100%)" : "translateY(100%)",
           },
         }}
       >
+        {/* Drawer content */}
         <Box
           sx={{ textAlign: "center", display: "flex", flexDirection: "column" }}
         >
           <Link
             href="https://smart-study-official.vercel.app/"
             passHref
-            style={{ color: "white", textDecoration: "none" }}
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
           >
-            <Button color="inherit" sx={{ paddingBottom: "10px" }}>
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
               Home
             </Button>
           </Link>
+
           <Link
             href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
             target="_blank"
             passHref
-            style={{ color: "white", textDecoration: "none" }}
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
           >
-            <Button color="inherit" sx={{ paddingBottom: "10px" }}>
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
               Documentation
             </Button>
           </Link>
+
           <Link
             href="/blog"
             target="_blank"
             passHref
-            style={{ color: "white", textDecoration: "none" }}
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
           >
-            <Button color="inherit" sx={{ paddingBottom: "10px" }}>
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
               Blog
             </Button>
           </Link>
+
           <Link
             href="/aboutus"
             passHref
-            style={{ color: "white", textDecoration: "none" }}
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
           >
-            <Button color="inherit" sx={{ paddingBottom: "10px" }}>
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
               About Us
             </Button>
           </Link>
+
           <Link
             href="/contact"
             passHref
-            style={{ color: "white", textDecoration: "none" }}
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
           >
-            <Button color="inherit" sx={{ paddingBottom: "10px" }}>
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
               Contact
+            </Button>
+          </Link>
+
+          <Link
+            href="/sign-in"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Sign In
+            </Button>
+          </Link>
+
+          <Link
+            href="/sign-up"
+            passHref
+            style={{
+              color: "white",
+              textDecoration: "none",
+            }}
+          >
+            <Button
+              color="inherit"
+              sx={{
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: "700",
+                fontSize: "15px",
+                transition: "transform 0.6s ease-in-out",
+                "&:hover": {
+                  animation: `${slideUpDown} 0.6s ease-in-out`,
+                },
+                paddingBottom: "10px",
+              }}
+            >
+              Sign Up
             </Button>
           </Link>
         </Box>
       </Drawer>
 
-      {/* Main content area */}
+      {/* Main Content */}
       <Box
         sx={{
+          height: "100vh",
           display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          flexDirection: "row",
           background: "linear-gradient(270deg, #000000, #2838ae)",
-          flexGrow: 1,
-          pt: "84px", // Increased from 64px to account for the AppBar's padding
+          gap: 10,
         }}
       >
-        {/* Permanent left drawer */}
-        <Drawer
-          sx={{
-            width: drawerWidth,
-            flexShrink: 0,
-            "& .MuiDrawer-paper": {
-              width: drawerWidth,
-              boxSizing: "border-box",
-              backgroundColor: "transparent",
-              "&::-webkit-scrollbar": {
-                width: "2px",
-              },
-              "&::-webkit-scrollbar-track": {
-                backgroundColor: "transparent",
-                borderRadius: "10px",
-              },
-              "&::-webkit-scrollbar-thumb": {
-                backgroundColor: "rgba(145, 83, 209, 1)",
-                borderRadius: "10px",
-              },
-              top: "40px", // Increased from 64px to account for the AppBar's padding
-              height: "calc(100% - 40px)",
-            },
-          }}
-          variant="permanent"
-          anchor="left"
-        >
-          <Toolbar />
-          <List sx={{ color: "white", marginBottom: "10px" }}>
-            <Typography
-              sx={{
-                textAlign: "center",
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: 900,
-                color: "white",
-                textTransform: "uppercase",
-                marginBottom: "20px",
-                fontSize: "13px",
-              }}
-            >
-              Getting Started
+        <Card sx={{ maxWidth: 300 }}>
+          <CardMedia sx={{ height: 120 }} image="" title=""></CardMedia>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              Biomedical Engineering
             </Typography>
+            <Typography variant="body-1">Text here.</Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">Videos</Button>
+            <Button size="small">Worksheets</Button>
+          </CardActions>
+        </Card>
 
-            {["Introduction", "Live Demo", "Feedback"].map((text) => (
-              <ListItem
-                key={text}
-                disablePadding
-                sx={{
-                  color: "white",
-                  textTransform: "uppercase",
-                }}
-              >
-                <ListItemButton onClick={() => handleListItemClick(text)}>
-                  <ListItemText
-                    primary={
-                      <Typography
-                        variant="body1"
-                        sx={{
-                          fontWeight: 700,
-                          color: "white",
-                          fontSize: "13px",
-                          fontFamily: "Kanit, sans-serif",
-                        }}
-                      >
-                        {text}
-                      </Typography>
-                    }
-                  />
-                </ListItemButton>
-              </ListItem>
-            ))}
-          </List>
+        <Card sx={{ maxWidth: 300 }}>
+          <CardMedia sx={{ height: 120 }} image="" title=""></CardMedia>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              Chemical Engineering
+            </Typography>
+            <Typography variant="body-1">Text Here.</Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">Videos</Button>
+            <Button size="small">Worksheets</Button>
+          </CardActions>
+        </Card>
 
-          <Accordion
-            sx={{
-              background: "transparent",
-              "& .MuiAccordion-root": {
-                border: "none",
-                boxShadow: "none",
-              },
-            }}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-              sx={{
-                padding: "0 16px",
-                "& .MuiAccordionSummary-content": {
-                  margin: "0",
-                },
-              }}
-            >
-              <Typography
-                sx={{
-                  textAlign: "center",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: 900,
-                  color: "white",
-                  fontSize: "13px",
-                  textTransform: "uppercase",
-                  textAlign: "center",
-                  flexGrow: 1,
-                }}
-              >
-                Comp Sci - Part 1
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails sx={{ padding: 0 }}>
-              <List
-                sx={{
-                  color: "white",
-                  padding: 0,
-                }}
-              >
-                {[
-                  "Intro to HTML & CSS",
-                  "Intro to Javascript",
-                  "Intro to Nodejs/Nextjs",
-                  "Intro to Python",
-                  "Intro to C/C++",
-                  "Intro to Java",
-                  "Intro to SQL",
-                ].map((text) => (
-                  <ListItem key={text} disablePadding>
-                    <ListItemButton onClick={() => handleListItemClick(text)}>
-                      <ListItemText
-                        primary={
-                          <Typography
-                            sx={{
-                              color: "white",
-                              fontFamily: "Kanit, sans-serif",
-                              textTransform: "uppercase",
-                              fontWeight: 700,
-                              fontSize: "13px",
-                              textAlign: "center",
-                            }}
-                          >
-                            {text}
-                          </Typography>
-                        }
-                      />
-                    </ListItemButton>
-                  </ListItem>
-                ))}
-              </List>
-            </AccordionDetails>
-          </Accordion>
+        <Card sx={{ maxWidth: 300 }}>
+          <CardMedia sx={{ height: 120 }} image="" title=""></CardMedia>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              Civil Engineering
+            </Typography>
+            <Typography variant="body-1">Text Here.</Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">Videos</Button>
+            <Button size="small">Worksheets</Button>
+          </CardActions>
+        </Card>
 
-          <Accordion
-            sx={{
-              background: "transparent",
-              "& .MuiAccordion-root": {
-                border: "none",
-                boxShadow: "none",
-              },
-              paddingTop: "25px",
-            }}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-              sx={{
-                padding: "0 16px",
-                "& .MuiAccordionSummary-content": {
-                  margin: "0",
-                },
-              }}
-            >
-              <Typography
-                sx={{
-                  textAlign: "center",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: 900,
-                  color: "white",
-                  fontSize: "13px",
-                  textTransform: "uppercase",
-                  textAlign: "center",
-                  flexGrow: 1,
-                }}
-              >
-                Comp Sci - Part 2
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails sx={{ padding: 0 }}>
-              <List
-                sx={{
-                  color: "white",
-                  padding: 0,
-                }}
-              >
-                {[
-                  "Discrete Math",
-                  "Computer Systems",
-                  "Data Structures",
-                  "Probability & Stats",
-                  "Algorithms",
-                  "Scientific Computing",
-                ].map((text) => (
-                  <ListItem key={text} disablePadding>
-                    <ListItemButton onClick={() => handleListItemClick(text)}>
-                      <ListItemText
-                        primary={
-                          <Typography
-                            sx={{
-                              color: "white",
-                              fontFamily: "Kanit, sans-serif",
-                              textTransform: "uppercase",
-                              fontWeight: 700,
-                              fontSize: "13px",
-                              textAlign: "center",
-                            }}
-                          >
-                            {text}
-                          </Typography>
-                        }
-                      />
-                    </ListItemButton>
-                  </ListItem>
-                ))}
-              </List>
-            </AccordionDetails>
-          </Accordion>
-
-          <Accordion
-            sx={{
-              background: "transparent",
-              "& .MuiAccordion-root": {
-                border: "none",
-                boxShadow: "none",
-              },
-              paddingTop: "25px",
-            }}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-              sx={{
-                padding: "0 16px",
-                "& .MuiAccordionSummary-content": {
-                  margin: "0",
-                },
-              }}
-            >
-              <Typography
-                sx={{
-                  textAlign: "center",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: 900,
-                  color: "white",
-                  fontSize: "13px",
-                  textTransform: "uppercase",
-                  textAlign: "center",
-                  flexGrow: 1,
-                }}
-              >
-                Comp Sci - Part 3
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails sx={{ padding: 0 }}>
-              <List sx={{ color: "white", padding: 0 }}>
-                {[
-                  "Theoretical Computer Science",
-                  "Computer Security",
-                  "Programming Language Paradigms",
-                  "Software Engineering",
-                  "Intro to Database Systems",
-                  "Operating Systems",
-                ].map((text) => (
-                  <ListItem key={text} disablePadding>
-                    <ListItemButton onClick={() => handleListItemClick(text)}>
-                      <ListItemText
-                        primary={
-                          <Typography
-                            sx={{
-                              color: "white",
-                              fontFamily: "Kanit, sans-serif",
-                              textTransform: "uppercase",
-                              fontWeight: 700,
-                              fontSize: "13px",
-                              textAlign: "center",
-                            }}
-                          >
-                            {text}
-                          </Typography>
-                        }
-                      />
-                    </ListItemButton>
-                  </ListItem>
-                ))}
-              </List>
-            </AccordionDetails>
-          </Accordion>
-
-          <Accordion
-            sx={{
-              background: "transparent",
-              paddingTop: "25px",
-              "& .MuiAccordion-root": {
-                border: "none",
-                boxShadow: "none",
-              },
-            }}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-              sx={{
-                padding: "0 16px",
-                "& .MuiAccordionSummary-content": {
-                  margin: "0",
-                },
-              }}
-            >
-              <Typography
-                sx={{
-                  textAlign: "center",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: 900,
-                  color: "white",
-                  fontSize: "13px",
-                  textTransform: "uppercase",
-                  flexGrow: 1,
-                }}
-              >
-                Comp Sci - Part 4
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <List>
-                {[
-                  "Computer Organization",
-                  "Computability",
-                  "Intro to Distributed Algorithms",
-                  "Formal Language and Automation",
-                  "Artificial Intelligence",
-                  "Combinatorics and Graph Theory",
-                ].map((text) => (
-                  <ListItem key={text} disablePadding>
-                    <ListItemButton onClick={() => handleListItemClick(text)}>
-                      <ListItemText
-                        primary={
-                          <Typography
-                            sx={{
-                              color: "white",
-                              fontFamily: "Kanit, sans-serif",
-                              textTransform: "uppercase",
-                              fontWeight: 700,
-                              fontSize: "13px",
-                              textAlign: "center",
-                            }}
-                          >
-                            {text}
-                          </Typography>
-                        }
-                      />
-                    </ListItemButton>
-                  </ListItem>
-                ))}
-              </List>
-            </AccordionDetails>
-          </Accordion>
-
-          <Accordion
-            sx={{
-              background: "transparent",
-              "& .MuiAccordion-root": {
-                border: "none",
-                boxShadow: "none",
-              },
-              paddingTop: "25px",
-            }}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-              sx={{
-                padding: "0 16px",
-                "& .MuiAccordionSummary-content": {
-                  margin: "0",
-                },
-              }}
-            >
-              <Typography
-                sx={{
-                  textAlign: "center",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: 900,
-                  color: "white",
-                  fontSize: "13px",
-                  textTransform: "uppercase",
-                  textAlign: "center",
-                  flexGrow: 1,
-                }}
-              >
-                Comp Engr - Part 1
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails sx={{ padding: 0 }}>
-              <List
-                sx={{
-                  color: "white",
-                  padding: 0,
-                }}
-              >
-                {[
-                  "Electrical Circuits",
-                  "Switching Systems",
-                  "Linear Systems 1",
-                  "Linear Systems 2",
-                  "Probability and Statistics",
-                  "Assembly Language",
-                  "Electromagnetics",
-                  "Communication Theory",
-                ].map((text) => (
-                  <ListItem key={text} disablePadding>
-                    <ListItemButton onClick={() => handleListItemClick(text)}>
-                      <ListItemText
-                        primary={
-                          <Typography
-                            sx={{
-                              color: "white",
-                              fontFamily: "Kanit, sans-serif",
-                              textTransform: "uppercase",
-                              fontWeight: 700,
-                              fontSize: "13px",
-                              textAlign: "center",
-                            }}
-                          >
-                            {text}
-                          </Typography>
-                        }
-                      />
-                    </ListItemButton>
-                  </ListItem>
-                ))}
-              </List>
-            </AccordionDetails>
-          </Accordion>
-
-          <Accordion
-            sx={{
-              background: "transparent",
-              "& .MuiAccordion-root": {
-                border: "none",
-                boxShadow: "none",
-              },
-              paddingTop: "25px",
-            }}
-          >
-            <AccordionSummary
-              expandIcon={<ExpandMoreIcon sx={{ color: "white" }} />}
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-              sx={{
-                padding: "0 16px",
-                "& .MuiAccordionSummary-content": {
-                  margin: "0",
-                },
-              }}
-            >
-              <Typography
-                sx={{
-                  textAlign: "center",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: 900,
-                  color: "white",
-                  fontSize: "13px",
-                  textTransform: "uppercase",
-                  textAlign: "center",
-                  flexGrow: 1,
-                }}
-              >
-                Comp Engr - Part 2
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails sx={{ padding: 0 }}>
-              <List
-                sx={{
-                  color: "white",
-                  padding: 0,
-                }}
-              >
-                {[
-                  "Electronics 1",
-                  "Digital Integrated Circuits",
-                  "Operating Systems",
-                  "Computer Organization",
-                ].map((text) => (
-                  <ListItem key={text} disablePadding>
-                    <ListItemButton onClick={() => handleListItemClick(text)}>
-                      <ListItemText
-                        primary={
-                          <Typography
-                            sx={{
-                              color: "white",
-                              fontFamily: "Kanit, sans-serif",
-                              textTransform: "uppercase",
-                              fontWeight: 700,
-                              fontSize: "13px",
-                              textAlign: "center",
-                            }}
-                          >
-                            {text}
-                          </Typography>
-                        }
-                      />
-                    </ListItemButton>
-                  </ListItem>
-                ))}
-              </List>
-            </AccordionDetails>
-          </Accordion>
-
-          <Accordion
-            sx={{
-              background: "transparent",
-              paddingTop: "25px",
-              "& .MuiAccordion-root": {
-                border: "none",
-                boxShadow: "none",
-              },
-            }}
-          >
-            <AccordionSummary
-              expandIcon={
-                <ExpandMoreIcon sx={{ color: "white", padding: 0 }} />
-              }
-              aria-controls="panel1a-content"
-              id="panel1a-header"
-              sx={{
-                padding: "0 16px",
-                "& .MuiAccordionSummary-content": {
-                  margin: "0",
-                },
-              }}
-            >
-              <Typography
-                sx={{
-                  textAlign: "center",
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: 900,
-                  color: "white",
-                  fontSize: "13px",
-                  textTransform: "uppercase",
-                  flexGrow: 1,
-                }}
-              >
-                Mathematics
-              </Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              <List>
-                {[
-                  "Algebra",
-                  "Pre-Calc",
-                  "Calculus 1",
-                  "Calculus 2",
-                  "Calculus 3",
-                  "Linear Algebra",
-                  "Differential Equations",
-                ].map((text) => (
-                  <ListItem key={text} disablePadding>
-                    <ListItemButton onClick={() => handleListItemClick(text)}>
-                      <ListItemText
-                        primary={
-                          <Typography
-                            sx={{
-                              color: "white",
-                              fontFamily: "Kanit, sans-serif",
-                              fontWeight: 700,
-                              textTransform: "uppercase",
-                              fontSize: "13px",
-                              textAlign: "center",
-                            }}
-                          >
-                            {text}
-                          </Typography>
-                        }
-                      />
-                    </ListItemButton>
-                  </ListItem>
-                ))}
-              </List>
-            </AccordionDetails>
-          </Accordion>
-        </Drawer>
-
-        {/* Main content */}
-        <Box sx={{ flexGrow: 1, padding: 2 }}>
-          <Typography
-            variant="h4"
-            sx={{
-              color: "white",
-              fontFamily: "Kanit, sans-serif",
-              fontWeight: 900,
-              paddingBottom: "20px",
-            }}
-          >
-            {selectedTopic}
-          </Typography>
-          <TopicContent selectedTopic={selectedTopic} />
-        </Box>
+        <Card sx={{ maxWidth: 300 }}>
+          <CardMedia sx={{ height: 120 }} image="" title=""></CardMedia>
+          <CardContent>
+            <Typography variant="h5" component="div">
+              Computer Engineering
+            </Typography>
+            <Typography variant="body-1">Text Here.</Typography>
+          </CardContent>
+          <CardActions>
+            <Button size="small">Videos</Button>
+            <Button size="small">Worksheets</Button>
+          </CardActions>
+        </Card>
       </Box>
-    </Box>
+
+      {/* Footer */}
+      <Box
+        component="footer"
+        sx={{
+          height: "auto",
+          py: 4,
+          pb: 10,
+          background: "linear-gradient(270deg, #000000, #2838ae)",
+        }}
+      >
+        <Container maxWidth="lg">
+          <Stack
+            direction={{ xs: "column", md: "row" }}
+            spacing={4}
+            justifyContent="space-between"
+          >
+            <Stack spacing={2}>
+              <Typography
+                variant="h6"
+                sx={{
+                  color: "white",
+                  fontFamily: "Kanit, sans-serif",
+                  fontWeight: "900",
+                }}
+              >
+                Smart Study
+              </Typography>
+              <Typography
+                variant="body1"
+                sx={{ color: "white", fontFamily: "Kanit, sans-serif" }}
+              >
+                Subscribe to our newsletter
+              </Typography>
+              <Stack direction="row" spacing={1}>
+                <TextField
+                  variant="outlined"
+                  size="small"
+                  onChange={handleEmailChangeNews}
+                  placeholder="Your email"
+                  value={emailNews}
+                  sx={{
+                    flexGrow: 1,
+                    background: "white",
+                    borderRadius: "10px",
+                    "& .MuiInputBase-input::placeholder": {
+                      color: "black",
+                      fontFamily: "Kanit, sans-serif",
+                      fontWeight: "900",
+                    },
+                    "& .MuiInputBase-input": {
+                      color: "black",
+                      fontFamily: "Kanit, sans-serif",
+                      fontWeight: "900",
+                    },
+                  }}
+                />
+                <Button
+                  variant="contained"
+                  sx={{
+                    borderRadius: "10px",
+                    background: "primary",
+                    transition: "background 0.4s ease-in-out",
+                    "&:hover": {
+                      background: "rgba(145, 83, 209, 1)",
+                    },
+                  }}
+                  onClick={handleSendMessageNews}
+                >
+                  Submit
+                </Button>
+
+                <Snackbar
+                  open={snackbarOpenNews}
+                  autoHideDuration={6000}
+                  onClose={handleSnackbarCloseNews}
+                  message={
+                    emailErrorNews ||
+                    "You have successfully signed up for our newsletter."
+                  }
+                />
+              </Stack>
+
+              <Stack direction="row" spacing={1}>
+                {/* Social media links */}
+                <IconButton
+                  href="https://github.com/hamim23z"
+                  target="_blank"
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "rgba(145, 83, 209, 1)",
+                    },
+                  }}
+                >
+                  <GitHubIcon />
+                </IconButton>
+                <IconButton
+                  href="https://www.linkedin.com/company/smart-studyapp"
+                  target="_blank"
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "rgba(145, 83, 209, 1)",
+                    },
+                  }}
+                >
+                  <LinkedInIcon />
+                </IconButton>
+                <IconButton
+                  href="https://www.instagram.com/smartstudy_00/"
+                  target="_blank"
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "rgba(145, 83, 209, 1)",
+                    },
+                  }}
+                >
+                  <InstagramIcon />
+                </IconButton>
+                <IconButton
+                  href="https://x.com/smartstudy0"
+                  target="_blank"
+                  sx={{
+                    color: "white",
+                    transition: "color 0.2s ease-in-out",
+                    "&:hover": {
+                      color: "rgba(145, 83, 209, 1)",
+                    },
+                  }}
+                >
+                  <XIcon />
+                </IconButton>
+              </Stack>
+            </Stack>
+
+            <Stack direction={{ xs: "column", md: "row" }} spacing={4}>
+              {/* Company Section */}
+              <Stack spacing={1}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "white",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "900",
+                  }}
+                >
+                  Company
+                </Typography>
+                <Link
+                  href="/aboutus"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  About Us
+                </Link>
+                <Link
+                  href="/blog"
+                  target="_blank"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Blog
+                </Link>
+              </Stack>
+
+              {/* References Section */}
+              <Stack spacing={1}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "white",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "900",
+                  }}
+                >
+                  References
+                </Typography>
+                <Link
+                  href="https://smartstudy-0f4a59fc.mintlify.app/introduction"
+                  target="_blank"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Documentation
+                </Link>
+                <Link
+                  href="/demos"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Demos
+                </Link>
+              </Stack>
+
+              {/* Legal Section */}
+              <Stack spacing={1}>
+                <Typography
+                  variant="h6"
+                  sx={{
+                    color: "white",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "900",
+                  }}
+                >
+                  Legal
+                </Typography>
+                <Link
+                  href="/privacy"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Privacy
+                </Link>
+                <Link
+                  href="/termsandcond"
+                  style={{
+                    color: "white",
+                    textDecoration: "none",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "400",
+                    paddingTop: "10px",
+                    paddingBottom: "10px",
+                  }}
+                >
+                  Terms and Conditions
+                </Link>
+              </Stack>
+            </Stack>
+          </Stack>
+        </Container>
+      </Box>
+    </>
   );
 }

@@ -552,59 +552,89 @@ export default function VideoVault() {
           gap: 10,
         }}
       >
-        <Card sx={{ maxWidth: 300 }}>
-          <CardMedia sx={{ height: 120 }} image="" title=""></CardMedia>
+        <Card sx={{ maxWidth: 345 }}>
+          <CardMedia
+            sx={{ height: 140 }}
+            image="/mapofcs.png"
+            title="green iguana"
+          />
           <CardContent>
-            <Typography variant="h5" component="div">
+            <Typography gutterBottom variant="h5" component="div">
               Biomedical Engineering
             </Typography>
-            <Typography variant="body-1">Text here.</Typography>
+            <Typography variant="body2" sx={{ color: "black" }}>
+              A field that applies principles of engineering and biology to
+              develop technologies and solutions for improving healthcare.
+            </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Videos</Button>
-            <Button size="small">Worksheets</Button>
+            <Button size="small">Share</Button>
+            <Button size="small">Learn More</Button>
           </CardActions>
         </Card>
 
-        <Card sx={{ maxWidth: 300 }}>
-          <CardMedia sx={{ height: 120 }} image="" title=""></CardMedia>
+        <Card sx={{ maxWidth: 345 }}>
+          <CardMedia
+            sx={{ height: 140 }}
+            image="/mapofcs.png"
+            title="green iguana"
+          />
           <CardContent>
-            <Typography variant="h5" component="div">
+            <Typography gutterBottom variant="h5" component="div">
               Chemical Engineering
             </Typography>
-            <Typography variant="body-1">Text Here.</Typography>
+            <Typography variant="body2" sx={{ color: "black" }}>
+              A field that applies principles of chemistry and engineering to
+              design processes for transforming raw materials into useful
+              products
+            </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Videos</Button>
-            <Button size="small">Worksheets</Button>
+            <Button size="small">Share</Button>
+            <Button size="small">Learn More</Button>
           </CardActions>
         </Card>
 
-        <Card sx={{ maxWidth: 300 }}>
-          <CardMedia sx={{ height: 120 }} image="" title=""></CardMedia>
+        <Card sx={{ maxWidth: 345 }}>
+          <CardMedia
+            sx={{ height: 140 }}
+            image="/mapofcs.png"
+            title="green iguana"
+          />
           <CardContent>
-            <Typography variant="h5" component="div">
+            <Typography gutterBottom variant="h5" component="div">
               Civil Engineering
             </Typography>
-            <Typography variant="body-1">Text Here.</Typography>
+            <Typography variant="body2" sx={{ color: "black" }}>
+              A field that applies engineering principles to design, construct,
+              and maintain infrastructure projects to ensure proper assembly.
+            </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Videos</Button>
-            <Button size="small">Worksheets</Button>
+            <Button size="small">Share</Button>
+            <Button size="small">Learn More</Button>
           </CardActions>
         </Card>
 
-        <Card sx={{ maxWidth: 300 }}>
-          <CardMedia sx={{ height: 120 }} image="" title=""></CardMedia>
+        <Card sx={{ maxWidth: 345 }}>
+          <CardMedia
+            sx={{ height: 140 }}
+            image="/mapofcs.png"
+            title="green iguana"
+          />
           <CardContent>
-            <Typography variant="h5" component="div">
+            <Typography gutterBottom variant="h5" component="div">
               Computer Engineering
             </Typography>
-            <Typography variant="body-1">Text Here.</Typography>
+            <Typography variant="body2" sx={{ color: "black" }}>
+              A field that applies principles of science and technology to
+              design and maintain hardware components in modern computing
+              systems.
+            </Typography>
           </CardContent>
           <CardActions>
-            <Button size="small">Videos</Button>
-            <Button size="small">Worksheets</Button>
+            <Button size="small">Share</Button>
+            <Button size="small">Learn More</Button>
           </CardActions>
         </Card>
       </Box>

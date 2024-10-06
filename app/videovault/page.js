@@ -17,7 +17,7 @@ import {
   CardContent,
   CardMedia,
 } from "@mui/material";
-import { motion } from "framer-motion";
+import { motion, wrap } from "framer-motion";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
 
@@ -543,100 +543,286 @@ export default function VideoVault() {
       {/* Main Content */}
       <Box
         sx={{
-          height: "100vh",
+          minHeight: "100vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          flexDirection: "row",
+          flexDirection: "column",
           background: "linear-gradient(270deg, #000000, #2838ae)",
-          gap: 10,
+          padding: "64px 0", // Add top and bottom padding
         }}
       >
-        <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            sx={{ height: 140 }}
-            image="/mapofcs.png"
-            title="green iguana"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Biomedical Engineering
-            </Typography>
-            <Typography variant="body2" sx={{ color: "black" }}>
-              A field that applies principles of engineering and biology to
-              develop technologies and solutions for improving healthcare.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small">Share</Button>
-            <Button size="small">Learn More</Button>
-          </CardActions>
-        </Card>
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "center",
+            gap: 5,
+            maxWidth: "1500px", // Adjusted to accommodate 4 cards per row
+          }}
+        >
+          {/* First row */}
+          <Card sx={{ width: 345, marginBottom: 5 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/mapofcs.png"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Biomedical Engineering
+              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+                A field that applies principles of engineering and biology to
+                develop technologies and solutions for improving healthcare.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Videos</Button>
+              <Button size="small">Worksheets</Button>
+            </CardActions>
+          </Card>
 
-        <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            sx={{ height: 140 }}
-            image="/mapofcs.png"
-            title="green iguana"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Chemical Engineering
-            </Typography>
-            <Typography variant="body2" sx={{ color: "black" }}>
-              A field that applies principles of chemistry and engineering to
-              design processes for transforming raw materials into useful
-              products
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small">Share</Button>
-            <Button size="small">Learn More</Button>
-          </CardActions>
-        </Card>
+          <Card sx={{ width: 345, marginBottom: 5 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/mapofcs.png"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Chemical Engineering
+              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+                A field that applies principles of chemistry and engineering to
+                design processes for transforming raw materials into useful
+                products
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Videos</Button>
+              <Button size="small">Worksheets</Button>
+            </CardActions>
+          </Card>
 
-        <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            sx={{ height: 140 }}
-            image="/mapofcs.png"
-            title="green iguana"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Civil Engineering
-            </Typography>
-            <Typography variant="body2" sx={{ color: "black" }}>
-              A field that applies engineering principles to design, construct,
-              and maintain infrastructure projects to ensure proper assembly.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small">Share</Button>
-            <Button size="small">Learn More</Button>
-          </CardActions>
-        </Card>
+          <Card sx={{ width: 345, marginBottom: 5 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/mapofcs.png"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Civil Engineering
+              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+                A field that applies engineering principles to design,
+                construct, and maintain infrastructure projects to ensure proper
+                assembly.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Videos</Button>
+              <Button size="small">Worksheets</Button>
+            </CardActions>
+          </Card>
 
-        <Card sx={{ maxWidth: 345 }}>
-          <CardMedia
-            sx={{ height: 140 }}
-            image="/mapofcs.png"
-            title="green iguana"
-          />
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Computer Engineering
-            </Typography>
-            <Typography variant="body2" sx={{ color: "black" }}>
-              A field that applies principles of science and technology to
-              design and maintain hardware components in modern computing
-              systems.
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button size="small">Share</Button>
-            <Button size="small">Learn More</Button>
-          </CardActions>
-        </Card>
+          <Card sx={{ width: 345, marginBottom: 5 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/mapofcs.png"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Computer Engineering
+              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+                A field that applies principles of science and technology to
+                design and maintain hardware components in modern computing
+                systems.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Videos</Button>
+              <Button size="small">Worksheets</Button>
+            </CardActions>
+          </Card>
+
+          {/* Second row */}
+          <Card sx={{ width: 345, marginBottom: 5 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/mapofcs.png"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Electrical Engineering
+              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+                A field that deals with the study and application of
+                electricity, electronics, and electromagnetism.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Videos</Button>
+              <Button size="small">Worksheets</Button>
+            </CardActions>
+          </Card>
+
+          <Card sx={{ width: 345, marginBottom: 5 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/mapofcs.png"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Environmental Engineering
+              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+                A field that focuses on protecting human health and
+                environmental quality through engineering solutions.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Videos</Button>
+              <Button size="small">Worksheets</Button>
+            </CardActions>
+          </Card>
+
+          <Card sx={{ width: 345, marginBottom: 5 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/mapofcs.png"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Industrial Engineering
+              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+                A field that focuses on optimizing complex processes, systems,
+                or organizations by developing, improving and implementing
+                integrated systems.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Videos</Button>
+              <Button size="small">Worksheets</Button>
+            </CardActions>
+          </Card>
+
+          <Card sx={{ width: 345, marginBottom: 5 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/mapofcs.png"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Mechanical Engineering
+              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+                A field that applies the principles of physics and materials
+                science for analysis, design, manufacturing, and maintenance of
+                mechanical systems.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Videos</Button>
+              <Button size="small">Worksheets</Button>
+            </CardActions>
+          </Card>
+
+          {/* Third row */}
+          <Card sx={{ width: 345, marginBottom: 5 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/mapofcs.png"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Aerospace Engineering
+              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+                A field concerned with the development of aircraft and
+                spacecraft, focusing on their design, construction, and science.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Videos</Button>
+              <Button size="small">Worksheets</Button>
+            </CardActions>
+          </Card>
+
+          <Card sx={{ width: 345, marginBottom: 5 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/mapofcs.png"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Materials Engineering
+              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+                A field that involves the discovery and design of new materials,
+                with an emphasis on solids and their applications.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Videos</Button>
+              <Button size="small">Worksheets</Button>
+            </CardActions>
+          </Card>
+
+          <Card sx={{ width: 345, marginBottom: 5 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/mapofcs.png"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Nuclear Engineering
+              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+                A field dealing with the application of nuclear energy and
+                radiation, including nuclear power plants and radiological
+                sciences.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Videos</Button>
+              <Button size="small">Worksheets</Button>
+            </CardActions>
+          </Card>
+
+          <Card sx={{ width: 345, marginBottom: 5 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/mapofcs.png"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Software Engineering
+              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+                A field that focuses on the systematic application of
+                engineering approaches to the development of software systems.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Videos</Button>
+              <Button size="small">Worksheets</Button>
+            </CardActions>
+          </Card>
+        </Box>
       </Box>
 
       {/* Footer */}

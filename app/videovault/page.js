@@ -20,6 +20,8 @@ import {
 import { motion, wrap } from "framer-motion";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
+import { db } from "@/firebase";
+import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
 
 const slideUpDown = keyframes`
   0% {
@@ -50,11 +52,6 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { UserButton } from "@stackframe/stack";
 
 export default function VideoVault() {
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const toggleDrawer = (open) => () => {
-    setDrawerOpen(open);
-  };
-
   {
     /* For the Newsletter Now */
   }
@@ -106,6 +103,11 @@ export default function VideoVault() {
     } catch (error) {
       console.error("Error sending message: ", error);
     }
+  };
+
+  const [drawerOpen, setDrawerOpen] = useState(false);
+  const toggleDrawer = (open) => () => {
+    setDrawerOpen(open);
   };
 
   return (
@@ -549,9 +551,21 @@ export default function VideoVault() {
           justifyContent: "center",
           flexDirection: "column",
           background: "linear-gradient(270deg, #000000, #2838ae)",
-          padding: "64px 0", // Add top and bottom padding
+          padding: "64px 0",
         }}
       >
+        <Typography
+          variant="h2"
+          sx={{
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: 900,
+            textTransform: "uppercase",
+            color: "white",
+            paddingBottom: "40px",
+          }}
+        >
+          Video Vault
+        </Typography>
         <Box
           sx={{
             display: "flex",
@@ -559,7 +573,7 @@ export default function VideoVault() {
             flexWrap: "wrap",
             justifyContent: "center",
             gap: 5,
-            maxWidth: "1500px", // Adjusted to accommodate 4 cards per row
+            maxWidth: "1500px",
           }}
         >
           {/* First row */}
@@ -659,11 +673,34 @@ export default function VideoVault() {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
+                Computer Science
+              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+                A field that applies principles of mathematics and logic to
+                design, develop, and optimize software systems and algorithms
+                for computing tasks.
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button size="small">Videos</Button>
+              <Button size="small">Worksheets</Button>
+            </CardActions>
+          </Card>
+
+          <Card sx={{ width: 345, marginBottom: 5 }}>
+            <CardMedia
+              sx={{ height: 140 }}
+              image="/mapofcs.png"
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
                 Electrical Engineering
               </Typography>
               <Typography variant="body2" sx={{ color: "black" }}>
-                A field that deals with the study and application of
-                electricity, electronics, and electromagnetism.
+                A field that applies knowledge of electricity, electronics, and
+                electromagnetism to design and create modern technological
+                systems and solutions.
               </Typography>
             </CardContent>
             <CardActions>
@@ -683,30 +720,9 @@ export default function VideoVault() {
                 Environmental Engineering
               </Typography>
               <Typography variant="body2" sx={{ color: "black" }}>
-                A field that focuses on protecting human health and
-                environmental quality through engineering solutions.
-              </Typography>
-            </CardContent>
-            <CardActions>
-              <Button size="small">Videos</Button>
-              <Button size="small">Worksheets</Button>
-            </CardActions>
-          </Card>
-
-          <Card sx={{ width: 345, marginBottom: 5 }}>
-            <CardMedia
-              sx={{ height: 140 }}
-              image="/mapofcs.png"
-              title="green iguana"
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                Industrial Engineering
-              </Typography>
-              <Typography variant="body2" sx={{ color: "black" }}>
-                A field that focuses on optimizing complex processes, systems,
-                or organizations by developing, improving and implementing
-                integrated systems.
+                A field that applies engineering disciplines to design systems
+                for managing water supplies, treating waste, and developing
+                solutions for pollution control and environmental remediation.
               </Typography>
             </CardContent>
             <CardActions>
@@ -746,11 +762,12 @@ export default function VideoVault() {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Aerospace Engineering
+                Cybersecurity
               </Typography>
               <Typography variant="body2" sx={{ color: "black" }}>
-                A field concerned with the development of aircraft and
-                spacecraft, focusing on their design, construction, and science.
+                A field that applies principles of security and technology to
+                protect networks, systems, and data from cyber threats, ensuring
+                confidentiality, integrity, and availability.
               </Typography>
             </CardContent>
             <CardActions>
@@ -767,12 +784,9 @@ export default function VideoVault() {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Materials Engineering
+                Math
               </Typography>
-              <Typography variant="body2" sx={{ color: "black" }}>
-                A field that involves the discovery and design of new materials,
-                with an emphasis on solids and their applications.
-              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}></Typography>
             </CardContent>
             <CardActions>
               <Button size="small">Videos</Button>
@@ -788,13 +802,9 @@ export default function VideoVault() {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Nuclear Engineering
+                Physics
               </Typography>
-              <Typography variant="body2" sx={{ color: "black" }}>
-                A field dealing with the application of nuclear energy and
-                radiation, including nuclear power plants and radiological
-                sciences.
-              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}></Typography>
             </CardContent>
             <CardActions>
               <Button size="small">Videos</Button>
@@ -810,12 +820,9 @@ export default function VideoVault() {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Software Engineering
+                Something here
               </Typography>
-              <Typography variant="body2" sx={{ color: "black" }}>
-                A field that focuses on the systematic application of
-                engineering approaches to the development of software systems.
-              </Typography>
+              <Typography variant="body2" sx={{ color: "black" }}></Typography>
             </CardContent>
             <CardActions>
               <Button size="small">Videos</Button>

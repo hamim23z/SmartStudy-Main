@@ -557,10 +557,12 @@ export default function VideoVault() {
         <Typography
           variant="h2"
           sx={{
-            fontFamily: "Kanit, sans-serif",
-            fontWeight: 900,
-            textTransform: "uppercase",
             color: "white",
+            fontFamily: "Kanit, sans-serif",
+            fontWeight: "900",
+            fontSize: { xs: "2rem", sm: "3rem", md: "4rem" },
+            textAlign: "center",
+            textTransform: "uppercase",
             paddingBottom: "40px",
           }}
         >

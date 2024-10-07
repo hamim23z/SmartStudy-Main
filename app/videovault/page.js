@@ -583,7 +583,7 @@ export default function VideoVault() {
             <CardMedia
               sx={{ height: 140 }}
               image="/mapofcs.png"
-              title="green iguana"
+              title="Map of CS"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -604,7 +604,7 @@ export default function VideoVault() {
             <CardMedia
               sx={{ height: 140 }}
               image="/mapofcs.png"
-              title="green iguana"
+              title="Map of CS"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -626,7 +626,7 @@ export default function VideoVault() {
             <CardMedia
               sx={{ height: 140 }}
               image="/mapofcs.png"
-              title="green iguana"
+              title="Map of CS"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -648,7 +648,7 @@ export default function VideoVault() {
             <CardMedia
               sx={{ height: 140 }}
               image="/mapofcs.png"
-              title="green iguana"
+              title="Map of CS"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -671,7 +671,7 @@ export default function VideoVault() {
             <CardMedia
               sx={{ height: 140 }}
               image="/mapofcs.png"
-              title="green iguana"
+              title="Map of CS"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -693,7 +693,7 @@ export default function VideoVault() {
             <CardMedia
               sx={{ height: 140 }}
               image="/mapofcs.png"
-              title="green iguana"
+              title="Map of CS"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -715,7 +715,7 @@ export default function VideoVault() {
             <CardMedia
               sx={{ height: 140 }}
               image="/mapofcs.png"
-              title="green iguana"
+              title="Map of CS"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -737,7 +737,7 @@ export default function VideoVault() {
             <CardMedia
               sx={{ height: 140 }}
               image="/mapofcs.png"
-              title="green iguana"
+              title="Map of CS"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -760,7 +760,7 @@ export default function VideoVault() {
             <CardMedia
               sx={{ height: 140 }}
               image="/mapofcs.png"
-              title="green iguana"
+              title="Map of CS"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -782,7 +782,7 @@ export default function VideoVault() {
             <CardMedia
               sx={{ height: 140 }}
               image="/mapofcs.png"
-              title="green iguana"
+              title="Map of CS"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -804,7 +804,7 @@ export default function VideoVault() {
             <CardMedia
               sx={{ height: 140 }}
               image="/mapofcs.png"
-              title="green iguana"
+              title="Map of CS"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
@@ -826,7 +826,7 @@ export default function VideoVault() {
             <CardMedia
               sx={{ height: 140 }}
               image="/mapofcs.png"
-              title="green iguana"
+              title="Map of CS"
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">

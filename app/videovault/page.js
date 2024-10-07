@@ -788,7 +788,11 @@ export default function VideoVault() {
               <Typography gutterBottom variant="h5" component="div">
                 Math
               </Typography>
-              <Typography variant="body2" sx={{ color: "black" }}></Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+              A field that applies principles of numbers, structure, and patterns to 
+              solve problems in various scientific, engineering, and practical 
+              contexts.
+              </Typography>
             </CardContent>
             <CardActions>
               <Button size="small">Videos</Button>
@@ -804,9 +808,13 @@ export default function VideoVault() {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Physics
+                Science
               </Typography>
-              <Typography variant="body2" sx={{ color: "black" }}></Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+              A field that uses systematic observation, experimentation, and analysis to 
+              explore and understand natural phenomena, advancing knowledge across diverse 
+              areas.
+              </Typography>
             </CardContent>
             <CardActions>
               <Button size="small">Videos</Button>

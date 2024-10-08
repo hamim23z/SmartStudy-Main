@@ -597,6 +597,7 @@ export default function VideoVault() {
             <CardActions>
               <Button size="small">Videos</Button>
               <Button size="small">Worksheets</Button>
+              <Button size="small">Quizzes</Button>
             </CardActions>
           </Card>
 
@@ -619,6 +620,7 @@ export default function VideoVault() {
             <CardActions>
               <Button size="small">Videos</Button>
               <Button size="small">Worksheets</Button>
+              <Button size="small">Quizzes</Button>
             </CardActions>
           </Card>
 
@@ -641,6 +643,7 @@ export default function VideoVault() {
             <CardActions>
               <Button size="small">Videos</Button>
               <Button size="small">Worksheets</Button>
+              <Button size="small">Quizzes</Button>
             </CardActions>
           </Card>
 
@@ -663,6 +666,7 @@ export default function VideoVault() {
             <CardActions>
               <Button size="small">Videos</Button>
               <Button size="small">Worksheets</Button>
+              <Button size="small">Quizzes</Button>
             </CardActions>
           </Card>
 
@@ -686,6 +690,7 @@ export default function VideoVault() {
             <CardActions>
               <Button size="small">Videos</Button>
               <Button size="small">Worksheets</Button>
+              <Button size="small">Quizzes</Button>
             </CardActions>
           </Card>
 
@@ -708,6 +713,7 @@ export default function VideoVault() {
             <CardActions>
               <Button size="small">Videos</Button>
               <Button size="small">Worksheets</Button>
+              <Button size="small">Quizzes</Button>
             </CardActions>
           </Card>
 
@@ -730,6 +736,7 @@ export default function VideoVault() {
             <CardActions>
               <Button size="small">Videos</Button>
               <Button size="small">Worksheets</Button>
+              <Button size="small">Quizzes</Button>
             </CardActions>
           </Card>
 
@@ -752,6 +759,7 @@ export default function VideoVault() {
             <CardActions>
               <Button size="small">Videos</Button>
               <Button size="small">Worksheets</Button>
+              <Button size="small">Quizzes</Button>
             </CardActions>
           </Card>
 
@@ -775,6 +783,7 @@ export default function VideoVault() {
             <CardActions>
               <Button size="small">Videos</Button>
               <Button size="small">Worksheets</Button>
+              <Button size="small">Quizzes</Button>
             </CardActions>
           </Card>
 
@@ -797,6 +806,7 @@ export default function VideoVault() {
             <CardActions>
               <Button size="small">Videos</Button>
               <Button size="small">Worksheets</Button>
+              <Button size="small">Quizzes</Button>
             </CardActions>
           </Card>
 
@@ -819,6 +829,7 @@ export default function VideoVault() {
             <CardActions>
               <Button size="small">Videos</Button>
               <Button size="small">Worksheets</Button>
+              <Button size="small">Quizzes</Button>
             </CardActions>
           </Card>
 
@@ -837,6 +848,7 @@ export default function VideoVault() {
             <CardActions>
               <Button size="small">Videos</Button>
               <Button size="small">Worksheets</Button>
+              <Button size="small">Quizzes</Button>
             </CardActions>
           </Card>
         </Box>

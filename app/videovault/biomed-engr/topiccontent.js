@@ -1,9 +1,9 @@
 import React from 'react';
 import { Typography, Box } from '@mui/material';
-import { topicData } from './topicData';
+import { topicdata } from './topicData';
 
 const TopicContent = ({ selectedTopic }) => {
-  const topic = topicData[selectedTopic];
+  const topic = topicdata[selectedTopic];
 
   if (!topic) return null;
 

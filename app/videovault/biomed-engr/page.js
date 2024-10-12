@@ -24,7 +24,7 @@ import {
   AccordionDetails,
   AccordionSummary,
 } from "@mui/material";
-import TopicContent from "./TopicContent";
+import TopicContent from "./topiccontent";
 import MenuIcon from "@mui/icons-material/Menu";
 import { UserButton } from "@stackframe/stack";
 import { keyframes } from "@mui/material";

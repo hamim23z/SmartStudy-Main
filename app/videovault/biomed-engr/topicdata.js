@@ -7,4 +7,5 @@ export const topicdata = {
       content: "In this live demo page, you will learn how to use the video vault. It may seem simple at first, but we want to make sure that you can maximize your learning while saving time and our main focal point was to make sure that you don't scroll forever trying to find the perfect video.",
     },
     // ... other topics
-  };
+  }; 
+  

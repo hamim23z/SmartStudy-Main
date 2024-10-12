@@ -1,6 +1,6 @@
 import React from 'react';
 import { Typography, Box } from '@mui/material';
-import { topicdata } from './topicData';
+import { topicdata } from './topicdata';
 
 const TopicContent = ({ selectedTopic }) => {
   const topic = topicdata[selectedTopic];

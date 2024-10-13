@@ -841,9 +841,12 @@ export default function VideoVault() {
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                Something here
+                Career Toolkit
               </Typography>
-              <Typography variant="body2" sx={{ color: "black" }}></Typography>
+              <Typography variant="body2" sx={{ color: "black" }}>
+                This is something that we at Smart Study focus on. Equip yourself with essential tools 
+                for success, including coding practice resources, resume templates, and job application tips.
+              </Typography>
             </CardContent>
             <CardActions>
               <Button size="small">Videos</Button>

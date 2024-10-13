@@ -9,6 +9,7 @@ const TopicContent = ({ selectedTopic }) => {
 
   return (
     <Box>
+      {/*This is for the actual text underneath the header of each page*/}
       <Typography variant="body1" sx={{ color: "white", fontFamily: "Kanit, sans-serif", fontWeight: 700 }}>
         {topic.content}
       </Typography>

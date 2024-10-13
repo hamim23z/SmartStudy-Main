@@ -289,7 +289,7 @@ export default function Home() {
                 backgroundColor: "rgba(145, 83, 209, 1)",
                 borderRadius: "10px",
               },
-              top: "40px", // Increased from 64px to account for the AppBar's padding
+              top: "40px",
               height: "calc(100% - 40px)",
             },
           }}
@@ -313,6 +313,162 @@ export default function Home() {
             </Typography>
 
             {["Introduction", "Feedback Form"].map((text) => (
+              <ListItem
+                key={text}
+                disablePadding
+                sx={{
+                  color: "white",
+                  textTransform: "uppercase",
+                }}
+              >
+                <ListItemButton onClick={() => handleListItemClick(text)}>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontWeight: 700,
+                          color: "white",
+                          fontSize: "13px",
+                          fontFamily: "Kanit, sans-serif",
+                        }}
+                      >
+                        {text}
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+
+          <List>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                color: "white",
+                textTransform: "uppercase",
+                marginBottom: "20px",
+                fontSize: "13px",
+              }}
+            >
+              Section One
+            </Typography>
+
+            {[
+              "Foundations of Biology",
+              "Introduction to BME",
+              "Biostatistics & Research Methods",
+              "Engineering Mechanics",
+              "Bioelectrical Circuits",
+            ].map((text) => (
+              <ListItem
+                key={text}
+                disablePadding
+                sx={{
+                  color: "white",
+                  textTransform: "uppercase",
+                }}
+              >
+                <ListItemButton onClick={() => handleListItemClick(text)}>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontWeight: 700,
+                          color: "white",
+                          fontSize: "13px",
+                          fontFamily: "Kanit, sans-serif",
+                        }}
+                      >
+                        {text}
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+
+          <List>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                color: "white",
+                textTransform: "uppercase",
+                marginBottom: "20px",
+                fontSize: "13px",
+                paddingTop: "30px",
+              }}
+            >
+              Section Two
+            </Typography>
+
+            {[
+              "Biomedical Transducers & Instrumentation",
+              "Mechanics of Materials",
+              "Physiological Processes",
+              "Cell & Tissue Mechanics",
+              "Cell & Tissue Biomaterial Interactions",
+            ].map((text) => (
+              <ListItem
+                key={text}
+                disablePadding
+                sx={{
+                  color: "white",
+                  textTransform: "uppercase",
+                }}
+              >
+                <ListItemButton onClick={() => handleListItemClick(text)}>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontWeight: 700,
+                          color: "white",
+                          fontSize: "13px",
+                          fontFamily: "Kanit, sans-serif",
+                        }}
+                      >
+                        {text}
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+
+          <List>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                color: "white",
+                textTransform: "uppercase",
+                marginBottom: "20px",
+                fontSize: "13px",
+                paddingTop: "30px",
+              }}
+            >
+              Section Three
+            </Typography>
+
+            {[
+              "Image & Signal Processing in Biomedicine",
+              "Experimental Methods in BME",
+              "Cell & Molecular Biology",
+              "Cell & Tissue Transport",
+              "Dynamical Systems & Modeling",
+              "Impact of Biomedical Technology",
+            ].map((text) => (
               <ListItem
                 key={text}
                 disablePadding

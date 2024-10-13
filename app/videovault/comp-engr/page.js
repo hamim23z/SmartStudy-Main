@@ -514,7 +514,9 @@ export default function Home() {
               Section Four
             </Typography>
 
-            {[""].map((text) => (
+            {[
+              ""
+            ].map((text) => (
               <ListItem
                 key={text}
                 disablePadding

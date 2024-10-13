@@ -307,7 +307,7 @@ export default function Home() {
                 textTransform: "uppercase",
                 marginBottom: "20px",
                 fontSize: "13px",
-                marginLeft: "5px"
+                marginLeft: "5px",
               }}
             >
               Getting Started
@@ -519,7 +519,7 @@ export default function Home() {
               "Numerical Issues in Scientific Programming",
               "Computer Security",
               "Programming Language Paradigms",
-              "Software Engineering"
+              "Software Engineering",
             ].map((text) => (
               <ListItem
                 key={text}
@@ -571,7 +571,7 @@ export default function Home() {
               "Operating Systems",
               "Computer Organization",
               "Modern Distributed Computing",
-              "Artificial Intelligence"
+              "Artificial Intelligence",
             ].map((text) => (
               <ListItem
                 key={text}

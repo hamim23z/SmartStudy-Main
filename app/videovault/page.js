@@ -595,7 +595,17 @@ export default function VideoVault() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Videos</Button>
+              <Button size="small">
+                <Link
+                  href="/videovault/biomed-engr"
+                  style ={{
+                    textDecoration: "none",
+                    color: "red"
+                  }}
+                >
+                  Videos
+                </Link>
+              </Button>
               <Button size="small">Worksheets</Button>
               <Button size="small">Quizzes</Button>
             </CardActions>
@@ -618,7 +628,17 @@ export default function VideoVault() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Videos</Button>
+            <Button size="small">
+                <Link
+                  href="/videovault/chem-engr"
+                  style ={{
+                    textDecoration: "none",
+                    color: "red"
+                  }}
+                >
+                  Videos
+                </Link>
+              </Button>
               <Button size="small">Worksheets</Button>
               <Button size="small">Quizzes</Button>
             </CardActions>
@@ -641,7 +661,17 @@ export default function VideoVault() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Videos</Button>
+            <Button size="small">
+                <Link
+                  href="/videovault/civil-engr"
+                  style ={{
+                    textDecoration: "none",
+                    color: "red"
+                  }}
+                >
+                  Videos
+                </Link>
+              </Button>
               <Button size="small">Worksheets</Button>
               <Button size="small">Quizzes</Button>
             </CardActions>
@@ -664,7 +694,17 @@ export default function VideoVault() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Videos</Button>
+            <Button size="small">
+                <Link
+                  href="/videovault/comp-engr"
+                  style ={{
+                    textDecoration: "none",
+                    color: "red"
+                  }}
+                >
+                  Videos
+                </Link>
+              </Button>
               <Button size="small">Worksheets</Button>
               <Button size="small">Quizzes</Button>
             </CardActions>
@@ -688,7 +728,17 @@ export default function VideoVault() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Videos</Button>
+            <Button size="small">
+                <Link
+                  href="/videovault/comp-sci"
+                  style ={{
+                    textDecoration: "none",
+                    color: "red"
+                  }}
+                >
+                  Videos
+                </Link>
+              </Button>
               <Button size="small">Worksheets</Button>
               <Button size="small">Quizzes</Button>
             </CardActions>
@@ -711,7 +761,17 @@ export default function VideoVault() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Videos</Button>
+            <Button size="small">
+                <Link
+                  href="/videovault/elec-engr"
+                  style ={{
+                    textDecoration: "none",
+                    color: "red"
+                  }}
+                >
+                  Videos
+                </Link>
+              </Button>
               <Button size="small">Worksheets</Button>
               <Button size="small">Quizzes</Button>
             </CardActions>
@@ -734,7 +794,17 @@ export default function VideoVault() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Videos</Button>
+            <Button size="small">
+                <Link
+                  href="/videovault/environ-engr"
+                  style ={{
+                    textDecoration: "none",
+                    color: "red"
+                  }}
+                >
+                  Videos
+                </Link>
+              </Button>
               <Button size="small">Worksheets</Button>
               <Button size="small">Quizzes</Button>
             </CardActions>
@@ -757,7 +827,17 @@ export default function VideoVault() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Videos</Button>
+            <Button size="small">
+                <Link
+                  href="/videovault/mech-engr"
+                  style ={{
+                    textDecoration: "none",
+                    color: "red"
+                  }}
+                >
+                  Videos
+                </Link>
+              </Button>
               <Button size="small">Worksheets</Button>
               <Button size="small">Quizzes</Button>
             </CardActions>
@@ -781,7 +861,17 @@ export default function VideoVault() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Videos</Button>
+            <Button size="small">
+                <Link
+                  href="/videovault/cybersecurity"
+                  style ={{
+                    textDecoration: "none",
+                    color: "red"
+                  }}
+                >
+                  Videos
+                </Link>
+              </Button>
               <Button size="small">Worksheets</Button>
               <Button size="small">Quizzes</Button>
             </CardActions>
@@ -804,7 +894,17 @@ export default function VideoVault() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Videos</Button>
+            <Button size="small">
+                <Link
+                  href="/videovault/math"
+                  style ={{
+                    textDecoration: "none",
+                    color: "red"
+                  }}
+                >
+                  Videos
+                </Link>
+              </Button>
               <Button size="small">Worksheets</Button>
               <Button size="small">Quizzes</Button>
             </CardActions>
@@ -827,7 +927,17 @@ export default function VideoVault() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Videos</Button>
+            <Button size="small">
+                <Link
+                  href="/videovault/science"
+                  style ={{
+                    textDecoration: "none",
+                    color: "red"
+                  }}
+                >
+                  Videos
+                </Link>
+              </Button>
               <Button size="small">Worksheets</Button>
               <Button size="small">Quizzes</Button>
             </CardActions>
@@ -849,7 +959,17 @@ export default function VideoVault() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button size="small">Videos</Button>
+            <Button size="small">
+                <Link
+                  href="/videovault/career-toolkit"
+                  style ={{
+                    textDecoration: "none",
+                    color: "red"
+                  }}
+                >
+                  Videos
+                </Link>
+              </Button>
               <Button size="small">Worksheets</Button>
               <Button size="small">Quizzes</Button>
             </CardActions>

@@ -289,7 +289,7 @@ export default function Home() {
                 backgroundColor: "rgba(145, 83, 209, 1)",
                 borderRadius: "10px",
               },
-              top: "40px", // Increased from 64px to account for the AppBar's padding
+              top: "40px",
               height: "calc(100% - 40px)",
             },
           }}
@@ -307,12 +307,260 @@ export default function Home() {
                 textTransform: "uppercase",
                 marginBottom: "20px",
                 fontSize: "13px",
+                marginLeft: "5px",
               }}
             >
               Getting Started
             </Typography>
 
             {["Introduction", "Feedback Form"].map((text) => (
+              <ListItem
+                key={text}
+                disablePadding
+                sx={{
+                  color: "white",
+                  textTransform: "uppercase",
+                }}
+              >
+                <ListItemButton onClick={() => handleListItemClick(text)}>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontWeight: 700,
+                          color: "white",
+                          fontSize: "13px",
+                          fontFamily: "Kanit, sans-serif",
+                        }}
+                      >
+                        {text}
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+
+          <List>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                color: "white",
+                textTransform: "uppercase",
+                marginBottom: "20px",
+                fontSize: "13px",
+              }}
+            >
+              Section One
+            </Typography>
+
+            {[
+              "Computer Aided Drafting",
+              "Electrical Circuits",
+              "Engineering Mechanics",
+              "Mechanics of Materials",
+              "Thermodynamics",
+            ].map((text) => (
+              <ListItem
+                key={text}
+                disablePadding
+                sx={{
+                  color: "white",
+                  textTransform: "uppercase",
+                }}
+              >
+                <ListItemButton onClick={() => handleListItemClick(text)}>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontWeight: 700,
+                          color: "white",
+                          fontSize: "13px",
+                          fontFamily: "Kanit, sans-serif",
+                        }}
+                      >
+                        {text}
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+
+          <List>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                color: "white",
+                textTransform: "uppercase",
+                marginBottom: "20px",
+                fontSize: "13px",
+                paddingTop: "30px",
+              }}
+            >
+              Section Two
+            </Typography>
+
+            {[
+              "Fundamentals of Mechatronics",
+              "Fluid Mechanics",
+              "Engineering Materials",
+              "Thermal Systems Analysis & Design",
+              "Computer Aided Design",
+            ].map((text) => (
+              <ListItem
+                key={text}
+                disablePadding
+                sx={{
+                  color: "white",
+                  textTransform: "uppercase",
+                }}
+              >
+                <ListItemButton onClick={() => handleListItemClick(text)}>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontWeight: 700,
+                          color: "white",
+                          fontSize: "13px",
+                          fontFamily: "Kanit, sans-serif",
+                        }}
+                      >
+                        {text}
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+
+          <List>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                color: "white",
+                textTransform: "uppercase",
+                marginBottom: "20px",
+                fontSize: "13px",
+                paddingTop: "30px",
+              }}
+            >
+              Section Three
+            </Typography>
+
+            {[
+              "Systems Dynamics & Control",
+              "Heat Transfer",
+              "Mechanical Systems Design",
+              "Aero Thermal Fluids Lab",
+              "Manufacturing Processes",
+            ].map((text) => (
+              <ListItem
+                key={text}
+                disablePadding
+                sx={{
+                  color: "white",
+                  textTransform: "uppercase",
+                }}
+              >
+                <ListItemButton onClick={() => handleListItemClick(text)}>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontWeight: 700,
+                          color: "white",
+                          fontSize: "13px",
+                          fontFamily: "Kanit, sans-serif",
+                        }}
+                      >
+                        {text}
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+
+          <List>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                color: "white",
+                textTransform: "uppercase",
+                marginBottom: "20px",
+                fontSize: "13px",
+                paddingTop: "30px",
+              }}
+            >
+              Section Four
+            </Typography>
+
+            {[""].map((text) => (
+              <ListItem
+                key={text}
+                disablePadding
+                sx={{
+                  color: "white",
+                  textTransform: "uppercase",
+                }}
+              >
+                <ListItemButton onClick={() => handleListItemClick(text)}>
+                  <ListItemText
+                    primary={
+                      <Typography
+                        variant="body1"
+                        sx={{
+                          fontWeight: 700,
+                          color: "white",
+                          fontSize: "13px",
+                          fontFamily: "Kanit, sans-serif",
+                        }}
+                      >
+                        {text}
+                      </Typography>
+                    }
+                  />
+                </ListItemButton>
+              </ListItem>
+            ))}
+          </List>
+
+          <List>
+            <Typography
+              sx={{
+                textAlign: "center",
+                fontFamily: "Kanit, sans-serif",
+                fontWeight: 900,
+                color: "white",
+                textTransform: "uppercase",
+                marginBottom: "20px",
+                fontSize: "13px",
+                paddingTop: "30px",
+              }}
+            >
+              Section Five
+            </Typography>
+
+            {[""].map((text) => (
               <ListItem
                 key={text}
                 disablePadding

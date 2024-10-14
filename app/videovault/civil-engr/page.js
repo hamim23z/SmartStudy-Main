@@ -363,7 +363,7 @@ export default function Home() {
               "Structural & Site Plans",
               "Fluid Mechanics",
               "Mechanics Deformable Bodies",
-              "Computational Methods"
+              "Computational Methods",
             ].map((text) => (
               <ListItem
                 key={text}
@@ -415,7 +415,7 @@ export default function Home() {
               "Hydraulic Engineering",
               "Transportation Planning",
               "Soil Mechanics",
-              "Reinforced Concrete"
+              "Reinforced Concrete",
             ].map((text) => (
               <ListItem
                 key={text}
@@ -514,9 +514,7 @@ export default function Home() {
               Section Four
             </Typography>
 
-            {[
-              ""
-            ].map((text) => (
+            {[""].map((text) => (
               <ListItem
                 key={text}
                 disablePadding
@@ -562,9 +560,7 @@ export default function Home() {
               Section Five
             </Typography>
 
-            {[
-              ""
-            ].map((text) => (
+            {[""].map((text) => (
               <ListItem
                 key={text}
                 disablePadding

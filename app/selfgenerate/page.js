@@ -686,59 +686,86 @@ export default function GenerateSelf() {
                 fontWeight: "900",
                 textAlign: "center",
                 paddingBottom: "30px",
+                alignItems: "center",
+                alignContent: "center",
                 mt: { xs: -8, sm: -2, md: 0 },
               }}
             >
               Create Your Custom Flashcards
             </Typography>
-            <TextField
-              placeholder="Front"
-              variant="outlined"
-              fullWidth
-              margin="normal"
-              value={newFlashcard.front}
-              onChange={(e) =>
-                setNewFlashcard({ ...newFlashcard, front: e.target.value })
-              }
+            <Box
               sx={{
-                borderRadius: "10px",
-                "& .MuiInputBase-input": {
-                  color: "black", // Color of the input text
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
-                },
-                "& .MuiInputBase-input::placeholder": {
-                  color: "black", // Placeholder text color
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
-                },
-                background: "white",
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                width: "100%",
+                maxWidth: "950px",
+                margin: "0 auto",
               }}
-            />
-            <TextField
-              placeholder="Back"
-              variant="outlined"
-              fullWidth
-              margin="normal"
-              value={newFlashcard.back}
-              onChange={(e) =>
-                setNewFlashcard({ ...newFlashcard, back: e.target.value })
-              }
-              sx={{
-                borderRadius: "10px",
-                "& .MuiInputBase-input": {
-                  color: "black", // Color of the input text
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
-                },
-                "& .MuiInputBase-input::placeholder": {
-                  color: "black", // Placeholder text color
-                  fontFamily: "Kanit, sans-serif",
-                  fontWeight: "700",
-                },
-                background: "white",
-              }}
-            />
+            >
+              <TextField
+                placeholder="Front"
+                variant="outlined"
+                margin="normal"
+                multiline
+                rows="2"
+                value={newFlashcard.front}
+                onChange={(e) =>
+                  setNewFlashcard({ ...newFlashcard, front: e.target.value })
+                }
+                sx={{
+                  borderRadius: "10px",
+                  width: "100%",
+                  "& .MuiInputBase-input": {
+                    color: "black",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "700",
+                    width: "100%",
+                    alignContent: "center",
+                    alignItems: "center",
+                    wordWrap: "break-word",
+                  },
+                  "& .MuiInputBase-input::placeholder": {
+                    color: "black",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "700",
+                  },
+                  background: "white",
+                  mx: "auto",
+                }}
+              />
+              <TextField
+                placeholder="Back"
+                variant="outlined"
+                margin="normal"
+                multiline
+                rows="2"
+                value={newFlashcard.back}
+                onChange={(e) =>
+                  setNewFlashcard({ ...newFlashcard, back: e.target.value })
+                }
+                sx={{
+                  borderRadius: "10px",
+                  width: "100%",
+                  "& .MuiInputBase-input": {
+                    color: "black",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "700",
+                    width: "100%",
+                    alignContent: "center",
+                    alignItems: "center",
+                    wordWrap: "break-word",
+                  },
+                  "& .MuiInputBase-input::placeholder": {
+                    color: "black",
+                    fontFamily: "Kanit, sans-serif",
+                    fontWeight: "700",
+                  },
+                  background: "white",
+                  mx: "auto",
+                }}
+              />
+            </Box>
             <Box
               sx={{
                 display: "flex",

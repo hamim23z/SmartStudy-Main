@@ -25,6 +25,7 @@ import {
   AccordionSummary,
 } from "@mui/material";
 import TopicContent from "./topiccontent";
+import { topicdata } from "./topicdata";
 import MenuIcon from "@mui/icons-material/Menu";
 import { UserButton } from "@stackframe/stack";
 import { keyframes } from "@mui/material";
@@ -66,13 +67,17 @@ export default function Home() {
     setDrawerOpen(open);
   };
 
-  const handleListItemClick = (text) => {
-    setSelectedTopic(text);
+  const handleListItemClick = (topicKey) => {
+    setSelectedTopic(topicKey);
   };
 
-  {
-    /*Return Content Here*/
-  }
+  const formatDisplayText = (text) => {
+    return text
+      .replace(/([A-Z])/g, " $1")
+      .replace(/^./, (str) => str.toUpperCase())
+      .trim();
+  };
+
   return (
     <Box sx={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}>
       <AppBar
@@ -297,6 +302,7 @@ export default function Home() {
           anchor="left"
         >
           <Toolbar />
+
           <List sx={{ color: "white", marginBottom: "10px" }}>
             <Typography
               sx={{
@@ -312,16 +318,16 @@ export default function Home() {
               Getting Started
             </Typography>
 
-            {["Introduction", "Feedback Form"].map((text) => (
+            {Object.keys(topicdata).map((topicKey) => (
               <ListItem
-                key={text}
+                key={topicKey}
                 disablePadding
                 sx={{
                   color: "white",
                   textTransform: "uppercase",
                 }}
               >
-                <ListItemButton onClick={() => handleListItemClick(text)}>
+                <ListItemButton onClick={() => handleListItemClick(topicKey)}>
                   <ListItemText
                     primary={
                       <Typography
@@ -333,7 +339,7 @@ export default function Home() {
                           fontFamily: "Kanit, sans-serif",
                         }}
                       >
-                        {text}
+                        {formatDisplayText(topicKey)}
                       </Typography>
                     }
                   />
@@ -510,7 +516,7 @@ export default function Home() {
               paddingBottom: "20px",
             }}
           >
-            {selectedTopic}
+            {formatDisplayText(selectedTopic)}
           </Typography>
           <TopicContent selectedTopic={selectedTopic} />
         </Box>

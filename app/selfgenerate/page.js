@@ -23,7 +23,6 @@ import {
   Drawer,
   Snackbar,
 } from "@mui/material";
-import { motion } from "framer-motion";
 import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 import Link from "next/link";
@@ -710,7 +709,7 @@ export default function GenerateSelf() {
                 variant="outlined"
                 margin="normal"
                 multiline
-                rows="2"
+                rows="1"
                 value={newFlashcard.front}
                 onChange={(e) =>
                   setNewFlashcard({ ...newFlashcard, front: e.target.value })
@@ -741,7 +740,7 @@ export default function GenerateSelf() {
                 variant="outlined"
                 margin="normal"
                 multiline
-                rows="2"
+                rows="1"
                 value={newFlashcard.back}
                 onChange={(e) =>
                   setNewFlashcard({ ...newFlashcard, back: e.target.value })
@@ -843,25 +842,39 @@ export default function GenerateSelf() {
               <Grid item xs={12} sm={6} md={4} key={index}>
                 <Card
                   sx={{
-                    maxWidth: 800,
-                    maxHeight: 400, // Adjust as needed
-                    overflow: "hidden", // Ensure overflow is handled
-                    display: "flex", // To ensure the content aligns properly
-                    alignItems: "center", // Center the content
-                    justifyContent: "center", // Center the content
+                    width: {
+                      xs: "280px", // Width for mobile
+                      sm: "320px", // Width for tablet
+                      md: "350px", // Width for desktop
+                    },
+                    maxWidth: "100%",
+                    height: 200,
+                    overflow: "hidden",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    mx: "auto",
                   }}
                 >
-                  <CardActionArea onClick={() => handleCardClick(index)}>
-                    <CardContent sx={{ p: 0, height: "100%" }}>
-                      {" "}
-                      {/* Ensure CardContent takes full height */}
+                  <CardActionArea
+                    onClick={() => handleCardClick(index)}
+                    sx={{ height: "100%", width: "100%" }}
+                  >
+                    <CardContent
+                      sx={{
+                        p: 0,
+                        height: "100%",
+                        width: "100%",
+                        "&:last-child": { pb: 0 }, // Removes default padding bottom
+                      }}
+                    >
                       <Box
                         sx={{
-                          perspective: "1000px",
+                          height: "100%",
                           width: "100%",
-                          height: "250px", // Height for flipping content
+                          perspective: "1000px",
                           position: "relative",
-                          overflow: "hidden", // Handle overflow
+                          overflow: "hidden",
                           "& > div": {
                             transition: "transform 0.6s",
                             transformStyle: "preserve-3d",
@@ -895,11 +908,21 @@ export default function GenerateSelf() {
                               variant="body2"
                               component="div"
                               sx={{
-                                fontSize: "12px",
+                                fontSize: {
+                                  xs: "11px",
+                                  sm: "12px",
+                                  md: "14px",
+                                },
                                 textAlign: "center",
                                 fontFamily: "Kanit, sans-serif",
                                 fontWeight: "bold",
                                 color: "black",
+                                width: "100%",
+                                px: 2, // Add horizontal padding
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                height: "100%",
                               }}
                             >
                               {flashcard.front}
@@ -910,10 +933,21 @@ export default function GenerateSelf() {
                               variant="body2"
                               component="div"
                               sx={{
-                                fontSize: "12px",
+                                fontSize: {
+                                  xs: "11px",
+                                  sm: "12px",
+                                  md: "14px",
+                                },
+                                textAlign: "center",
+                                fontFamily: "Kanit, sans-serif",
                                 fontWeight: "bold",
                                 color: "red",
-                                fontFamily: "Kanit, sans-serif",
+                                width: "100%",
+                                px: 2, // Add horizontal padding
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                                height: "100%",
                               }}
                             >
                               {flashcard.back}

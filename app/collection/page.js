@@ -47,7 +47,7 @@ import XIcon from "@mui/icons-material/X";
 import MenuIcon from "@mui/icons-material/Menu";
 import { UserButton } from "@stackframe/stack";
 
-export default function Studykit() {
+export default function Collection() {
   const [drawerOpen, setDrawerOpen] = useState(false);
   const toggleDrawer = (open) => () => {
     setDrawerOpen(open);

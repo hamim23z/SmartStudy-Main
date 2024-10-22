@@ -21,9 +21,11 @@ import {
   DialogContent,
   DialogContentText,
   Drawer,
-  Snackbar
+  Snackbar,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "@/firebase";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
 
@@ -1007,7 +1009,7 @@ export default function GenerateAI() {
                 Subscribe to our newsletter
               </Typography>
               <Stack direction="row" spacing={1}>
-              <TextField
+                <TextField
                   variant="outlined"
                   size="small"
                   onChange={handleEmailChangeNews}

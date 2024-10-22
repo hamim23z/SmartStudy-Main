@@ -14,6 +14,8 @@ import {
   Snackbar,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "@/firebase";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
 import FloatingText from "../components/floatingtext";
@@ -542,7 +544,7 @@ export default function About() {
 
       <Box
         sx={{
-          minHeight: "110vh",
+          minHeight: "105vh",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",

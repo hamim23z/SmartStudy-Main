@@ -2,7 +2,6 @@
 import { useState } from "react";
 import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "@/firebase";
-
 import {
   Box,
   Typography,

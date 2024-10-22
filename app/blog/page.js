@@ -17,6 +17,8 @@ import {
   AccordionDetails,
 } from "@mui/material";
 import { motion } from "framer-motion";
+import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
+import { db } from "@/firebase";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
 

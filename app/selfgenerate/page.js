@@ -689,7 +689,8 @@ export default function GenerateSelf() {
                 paddingBottom: "30px",
                 alignItems: "center",
                 alignContent: "center",
-                mt: { xs: -8, sm: -2, md: 0 },
+                position: "relative",
+                mt: { xs: 2, sm: 3, md: 4 },
               }}
             >
               Create Your Custom Flashcards

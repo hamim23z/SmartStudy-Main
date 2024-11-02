@@ -55,7 +55,7 @@ function Timer({ open, onClose }) {
           default={{
             x: 0,
             y: 0,
-            width: 300,
+            width: 400,
             height: 200,
           }}
           minWidth={200}
@@ -97,23 +97,27 @@ function Timer({ open, onClose }) {
               {new Date(time * 1000).toISOString().substr(11, 8)}
             </Typography>
 
-            <Box display="flex" justifyContent="center" gap={2}>
+            <Box display="flex" justifyContent="center" gap={2}
+                sx = {{
+                    mb: 1
+                }}
+            >
               <Button
-                variant="outlined"
+                variant="contained"
                 onClick={startTimer}
                 sx={{ fontFamily: "Kanit, sans-serif" }}
               >
                 Start
               </Button>
               <Button
-                variant="outlined"
+                variant="contained"
                 onClick={stopTimer}
                 sx={{ fontFamily: "Kanit, sans-serif" }}
               >
                 Stop
               </Button>
               <Button
-                variant="outlined"
+                variant="contained"
                 onClick={resetTimer}
                 sx={{ fontFamily: "Kanit, sans-serif" }}
               >

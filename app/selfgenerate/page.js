@@ -9,7 +9,6 @@ import {
   Button,
   Toolbar,
   IconButton,
-  Icon,
   Grid,
   Card,
   CardActionArea,
@@ -23,10 +22,17 @@ import {
   Drawer,
   Snackbar,
 } from "@mui/material";
-import { collection, addDoc, doc, getDoc, writeBatch } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  doc,
+  getDoc,
+  writeBatch,
+} from "firebase/firestore";
 import { db } from "@/firebase";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
+import Timer from "./timer";
 
 const slideUpDown = keyframes`
   0% {
@@ -62,6 +68,11 @@ export default function GenerateSelf() {
   const [newFlashcard, setNewFlashcard] = useState({ front: "", back: "" });
   const [open, setOpen] = useState(false); // State for dialog visibility
   const [name, setName] = useState(""); // State for collection name
+  const [isTimerOpen, setIsTimerOpen] = useState(false);
+
+  // Handlers to open and close the Timer dialog
+  const handleOpenTimer = () => setIsTimerOpen(true);
+  const handleCloseTimer = () => setIsTimerOpen(false);
 
   const handleCardClick = (id) => {
     setFlipped((prev) => ({
@@ -801,12 +812,14 @@ export default function GenerateSelf() {
               </Button>
               <Button
                 variant="contained"
-                sx={{
-                  fontFamily: "Kanit, sans-serif",
-                }}
+                onClick={handleOpenTimer}
+                sx={{ fontFamily: "Kanit, sans-serif" }}
               >
                 Timer
               </Button>
+
+              {/* Timer dialog component */}
+              <Timer open={isTimerOpen} onClose={handleCloseTimer} />
               <Link href="/aigenerate" passHref legacyBehavior>
                 <Button
                   variant="contained"

@@ -25,6 +25,9 @@
     "openai": "^4.57.0",
     "react": "^18",
     "react-dom": "^18",
+    "react-draggable": "^4.4.6",
+    "react-resizable": "^3.0.5",
+    "react-rnd": "^10.4.13",
     "stripe": "^16.8.0"
   },
   "devDependencies": {

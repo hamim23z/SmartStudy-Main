@@ -14,14 +14,16 @@ import {
   CardActionArea,
   CardContent,
   Stack,
-  Dialog,
-  DialogTitle,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
   Drawer,
   Snackbar,
 } from "@mui/material";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import XIcon from "@mui/icons-material/X";
+import MenuIcon from "@mui/icons-material/Menu";
+import { UserButton } from "@stackframe/stack";
+
 import {
   collection,
   addDoc,
@@ -33,6 +35,9 @@ import { db } from "@/firebase";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
 import Timer from "./timer";
+import { useUser } from "@stackframe/stack";
+import { useRouter } from "next/navigation";
+import SaveDialog from "./save";
 
 const slideUpDown = keyframes`
   0% {
@@ -52,25 +57,18 @@ const slideUpDown = keyframes`
   }
 `;
 
-{
-  /*MUI ICONS*/
-}
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import GitHubIcon from "@mui/icons-material/GitHub";
-import InstagramIcon from "@mui/icons-material/Instagram";
-import XIcon from "@mui/icons-material/X";
-import MenuIcon from "@mui/icons-material/Menu";
-import { UserButton } from "@stackframe/stack";
-
 export default function GenerateSelf() {
-  const [flashcards, setFlashcards] = useState([]);
+  const { user } = useUser();
+  const [flashcards, setFlashcards] = useState([]); // State to hold flashcards
   const [flipped, setFlipped] = useState({});
   const [newFlashcard, setNewFlashcard] = useState({ front: "", back: "" });
-  const [open, setOpen] = useState(false); // State for dialog visibility
-  const [name, setName] = useState(""); // State for collection name
+  const [open, setOpen] = useState(false);
+  const [name, setName] = useState("");
+  const [snackbarOpenNews, setSnackbarOpenNews] = useState(false);
+  const [emailNews, setEmailNews] = useState("");
+  const [emailErrorNews, setEmailErrorNews] = useState("");
+  const [drawerOpen, setDrawerOpen] = useState(false);
   const [isTimerOpen, setIsTimerOpen] = useState(false);
-
-  // Handlers to open and close the Timer dialog
   const handleOpenTimer = () => setIsTimerOpen(true);
   const handleCloseTimer = () => setIsTimerOpen(false);
 
@@ -81,86 +79,25 @@ export default function GenerateSelf() {
     }));
   };
 
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const handleSubmit = () => {
     if (newFlashcard.front && newFlashcard.back) {
       setFlashcards([...flashcards, newFlashcard]);
-      setNewFlashcard({ front: "", back: "" }); // Reset the input fields
+      setNewFlashcard({ front: "", back: "" }); // Reset new flashcard input
     }
   };
 
-  const handleOpen = () => {
-    setOpen(true);
-  };
-
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  const saveFlashcards = async () => {
-    if (!name) {
-      alert(`Please enter a name for the flashcards!`);
-      return;
-    }
-
-    const batch = writeBatch(db);
-    const userDocRef = doc(collection(db, "users"), user.id);
-    const docSnap = await getDoc(userDocRef);
-
-    if (docSnap.exists()) {
-      const data = docSnap.data();
-      const collections = data.flashcards || [];
-      if (collections.find((f) => f.name === name)) {
-        alert("Flashcard collection with the same name already exists");
-        return;
-      }
-
-      // Update flashcards array with new collection name
-      collections.push({ name });
-      batch.update(userDocRef, { flashcards: collections });
-    } else {
-      // Create new document with flashcards
-      batch.set(userDocRef, { flashcards: [{ name }] });
-    }
-
-    const colRef = collection(userDocRef, name);
-    flashcards.forEach((flashcard) => {
-      const cardDocRef = doc(colRef);
-      batch.set(cardDocRef, flashcard);
-    });
-
-    await batch.commit();
-    handleClose();
-    router.push("/flashcards");
-  };
-
-  const [drawerOpen, setDrawerOpen] = useState(false);
-  const toggleDrawer = (open) => () => {
-    setDrawerOpen(open);
-  };
-
-  {
-    /* For the Newsletter Now */
-  }
-  const [snackbarOpenNews, setSnackbarOpenNews] = useState(false);
-  const [emailNews, setEmailNews] = useState("");
-  const [emailErrorNews, setEmailErrorNews] = useState("");
   const emailRegexNews = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  const handleSnackbarCloseNews = () => {
-    setSnackbarOpenNews(false);
-  };
-
+  const handleSnackbarCloseNews = () => setSnackbarOpenNews(false);
   const handleEmailChangeNews = (e) => {
     const value = e.target.value;
     setEmailNews(value);
-
-    if (!emailRegexNews.test(value)) {
-      setEmailErrorNews("Enter a valid email address.");
-    } else {
-      setEmailErrorNews("");
-    }
+    setEmailErrorNews(
+      emailRegexNews.test(value) ? "" : "Enter a valid email address."
+    );
   };
-
   const handleSendMessageNews = async () => {
     setEmailErrorNews("");
 
@@ -169,7 +106,6 @@ export default function GenerateSelf() {
       setEmailErrorNews("Email cannot be empty.");
       return;
     }
-
     if (!emailRegexNews.test(emailNews)) {
       setSnackbarOpenNews(true);
       setEmailErrorNews("Enter a valid email address.");
@@ -184,11 +120,14 @@ export default function GenerateSelf() {
 
       setSnackbarOpenNews(true);
       setEmailErrorNews("");
-
       setEmailNews("");
     } catch (error) {
       console.error("Error sending message: ", error);
     }
+  };
+
+  const toggleDrawer = (open) => () => {
+    setDrawerOpen(open);
   };
 
   return (
@@ -636,58 +575,6 @@ export default function GenerateSelf() {
         }}
       >
         <Container maxWidth="lg">
-          <Dialog open={open} onClose={handleClose}>
-            <DialogTitle
-              sx={{
-                textAlign: "center",
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: 900,
-                textTransform: "uppercase",
-              }}
-            >
-              Save Flashcards
-            </DialogTitle>
-            <DialogContent>
-              <DialogContentText
-                sx={{
-                  fontFamily: "Kanit, sans-serif",
-                  paddingBottom: "20px",
-                }}
-              >
-                Please enter a name for your flashcards collection.
-              </DialogContentText>
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Collection Name"
-                type="text"
-                fullWidth
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                variant="outlined"
-                required
-              />
-            </DialogContent>
-            <DialogActions>
-              <Button
-                onClick={handleClose}
-                sx={{
-                  fontWeight: "bold",
-                }}
-              >
-                Cancel
-              </Button>
-              <Button
-                onClick={saveFlashcards}
-                sx={{
-                  fontWeight: "bold",
-                }}
-              >
-                Save
-              </Button>
-            </DialogActions>
-          </Dialog>
-
           <Box sx={{ mb: 4 }}>
             <Typography
               variant="h3"
@@ -801,15 +688,22 @@ export default function GenerateSelf() {
               >
                 Create Card
               </Button>
+
               <Button
                 variant="contained"
                 onClick={handleOpen}
-                sx={{
-                  fontFamily: "Kanit, sans-serif",
-                }}
+                sx={{ fontFamily: "Kanit, sans-serif" }}
               >
                 Save to Collection
               </Button>
+
+              {/* SaveDialog component with props */}
+              <SaveDialog
+                open={open}
+                handleClose={handleClose}
+                flashcards={flashcards} // Pass the flashcards state to SaveDialog
+              />
+
               <Button
                 variant="contained"
                 onClick={handleOpenTimer}
@@ -817,9 +711,9 @@ export default function GenerateSelf() {
               >
                 Timer
               </Button>
-
               {/* Timer dialog component */}
               <Timer open={isTimerOpen} onClose={handleCloseTimer} />
+
               <Link href="/aigenerate" passHref legacyBehavior>
                 <Button
                   variant="contained"
@@ -831,6 +725,7 @@ export default function GenerateSelf() {
                   Generate using AI
                 </Button>
               </Link>
+
               <Link
                 href="https://chronicle-ai-omega.vercel.app/chat"
                 passHref

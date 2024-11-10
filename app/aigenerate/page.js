@@ -23,11 +23,11 @@ import {
   Drawer,
   Snackbar,
 } from "@mui/material";
-import { motion } from "framer-motion";
 import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
 import { db } from "@/firebase";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
+import Timer from "./timer";
 
 const slideUpDown = keyframes`
   0% {
@@ -64,16 +64,9 @@ export default function GenerateAI() {
   const [name, setName] = useState("");
   const [open, setOpen] = useState(false);
 
-  const [openTimer, setOpenTimer] = useState(false);
-  const [timerValue, setTimerValue] = useState("");
-
-  const handleOpenTimer = () => {
-    setOpenTimer(true);
-  };
-
-  const handleCloseTimer = () => {
-    setOpenTimer(false);
-  };
+  const [isTimerOpen, setIsTimerOpen] = useState(false);
+  const handleOpenTimer = () => setIsTimerOpen(true);
+  const handleCloseTimer = () => setIsTimerOpen(false);
 
   const handleStartTimer = () => {
     // Logic to start the timer goes here
@@ -732,54 +725,13 @@ export default function GenerateAI() {
 
             <Button
               variant="contained"
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-              }}
               onClick={handleOpenTimer}
+              sx={{ fontFamily: "Kanit, sans-serif" }}
             >
               Timer
             </Button>
-
-            <Dialog open={openTimer} onClose={handleCloseTimer}>
-              <DialogTitle
-                sx={{
-                  color: "black",
-                  fontFamily: "Kanit, sans-serif",
-                  textAlign: "center",
-                  fontWeight: "900",
-                  textTransform: "uppercase",
-                }}
-              >
-                Set a Timer
-              </DialogTitle>
-              <DialogContent>
-                <DialogContentText
-                  sx={{
-                    fontFamily: "Kanit, sans-serif",
-                    paddingBottom: "20px",
-                  }}
-                >
-                  Enter the time in minutes to review the flashcards.
-                </DialogContentText>
-                <TextField
-                  autoFocus
-                  margin="dense"
-                  label="Minutes"
-                  type="number"
-                  fullWidth
-                  variant="outlined"
-                  value={timerValue}
-                  required
-                  onChange={(e) => setTimerValue(e.target.value)}
-                />
-              </DialogContent>
-              <DialogActions>
-                <Button onClick={handleCloseTimer}>Cancel</Button>
-                <Button onClick={handleStartTimer} variant="contained">
-                  Start
-                </Button>
-              </DialogActions>
-            </Dialog>
+            {/* Timer dialog component */}
+            <Timer open={isTimerOpen} onClose={handleCloseTimer} />
 
             <Link href="/selfgenerate" passHref legacyBehavior>
               <Button

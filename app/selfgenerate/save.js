@@ -1,5 +1,5 @@
-"use client"
-import { useState, useEffect } from "react";
+"use client";
+import { useState } from "react";
 import {
   Dialog,
   DialogTitle,
@@ -9,35 +9,35 @@ import {
   DialogActions,
   Button,
   Alert,
+  CircularProgress,
 } from "@mui/material";
 import { db } from "@/firebase";
-import { collection, doc, getDoc, writeBatch } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  getDoc,
+  setDoc,
+  getDocs,
+  query,
+  where,
+} from "firebase/firestore";
 import { useUser } from "@stackframe/stack";
 import { useRouter } from "next/navigation";
 
 export default function SaveDialog({ open, handleClose, flashcards }) {
   const [name, setName] = useState("");
   const [error, setError] = useState("");
-  const { user, isLoading, isError } = useUser({ or: "redirect" });
+  const [isSaving, setIsSaving] = useState(false);
+  const user = useUser();
   const router = useRouter();
 
-  useEffect(() => {
-    if (isError) {
-      console.error("useUser Hook Error:", isError);
-    }
-  }, [isError]);
-
   const saveFlashcards = async () => {
-    if (isLoading) {
-      console.log("User data loading...");
+    if (!user) {
+      setError("Please log in to save flashcards");
       return;
     }
 
-    if (!user) {
-      console.log("User not logged in");
-      alert("Please log in to save flashcards");
-      return;
-    }
+    console.log("Current user:", user); // Debug user object
 
     if (!name.trim()) {
       setError("Please enter a name for the flashcards!");
@@ -49,44 +49,85 @@ export default function SaveDialog({ open, handleClose, flashcards }) {
       return;
     }
 
+    setIsSaving(true);
+    setError("");
+
     try {
-      const batch = writeBatch(db);
-      const userDocRef = doc(collection(db, "users"), user.id);
-      const docSnap = await getDoc(userDocRef);
+      // First, save collection metadata in the user document
+      const userDocRef = doc(db, "users", user.id);
 
-      if (docSnap.exists()) {
-        const data = docSnap.data();
-        const collections = data.flashcards || [];
+      console.log("Attempting to save to path:", `users/${user.id}`); // Debug path
 
-        if (collections.find((f) => f.name === name)) {
-          setError("Flashcard collection with the same name already exists");
+      const userDoc = await getDoc(userDocRef);
+
+      if (userDoc.exists()) {
+        const userData = userDoc.data();
+        if (userData.collections?.some((c) => c.name === name)) {
+          setError("A collection with this name already exists");
+          setIsSaving(false);
           return;
         }
-
-        collections.push({ name });
-        batch.update(userDocRef, { flashcards: collections });
-      } else {
-        batch.set(userDocRef, { flashcards: [{ name }] });
       }
 
-      const colRef = collection(userDocRef, name);
-      flashcards.forEach((flashcard) => {
-        const cardDocRef = doc(colRef);
-        batch.set(cardDocRef, flashcard);
+      // Save the collection metadata
+      await setDoc(
+        userDocRef,
+        {
+          collections: [
+            ...(userDoc.exists() ? userDoc.data().collections || [] : []),
+            {
+              name,
+              createdAt: new Date().toISOString(),
+              cardCount: flashcards.length,
+            },
+          ],
+        },
+        { merge: true }
+      );
+
+      // Save each flashcard
+      const savePromises = flashcards.map((flashcard, index) => {
+        const flashcardRef = doc(
+          db,
+          "users",
+          user.id,
+          "flashcards",
+          `${name}_${index}`
+        );
+        return setDoc(flashcardRef, {
+          ...flashcard,
+          collectionName: name,
+          createdAt: new Date().toISOString(),
+          order: index,
+        });
       });
 
-      await batch.commit();
+      await Promise.all(savePromises);
+
       console.log("Flashcards saved successfully");
       handleClose();
+      setName("");
       router.push("/collection");
     } catch (error) {
       console.error("Error saving flashcards:", error);
-      setError(`Error saving flashcards: ${error.code} ${error.message}`);
+      setError(`Error saving flashcards: ${error.message}`);
+    } finally {
+      setIsSaving(false);
     }
   };
 
   return (
-    <Dialog open={open} onClose={handleClose}>
+    <Dialog
+      open={open}
+      onClose={handleClose}
+      PaperProps={{
+        sx: {
+          width: "100%",
+          maxWidth: "500px",
+          p: 2,
+        },
+      }}
+    >
       <DialogTitle
         sx={{
           textAlign: "center",
@@ -122,18 +163,42 @@ export default function SaveDialog({ open, handleClose, flashcards }) {
           variant="outlined"
           required
           error={!!error && !name.trim()}
+          disabled={isSaving}
         />
       </DialogContent>
       <DialogActions>
-        <Button onClick={handleClose} sx={{ fontWeight: "bold" }}>
+        <Button
+          onClick={handleClose}
+          sx={{ fontWeight: "bold" }}
+          disabled={isSaving}
+        >
           Cancel
         </Button>
         <Button
           onClick={saveFlashcards}
-          sx={{ fontWeight: "bold" }}
-          disabled={!name.trim() || !flashcards.length || isLoading}
+          sx={{
+            fontWeight: "bold",
+            position: "relative",
+          }}
+          disabled={!name.trim() || !flashcards?.length || !user || isSaving}
         >
-          Save
+          {isSaving ? (
+            <>
+              Saving
+              <CircularProgress
+                size={24}
+                sx={{
+                  position: "absolute",
+                  top: "50%",
+                  left: "50%",
+                  marginTop: "-12px",
+                  marginLeft: "-12px",
+                }}
+              />
+            </>
+          ) : (
+            "Save"
+          )}
         </Button>
       </DialogActions>
     </Dialog>

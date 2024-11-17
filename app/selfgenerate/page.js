@@ -58,7 +58,7 @@ const slideUpDown = keyframes`
 `;
 
 export default function GenerateSelf() {
-  const { user } = useUser();
+  const user = useUser();
   const [flashcards, setFlashcards] = useState([]); // State to hold flashcards
   const [flipped, setFlipped] = useState({});
   const [newFlashcard, setNewFlashcard] = useState({ front: "", back: "" });

@@ -1,5 +1,5 @@
 "use client";
-import { useState, MouseEvent } from "react";
+import { useState } from "react";
 import {
   Box,
   Container,
@@ -15,11 +15,6 @@ import {
   Card,
   CardActionArea,
   CardContent,
-  Dialog,
-  DialogTitle,
-  DialogActions,
-  DialogContent,
-  DialogContentText,
   Drawer,
   Snackbar,
 } from "@mui/material";
@@ -28,6 +23,7 @@ import { db } from "@/firebase";
 import Link from "next/link";
 import { keyframes } from "@mui/material";
 import Timer from "./timer";
+import SaveDialog from "./save";
 
 const slideUpDown = keyframes`
   0% {
@@ -716,12 +712,17 @@ export default function GenerateAI() {
             <Button
               variant="contained"
               onClick={handleOpen}
-              sx={{
-                fontFamily: "Kanit, sans-serif",
-              }}
+              sx={{ fontFamily: "Kanit, sans-serif" }}
             >
               Save to Collection
             </Button>
+
+            {/* SaveDialog component with props */}
+            <SaveDialog
+              open={open}
+              handleClose={handleClose}
+              flashcards={flashcards} // Pass the flashcards state to SaveDialog
+            />
 
             <Button
               variant="contained"
@@ -870,60 +871,6 @@ export default function GenerateAI() {
               </Grid>
             </Box>
           )}
-
-          <Dialog open={open} onClose={handleClose}>
-            <DialogTitle
-              sx={{
-                textAlign: "center",
-                fontFamily: "Kanit, sans-serif",
-                fontWeight: 900,
-                textTransform: "uppercase",
-              }}
-            >
-              Save Flashcards
-            </DialogTitle>
-
-            <DialogContent>
-              <DialogContentText
-                sx={{
-                  fontFamily: "Kanit, sans-serif",
-                  paddingBottom: "20px",
-                }}
-              >
-                Please enter a name for your flashcards collection.
-              </DialogContentText>
-              <TextField
-                autoFocus
-                margin="dense"
-                label="Collection Name"
-                type="text"
-                fullWidth
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-                variant="outlined"
-                required
-              ></TextField>
-            </DialogContent>
-
-            <DialogActions>
-              <Button
-                onClick={handleClose}
-                sx={{
-                  fontWeight: "bold",
-                }}
-              >
-                Cancel
-              </Button>
-              <Button
-                onClick={saveFlashcards}
-                sx={{
-                  fontWeight: "bold",
-                }}
-              >
-                Save
-              </Button>
-            </DialogActions>
-          </Dialog>
         </Container>
       </Box>
 

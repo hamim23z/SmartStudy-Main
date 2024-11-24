@@ -23,7 +23,6 @@ import Link from "next/link";
 import { keyframes } from "@mui/material";
 import Image from "next/image";
 import chronicleainewpic from "../public/chronicleainewpic.png";
-import { UserButton } from "@stackframe/stack";
 import { db } from "@/firebase";
 import { collection, addDoc, doc, getDoc, setDoc } from "firebase/firestore";
 
@@ -212,11 +211,6 @@ export default function Home() {
             >
               <MenuIcon sx={{ fontSize: "35px" }} />
             </IconButton>
-
-            {/* User Button on right side for mobile */}
-            <Box>
-              <UserButton />
-            </Box>
           </Box>
 
           {/* App Logo */}
@@ -391,8 +385,6 @@ export default function Home() {
                 Sign Up
               </Button>
             </Link>
-
-            <UserButton></UserButton>
           </Box>
         </Toolbar>
       </AppBar>
